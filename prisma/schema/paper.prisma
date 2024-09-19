@@ -1,0 +1,45 @@
+enum ResearchDomain {
+  // @naga fill these out
+  AI
+  WEB_DEV
+  UX_UI
+  PRODUCT
+}
+
+enum PaperState {
+  AwaitingPeerReview
+  InPeerReview
+  RequiresRevision
+  Published
+  Minted
+}
+
+model Paper {
+  id          String           @id @default(cuid())
+  title       String
+  publicKey   String
+  state       PaperState
+  description String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  image       String?
+  domains     ResearchDomain[]
+  authors     User[]
+  peerReviews PaperReview[]
+}
+
+model PaperReview {
+  id            String   @id @default(cuid())
+  title         String
+  description   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  image         String?
+  rating        Decimal
+  // domains     ResearchDomain[] I don't think we need this since this will be on the paper already
+  reviewers     User     @relation(fields: [userId], references: [id])
+  userId        String
+  paperReviewId String
+  Paper         Paper?   @relation(fields: [paperId], references: [id])
+  paperId       String?
+}

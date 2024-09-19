@@ -1,0 +1,17 @@
+enum VoteType {
+  FOR
+  AGAINST
+  ABSTAIN
+}
+
+model Vote {
+  id              String   @id @default(cuid())
+  user            User     @relation(fields: [userId], references: [id])
+  userId          String
+  proposal        Proposal @relation(fields: [proposalId], references: [id])
+  proposalId      String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  voteType        VoteType
+  transactionHash String
+}

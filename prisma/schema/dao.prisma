@@ -1,0 +1,18 @@
+model DAO {
+  id                      String     @id @default(cuid())
+  name                    String
+  publicKey               String
+  isSubDAO                Boolean    @default(false)
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
+  isHybrid                Boolean    @default(false)
+  mint                    Token?     @relation(fields: [tokenId], references: [id])
+  tokenId                 String?
+  circulatingSupply       Decimal
+  allowSubDAO             Boolean    @default(false)
+  parentDAO               DAO?       @relation("ParentDAO", fields: [parentDAOId], references: [id])
+  parentDAOId             String?
+  subDAOs                 DAO[]      @relation("ParentDAO")
+  subDAOCreationThreshold Decimal
+  proposals               Proposal[]
+}

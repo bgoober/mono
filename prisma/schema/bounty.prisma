@@ -1,0 +1,25 @@
+model Bounty {
+  id               String              @id @default(cuid())
+  name             String
+  description      String
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  company          Company             @relation(fields: [companyId], references: [id])
+  companyId        String
+  pointOfContact   User                @relation(fields: [pointOfContactId], references: [id])
+  pointOfContactId String
+  skills           Skill[]
+  compensation     Compensation        @relation(fields: [compensationId], references: [id])
+  compensationId   String              @unique
+  applications     BountyApplication[]
+}
+
+model BountyApplication {
+  id        String   @id @default(cuid())
+  bounty    Bounty   @relation(fields: [bountyId], references: [id])
+  bountyId  String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

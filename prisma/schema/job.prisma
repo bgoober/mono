@@ -1,0 +1,22 @@
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  TEMPORARY
+}
+
+model Job {
+  id                 String   @id @default(cuid())
+  title              String
+  previewDescription String
+  longDescription    String
+  jobTitle           String
+  location           String
+  salary             String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  company            Company  @relation(fields: [companyId], references: [id])
+  companyId          String
+  skills             Skill[]
+  jobType            JobType
+}

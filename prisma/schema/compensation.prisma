@@ -1,0 +1,7 @@
+model Compensation {
+  id      String  @id @default(cuid())
+  amount  Int
+  token   Token   @relation(fields: [tokenId], references: [id])
+  tokenId String
+  bounty  Bounty?
+}

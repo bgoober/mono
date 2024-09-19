@@ -1,0 +1,26 @@
+enum CompanyRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+model Company {
+  id        String        @id @default(cuid())
+  name      String
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  users     CompanyUser[]
+  jobs      Job[]
+  bounties  Bounty[]
+}
+
+model CompanyUser {
+  id        String      @id @default(cuid())
+  company   Company     @relation(fields: [companyId], references: [id])
+  companyId String
+  user      User        @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  role      CompanyRole
+}
