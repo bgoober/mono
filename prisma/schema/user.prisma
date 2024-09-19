@@ -1,75 +1,87 @@
 enum UserRole {
-    Researcher
-    Reviewer
-    Developer
-    Designer
-    ProductManager
-    VentureCapitalist
-    CEO
-    CTO
-    CMO
-    COO
-    CFO
-    HumanResources
-    Marketing
-    Sales
-    Support
-    Content
-    Other
+  Researcher
+  Reviewer
+  Developer
+  Designer
+  ProductManager
+  VentureCapitalist
+  CEO
+  CTO
+  CMO
+  COO
+  CFO
+  HumanResources
+  Marketing
+  Sales
+  Support
+  Content
+  Other
 }
 
 model User {
-    id               String            @id @default(cuid())
-    name             String?
-    username         String?           @unique
-    email            String?           @unique
-    emailVerified    DateTime?
-    bio              String?
-    image            String?
-    accounts         Account[]
-    sessions         Session[]
-    papers           Paper[]
-    paperReviews     PaperReview[]
-    roles            UserRole[]
-    createdAt        DateTime          @default(now())
-    updatedAt        DateTime          @updatedAt
-    links            Link[]
-    domains          ResearchDomain[]
-    wallets          Wallet[]
-    flicks           Flick[]
-    flickResponses   FlickResponse[]
-    flickReactions   FlickReaction[]
-    companies        CompanyUser[]
-    badges           Badge[]
-    following        Follow[]          @relation("Following")
-    followers        Follow[]          @relation("Follower")
-    externalProfiles ExternalProfile[]
-    bounties         Bounty[]
+  id               String            @id @default(cuid())
+  name             String?
+  username         String?           @unique
+  email            String?           @unique
+  emailVerified    DateTime?
+  bio              String?
+  image            String?
+  accounts         Account[]
+  sessions         Session[]
+  papers           Paper[]
+  paperReviews     PaperReview[]
+  roles            UserRole[]
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  links            Link[]
+  domains          ResearchDomain[]
+  wallets          Wallet[]
+  flicks           Flick[]
+  flickResponses   FlickResponse[]
+  flickReactions   FlickReaction[]
+  companies        CompanyUser[]
+  badges           Badge[]
+  following        Follow[]          @relation("Following")
+  followers        Follow[]          @relation("Follower")
+  externalProfiles ExternalProfile[]
+  bounties         Bounty[]
 
-    BountyApplication BountyApplication[]
-    proposals         Proposal[]
-    votes             Vote[]
-    stakes            Stake[]
+  BountyApplication   BountyApplication[]
+  proposals           Proposal[]
+  votes               Vote[]
+  stakes              Stake[]
+  verificationRequest VerificationRequest?
+  EntryRevision       EntryRevision[]
+  UserEntry           UserEntry[]
+  EntryReview         EntryReview[]
 }
 
 model Follow {
-    id         String   @id @default(cuid())
-    user       User     @relation("Following", fields: [userId], references: [id])
-    userId     String
-    follower   User     @relation("Follower", fields: [followerId], references: [id])
-    followerId String
-    createdAt  DateTime @default(now())
-    updatedAt  DateTime @updatedAt
+  id         String   @id @default(cuid())
+  user       User     @relation("Following", fields: [userId], references: [id])
+  userId     String
+  follower   User     @relation("Follower", fields: [followerId], references: [id])
+  followerId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 model ExternalProfile {
-    id        String   @id @default(cuid())
-    user      User     @relation(fields: [userId], references: [id])
-    userId    String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    name      String
-    username  String
-    image     String
-    link      String
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  username  String
+  image     String
+  link      String
+}
+
+model VerificationRequest {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  details   String?
 }
