@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, FileText, Star, Beaker, Menu, User2Icon } from "lucide-react";
-import { Logo } from "~/_components/Logo";
+import { Logo } from "~/_components/Deresearcher/Logo";
+import { DERESEARCHER_HOME } from "~/constant";
 
 type LinkDefinition = {
   name: string;
@@ -24,12 +25,25 @@ type SidebarLinkProps = {
 };
 
 // Constants
+
 const links: LinkDefinition[] = [
-  { name: "Dashboard", icon: Home, href: "/dashboard" },
-  { name: "Profile", icon: User2Icon, href: "/dashboard/profile" },
-  { name: "Papers", icon: FileText, href: "/dashboard/papers" },
-  { name: "Reviews", icon: Star, href: "/dashboard/reviews" },
-  { name: "Labs", icon: Beaker, href: "/dashboard/labs" },
+  { name: "Dashboard", icon: Home, href: `${DERESEARCHER_HOME}/dashboard` },
+  {
+    name: "Profile",
+    icon: User2Icon,
+    href: `${DERESEARCHER_HOME}/dashboard/profile`,
+  },
+  {
+    name: "Papers",
+    icon: FileText,
+    href: `${DERESEARCHER_HOME}/dashboard/papers`,
+  },
+  {
+    name: "Reviews",
+    icon: Star,
+    href: `${DERESEARCHER_HOME}/dashboard/reviews`,
+  },
+  { name: "Labs", icon: Beaker, href: `${DERESEARCHER_HOME}/dashboard/labs` },
 ];
 
 // Sidebar Header Component
@@ -37,7 +51,7 @@ function SidebarHeader({ expanded, onToggle }: SidebarHeaderProps) {
   return (
     <div className="flex items-center justify-between p-4">
       {expanded && (
-        <Link href="/">
+        <Link href={DERESEARCHER_HOME}>
           <Logo />
         </Link>
       )}

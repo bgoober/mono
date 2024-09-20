@@ -1,8 +1,8 @@
 import MainLayout from "../main-layout";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Input } from "~/_components/ui/input";
-import PaperCard from "~/_components/Paper/PaperCard";
-import H3 from "~/_components/H3";
+import PaperCard from "~/_components/Deresearcher/Paper/PaperCard";
+import H3 from "~/_components/Deresearcher/H3";
 import { ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {

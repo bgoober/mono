@@ -28,15 +28,15 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = ({
   stats,
 }) => {
   return (
-    <div className="text-center mb-8">
-      <H3 className="font-bold mb-1">{name}</H3>
-      <P className="text-sm text-zinc-500 mb-2">{username}</P>
-      <div className="flex justify-center items-center mb-4">
-        <span className="text-sm text-primary mr-2">{walletAddress}</span>
-        <Copy className="h-4 w-4 text-zinc-400 cursor-pointer" />
+    <div className="mb-8 text-center">
+      <H3 className="mb-1 font-bold">{name}</H3>
+      <P className="mb-2 text-sm text-zinc-500">{username}</P>
+      <div className="mb-4 flex items-center justify-center">
+        <span className="mr-2 text-sm text-primary">{walletAddress}</span>
+        <Copy className="h-4 w-4 cursor-pointer text-zinc-400" />
       </div>
-      <P className="text-sm max-w-2xl mx-auto mb-6">{bio}</P>
-      <div className="flex justify-center space-x-12 mb-6">
+      <P className="mx-auto mb-6 max-w-2xl text-sm">{bio}</P>
+      <div className="mb-6 flex justify-center space-x-12">
         <div className="text-center">
           <P className="text-2xl font-bold">{formatNumber(stats.papers)}</P>
           <P className="text-sm text-zinc-500">Papers</P>

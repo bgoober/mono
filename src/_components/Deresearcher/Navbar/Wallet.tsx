@@ -5,7 +5,7 @@ import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import React from "react";
 
 import Image from "next/image";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import P from "../P";
 import { minimizePubkey } from "~/lib/utils/helpers";
 import {
@@ -14,7 +14,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "../../ui/dropdown-menu";
 
 export const Wallet = () => {
   const { setVisible } = useWalletModal();
@@ -30,12 +30,16 @@ export const Wallet = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { connected, publicKey, disconnect, wallet } = useWallet();
 
-  const handleDisconnect = () => {
-    disconnect().then(() => {
+  const handleDisconnect = async () => {
+    try {
+      await disconnect();
       console.log("disconnected");
-    });
+    } catch (error) {
+      console.error("Disconnect error:", error);
+    }
     setAnchorEl(null);
   };
 
@@ -54,7 +58,7 @@ export const Wallet = () => {
           <>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <div className="border-primary flex cursor-pointer flex-row items-center gap-2 rounded-md border-2 p-[5px]">
+                <div className="flex cursor-pointer flex-row items-center gap-2 rounded-md border-2 border-primary p-[5px]">
                   <Image
                     alt={wallet.adapter.name}
                     height={24}

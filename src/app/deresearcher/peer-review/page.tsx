@@ -1,7 +1,7 @@
 "use client";
-import H1 from "~/_components/H1";
-import P from "~/_components/P";
-import { PeerReviewPapers } from "~/_components/PeerReview/PeerReviewPapers";
+import H1 from "~/_components/Deresearcher/H1";
+import P from "~/_components/Deresearcher/P";
+import { PeerReviewPapers } from "~/_components/Deresearcher/PeerReview/PeerReviewPapers";
 import { minimizePubkey } from "~/lib/utils/helpers";
 import {
   Tooltip,

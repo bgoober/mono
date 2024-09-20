@@ -1,6 +1,6 @@
 "use client";
 
-import P from "~/_components/P";
+import P from "~/_components/Deresearcher/P";
 import { Button } from "~/_components/ui/button";
 import {
   Card,

@@ -44,7 +44,7 @@ const CustomFormItem: React.FC<CustomFormItemProps> = ({
           placeholder={placeholder}
           className={cn(
             "border-zinc-200 text-sm text-zinc-700",
-            "focus:ring-primary focus:border-primary focus:ring-2",
+            "focus:border-primary focus:ring-2 focus:ring-primary",
             "tracking-wide transition-all duration-200",
             inputClassName,
           )}

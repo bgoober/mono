@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { UIProvider } from "~/_components/providers/UIProvider";
-import Sidebar from "~/_components/Dashboard/Sidebar";
-import DashboardNavbar from "~/_components/Dashboard/Navbar";
+import Sidebar from "~/_components/Deresearcher/Dashboard/Sidebar";
+import DashboardNavbar from "~/_components/Deresearcher/Dashboard/Navbar";
 
 export const metadata: Metadata = {
   title: "Dashboard",

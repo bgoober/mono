@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import CustomFormItem from "~/_components/Profile/CustomProfileForm";
+import CustomFormItem from "~/_components/Deresearcher/Profile/CustomProfileForm";
 import { ProfileFormData } from "~/lib/validation";
 
 import { Button } from "~/_components/ui/button";
@@ -145,7 +145,7 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
             name="website"
             render={({ field }) => (
               <CustomFormItem
-                label="Website"
+                label="Website/GitHub"
                 field={field}
                 placeholder="Enter your website"
                 isEditing={isEditing}

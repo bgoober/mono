@@ -1,6 +1,25 @@
-import DashboardCard from "~/_components/Dashboard/Card";
-import H3 from "~/_components/H3";
-import Table from "~/_components/Dashboard/Table";
+import DashboardCard from "~/_components/Deresearcher/Dashboard/Card";
+import H3 from "~/_components/Deresearcher/H3";
+import Table from "~/_components/Deresearcher/Dashboard/Table";
+import { DERESEARCHER_HOME } from "~/constant";
+
+const PATHNAME = {
+  PROFILE: `${DERESEARCHER_HOME}/dashboard/profile`,
+  PAPERS: `${DERESEARCHER_HOME}/dashboard/papers`,
+};
+
+interface Paper {
+  title: string;
+  authors: string;
+  createdDate: string;
+  domain: string;
+  status: "Approved" | "Reviewing" | "Rejected";
+}
+
+type Column = {
+  key: string;
+  header: string;
+};
 
 export default function DashboardPage() {
   return (
@@ -36,14 +55,14 @@ const CardContent = [
     description:
       "Ensure your profile is up to date to maximize visibility and enhance collaboration opportunities.",
     buttonText: "Complete Profile",
-    path: "/dashboard/profile",
+    path: PATHNAME.PROFILE,
   },
   {
     title: "Upload your paper 🦒",
     description:
       "Contribute to the community by sharing your research and gaining valuable peer feedback.",
     buttonText: "Upload Paper",
-    path: "/dashboard/papers",
+    path: PATHNAME.PAPERS,
   },
 ];
 
@@ -104,7 +123,7 @@ const data = papers.map((paper) => ({
   status: paper.status,
 }));
 
-function renderCell(item: any, column: { key: string; header: string }) {
+function renderCell(item: Paper, column: Column) {
   if (column.key === "status") {
     return (
       <span
@@ -122,7 +141,7 @@ function renderCell(item: any, column: { key: string; header: string }) {
   }
   return (
     <span className="whitespace-normal break-words text-sm text-zinc-600">
-      {item[column.key]}
+      {item[column.key as keyof Paper]}
     </span>
   );
 }
