@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Implement Research Paper NFT Minting Feature",
+        "pay": 0.5,
+        "details": "The goal is to implement a feature that mints an NFT for each research paper published on the platform. When a researcher publishes their paper, an NFT representing ownership and access rights should be minted and tied to the research paper’s content. The NFT should also include metadata such as the title, authors, abstract, creation date, and decentralized storage link.\n\nRequirements:\n\nUse Solana's SPL Token program to mint the NFTs.\nThe NFT should be transferable and include all relevant metadata.\nIntegrate with decentralized storage solutions (e.g., IPFS, Arweave) to ensure the paper’s content is immutable.\nEnsure the system is scalable, and each minted NFT is associated with a unique research paper.\nProvide a frontend demo showcasing the minting process from the user's perspective.",
+        "publisher": "Solquest Research Labs",
+        "track": "backend"
+    },
+    {
+        "title": "Develop Peer Review Rating System",
+        "pay": 1.0,
+        "details": "Create a peer review rating system where users can rate the quality of reviews left on research papers. The system should allow users to rate reviews based on factors like helpfulness, clarity, and technical depth. Ratings should be aggregated and linked to the reviewer’s reputation.\n\nRequirements:\n\nImplement a reputation score for reviewers based on the ratings they receive.\nEnsure ratings are weighted by the reputation of the user giving the rating.\nIntegrate with the frontend to show reviewer reputation and review scores.\nOptimize the system for scalability.",
+        "publisher": "OpenKnowledge DAO",
+        "track": "backend"
+    },
+    {
+        "title": "Design a Research Paper Submission Form",
+        "pay": 0.75,
+        "details": "Design a user-friendly submission form for researchers to upload their papers, provide metadata (title, abstract, domain, etc.), and choose a payment option for access. The form should support markdown for formatting the abstract and should include file upload functionality for PDFs.\n\nRequirements:\n\nBuild a responsive and intuitive UI for the submission form.\nEnsure that uploaded files are stored using IPFS or Arweave.\nValidate input fields and handle errors gracefully.\nProvide a preview of the abstract with markdown formatting.",
+        "publisher": "BlockScholar",
+        "track": "frontend"
+    },
+    {
+        "title": "Integrate Phantom Wallet for Transaction Payments",
+        "pay": 0.3,
+        "details": "Integrate the Phantom wallet into the platform to handle payments for accessing research papers. Users should be able to connect their Phantom wallet, view balances, and pay using SOL tokens for access.\n\nRequirements:\n\nIntegrate Solana's Phantom wallet adapter.\nEnsure smooth wallet connection and disconnection functionality.\nDisplay user's balance and transaction history within the platform.\nHandle transaction errors and notify the user in real time.",
+        "publisher": "CryptoLabs",
+        "track": "frontend"
+    },
+    {
+        "title": "Optimize Smart Contracts for Low Transaction Fees",
+        "pay": 1.5,
+        "details": "Optimize the existing Solana smart contracts to reduce transaction fees and improve performance. This involves reviewing the current contract structure, eliminating unnecessary computations, and ensuring minimal data storage on-chain.\n\nRequirements:\n\nAnalyze existing smart contracts and identify inefficiencies.\nRefactor code to reduce transaction size and costs.\nBenchmark performance and test the optimized contracts on Solana's testnet.\nDocument the changes and improvements.",
+        "publisher": "Decentralized Research Hub",
+        "track": "rust"
+    }
+]
