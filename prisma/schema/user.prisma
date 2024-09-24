@@ -19,32 +19,35 @@ enum UserRole {
 }
 
 model User {
-  id               String            @id @default(cuid())
-  name             String?
-  username         String?           @unique
-  email            String?           @unique
-  emailVerified    DateTime?
-  bio              String?
-  image            String?
-  accounts         Account[]
-  sessions         Session[]
-  papers           Paper[]
-  paperReviews     PaperReview[]
-  roles            UserRole[]
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
-  links            Link[]
-  domains          ResearchDomain[]
-  wallets          Wallet[]
-  flicks           Flick[]
-  flickResponses   FlickResponse[]
-  flickReactions   FlickReaction[]
-  companies        CompanyUser[]
-  badges           Badge[]
-  following        Follow[]          @relation("Following")
-  followers        Follow[]          @relation("Follower")
-  externalProfiles ExternalProfile[]
-  bounties         Bounty[]
+  id                    String            @id @default(cuid())
+  name                  String?
+  username              String?           @unique
+  email                 String?           @unique
+  emailVerified         DateTime?
+  bio                   String?
+  image                 String?
+  isVerified            Boolean           @default(false)
+  hasFailedVerification Boolean           @default(false)
+  isAdmin               Boolean           @default(false)
+  accounts              Account[]
+  sessions              Session[]
+  papers                Paper[]
+  paperReviews          PaperReview[]
+  roles                 UserRole[]
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  links                 Link[]
+  domains               ResearchDomain[]
+  wallets               Wallet[]
+  flicks                Flick[]
+  flickResponses        FlickResponse[]
+  flickReactions        FlickReaction[]
+  companies             CompanyUser[]
+  badges                Badge[]
+  following             Follow[]          @relation("Following")
+  followers             Follow[]          @relation("Follower")
+  externalProfiles      ExternalProfile[]
+  bounties              Bounty[]
 
   BountyApplication   BountyApplication[]
   proposals           Proposal[]

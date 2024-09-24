@@ -1,9 +1,9 @@
 "use client";
 
-import P from "~/_components/P";
+import P from "~/_components/Deresearcher/P";
 import { Button } from "~/_components/ui/button";
 import MainLayout from "./main-layout";
-import H1 from "~/_components/H1";
+import H1 from "~/_components/Deresearcher/H1";
 
 export default function LandingPage() {
   return (
