@@ -5,7 +5,7 @@ import {
   type NextAuthOptions,
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
-import DiscordProvider from "next-auth/providers/discord";
+import GoogleProvider from "next-auth/providers/google";
 
 import { env } from "~/env";
 import { db } from "~/server/db";
@@ -20,6 +20,9 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       id: string;
+      isAdmin: boolean;
+      isVerified: boolean;
+      hasFailedVerification: boolean;
       // ...other properties
       // role: UserRole;
     } & DefaultSession["user"];
@@ -38,19 +41,31 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    session: async ({ session, user }) => {
+      const dbuser = await db.user.findUnique({ where: { id: user.id } });
+
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: user.id,
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          isVerified: dbuser?.isVerified ?? false,
+
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          isAdmin: dbuser?.isAdmin ?? false,
+
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          hasFailedVerification: dbuser?.hasFailedVerification ?? false,
+        },
+      };
+    },
   },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
     /**
      * ...add more providers here.
