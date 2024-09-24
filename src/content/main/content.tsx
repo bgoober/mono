@@ -540,7 +540,7 @@ function EntryContent({
               !session.user.hasFailedVerification && (
                 <button
                   onClick={() => setShowVerifyModal(true)}
-                  className="mb-4 ml-2 rounded-md border border-black p-2"
+                  className="ml-2 rounded-md border border-black p-2"
                 >
                   Request Verification
                 </button>
