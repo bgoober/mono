@@ -165,9 +165,7 @@ export default function Table({
   };
 
   const handleRowClick = (item: { id: string; status: string }) =>
-    router.push(
-      `/deresearcher/research/${item.status.toLowerCase()}/${item.id}`,
-    );
+    router.push(`/research/paper/${item.status.toLowerCase()}/${item.id}`);
 
   if (!Array.isArray(data) || data.length === 0) {
     return <div>No data available</div>;

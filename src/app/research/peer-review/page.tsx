@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import ResearchLayout from "~/_components/Deresearcher/ResearchPaper/ResearchPaperLayout";
 import { PAPER_STATUS } from "~/lib/utils/constants";
-import { getPapers } from "../research/page";
+import { getPapers } from "../paper/page";
 
 export const metadata: Metadata = {
   title: "Peer Review",

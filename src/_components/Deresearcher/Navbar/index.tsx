@@ -13,8 +13,8 @@ export const NavLinks = [
     href: DERESEARCHER_HOME,
   },
   {
-    name: "Research",
-    href: `${DERESEARCHER_HOME}/research`,
+    name: "Papers",
+    href: `${DERESEARCHER_HOME}/paper`,
   },
   {
     name: "Dashboard", // TODO: Protect route & state with auth

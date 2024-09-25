@@ -10,19 +10,19 @@ import { SearchBar } from "../Dashboard/Navbar";
 export const NavLinks = [
   {
     name: "Home",
-    href: "/deresearcher/",
+    href: "/research/",
   },
   {
-    name: "Research",
-    href: "/deresearcher/research",
+    name: "Papers",
+    href: "/research/paper",
   },
   {
     name: "Peer Review",
-    href: "/deresearcher/peer-review",
+    href: "/research/peer-review",
   },
   {
     name: "Dashboard", // TODO: Protect route & state with auth
-    href: "/deresearcher/dashboard",
+    href: "/research/dashboard",
   },
 ];
 

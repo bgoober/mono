@@ -32,7 +32,7 @@ export default function PaperCard({
 }: PaperCardProps) {
   const router = useRouter();
   const handleClick = () =>
-    router.push(`/deresearcher/research/${status.toLowerCase()}/${id}`);
+    router.push(`/research/paper/${status.toLowerCase()}/${id}`);
 
   const gradient = getGradientForPaper(id);
 

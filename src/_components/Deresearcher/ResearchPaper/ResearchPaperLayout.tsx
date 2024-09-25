@@ -1,4 +1,4 @@
-import MainLayout from "~/app/deresearcher/main-layout";
+import MainLayout from "~/app/research/main-layout";
 import { Input } from "~/_components/Deresearcher/ui/input";
 import H3 from "~/_components/Deresearcher/H3";
 import { ChevronDown } from "lucide-react";
