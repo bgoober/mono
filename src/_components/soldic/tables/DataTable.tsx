@@ -93,6 +93,7 @@ export function DataTable<TData, TValue>({
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                   onClick={() => {
+                    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                     onRowClick && onRowClick(row.original);
                   }}
                 >

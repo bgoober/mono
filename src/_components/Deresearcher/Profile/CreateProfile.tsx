@@ -1,16 +1,16 @@
 "use client";
 import { Role } from "~/lib/utils/helpers";
 import { useEffect, useState } from "react";
-import { Dialog, DialogFooter, DialogHeader } from "../../ui/dialog";
+import { Dialog, DialogFooter, DialogHeader } from "~/_components/ui/dialog";
 import {
   DialogContent,
   DialogDescription,
   DialogTitle,
   DialogTrigger,
-} from "../../ui/dialog";
-import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
-import { Label } from "../../ui/label";
+} from "~/_components/ui/dialog";
+import { Button } from "~/_components/ui/button";
+import { Input } from "~/_components/ui/input";
+import { Label } from "~/_components/ui/label";
 import { useWallet } from "@solana/wallet-adapter-react";
 import P from "../P";
 

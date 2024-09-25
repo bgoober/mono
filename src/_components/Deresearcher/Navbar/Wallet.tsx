@@ -5,7 +5,7 @@ import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import React from "react";
 
 import Image from "next/image";
-import { Button } from "../../ui/button";
+import { Button } from "~/_components/ui/button";
 import P from "../P";
 import { minimizePubkey } from "~/lib/utils/helpers";
 import {
@@ -14,7 +14,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../../ui/dropdown-menu";
+} from "~/_components/ui/dropdown-menu";
 
 export const Wallet = () => {
   const { setVisible } = useWalletModal();

@@ -1,10 +1,10 @@
 "use client";
-import styles from "~/styles/Leaderboard.module.scss";
+import styles from "~/styles/table.module.css";
 import { type Entry } from "~/server/api/routers/entry/read";
 
 import { type Dispatch, type SetStateAction, useState, useEffect } from "react";
 import { api } from "~/trpc/react";
-import Modal from "~/app/_components/Modal";
+import Modal from "~/_components/soldic/Modal";
 import { EntryModalStaticContent } from "~/content/main/content";
 
 function AnnotatedEntry({

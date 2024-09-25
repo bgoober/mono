@@ -1,8 +1,8 @@
-import styles from "~/styles/Leaderboard.module.scss";
+import styles from "~/styles/table.module.css";
 import { SentenceParserContent } from "~/content/sentenceParser/content";
 import { api } from "~/trpc/server";
 import { getServerAuthSession } from "~/server/auth";
-import NavBar from "~/app/_components/NavBar";
+import NavBar from "~/_components/soldic/NavBar";
 
 async function SentenceParser() {
   const session = await getServerAuthSession();
