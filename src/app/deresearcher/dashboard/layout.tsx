@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { UIProvider } from "~/_components/Deresearcher/Providers/UIProvider";
 import Sidebar from "~/_components/Deresearcher/Dashboard/Sidebar";
 import DashboardNavbar from "~/_components/Deresearcher/Dashboard/Navbar";
 

@@ -5,7 +5,7 @@ import { Wallet } from "./Wallet";
 import { MobileMenu } from "./MobileMenu";
 import Link from "next/link";
 import { SearchBar } from "../Dashboard/Navbar";
-import { DERESEARCHER_HOME } from "~/constant";
+import { DERESEARCHER_HOME } from "~/constants";
 
 export const NavLinks = [
   {

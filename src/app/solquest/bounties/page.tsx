@@ -3,7 +3,7 @@ import Sidebar from "~/_components/solquest/sidebar/Sidebar";
 import Search from "./search";
 import { Button } from "~/_components/solquest/general/ui/Button";
 import { Listing } from "~/_components/solquest/general/Listing";
-import bounties from "~/constant/bounty.json";
+import bounties from "~/constants/bounty.json";
 import Link from "next/link";
 
 export default function Bounties() {

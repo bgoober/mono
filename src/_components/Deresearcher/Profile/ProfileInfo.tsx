@@ -1,4 +1,4 @@
-import React from "react";
+import { formatNumber } from "~/lib/utils/helpers";
 import { Copy } from "lucide-react";
 import P from "../P";
 import H3 from "../H3";
@@ -14,11 +14,6 @@ interface ProfileInfoProps {
     reputation: number;
   };
 }
-
-// Format large numbers with 'k' for thousands
-const formatNumber = (num: number): string => {
-  return num >= 1000 ? `${(num / 1000).toFixed(1)}k` : num.toString();
-};
 
 export const ProfileInfo: React.FC<ProfileInfoProps> = ({
   name,

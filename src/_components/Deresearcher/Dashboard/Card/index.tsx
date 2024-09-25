@@ -1,13 +1,13 @@
 "use client";
 
 import P from "~/_components/Deresearcher/P";
-import { Button } from "~/_components/ui/button";
+import { Button } from "~/_components/Deresearcher/ui/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from "~/_components/ui/card";
+} from "~/_components/Deresearcher/ui/card";
 import { useRouter } from "next/navigation";
 
 type DashboardCardProps = {

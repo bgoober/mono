@@ -1,6 +1,6 @@
 import ProfileComponent from "~/_components/Deresearcher/Profile";
 import MainLayout from "../main-layout";
-import { type Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Profile",

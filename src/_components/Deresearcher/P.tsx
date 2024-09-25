@@ -1,4 +1,6 @@
-import { cn } from "~/lib/utils/helpers";
+import { cn } from "~/lib/utils";
+
+cn;
 
 export default function P(props: React.HTMLProps<HTMLHeadingElement>) {
   return (

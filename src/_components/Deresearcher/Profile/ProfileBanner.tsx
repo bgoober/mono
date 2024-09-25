@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Pen } from "lucide-react";
-import { Button } from "~/_components/ui/button";
-import { VerifyBadge } from "~/_components/VerifyBadge";
+import { Button } from "~/_components/Deresearcher/ui/button";
+import { VerifyBadge } from "~/_components/Deresearcher/VerifyBadge";
 
 interface ProfileBannerProps {
   bannerSrc: string;

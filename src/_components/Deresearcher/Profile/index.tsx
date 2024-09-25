@@ -2,7 +2,11 @@
 
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { Tabs, TabsList, TabsTrigger } from "~/_components/ui/tabs";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+} from "~/_components/Deresearcher/ui/tabs";
 import { ProfileInfo } from "./ProfileInfo";
 import { ProfileBanner } from "./ProfileBanner";
 

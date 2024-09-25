@@ -13,6 +13,9 @@ import {
   WalletProvider,
 } from "@solana/wallet-adapter-react";
 
+// Default styles that can be overridden by your app
+require("@solana/wallet-adapter-react-ui/styles.css");
+
 export const WalletProviderUI = ({
   children,
 }: {

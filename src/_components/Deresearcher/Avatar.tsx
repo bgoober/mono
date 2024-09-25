@@ -21,3 +21,36 @@ export const Avatar = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+interface AvatarProps {
+  name: string;
+  size?: number;
+}
+
+export const AvatarWithName: React.FC<AvatarProps> = ({ name, size = 8 }) => {
+  const initials = name
+    .split(" ")
+    .map((n: string) => n[0])
+    .join("")
+    .toUpperCase();
+  const colors = [
+    "bg-red-500",
+    "bg-blue-500",
+    "bg-green-500",
+    "bg-yellow-500",
+    "bg-purple-500",
+  ];
+  const colorIndex =
+    name
+      .split("")
+      .reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0) %
+    colors.length;
+
+  return (
+    <div
+      className={`w-${size} h-${size} ${colors[colorIndex]} rounded-full flex items-center justify-center text-white text-xs `}
+    >
+      {initials}
+    </div>
+  );
+};

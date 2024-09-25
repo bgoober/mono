@@ -1,7 +1,8 @@
 "use client";
 
 import P from "~/_components/Deresearcher/P";
-import { Button } from "~/_components/ui/button";
+import { Button } from "~/_components/Deresearcher/ui/button";
+import { DialogHeader } from "~/_components/Deresearcher/ui/dialog";
 import MainLayout from "./main-layout";
 import H1 from "~/_components/Deresearcher/H1";
 

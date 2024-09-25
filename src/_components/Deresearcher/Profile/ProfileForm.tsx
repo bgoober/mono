@@ -6,16 +6,16 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import CustomFormItem from "~/_components/Deresearcher/Profile/CustomProfileForm";
 import { ProfileFormData } from "~/lib/validation";
+import CustomFormItem from "../CustomForm";
 
-import { Button } from "~/_components/ui/button";
-import { Form, FormField } from "~/_components/ui/form";
-import { Textarea } from "~/_components/ui/textarea";
+import { Button } from "~/_components/Deresearcher/ui/button";
+import { Form, FormField } from "~/_components/Deresearcher/ui/form";
+import { Textarea } from "~/_components/Deresearcher/ui/textarea";
 import { Camera, Upload } from "lucide-react";
 
 type ProfileFormProps = {
-  initialData?: ProfileFormData & { isVerified: boolean };
+  initialData: ProfileFormData & { isVerified: boolean };
 };
 
 export default function ProfileForm({ initialData }: ProfileFormProps) {
@@ -51,7 +51,7 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="mx-auto max-w-4xl space-y-6 rounded-lg bg-white p-6 pt-6 shadow md:p-20 md:pt-6"
+        className="mx-auto max-w-4xl space-y-6 rounded-lg bg-white p-6 pb-12 shadow md:p-20 md:pb-16 md:pt-6"
       >
         <div className="mb-6 flex flex-col items-center">
           <div
@@ -97,6 +97,7 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
                 isEditing={isEditing}
               />
             )}
+            required
           />
           <FormField
             control={form.control}
@@ -109,6 +110,7 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
                 isEditing={isEditing}
               />
             )}
+            required
           />
         </div>
 
@@ -124,6 +126,7 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
                 isEditing={isEditing}
               />
             )}
+            required
           />
           <FormField
             control={form.control}
@@ -145,7 +148,7 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
             name="website"
             render={({ field }) => (
               <CustomFormItem
-                label="Website/GitHub"
+                label="Websit/Github"
                 field={field}
                 placeholder="Enter your website"
                 isEditing={isEditing}

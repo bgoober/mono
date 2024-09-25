@@ -1,0 +1,735 @@
+{
+  "version": "0.1.0",
+  "name": "deresearcher_program",
+  "instructions": [
+    {
+      "name": "CreateResearcherProfile",
+      "accounts": [
+        {
+          "name": "researcherAcc",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "Researcher's account"
+          ]
+        },
+        {
+          "name": "researcherProfilePdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Researcher's profile PDA account"
+          ]
+        },
+        {
+          "name": "systemProgramAcc",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "System program account"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "createResearcherProfile",
+          "type": {
+            "defined": "CreateResearcherProfile"
+          }
+        }
+      ],
+      "discriminant": {
+        "type": "u8",
+        "value": 0
+      }
+    },
+    {
+      "name": "CreateResearchePaper",
+      "accounts": [
+        {
+          "name": "publisherAcc",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "Publisher's account"
+          ]
+        },
+        {
+          "name": "researcherProfilePdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Researcher's profile PDA account"
+          ]
+        },
+        {
+          "name": "paperPdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Research paper account"
+          ]
+        },
+        {
+          "name": "systemProgramAcc",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "System program account"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "createResearchePaper",
+          "type": {
+            "defined": "CreateResearchePaper"
+          }
+        }
+      ],
+      "discriminant": {
+        "type": "u8",
+        "value": 1
+      }
+    },
+    {
+      "name": "PublishPaper",
+      "accounts": [
+        {
+          "name": "publisherAcc",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "Publisher's account"
+          ]
+        },
+        {
+          "name": "paperPdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Research paper PDA account"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "publishPaper",
+          "type": {
+            "defined": "PublishPaper"
+          }
+        }
+      ],
+      "discriminant": {
+        "type": "u8",
+        "value": 2
+      }
+    },
+    {
+      "name": "AddPeerReview",
+      "accounts": [
+        {
+          "name": "reviewerAcc",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "Reviewer's account"
+          ]
+        },
+        {
+          "name": "researcherProfilePdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Researcher's profile PDA account"
+          ]
+        },
+        {
+          "name": "paperPdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Research paper PDA account"
+          ]
+        },
+        {
+          "name": "peerReviewPdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Peer review PDA account"
+          ]
+        },
+        {
+          "name": "systemProgramAcc",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "System program account"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "addPeerReview",
+          "type": {
+            "defined": "AddPeerReview"
+          }
+        }
+      ],
+      "discriminant": {
+        "type": "u8",
+        "value": 3
+      }
+    },
+    {
+      "name": "MintResearchPaper",
+      "accounts": [
+        {
+          "name": "readerAcc",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "Reader's account"
+          ]
+        },
+        {
+          "name": "researcherProfilePdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Researcher's profile PDA account"
+          ]
+        },
+        {
+          "name": "researchMintCollectionPdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Research mint collection PDA account"
+          ]
+        },
+        {
+          "name": "paperPdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Research paper PDA account"
+          ]
+        },
+        {
+          "name": "feeReceiverAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Fee receiver's account"
+          ]
+        },
+        {
+          "name": "systemProgramAcc",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "System program account"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "mintResearchPaper",
+          "type": {
+            "defined": "MintResearchPaper"
+          }
+        }
+      ],
+      "discriminant": {
+        "type": "u8",
+        "value": 4
+      }
+    },
+    {
+      "name": "CheckAndAssignReputation",
+      "accounts": [
+        {
+          "name": "reputationCheckerAcc",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "Reputation checker's account"
+          ]
+        },
+        {
+          "name": "researcherProfilePdaAcc",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Researcher's profile account"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "checkAndAssignReputation",
+          "type": {
+            "defined": "CheckAndAssignReputation"
+          }
+        }
+      ],
+      "discriminant": {
+        "type": "u8",
+        "value": 5
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "name": "ResearcherProfile",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "publicKey"
+          },
+          {
+            "name": "name",
+            "type": {
+              "array": [
+                "u8",
+                64
+              ]
+            }
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": "ResearcherProfileState"
+            }
+          },
+          {
+            "name": "totalPapersPublished",
+            "type": "u64"
+          },
+          {
+            "name": "totalCitations",
+            "type": "u64"
+          },
+          {
+            "name": "totalReviews",
+            "type": "u64"
+          },
+          {
+            "name": "reputation",
+            "type": "u8"
+          },
+          {
+            "name": "metaDataMerkleRoot",
+            "type": {
+              "array": [
+                "u8",
+                64
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ResearchPaper",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "publicKey"
+          },
+          {
+            "name": "creatorPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": "PaperState"
+            }
+          },
+          {
+            "name": "accessFee",
+            "type": "u32"
+          },
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "paperContentHash",
+            "type": {
+              "array": [
+                "u8",
+                64
+              ]
+            }
+          },
+          {
+            "name": "totalApprovals",
+            "type": "u8"
+          },
+          {
+            "name": "totalCitations",
+            "type": "u64"
+          },
+          {
+            "name": "totalMints",
+            "type": "u64"
+          },
+          {
+            "name": "metaDataMerkleRoot",
+            "type": {
+              "array": [
+                "u8",
+                64
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PeerReview",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "address",
+            "type": "publicKey"
+          },
+          {
+            "name": "reviewerPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "paperPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "qualityOfResearch",
+            "type": "u8"
+          },
+          {
+            "name": "potentialForRealWorldUseCase",
+            "type": "u8"
+          },
+          {
+            "name": "domainKnowledge",
+            "type": "u8"
+          },
+          {
+            "name": "practicalityOfResultObtained",
+            "type": "u8"
+          },
+          {
+            "name": "metaDataMerkleRoot",
+            "type": {
+              "array": [
+                "u8",
+                64
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ResearchMintCollection",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "readerPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "dataMerkleRoot",
+            "type": {
+              "array": [
+                "u8",
+                64
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "CreateResearcherProfile",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "pdaBump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreateResearchePaper",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "accessFee",
+            "type": "u32"
+          },
+          {
+            "name": "paperContentHash",
+            "type": "string"
+          },
+          {
+            "name": "metaDataMerkleRoot",
+            "type": "string"
+          },
+          {
+            "name": "pdaBump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PublishPaper",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pdaBump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AddPeerReview",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "qualityOfResearch",
+            "type": "u8"
+          },
+          {
+            "name": "potentialForRealWorldUseCase",
+            "type": "u8"
+          },
+          {
+            "name": "domainKnowledge",
+            "type": "u8"
+          },
+          {
+            "name": "practicalityOfResultObtained",
+            "type": "u8"
+          },
+          {
+            "name": "metaDataMerkleRoot",
+            "type": "string"
+          },
+          {
+            "name": "pdaBump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MintResearchPaper",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "metaDataMerkleRoot",
+            "type": "string"
+          },
+          {
+            "name": "pdaBump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CheckAndAssignReputation",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "reputation",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PaperState",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "AwaitingPeerReview"
+          },
+          {
+            "name": "InPeerReview"
+          },
+          {
+            "name": "ApprovedToPublish"
+          },
+          {
+            "name": "RequiresRevision"
+          },
+          {
+            "name": "Published"
+          },
+          {
+            "name": "Minted"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ResearcherProfileState",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "AwaitingApproval"
+          },
+          {
+            "name": "Approved"
+          },
+          {
+            "name": "Rejected"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 0,
+      "name": "InvalidInstruction",
+      "msg": "Invalid Instruction (this ix is not supported)"
+    },
+    {
+      "code": 1,
+      "name": "InvalidSigner",
+      "msg": "Invalid Signer"
+    },
+    {
+      "code": 2,
+      "name": "PaperAlreadyExists",
+      "msg": "Paper already exists"
+    },
+    {
+      "code": 3,
+      "name": "PubkeyMismatch",
+      "msg": "Pubkey mismatch"
+    },
+    {
+      "code": 4,
+      "name": "InvalidState",
+      "msg": "Invalid state"
+    },
+    {
+      "code": 5,
+      "name": "NotEnoughApprovals",
+      "msg": "Not enough approvals"
+    },
+    {
+      "code": 6,
+      "name": "PeerReviewAlreadyExists",
+      "msg": "Peer Review already exists"
+    },
+    {
+      "code": 7,
+      "name": "InvalidFeeReceiver",
+      "msg": "Invalid Fee Receiver"
+    },
+    {
+      "code": 8,
+      "name": "ResearcherProfileAlreadyExists",
+      "msg": "Profile already exists"
+    },
+    {
+      "code": 9,
+      "name": "ResearcherProfileNotFound",
+      "msg": "Profile not found"
+    },
+    {
+      "code": 10,
+      "name": "NotAllowedForPeerReview",
+      "msg": "Not allowed for peer review"
+    },
+    {
+      "code": 11,
+      "name": "PaperNotFound",
+      "msg": "Paper not found"
+    },
+    {
+      "code": 12,
+      "name": "SerializationError",
+      "msg": "serialization error"
+    },
+    {
+      "code": 13,
+      "name": "SizeOverflow",
+      "msg": "Size overflow"
+    },
+    {
+      "code": 14,
+      "name": "ImmutableAccount",
+      "msg": "Account is Immutable"
+    },
+    {
+      "code": 15,
+      "name": "PdaPubekyMismatch",
+      "msg": "PDA pubkey mismatch"
+    },
+    {
+      "code": 16,
+      "name": "PublisherCannotAddPeerReview",
+      "msg": "Publisher cannot add a peer review to their own paper"
+    },
+    {
+      "code": 17,
+      "name": "InvalidReputationChecker",
+      "msg": "Invalid Reputation checker"
+    }
+  ],
+  "metadata": {
+    "origin": "shank",
+    "address": "C5M2JxBaxmsW62BgujPXEPytw65igtUjr6mFbD5pmypM",
+    "binaryVersion": "0.4.2",
+    "libVersion": "0.4.2"
+  }
+}

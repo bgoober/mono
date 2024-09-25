@@ -11,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "~/_components/ui/dropdown-menu";
+} from "~/_components/Deresearcher/ui/dropdown-menu";
 import {
   LogOut,
   Wallet as WalletIcon,
@@ -20,11 +20,9 @@ import {
 } from "lucide-react";
 import { minimizePubkey } from "~/lib/utils/helpers";
 import { Avatar } from "~/_components/Deresearcher/Avatar";
-import { DERESEARCHER_HOME } from "~/constant";
 
 export const AvatarDropdown = () => {
   const { setVisible } = useWalletModal();
-  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { connected, publicKey, disconnect, wallet } = useWallet();
   const [isOpen, setIsOpen] = useState(false);
   const { userRole, userName } = dummyUserData;
@@ -36,7 +34,7 @@ export const AvatarDropdown = () => {
   const handleDisconnect = useCallback(async () => {
     await disconnect();
     // Force a hard refresh of the page
-    window.location.href = DERESEARCHER_HOME;
+    window.location.href = "/";
   }, [disconnect]);
 
   const getDropdownLabel = () => {
