@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Card } from "../../ui/card";
+import { Card } from "~/_components/ui/card";
 import P from "../P";
-import { Button } from "../../ui/button";
+import { Button } from "~/_components/ui/button";
 
 export type ResearchPaper = {
   title: string;

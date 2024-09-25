@@ -132,7 +132,7 @@ export function CreateEntry() {
               onChange={(e) => {
                 const newLinks = [...links];
                 if (newLinks && !!newLinks[index]) {
-                  newLinks[index]!.url = e.target.value;
+                  newLinks[index].url = e.target.value;
                 }
                 setLinks(newLinks);
               }}
@@ -144,7 +144,7 @@ export function CreateEntry() {
               onChange={(e) => {
                 const newLinks = [...links];
                 if (newLinks && !!newLinks[index]) {
-                  newLinks[index]!.title = e.target.value;
+                  newLinks[index].title = e.target.value;
                 }
                 setLinks(newLinks);
               }}
@@ -192,8 +192,8 @@ export function CreateEntry() {
                     id?: string;
                     name?: string;
                     color?: string;
-                    createdAt?: string;
-                    updatedAt?: string;
+                    createdAt?: Date;
+                    updatedAt?: Date;
                   }) => {
                     setTagSearchTerm("");
                     setTags([...tags, data as unknown as Tag]);

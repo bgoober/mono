@@ -1,15 +1,9 @@
 "use client";
-import styles from "~/styles/Leaderboard.module.scss";
-import { DataTable } from "~/app/_components/tables/DataTable";
-import { type Entry } from "~/server/api/routers/entry/read";
+import styles from "~/styles/table.module.css";
+import { DataTable } from "~/_components/soldic/tables/DataTable";
 import { type ColumnDef } from "@tanstack/react-table";
-import Modal from "~/app/_components/Modal";
-import { type Dispatch, type SetStateAction, useState, useEffect } from "react";
-import { CreateEntry } from "~/app/_components/create-entry";
-import { type Session } from "next-auth";
 import { api } from "~/trpc/react";
-import { cn } from "~/utils";
-import { VerificationRequest } from "~/server/api/routers/verificationRequests/read";
+import { type VerificationRequest } from "~/server/api/routers/verificationRequests/read";
 
 const columns: ColumnDef<VerificationRequest>[] = [
   {
@@ -26,7 +20,6 @@ const columns: ColumnDef<VerificationRequest>[] = [
     header: "Approve",
     cell: ({ row }) => {
       console.log("row", row.getValue("id"));
-      row.getValue;
       const processVerificationRequest =
         api.verificationRequest.processVerificationRequest.useMutation();
 

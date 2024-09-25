@@ -1,8 +1,8 @@
-import styles from "~/styles/Leaderboard.module.scss";
+import styles from "~/styles/table.module.css";
 import { VerifyContent } from "~/content/verify";
 import { api } from "~/trpc/server";
 import { getServerAuthSession } from "~/server/auth";
-import NavBar from "~/app/_components/NavBar";
+import NavBar from "~/_components/soldic/NavBar";
 
 async function Verify() {
   // table data
