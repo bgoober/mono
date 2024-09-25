@@ -1,5 +1,4 @@
 import ProfileComponent from "~/_components/final/Profile";
-import MainLayout from "../main-layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,10 +7,8 @@ export const metadata: Metadata = {
 
 export default function ProfilePage() {
   return (
-    <MainLayout>
-      <div className="flex bg-zinc-100">
-        <ProfileComponent />
-      </div>
-    </MainLayout>
+    <div className="flex bg-zinc-100">
+      <ProfileComponent />
+    </div>
   );
 }

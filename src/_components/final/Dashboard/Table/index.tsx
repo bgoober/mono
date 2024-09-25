@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
-import { PAPER_STATUS } from "~/lib/utils/constants";
+import { BOUNTY_STATUS, PAPER_STATUS } from "~/lib/utils/constants";
 import { useRouter } from "next/navigation";
 
 type ColumnDefinition = {
@@ -93,11 +93,14 @@ const TableRow: React.FC<{
         {column.key === "status" ? (
           <span
             className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
-              item.status === PAPER_STATUS.APPROVED
+              item.status === PAPER_STATUS.APPROVED ||
+              item.status === BOUNTY_STATUS.OPEN
                 ? "bg-secondary-foreground text-secondary"
-                : item.status === PAPER_STATUS.PEER_REVIEWING
+                : item.status === PAPER_STATUS.PEER_REVIEWING ||
+                    item.status === BOUNTY_STATUS.IN_PROGRESS
                   ? "bg-primary-foreground text-primary"
-                  : item.status === PAPER_STATUS.PUBLISHED
+                  : item.status === PAPER_STATUS.PUBLISHED ||
+                      item.status === BOUNTY_STATUS.COMPLETED
                     ? "bg-accent text-accent-foreground"
                     : "bg-destructive-foreground text-destructive"
             }`}

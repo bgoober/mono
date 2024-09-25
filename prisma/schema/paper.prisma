@@ -6,7 +6,7 @@ enum ResearchDomain {
   PRODUCT
 }
 
-enum PaperState {
+enum PaperStatus {
   AwaitingPeerReview
   InPeerReview
   RequiresRevision
@@ -18,11 +18,13 @@ model Paper {
   id          String           @id @default(cuid())
   title       String
   publicKey   String
-  state       PaperState
   description String?
+  price       Decimal?
+  minted      Decimal?
+  version     Decimal?
   createdAt   DateTime         @default(now())
   updatedAt   DateTime         @updatedAt
-  image       String?
+  status      PaperStatus
   domains     ResearchDomain[]
   authors     User[]
   peerReviews PaperReview[]
@@ -30,17 +32,16 @@ model Paper {
 }
 
 model PaperReview {
-  id            String   @id @default(cuid())
-  title         String
-  description   String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  image         String?
-  rating        Decimal
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  image       String?
+  rating      Decimal
   // domains     ResearchDomain[] I don't think we need this since this will be on the paper already
-  reviewers     User     @relation(fields: [userId], references: [id])
-  userId        String
-  paperReviewId String
-  Paper         Paper?   @relation(fields: [paperId], references: [id])
-  paperId       String?
+  reviewers   User     @relation(fields: [userId], references: [id])
+  userId      String
+  Paper       Paper?   @relation(fields: [paperId], references: [id])
+  paperId     String?
 }

@@ -1,17 +1,50 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Arbutus, Atkinson_Hyperlegible, Inter } from "next/font/google";
 import { WalletContextProvider } from "~/_components/solquest/providers/WalletContextProvider";
-import Navbar from "~/_components/solquest/general/Navbar";
+import Navbar, { NavLink } from "~/_components/final/Navbar";
 import Footer from "~/_components/solquest/general/Footer";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import "~/styles/globals.css";
-import "~/styles/solquest.css";
+import "~/styles/deresearcher.css";
+import { UIProvider } from "~/_components/degenspace/providers/UIProvider";
 
 const inter = Inter({ subsets: ["latin"] });
+const navLinks: NavLink[] = [
+  {
+    name: "Home",
+    href: "/build",
+  },
+  {
+    name: "Fund",
+    href: "/build/fund",
+  },
+  {
+    name: "Manage",
+    href: "/build/manage",
+  },
+  {
+    name: "Bounties", // TODO: Protect route & state with auth
+    href: "/newquest/bounties",
+  },
+];
+
+const arbutus = Arbutus({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-arbutus",
+});
+const atkinson = Atkinson_Hyperlegible({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-atkinson",
+});
 
 export const metadata: Metadata = {
-  title: "SolQuest",
-  description: "Solana's number one bounty board!",
+  title: {
+    default: "deResearcher",
+    template: "%s | deResearcher",
+  },
+  description: "A decentralized research platform on Solana",
 };
 
 export default function RootLayout({
@@ -20,16 +53,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <WalletContextProvider>
-        <body
-          className={`bg-gradient-main relative flex min-h-screen w-screen flex-col overflow-x-hidden bg-fixed text-lg text-white ${inter.className}`}
-        >
-          <Navbar />
+    <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
+      <body className={`${inter.className} min-w-[350px]`}>
+        <UIProvider>
+          <Navbar links={navLinks} />
           {children}
-          <Footer />
-        </body>
-      </WalletContextProvider>
+        </UIProvider>
+      </body>
     </html>
   );
 }

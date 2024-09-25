@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Arbutus, Atkinson_Hyperlegible } from "next/font/google";
-
 import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
 import { UIProvider } from "~/_components/final/Providers/UIProvider";
-import Sidebar from "~/_components/final/Dashboard/Sidebar";
-import DashboardNavbar from "~/_components/final/Dashboard/Navbar";
-import Navbar, { NavLink } from "~/_components/final/Navbar";
+import Navbar from "~/_components/final/Navbar";
+import { NavLink } from "~/_components/final/Navbar";
+
 const navLinks: NavLink[] = [
   {
     name: "Home",
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
   description: "A decentralized research platform on Solana",
 };
 
-export default function DashboardLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -55,15 +54,8 @@ export default function DashboardLayout({
     <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
       <body className={`${inter.className} min-w-[350px]`}>
         <UIProvider>
-          <div className="flex h-screen bg-zinc-100">
-            <Sidebar />
-            <div className="flex flex-1 flex-col overflow-y-auto">
-              <Navbar links={navLinks} />
-              <div className="flex-1 overflow-x-hidden bg-zinc-100">
-                <div className="container mx-auto px-6 py-8">{children}</div>
-              </div>
-            </div>
-          </div>
+          <Navbar links={navLinks} />
+          {children}
         </UIProvider>
       </body>
     </html>

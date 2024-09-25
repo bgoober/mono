@@ -12,7 +12,7 @@ import {
   ChevronDown,
   ChevronRight,
 } from "lucide-react";
-import { Logo } from "~/_components/final/Logo";
+import { DesearcherLogo } from "~/_components/final/Logo";
 
 type LinkDefinition = {
   name: string;
@@ -94,7 +94,7 @@ export default function Sidebar() {
       <div className="flex items-center justify-between p-4">
         {sidebarExpanded && (
           <Link href="/research">
-            <Logo />
+            <DesearcherLogo />
           </Link>
         )}
         <button

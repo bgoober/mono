@@ -1,49 +1,47 @@
 "use client";
-import { Logo } from "../Logo";
+import Image from "next/image";
+import { DesearcherLogo } from "../Logo";
 import { usePathname } from "next/navigation";
 import { Wallet } from "./Wallet";
 import { MobileMenu } from "./MobileMenu";
 import Link from "next/link";
 import { SearchBar } from "../Dashboard/Navbar";
-import { DERESEARCHER_HOME } from "~/constants";
+import SolquestLogo from "~/_components/solquest/general/ui/Logo";
 
-export const NavLinks = [
-  {
-    name: "Home",
-    href: DERESEARCHER_HOME,
-  },
-  {
-    name: "Papers",
-    href: `${DERESEARCHER_HOME}/paper`,
-  },
-  {
-    name: "Dashboard", // TODO: Protect route & state with auth
-    href: `${DERESEARCHER_HOME}/dashboard`,
-  },
-];
+const getLogoFromPathname = (pathname: string) => {
+  if (pathname.includes("research")) {
+    if (pathname.includes("dashboard")) {
+      return null;
+    }
+    return <DesearcherLogo />;
+  }
+  if (pathname.includes("newquest")) {
+    return <SolquestLogo />;
+  }
+};
 
-interface NavbarProps {
-  hideLogo?: boolean;
-}
+export type NavLink = {
+  name: string;
+  href: string;
+};
 
-export const Navbar = ({ hideLogo }: NavbarProps) => {
+export const Navbar = ({ links }: { links: NavLink[] }) => {
   const pathname = usePathname();
+  const logo = getLogoFromPathname(pathname);
 
   return (
     <nav className="relative flex items-center justify-between p-4">
       <div className="flex max-w-3xl flex-1 items-center">
-        {!hideLogo && (
-          <Link href={DERESEARCHER_HOME} className="mr-4">
-            <Logo />
-          </Link>
-        )}
+        <Link href="/" className="mr-4">
+          {logo}
+        </Link>
         <button className="hidden flex-1 sm:block">
           <span className="sr-only">Search</span>
           <SearchBar placeholder="Search the universe" />
         </button>
       </div>
-      <div className="hidden flex-row justify-between gap-[20px] tablet:flex">
-        {NavLinks.map((link) => (
+      <div className="hidden flex-row justify-between gap-[20px] sm:flex">
+        {links.map((link) => (
           <div
             key={link.name}
             className={
@@ -60,7 +58,7 @@ export const Navbar = ({ hideLogo }: NavbarProps) => {
         ))}
         <Wallet />
       </div>
-      <MobileMenu pathname={pathname} />
+      <MobileMenu pathname={pathname} links={links} />
     </nav>
   );
 };
