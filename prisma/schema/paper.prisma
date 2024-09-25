@@ -26,6 +26,7 @@ model Paper {
   domains     ResearchDomain[]
   authors     User[]
   peerReviews PaperReview[]
+  links       Link[]
 }
 
 model PaperReview {

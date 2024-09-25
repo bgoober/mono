@@ -2,8 +2,27 @@ model Link {
   id        String   @id @default(cuid())
   title     String
   url       String
+  type      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   User      User?    @relation(fields: [userId], references: [id])
   userId    String?
+  Paper     Paper?   @relation(fields: [paperId], references: [id])
+  paperId   String?
+}
+
+enum LinkType {
+  GITHUB
+  TWITTER
+  LINKEDIN
+  MEDIUM
+  YOUTUBE
+  INSTAGRAM
+  FACEBOOK
+  X
+  TELEGRAM
+  DISCORD
+  WEBSITE
+  PDF
+  IMAGE
 }
