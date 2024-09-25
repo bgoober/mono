@@ -45,7 +45,7 @@ export default function ResearchPaperLayout({
             title={paper.title}
             authors={paper.authors}
             /** TODO: FOR DEMO ONLY SHOW FIRST DOMAIN */
-            domain={paper.domains[0]}
+            domain={paper.domains[0] ?? ""}
             /** TODO: FOR DEMO ONLY SHOW MINTED LENGTH */
             minted={paper.minted.length * 123}
             price={paper.price ?? 0}

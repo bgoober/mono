@@ -5,6 +5,8 @@ import { verificationRequestRouter } from "./routers/verificationRequests";
 import { entryRevisionRouter } from "~/server/api/routers/entryRevision";
 import { tagRouter } from "~/server/api/routers/tag";
 import { sentenceParserRouter } from "~/server/api/routers/sentenceParser";
+import { paperReviewRouter } from "~/server/api/routers/paperReview";
+import { paperRouter } from "~/server/api/routers/paper";
 
 /**
  * This is the primary router for your server.
@@ -18,6 +20,8 @@ export const appRouter = createTRPCRouter({
   dev: devRouter,
   verificationRequest: verificationRequestRouter,
   sentenceParser: sentenceParserRouter,
+  paperReview: paperReviewRouter,
+  paper: paperRouter,
 });
 
 // export type definition of API

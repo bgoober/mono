@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Wallet } from "./Wallet";
-import { NavLink } from "./Navbar";
+import { NavLink } from "./";
 import Link from "next/link";
 import { Search } from "lucide-react";
 
