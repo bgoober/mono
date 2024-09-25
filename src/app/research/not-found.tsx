@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "~/_components/Deresearcher/ui/button";
+import { Button } from "~/_components/final/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

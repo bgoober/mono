@@ -1,4 +1,4 @@
-import ProfileComponent from "~/_components/Deresearcher/Profile";
+import ProfileComponent from "~/_components/final/Profile";
 import MainLayout from "../main-layout";
 import { Metadata } from "next";
 

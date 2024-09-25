@@ -1,10 +1,10 @@
 "use client";
 
-import P from "~/_components/Deresearcher/P";
-import { Button } from "~/_components/Deresearcher/ui/button";
-import { DialogHeader } from "~/_components/Deresearcher/ui/dialog";
+import P from "~/_components/final/P";
+import { Button } from "~/_components/final/ui/button";
+import { DialogHeader } from "~/_components/final/ui/dialog";
 import MainLayout from "./main-layout";
-import H1 from "~/_components/Deresearcher/H1";
+import H1 from "~/_components/final/H1";
 
 export default function LandingPage() {
   return (

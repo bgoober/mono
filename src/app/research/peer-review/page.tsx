@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ResearchLayout from "~/_components/Deresearcher/ResearchPaper/ResearchPaperLayout";
+import ResearchLayout from "~/_components/final/ResearchPaper/ResearchPaperLayout";
 import { PAPER_STATUS } from "~/lib/utils/constants";
 import { getPapers } from "../paper/page";
 

@@ -1,5 +1,5 @@
-import H3 from "~/_components/Deresearcher/H3";
-import CreatePaperForm from "~/_components/Deresearcher/Paper/PaperCreateForm";
+import H3 from "~/_components/final/H3";
+import CreatePaperForm from "~/_components/final/Paper/PaperCreateForm";
 
 export default function CreatePaperPage() {
   return (

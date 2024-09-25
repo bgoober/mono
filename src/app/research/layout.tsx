@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Arbutus, Atkinson_Hyperlegible } from "next/font/google";
 import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
-import { UIProvider } from "~/_components/Deresearcher/Providers/UIProvider";
+import { UIProvider } from "~/_components/final/Providers/UIProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 const arbutus = Arbutus({

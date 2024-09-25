@@ -1,7 +1,7 @@
 import MainLayout from "~/app/research/main-layout";
-import PaperContentComponent from "~/_components/Deresearcher/Paper/PaperContent";
+import PaperContentComponent from "~/_components/final/Paper/PaperContent";
 import { notFound } from "next/navigation";
-import PaperActionButton from "~/_components/Deresearcher/Paper/PaperActionButton";
+import PaperActionButton from "~/_components/final/Paper/PaperActionButton";
 import { Paper, PaperSchema } from "~/lib/validation";
 
 import papers from "~/constants/dummyPapers.json";

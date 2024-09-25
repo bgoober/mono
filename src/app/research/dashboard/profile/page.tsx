@@ -1,5 +1,5 @@
-import ProfileForm from "~/_components/Deresearcher/Profile/ProfileForm";
-import { Button } from "~/_components/Deresearcher/ui/button";
+import ProfileForm from "~/_components/final/Profile/ProfileForm";
+import { Button } from "~/_components/final/ui/button";
 import Link from "next/link";
 
 export default async function UpdateProfilePage() {

@@ -1,9 +1,9 @@
-import DashboardCard from "~/_components/Deresearcher/Dashboard/Card";
-import H3 from "~/_components/Deresearcher/H3";
-import Table from "~/_components/Deresearcher/Dashboard/Table";
+import DashboardCard from "~/_components/final/Dashboard/Card";
+import H3 from "~/_components/final/H3";
+import Table from "~/_components/final/Dashboard/Table";
 import { COLUMNS, PAPER_STATUS } from "~/lib/utils/constants";
 import papers from "~/constants/dummyPapers.json";
-import P from "~/_components/Deresearcher/P";
+import P from "~/_components/final/P";
 
 export default async function DashboardPage() {
   const latestPeerReviewingPapers =
