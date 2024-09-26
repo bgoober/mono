@@ -6,7 +6,7 @@ import { Paper } from "~/lib/validation";
 
 interface ResearchLayoutProps {
   title: string;
-  papers: Paper[];
+  papers: any[];
 }
 
 export default function ResearchPaperLayout({
