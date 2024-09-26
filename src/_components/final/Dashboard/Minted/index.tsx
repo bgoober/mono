@@ -23,7 +23,7 @@ export default function MintedComponent() {
         domains: paper.domains.join(", "),
         minted: paper.minted.length,
         status: paper.status,
-      })) || [];
+      })) ?? [];
 
   return (
     <>

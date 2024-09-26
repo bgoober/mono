@@ -31,19 +31,19 @@ const NavButton = React.memo(
     disabled: boolean;
   }) => (
     <div
-      className={`absolute ${direction}-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-40`}
+      className={`absolute ${direction}-0 top-1/2 z-40 -translate-y-1/2 transform opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
     >
       <button
         onClick={onClick}
         disabled={disabled}
-        className={`w-10 h-10 bg-zinc-400 hover:cursor-pointer hover:bg-zinc-500 ${
+        className={`h-10 w-10 bg-zinc-400 hover:cursor-pointer hover:bg-zinc-500 ${
           disabled ? "opacity-50 hover:cursor-not-allowed" : ""
         }`}
       >
         {direction === "left" ? (
-          <ChevronLeft className="w-4 h-4 ml-2 text-white" />
+          <ChevronLeft className="ml-2 h-4 w-4 text-white" />
         ) : (
-          <ChevronRight className="w-4 h-4 ml-2 text-white" />
+          <ChevronRight className="ml-2 h-4 w-4 text-white" />
         )}
       </button>
     </div>
@@ -88,7 +88,7 @@ export default function PDFViewComponent({ url }: PDFViewComponentProps) {
     (newPageNumber: number) => {
       const validatedPageNumber = Math.min(
         Math.max(1, newPageNumber),
-        numPages || 1,
+        numPages ?? 1,
       );
       setPageNumber(validatedPageNumber);
       setInputPageNumber(validatedPageNumber.toString());
@@ -196,20 +196,20 @@ export default function PDFViewComponent({ url }: PDFViewComponentProps) {
   );
 
   return (
-    <div className="relative flex flex-col items-center w-full h-full">
-      <div className="group relative w-full h-full" ref={containerRef}>
+    <div className="relative flex h-full w-full flex-col items-center">
+      <div className="group relative h-full w-full" ref={containerRef}>
         {/* Page navigation controls */}
-        <div className="flex items-center justify-start md:justify-center mt-2 ">
-          <P className="text-xs text-white mr-2">Page</P>
+        <div className="mt-2 flex items-center justify-start md:justify-center">
+          <P className="mr-2 text-xs text-white">Page</P>
           <Input
             type="text"
             value={inputPageNumber}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             onKeyDown={handleInputKeyDown}
-            className="w-10 text-center text-white bg-transparent border-white mr-2"
+            className="mr-2 w-10 border-white bg-transparent text-center text-white"
           />
-          <P className="text-xs text-white mr-2"> of {numPages}</P>
+          <P className="mr-2 text-xs text-white"> of {numPages}</P>
         </div>
         {/* Previous and Next page buttons */}
         <NavButton
@@ -220,10 +220,10 @@ export default function PDFViewComponent({ url }: PDFViewComponentProps) {
         <NavButton
           direction="right"
           onClick={nextPage}
-          disabled={pageNumber >= (numPages || 1)}
+          disabled={pageNumber >= (numPages ?? 1)}
         />
         {/* Zoom controls */}
-        <div className="absolute top-0 right-0 m-4 flex space-x-2">
+        <div className="absolute right-0 top-0 m-4 flex space-x-2">
           <Button
             onClick={zoomOut}
             variant="ghost"
@@ -245,7 +245,7 @@ export default function PDFViewComponent({ url }: PDFViewComponentProps) {
         </div>
         {/* PDF viewer container */}
         <div
-          className="mt-4 w-full h-full flex justify-center items-center overflow-hidden"
+          className="mt-4 flex h-full w-full items-center justify-center overflow-hidden"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -265,7 +265,7 @@ export default function PDFViewComponent({ url }: PDFViewComponentProps) {
               file={url}
               onLoadSuccess={onDocumentLoadSuccess}
               options={options}
-              className="w-full h-full"
+              className="h-full w-full"
               onItemClick={({ pageNumber }) => changePage(pageNumber)}
             >
               {/* This is where pre-rendering happens avoid flickering */}
@@ -275,7 +275,7 @@ export default function PDFViewComponent({ url }: PDFViewComponentProps) {
                   pageNumber={index + 1}
                   renderAnnotationLayer={false}
                   renderTextLayer={false}
-                  width={pageWidth || undefined}
+                  width={pageWidth ?? undefined}
                   className={index + 1 === pageNumber ? "" : "hidden"}
                 />
               ))}

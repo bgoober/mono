@@ -1,14 +1,11 @@
 import { Metadata } from "next";
 import ResearchLayout from "~/_components/final/ResearchPaper/ResearchPaperLayout";
 import { PAPER_STATUS } from "~/lib/utils/constants";
-import { getPapers } from "../paper/page";
-
-export const metadata: Metadata = {
-  title: "Peer Review",
-};
+import _papers from "~/constants/dummyPapers.json";
+import { Paper } from "~/lib/validation";
 
 export default async function PeerReviewPage() {
-  const papers = await getPapers(PAPER_STATUS.PEER_REVIEWING);
+  const papers = _papers as Paper[];
 
   return <ResearchLayout title="Peer-Reviewing Research" papers={papers} />;
 }

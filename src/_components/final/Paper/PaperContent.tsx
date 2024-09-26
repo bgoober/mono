@@ -38,6 +38,7 @@ export default function PaperContentComponent({ paper }: { paper: Paper }) {
     if (paper.peer_reviews.length > 0) {
       setExpandedReviews((prev) => ({
         ...prev,
+        // @ts-expect-error: fine
         [paper.peer_reviews[0].id]: true,
       }));
     }

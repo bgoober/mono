@@ -51,7 +51,7 @@ export default function CreatePaperForm() {
 
   const handlePDFUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    form.setValue("paperFile", file as File);
+    form.setValue("paperFile", file!);
   };
 
   const handleSubmit = async (values: PaperFormDataType) => {
@@ -176,7 +176,7 @@ export default function CreatePaperForm() {
                   </Button>
                   {field.value && (
                     <span className="truncate text-xs text-zinc-500">
-                      {(field.value as File).name}
+                      {field.value.name}
                     </span>
                   )}
                   <input

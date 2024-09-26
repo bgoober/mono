@@ -28,7 +28,7 @@ const gradients = [
 
 export const getGradientForPaper = (paperId: string): string => {
   const index = parseInt(paperId.slice(-1), 16) % gradients.length;
-  return gradients[index] || "linear-gradient(to bottom, #4318FF, #9574E2)";
+  return gradients[index] ?? "linear-gradient(to bottom, #4318FF, #9574E2)";
 };
 
 // Format large numbers with 'k' for thousands

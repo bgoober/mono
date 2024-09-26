@@ -1,6 +1,0 @@
-export * from './AddPeerReview'
-export * from './CheckAndAssignReputation'
-export * from './CreateResearchePaper'
-export * from './CreateResearcherProfile'
-export * from './MintResearchPaper'
-export * from './PublishPaper'

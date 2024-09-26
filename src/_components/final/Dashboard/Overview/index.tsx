@@ -15,7 +15,7 @@ export default function OverviewComponent() {
       createdDate: new Date(paper.created_at).toISOString().split("T")[0],
       domains: paper.domains.join(", "),
       status: paper.status,
-    })) || [];
+    })) ?? [];
 
   return (
     <>
