@@ -24,8 +24,10 @@ export default function PaperContentComponent({ paper }: { paper: Paper }) {
   const isMobile = screenSize === "sm" || screenSize === "md";
 
   useEffect(() => {
-    pdfjs.GlobalWorkerOptions.workerSrc =
-      "/_next/static/media/pdf.worker.min.74678c56.mjs";
+    pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+      "pdfjs-dist/build/pdf.worker.min.mjs",
+      import.meta.url,
+    ).toString();
   }, []);
 
   const [expandedReviews, setExpandedReviews] = useState<
