@@ -8,7 +8,7 @@ export const Listing:React.FC<{src?: string, title:string, details: string, publ
     const [viewDetails, setViewDetails] = useState(false)
     return(
         <>
-        <article onClick={() => {setViewDetails(true)}} className="my-4 p-3 flex items-center gap-3 hover:cursor-pointer hover:bg-slate-800">
+        <article onClick={() => {setViewDetails(true)}} className="my-4 p-3 flex items-center gap-3 hover:cursor-pointer hover:bg-slate-800 transition-all">
             <Image src={src??"/assets/solquest.svg"} alt="Publisher" width={45} height={45}/>
 
             <div className="flex flex-1 gap-5 justify-between">

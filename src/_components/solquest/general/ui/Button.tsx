@@ -11,7 +11,7 @@ export function Button({ children = "Button", type = 1, clickEvent }: props) {
   return (
     <button
       onClick={clickEvent}
-      className={`px-4 py-1 ${type == 1 ? "bg-secondary text-black hover:bg-white hover:text-secondary active:bg-secondary active:text-white" : "text-solquest bg-white hover:bg-slate-600 hover:text-white"} rounded-md transition-all`}
+      className={`px-4 py-1 border-2 text-sm tablet:text-base font-semibold ${type == 1 ? "bg-secondary border-transparent text-black hover:bg-white hover:text-secondary hover:border-secondary active:bg-secondary active:text-white" : "text-solquest border-slate-600 bg-white hover:bg-slate-600 hover:text-white"} rounded-md transition-all`}
     >
       {children}
     </button>
@@ -46,7 +46,7 @@ export const IconButton: FC<{
   return (
     <button
       onClick={handleClick}
-      className={`flex items-center justify-center p-1 ${type == 1 ? "bg-secondary text-white hover:bg-white hover:text-secondary active:bg-secondary active:text-white" : "bg-white text-primary hover:bg-slate-600 hover:text-white"} aspect-square w-[45px] rounded-md transition-all`}
+      className={`flex items-center justify-center p-1 border-2 border-transparent ${type == 1 ? "bg-secondary text-white hover:bg-white hover:text-secondary hover:border-secondary active:bg-secondary active:text-white" : "bg-white text-primary hover:bg-slate-600 hover:border-slate-600 hover:text-white"} aspect-square w-[45px] rounded-md transition-all`}
       title="icon"
     >
       {src && <Image src={src} alt={alt} />}

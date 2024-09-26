@@ -1,22 +1,25 @@
-import { H1 } from "~/_components/solquest/general/ui/H1";
+import H3 from "~/_components/final/H3";
 import Sidebar from "~/_components/solquest/sidebar/Sidebar";
 import Search from "./search";
-import { Button } from "~/_components/solquest/general/ui/Button";
+import { Button } from "~/_components/final/ui/button";
 import { Listing } from "~/_components/solquest/general/Listing";
 import bounties from "~/constants/bounty.json";
 import Link from "next/link";
 
 export default function Bounties() {
   return (
-    <main className="m-auto flex w-full max-w-7xl flex-1 flex-col px-5">
-      <Link href="/create" className="m-5">
-        <Button type={2}>Create Bounty</Button>
-      </Link>
-      <H1 margin="sm">Bounties</H1>
+    <main className="m-auto flex w-full flex-1 flex-col px-5 tablet:px-12">
+      <div className="flex justify-between items-center my-4">
+        <H3>Bounties</H3>
+        <Link href="/solquest/create" className="m-5">
+          <Button className="text-sm text-white">Create new bounty</Button>
+        </Link>
+      </div>
+      
       <section className="my-5 flex h-max flex-1 gap-3">
         <Sidebar />
+
         <div className="flex-1">
-          {/* <p>Featured Bounties</p> */}
           <Search />
 
           {bounties.map((bounty) => (
