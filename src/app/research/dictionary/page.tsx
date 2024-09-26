@@ -3,10 +3,11 @@ import { EntryContent } from "~/content/main/content";
 import { api } from "~/trpc/server";
 import { getServerAuthSession } from "~/server/auth";
 import NavBar from "~/_components/soldic/NavBar";
-
+import entriesJSON from "~/constants/entries.json";
+import { type Entry } from "~/server/api/routers/entry/read";
 async function Entries() {
   // table data
-  const entries = await api.entry.read();
+  const entries = entriesJSON as any as Entry[];
   const session = await getServerAuthSession();
 
   return (

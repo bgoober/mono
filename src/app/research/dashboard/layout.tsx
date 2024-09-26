@@ -5,26 +5,8 @@ import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
 import { UIProvider } from "~/_components/final/Providers/UIProvider";
 import Sidebar from "~/_components/final/Dashboard/Sidebar";
-import DashboardNavbar from "~/_components/final/Dashboard/Navbar";
 import Navbar, { NavLink } from "~/_components/final/Navbar";
-const navLinks: NavLink[] = [
-  {
-    name: "Home",
-    href: "/research/",
-  },
-  {
-    name: "Papers",
-    href: "/research/paper",
-  },
-  {
-    name: "Peer Review",
-    href: "/research/peer-review",
-  },
-  {
-    name: "Dashboard", // TODO: Protect route & state with auth
-    href: "/research/dashboard",
-  },
-];
+import { learnNavLinks } from "~/app/research/page";
 
 const inter = Inter({ subsets: ["latin"] });
 const arbutus = Arbutus({
@@ -58,7 +40,7 @@ export default function DashboardLayout({
           <div className="flex h-screen bg-zinc-100">
             <Sidebar />
             <div className="flex flex-1 flex-col overflow-y-auto">
-              <Navbar links={navLinks} />
+              <Navbar links={learnNavLinks} />
               <div className="flex-1 overflow-x-hidden bg-zinc-100">
                 <div className="container mx-auto px-6 py-8">{children}</div>
               </div>

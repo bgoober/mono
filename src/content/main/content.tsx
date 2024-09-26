@@ -15,47 +15,63 @@ import { cn, getContrastedHexColor } from "~/utils";
 import { type ExternalLink } from "~/types";
 import { useRouter } from "next/navigation";
 import { type Tag } from "~/server/api/routers/tag/read";
+import { Button } from "~/_components/final/ui/button";
+import { Input } from "~/_components/final/ui/input";
+import { Label } from "~/_components/final/ui/label";
+import { Textarea } from "~/_components/final/ui/textarea";
+import H1 from "~/_components/final/H1";
 
 const columns: ColumnDef<Entry>[] = [
   {
     accessorKey: "term",
     header: "Term",
     cell: ({ row }) => (
-      <div>{`${row.original.term} ${row.original.acronym ? `(${row.original.acronym})` : ""}`}</div>
+      <td key="term" className={`whitespace-nowrap`}>
+        <span className="whitespace-normal text-pretty break-words text-sm text-zinc-600">
+          {`${row.original.term} ${
+            row.original.acronym ? `(${row.original.acronym})` : ""
+          }`}
+        </span>
+      </td>
     ),
   },
   {
     accessorKey: "definition",
     header: "Definition",
-    cell: ({ row }) => <div>{row.getValue("definition")}</div>,
+    cell: ({ row }) => (
+      <td key="definition" className={`whitespace-nowrap`}>
+        <span className="whitespace-normal text-pretty break-words text-sm text-zinc-600">
+          {row.getValue("definition")}
+        </span>
+      </td>
+    ),
   },
   {
     accessorKey: "peerReviewCount",
     header: "Reviews",
     cell: ({ row }) => (
-      <div>
-        {
-          row.original.userEntries.filter((userEntry) => userEntry.hasReviewed)
-            .length
-        }
-      </div>
+      <td key="term" className={`whitespace-nowrap`}>
+        <span className="whitespace-normal text-pretty break-words text-sm text-zinc-600">
+          {
+            row.original.userEntries.filter(
+              (userEntry) => userEntry.hasReviewed,
+            ).length
+          }
+        </span>
+      </td>
     ),
   },
   {
     accessorKey: "tags",
     header: "Tags",
     cell: ({ row }) => (
-      <div className="flex gap-2">
+      <td key="term" className={`whitespace-nowrap`}>
         {row.original.tags.map((tag) => (
-          <div
-            key={tag.tag.id}
-            className="rounded-md border p-2"
-            style={{ borderColor: tag.tag.color }}
-          >
+          <span className="inline-flex rounded-full bg-secondary-foreground px-2 text-xs font-semibold leading-5 text-secondary">
             {tag.tag.name}
-          </div>
+          </span>
         ))}
-      </div>
+      </td>
     ),
   },
 ];
@@ -89,13 +105,13 @@ export function EntryModalStaticContent({ entry }: { entry: Entry }) {
       )}
       <div className="mt-4 flex gap-2">
         {entry.tags.map((tag) => (
-          <div
+          <span
             key={tag.tag.id}
-            className="rounded-md border border-black p-2"
+            className="inline-flex rounded-full bg-secondary-foreground px-2 text-xs font-semibold leading-5 text-secondary"
             style={{ borderColor: tag.tag.color }}
           >
             {tag.tag.name}
-          </div>
+          </span>
         ))}
       </div>
     </>
@@ -157,7 +173,7 @@ function EntryModalEditContent({
         key={entry.id}
       >
         {entry.term}{" "}
-        <button
+        <Button
           onClick={(e) => {
             e.preventDefault();
             setRelations([...relations, entry]);
@@ -165,7 +181,7 @@ function EntryModalEditContent({
           }}
         >
           Add
-        </button>
+        </Button>
       </div>
     );
   };
@@ -183,48 +199,64 @@ function EntryModalEditContent({
           relations: relations.map((relation) => relation.id),
         });
       }}
-      className="flex flex-col gap-2"
+      className="flex flex-col gap-6"
     >
-      <input
+      <Label>Term</Label>
+      <Input
         type="text"
         placeholder="Title"
         value={editingTerm}
         onChange={(e) => setEditingTerm(e.target.value)}
-        className="w-full rounded-md border border-solid border-black p-4 text-black"
+        className={cn(
+          "border-zinc-200 text-sm text-zinc-700",
+          "focus:border-primary focus:ring-2 focus:ring-primary",
+          "tracking-wide transition-all duration-200",
+        )}
       />
-      <label>
-        <input
+      <label className="flex items-center gap-2">
+        <Input
           type="checkbox"
+          className="flex w-fit"
           checked={hidden}
           onChange={(e) => setHidden(e.target.checked)}
         />
         Hidden
       </label>
-      <textarea
+      <Label>Short Definition</Label>
+      <Textarea
         placeholder="Definition"
         value={editingDefinition}
         onChange={(e) => setEditingDefinition(e.target.value)}
-        className="w-full rounded-md border border-solid border-black p-4 text-black"
+        className={cn(
+          "border-zinc-200 text-sm text-zinc-700",
+          "focus:border-primary focus:ring-2 focus:ring-primary",
+          "tracking-wide transition-all duration-200",
+        )}
       />
-      <textarea
+      <Label>Long Definition</Label>
+      <Textarea
         placeholder="Long Definition"
         value={editingLongDefinition}
         onChange={(e) => setEditingLongDefinition(e.target.value)}
-        className="w-full rounded-md border border-solid border-black p-4 text-black"
+        className={cn(
+          "border-zinc-200 text-sm text-zinc-700",
+          "focus:border-primary focus:ring-2 focus:ring-primary",
+          "tracking-wide transition-all duration-200",
+        )}
       />
       <div className="flex flex-col gap-2">
         Links
-        <button
+        <Button
           onClick={(e) => {
             e.preventDefault();
             setEditingLinks([...editingLinks, { url: "", title: "" }]);
           }}
         >
           Add Link
-        </button>
+        </Button>
         {editingLinks.map((link, index) => (
           <div key={index} className="flex flex-col gap-2">
-            <input
+            <Input
               type="text"
               placeholder="URL"
               value={link.url}
@@ -237,7 +269,7 @@ function EntryModalEditContent({
                 setEditingLinks(newLinks);
               }}
             />
-            <input
+            <Input
               type="text"
               placeholder="Title"
               value={link.title}
@@ -249,41 +281,42 @@ function EntryModalEditContent({
                 setEditingLinks(newLinks);
               }}
             />
-            <button
+            <Button
               onClick={(e) => {
                 e.preventDefault();
                 setEditingLinks(editingLinks.filter((_, i) => i !== index));
               }}
             >
               Remove
-            </button>
+            </Button>
           </div>
         ))}
       </div>
       <div className="flex flex-col gap-2">
         <h1>Tags</h1>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-row gap-2">
           {tags.map((tag, index) => (
-            <div
+            <span
               key={tag.id}
-              className="rounded-md border p-2"
+              className="inline-flex rounded-full bg-secondary-foreground px-2 text-xs font-semibold leading-5 text-secondary"
               style={{ borderColor: tag.color }}
             >
               {tag.name}
               <button
+                className="ml-2 rounded-full bg-red-600 px-2 text-white"
                 onClick={(e) => {
                   e.preventDefault();
                   setTags(tags.filter((_, i) => i !== index));
                 }}
               >
-                Remove
+                -
               </button>
-            </div>
+            </span>
           ))}
         </div>
         {tagSearchTerm &&
           !tagSearchResults?.some((tag) => tag.name === tagSearchTerm) && (
-            <button
+            <Button
               onClick={(e) => {
                 e.preventDefault();
                 createTag.mutate(
@@ -300,25 +333,28 @@ function EntryModalEditContent({
                 !tagSearchTerm ||
                 tagSearchResults?.some((tag) => tag.name === tagSearchTerm)
               }
-              className="rounded-md border border-black bg-white/20 px-10 py-3 font-semibold transition hover:bg-white/20"
             >
               Create Tag &quot;{tagSearchTerm}&quot;
-            </button>
+            </Button>
           )}
-        <input
+        <Input
           type="text"
           placeholder="Tag Search"
           value={tagSearchTerm}
           onChange={(e) => setTagSearchTerm(e.target.value)}
+          className={cn(
+            "border-zinc-200 text-sm text-zinc-700",
+            "focus:border-primary focus:ring-2 focus:ring-primary",
+            "tracking-wide transition-all duration-200",
+          )}
         />
         {tagSearchResults?.map((tag) => (
-          <div
-            className={cn("flex justify-between", `border-4 border-solid`)}
-            style={{ borderColor: tag.color }}
+          <span
+            className="inline-flex rounded-full bg-secondary-foreground px-2 text-xs font-semibold leading-5 text-secondary"
             key={tag.id}
           >
             {tag.name}{" "}
-            <button
+            <Button
               onClick={(e) => {
                 e.preventDefault();
                 setTags([...tags, tag as unknown as Tag]);
@@ -326,8 +362,8 @@ function EntryModalEditContent({
               }}
             >
               Add
-            </button>
-          </div>
+            </Button>
+          </span>
         ))}
       </div>
       <div className="flex flex-col gap-2">
@@ -336,7 +372,7 @@ function EntryModalEditContent({
           {relations.map((relation, index) => (
             <div
               key={relation.id}
-              className={cn("flex justify-between", `border-1 border-solid`)}
+              className="inline-flex rounded-full bg-secondary-foreground px-2 text-xs font-semibold leading-5 text-secondary"
             >
               {relation.term}
               <button
@@ -344,24 +380,30 @@ function EntryModalEditContent({
                   e.preventDefault();
                   setRelations(relations.filter((_, i) => i !== index));
                 }}
+                className="ml-2 rounded-full bg-red-600 px-2 text-white"
               >
-                Remove
+                -
               </button>
             </div>
           ))}
         </div>
-        <input
+        <Input
           type="text"
           placeholder="Search Related Terms"
           value={entrySearchTerm}
           onChange={(e) => setEntrySearchTerm(e.target.value)}
+          className={cn(
+            "border-zinc-200 text-sm text-zinc-700",
+            "focus:border-primary focus:ring-2 focus:ring-primary",
+            "tracking-wide transition-all duration-200",
+          )}
         />
         {/* @ts-expect-error: This error is irrelevant and wrong */}
         {entrySearchResults?.map((entry) => createEntryComponent(entry))}
       </div>
-      <button
+      <Button
         type="submit"
-        className="rounded-md border border-black bg-white/20 px-10 py-3 font-semibold transition hover:bg-white/20"
+        className="bg-green-500"
         disabled={
           createEntryRevision.isPending ||
           !editingTerm ||
@@ -370,7 +412,7 @@ function EntryModalEditContent({
         }
       >
         {createEntryRevision.isPending ? "Submitting..." : "Submit"}
-      </button>
+      </Button>
     </form>
   );
 }
@@ -401,13 +443,13 @@ function EntryModal({
       )}
       {session?.user?.isVerified && (
         <div className="mt-4 flex gap-2">
-          <button
+          <Button
             className="rounded-md border border-black p-2"
             onClick={() => setEditing(!editing)}
           >
             {editing ? "Cancel" : "Edit"}
-          </button>
-          <button
+          </Button>
+          <Button
             className={cn(
               "rounded-md border p-2",
               userHasPeerReviewed ? "border-red-500" : "border-green-500",
@@ -420,7 +462,7 @@ function EntryModal({
             }}
           >
             {userHasPeerReviewed ? "Revoke Review" : "Add Review"}
-          </button>
+          </Button>
         </div>
       )}
     </Modal>
@@ -441,7 +483,7 @@ function VerificationRequestModal({
       <p className="mb-4">
         Please explain your qualifications/expertise in Solana
       </p>
-      <input
+      <Input
         type="text"
         placeholder="Details"
         value={details}
@@ -449,7 +491,7 @@ function VerificationRequestModal({
         className="mb-4 w-full rounded-md border border-solid border-black p-4 text-black"
       />
       <div className="mt-4 flex gap-2">
-        <button
+        <Button
           className={cn("rounded-md border p-2", "border-green-500")}
           onClick={() => {
             createVerificationRequest.mutate({
@@ -458,7 +500,7 @@ function VerificationRequestModal({
           }}
         >
           Submit
-        </button>
+        </Button>
       </div>
     </Modal>
   );
@@ -490,9 +532,10 @@ function EntryContent({
 
   return (
     <div className={styles.content}>
+      <H1>Solana Dictionary</H1>
       <div className={styles.innerContent}>
         <div className="mb-4 flex gap-2">
-          <input
+          <Input
             type="text"
             placeholder="Search"
             value={searchTerm}
@@ -505,7 +548,7 @@ function EntryContent({
               onMouseLeave={() => setRequestButtonHovered(false)}
               className="relative flex flex-grow"
             >
-              <button
+              <Button
                 onClick={() =>
                   createNewEntryRequest.mutate({
                     term: searchTerm,
@@ -519,7 +562,7 @@ function EntryContent({
                 )}
               >
                 + Request Definition
-              </button>
+              </Button>
               {requestButtonHovered && !session?.user && (
                 <p className="absolute left-0 top-16 flex w-[100%] items-center justify-center rounded-md border border-red-500 bg-white p-2 text-lg text-red-500">
                   Please log in first
@@ -530,31 +573,25 @@ function EntryContent({
         </div>
         {session?.user && (
           <div className="mb-4 flex items-center gap-2">
-            <button
-              onClick={() => setShowCreateEntryModal(true)}
-              className="rounded-md border border-green-500 p-2"
-            >
+            <Button onClick={() => setShowCreateEntryModal(true)}>
               + Create New Entry
-            </button>
-            {!session.user.isVerified &&
-              !session.user.hasFailedVerification && (
-                <button
-                  onClick={() => setShowVerifyModal(true)}
-                  className="ml-2 rounded-md border border-black p-2"
-                >
-                  Request Verification
-                </button>
-              )}
-            {session.user && (
+            </Button>
+            {!session?.user?.isVerified && (
+              <Button onClick={() => setShowVerifyModal(true)}>
+                Request Verification
+              </Button>
+            )}
+            {
               <label className="ml-2 flex items-center gap-2">
-                <input
+                <Input
                   type="checkbox"
                   checked={showOnlyHidden}
                   onChange={(e) => setShowOnlyHidden(e.target.checked)}
+                  className="w-fit"
                 />
                 Show Hidden
               </label>
-            )}
+            }
           </div>
         )}
 

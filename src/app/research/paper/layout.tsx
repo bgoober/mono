@@ -4,24 +4,7 @@ import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
 import { UIProvider } from "~/_components/final/Providers/UIProvider";
 import Navbar, { NavLink } from "~/_components/final/Navbar";
-const navLinks: NavLink[] = [
-  {
-    name: "Home",
-    href: "/research/",
-  },
-  {
-    name: "Papers",
-    href: "/research/paper",
-  },
-  {
-    name: "Peer Review",
-    href: "/research/peer-review",
-  },
-  {
-    name: "Dashboard", // TODO: Protect route & state with auth
-    href: "/research/dashboard",
-  },
-];
+import { learnNavLinks } from "~/app/research/page";
 
 const inter = Inter({ subsets: ["latin"] });
 const arbutus = Arbutus({
@@ -52,7 +35,7 @@ export default function RootLayout({
     <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
       <body className={`${inter.className} min-w-[350px]`}>
         <UIProvider>
-          <Navbar links={navLinks} />
+          <Navbar links={learnNavLinks} />
           {children}
         </UIProvider>
       </body>

@@ -1,20 +1,20 @@
 import styles from "~/styles/table.module.css";
-import { EntryContent } from "~/content/main/content";
+import { VerifyContent } from "~/content/verify";
 import { api } from "~/trpc/server";
 import { getServerAuthSession } from "~/server/auth";
 import NavBar from "~/_components/soldic/NavBar";
 
-async function Entries() {
+async function Verify() {
   // table data
-  const entries = await api.entry.read();
+  const verificationRequests = await api.verificationRequest.read();
   const session = await getServerAuthSession();
 
   return (
     <div className={styles.main}>
-      {/* <NavBar session={session} /> */}
-      <EntryContent entries={entries} session={session} />
+      <NavBar session={session} />
+      <VerifyContent verificationRequests={verificationRequests} />
     </div>
   );
 }
 
-export default Entries;
+export default Verify;

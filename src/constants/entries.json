@@ -1,0 +1,2767 @@
+[
+    {
+        "id": "clz79uv3v001fgwhzfrc9fcq9",
+        "term": "Account",
+        "definition": "On Solana, all data is stored in what are referred to as 'accounts'. The way data is organized on Solana resembles a key-value store, where each entry in the database is called an 'account'.",
+        "links": [],
+        "longDefinition": "On Solana, all data is stored in what are referred to as 'accounts'. The way data is organized on Solana resembles a key-value store, where each entry in the database is called an 'account'.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.025Z",
+        "updatedAt": "2024-07-29T17:37:27.025Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uvcm001ogwhztcyufedy",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uv3v001fgwhzfrc9fcq9",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.862Z",
+                "updatedAt": "2024-07-29T17:37:27.862Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fh8004ygwhzihou61y2",
+        "term": "AccountsDB",
+        "definition": "Within a Solana validator, the global state is maintained in the accounts database known as accountsDB. This database is responsible for storing all accounts, both in memory and on disk. The primary data structure in the account index is a hashmap, making accountsDB essentially a vast key-value store. Here, the key is the account address, and the value is the account data.",
+        "links": [],
+        "longDefinition": "Within a Solana validator, the global state is maintained in the accounts database known as accountsDB. This database is responsible for storing all accounts, both in memory and on disk. The primary data structure in the account index is a hashmap, making accountsDB essentially a vast key-value store. Here, the key is the account address, and the value is the account data.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.445Z",
+        "updatedAt": "2024-07-29T17:45:40.445Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fpt0057gwhz83kjjq5c",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fh8004ygwhzihou61y2",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.817Z",
+                "updatedAt": "2024-07-29T17:45:40.817Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clzsz4mkm0005xczu4qthfhw2",
+        "term": "Action",
+        "definition": "API for returning Solana Transactions to a user",
+        "links": [],
+        "longDefinition": "Specification-compliant APIs that return transactions on the Solana blockchain to be previewed, signed, and sent across a number of various contexts, including QR codes, buttons + widgets, and websites across the internet.",
+        "acronym": null,
+        "createdAt": "2024-08-13T22:08:03.142Z",
+        "updatedAt": "2024-08-13T22:08:03.142Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clzsz4mlb0007xczuasj5y5l5",
+                "userId": "clzsyxcme0000xczuqrrpf7z1",
+                "entryId": "clzsz4mkm0005xczu4qthfhw2",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-08-13T22:08:03.168Z",
+                "updatedAt": "2024-08-13T22:08:03.168Z",
+                "user": {
+                    "id": "clzsyxcme0000xczuqrrpf7z1",
+                    "name": "Aadil Ahmed",
+                    "email": "adlonymous@gmail.com",
+                    "emailVerified": null,
+                    "isVerified": false,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocI-75o6qI3ioM_MTXGa0g6I8t3H1f7fWtzdmtYDQgfCw9ixLdyC=s96-c",
+                    "isAdmin": false,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5ffg004tgwhzv1zleam3",
+        "term": "Arbitrage",
+        "definition": "The practice of taking advantage of a difference in prices in two or more markets by simultaneously buying and selling an asset to capitalize on the price discrepancy, resulting in a profit. This strategy involves buying an asset at a lower price in one market and selling it at a higher price in another market, exploiting the price difference to generate a profit.",
+        "links": [],
+        "longDefinition": "The practice of taking advantage of a difference in prices in two or more markets by simultaneously buying and selling an asset to capitalize on the price discrepancy, resulting in a profit. This strategy involves buying an asset at a lower price in one market and selling it at a higher price in another market, exploiting the price difference to generate a profit.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.444Z",
+        "updatedAt": "2024-07-29T17:45:40.444Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fo20055gwhzt734q3mu",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5ffg004tgwhzv1zleam3",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": true,
+                "createdAt": "2024-07-29T17:45:40.754Z",
+                "updatedAt": "2024-08-07T17:39:15.262Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clxoxuvnn0000mmccf1bgnvm5",
+        "term": "Banking Stage",
+        "definition": "This is the stage where transactions are either forwarded or processed.",
+        "links": [
+            {
+                "url": "https://github.com/solana-labs/solana/blob/master/core/src/banking_stage.rs",
+                "title": "Banking Stage Source Code"
+            }
+        ],
+        "longDefinition": "The bank stage will do one of two things depending on whether or not the validator is the leader. If it is the leader, then the transactions are processed, and those that do not fail are committed to the bank. If the validator is not the leader, then it will forward packets to the leader. ",
+        "acronym": null,
+        "createdAt": "2024-06-21T17:01:59.363Z",
+        "updatedAt": "2024-06-25T17:59:10.475Z",
+        "currentVersionId": "clxupntii0002m3mptfgr6jxw",
+        "userEntries": [
+            {
+                "id": "clxoxuvr00002mmcckxi36dkb",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clxoxuvnn0000mmccf1bgnvm5",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": true,
+                "hasReviewed": false,
+                "createdAt": "2024-06-21T17:01:59.485Z",
+                "updatedAt": "2024-06-25T17:59:10.241Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [
+            {
+                "entryId": "clxoxuvnn0000mmccf1bgnvm5",
+                "tagId": "clxupnn7c0000m3mpjswsi1cj",
+                "createdAt": "2024-06-25T17:59:10.706Z",
+                "updatedAt": "2024-06-25T17:59:10.706Z",
+                "tag": {
+                    "id": "clxupnn7c0000m3mpjswsi1cj",
+                    "name": "Transaction Journey",
+                    "color": "#7a2343",
+                    "createdAt": "2024-06-25T17:59:01.944Z",
+                    "updatedAt": "2024-06-25T17:59:01.944Z"
+                }
+            }
+        ],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l700045gwhzqli6trgs",
+        "term": "Banking stage",
+        "definition": "In the banking stage, transactions are processed, and their results are saved to the bank. You can think of this stage as when the block is being built.",
+        "links": [],
+        "longDefinition": "In the banking stage, transactions are processed, and their results are saved to the bank. You can think of this stage as when the block is being built.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.529Z",
+        "updatedAt": "2024-07-29T17:44:14.529Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lfv004mgwhzdws43kap",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l700045gwhzqli6trgs",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.923Z",
+                "updatedAt": "2024-07-29T17:44:14.923Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08rp0027gwhzru5jkli4",
+        "term": "Base fee",
+        "definition": "The flat fee required when submitting a transaction.",
+        "links": [],
+        "longDefinition": "The flat fee required when submitting a transaction.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a090i002xgwhz3yyiprmm",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08rp0027gwhzru5jkli4",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.851Z",
+                "updatedAt": "2024-07-29T17:41:38.851Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79qils0006gwhzjx5jmxmt",
+        "term": "Block",
+        "definition": "This is the 'block' in 'blockchain'. Each block represents the state of the blockchain after a number of transactions are processed.",
+        "links": [],
+        "longDefinition": "This is the 'block' in 'blockchain'. Each block represents the state of the blockchain after a number of transactions are processed.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:34:04.220Z",
+        "updatedAt": "2024-07-29T17:34:04.220Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79qiuk000dgwhzr85opnvb",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79qils0006gwhzjx5jmxmt",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:34:05.037Z",
+                "updatedAt": "2024-07-29T17:34:05.037Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l700046gwhzea7q2q3w",
+        "term": "Block building",
+        "definition": "The lead validator will 'build blocks' as it is processing transactions. These blocks are confirmed and added to the chain around every 400ms.",
+        "links": [],
+        "longDefinition": "The lead validator will 'build blocks' as it is processing transactions. These blocks are confirmed and added to the chain around every 400ms.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.529Z",
+        "updatedAt": "2024-07-29T17:44:14.529Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lfx004qgwhznqsmmrwp",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l700046gwhzea7q2q3w",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.925Z",
+                "updatedAt": "2024-07-29T17:44:14.925Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fha0051gwhzrdk2gmok",
+        "term": "Block producer",
+        "definition": "Another term for referring to the current leader validator.",
+        "links": [],
+        "longDefinition": "Another term for referring to the current leader validator.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.445Z",
+        "updatedAt": "2024-07-29T17:45:40.445Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fpw0059gwhz42stcbwy",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fha0051gwhzrdk2gmok",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.821Z",
+                "updatedAt": "2024-07-29T17:45:40.821Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79qilt0009gwhz48o4179l",
+        "term": "Block time",
+        "definition": "The time it takes to produce a block. On Solana, this takes about 400ms.",
+        "links": [],
+        "longDefinition": "The time it takes to produce a block. On Solana, this takes about 400ms.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:34:04.221Z",
+        "updatedAt": "2024-07-29T17:34:04.221Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79qiuq000hgwhz5cdt95ee",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79qilt0009gwhz48o4179l",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:34:05.043Z",
+                "updatedAt": "2024-07-29T17:34:05.043Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clxwcyq350000fyff0xx6awmn",
+        "term": "Blockchain",
+        "definition": "A blockchain is a distributed ledger with growing lists of records (blocks) that are securely linked together via cryptographic hashes",
+        "links": [],
+        "longDefinition": "A blockchain is a distributed ledger with growing lists of records (blocks) that are securely linked together via cryptographic hashes. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree, where data nodes are represented by leaves).\n\nIn simpler terms, a blockchain is a secure database shared across a network of participants, where up-to-date information is available to all participants at the same time. It is a decentralized, distributed, and public digital ledger that records transactions across many computers, making it impossible to alter retroactively without the alteration of all subsequent blocks and the consensus of the network",
+        "acronym": null,
+        "createdAt": "2024-06-26T21:39:16.240Z",
+        "updatedAt": "2024-06-26T21:39:16.240Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clxwcyqcx0002fyffz75lqfag",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clxwcyq350000fyff0xx6awmn",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-06-26T21:39:16.593Z",
+                "updatedAt": "2024-06-26T21:39:16.593Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clxwosr5r00008h5kieplyqxx",
+        "term": "Blockchain Links",
+        "definition": "A type of Solana Action that allows you to turn a transaction into a shareable link. ",
+        "links": [],
+        "longDefinition": "Leo do this",
+        "acronym": "Blinks",
+        "createdAt": "2024-06-27T03:10:33.087Z",
+        "updatedAt": "2024-06-27T03:10:33.087Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clxwosr7b00028h5k9ahn3s6x",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clxwosr5r00008h5kieplyqxx",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-06-27T03:10:33.144Z",
+                "updatedAt": "2024-06-27T03:10:33.144Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uv3v001hgwhzu1pj6r98",
+        "term": "Blockhash",
+        "definition": "A 'blockhash' refers to the last Proof of History (PoH) hash for a 'slot'. Since Solana uses PoH as a trusted clock, a transaction’s recent blockhash can be thought of as a timestamp.",
+        "links": [],
+        "longDefinition": "A 'blockhash' refers to the last Proof of History (PoH) hash for a 'slot'. Since Solana uses PoH as a trusted clock, a transaction’s recent blockhash can be thought of as a timestamp.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.026Z",
+        "updatedAt": "2024-07-29T17:37:27.026Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uvcv001ygwhzp4ptfihr",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uv3v001hgwhzu1pj6r98",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.871Z",
+                "updatedAt": "2024-07-29T17:37:27.871Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fhb0053gwhzjcttwsbb",
+        "term": "Blockspace",
+        "definition": "Blockspace is exactly what it sounds like. It is space on the blockchain that can be used to store information and run code. Critically, it differs from traditional computing space because the hardware is subordinate to the software, the blockchain code.",
+        "links": [],
+        "longDefinition": "Blockspace is exactly what it sounds like. It is space on the blockchain that can be used to store information and run code. Critically, it differs from traditional computing space because the hardware is subordinate to the software, the blockchain code.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.445Z",
+        "updatedAt": "2024-07-29T17:45:40.445Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fpw005bgwhz0mu2097u",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fhb0053gwhzjcttwsbb",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.821Z",
+                "updatedAt": "2024-07-29T17:45:40.821Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08rp002cgwhzfxbpvyjd",
+        "term": "Byte",
+        "definition": "8 bits, which is the smallest computation unit. A bit is either 0 or 1, and a byte is 8 0’s or 1’s in a row. This allows a byte to represent 256 different values.",
+        "links": [],
+        "longDefinition": "8 bits, which is the smallest computation unit. A bit is either 0 or 1, and a byte is 8 0’s or 1’s in a row. This allows a byte to represent 256 different values.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a090n0033gwhzthdhwsrn",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08rp002cgwhzfxbpvyjd",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.856Z",
+                "updatedAt": "2024-07-29T17:41:38.856Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08r30022gwhzhberec1g",
+        "term": "CPU",
+        "definition": "The central processing unit (CPU) can be described as the brain of a computer. It is responsible for running the machine’s operating system and applications.",
+        "links": [],
+        "longDefinition": "The central processing unit (CPU) can be described as the brain of a computer. It is responsible for running the machine’s operating system and applications.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.449Z",
+        "updatedAt": "2024-07-29T17:41:38.449Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a08zr002pgwhzjix0ta8p",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08r30022gwhzhberec1g",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.823Z",
+                "updatedAt": "2024-07-29T17:41:38.823Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fh6004wgwhz582s6k0s",
+        "term": "Cluster",
+        "definition": "A Solana cluster is a set of validators working together to serve client transactions and maintain the integrity of the ledger.",
+        "links": [],
+        "longDefinition": "A Solana cluster is a set of validators working together to serve client transactions and maintain the integrity of the ledger.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.445Z",
+        "updatedAt": "2024-07-29T17:45:40.445Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fqy005lgwhzofnnq6h7",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fh6004wgwhz582s6k0s",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.858Z",
+                "updatedAt": "2024-07-29T17:45:40.858Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79qilr0005gwhztvvpzylt",
+        "term": "Composability",
+        "definition": "The concept of composability when applied to Solana means making programs that can be used by another program. This is meant to reduce the amount of duplication of work when writing programs.",
+        "links": [],
+        "longDefinition": "The concept of composability when applied to Solana means making programs that can be used by another program. This is meant to reduce the amount of duplication of work when writing programs.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:34:04.221Z",
+        "updatedAt": "2024-07-29T17:34:04.221Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79qius000lgwhz7pqqagg5",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79qilr0005gwhztvvpzylt",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:34:05.044Z",
+                "updatedAt": "2024-07-29T17:34:05.044Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08rp0029gwhzlppa0koe",
+        "term": "Compute units",
+        "definition": "Compute units are the unit of measurement for determining how many resources a transaction will need. The more compute units a transaction needs, the more expensive it is.",
+        "links": [],
+        "longDefinition": "Compute units are the unit of measurement for determining how many resources a transaction will need. The more compute units a transaction needs, the more expensive it is.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a090n0035gwhzia1x48xq",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08rp0029gwhzlppa0koe",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.856Z",
+                "updatedAt": "2024-07-29T17:41:38.856Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clxwd03c80003fyffcmgop5i5",
+        "term": "Crypto",
+        "definition": "Short for cryptocurrency. Often used to refer to the general society involved in cryptocurrencies. ",
+        "links": [],
+        "longDefinition": "A long defintion",
+        "acronym": null,
+        "createdAt": "2024-06-26T21:40:20.072Z",
+        "updatedAt": "2024-06-26T21:40:20.072Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clxwd03io0005fyff0hl7n3pc",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clxwd03c80003fyffcmgop5i5",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-06-26T21:40:20.304Z",
+                "updatedAt": "2024-06-26T21:40:20.304Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uur3000sgwhziidwowha",
+        "term": "Cryptography",
+        "definition": "Cryptography is the process of hiding or coding information so that only the person a message was intended for can read it.",
+        "links": [],
+        "longDefinition": "Cryptography is the process of hiding or coding information so that only the person a message was intended for can read it.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.024Z",
+        "updatedAt": "2024-07-29T17:37:27.024Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uv010016gwhz6nr7y8x4",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uur3000sgwhziidwowha",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.409Z",
+                "updatedAt": "2024-07-29T17:37:27.409Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79qi7v0002gwhzd6dqlkst",
+        "term": "Decentralized network",
+        "definition": "A decentralized network is a configuration where multiple authorities or nodes, rather than a single central entity, manage and maintain the network. In a decentralized network, each node or authority has autonomy and equal status, with no single point of control or failure. This architecture distributes resources, processing power, and data storage across multiple devices or locations, making it more resilient and less vulnerable to single-point failures or centralized control.",
+        "links": [],
+        "longDefinition": "A decentralized network is a configuration where multiple authorities or nodes, rather than a single central entity, manage and maintain the network. In a decentralized network, each node or authority has autonomy and equal status, with no single point of control or failure. This architecture distributes resources, processing power, and data storage across multiple devices or locations, making it more resilient and less vulnerable to single-point failures or centralized control.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:34:04.220Z",
+        "updatedAt": "2024-07-29T17:34:04.220Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79qigr0004gwhzzmh8wvlf",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79qi7v0002gwhzd6dqlkst",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:34:04.539Z",
+                "updatedAt": "2024-07-29T17:34:04.539Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08rp002bgwhzo4vuh3yp",
+        "term": "Distributed systems",
+        "definition": "A distributed system is a collection of independent components, typically computer nodes or processes, that communicate and coordinate with each other to achieve a common goal. These components are physically separate, connected through a network, and work together to share resources, exchange data, and perform tasks.",
+        "links": [],
+        "longDefinition": "A distributed system is a collection of independent components, typically computer nodes or processes, that communicate and coordinate with each other to achieve a common goal. These components are physically separate, connected through a network, and work together to share resources, exchange data, and perform tasks.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a090i002vgwhz59uii950",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08rp002bgwhzo4vuh3yp",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.850Z",
+                "updatedAt": "2024-07-29T17:41:38.850Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uv3v001egwhzruhl1cbg",
+        "term": "Ed25519",
+        "definition": "Ed25519 is the specific elliptic curve used in the EdDSA signature scheme.",
+        "links": [],
+        "longDefinition": "Ed25519 is the specific elliptic curve used in the EdDSA signature scheme.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.025Z",
+        "updatedAt": "2024-07-29T17:37:27.025Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uvcr001sgwhzfu1f4mgx",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uv3v001egwhzruhl1cbg",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.867Z",
+                "updatedAt": "2024-07-29T17:37:27.867Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uv3v001igwhzk6l4wex5",
+        "term": "Elliptic curve",
+        "definition": "Elliptic-curve cryptography (ECC) is an approach to public-key cryptography based on the algebraic structure of elliptic curves over finite fields. ECC allows smaller keys to provide equivalent security, compared to cryptosystems based on modular exponentiation in Galois fields, such as the RSA cryptosystem and ElGamal cryptosystem.",
+        "links": [],
+        "longDefinition": "Elliptic-curve cryptography (ECC) is an approach to public-key cryptography based on the algebraic structure of elliptic curves over finite fields. ECC allows smaller keys to provide equivalent security, compared to cryptosystems based on modular exponentiation in Galois fields, such as the RSA cryptosystem and ElGamal cryptosystem.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.025Z",
+        "updatedAt": "2024-07-29T17:37:27.025Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uvcu001wgwhzonnxdz72",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uv3v001igwhzk6l4wex5",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.871Z",
+                "updatedAt": "2024-07-29T17:37:27.871Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l6x0042gwhzatacfl91",
+        "term": "Fetch stage",
+        "definition": "In the fetch stage, transactions are received by the leader from other validators, and sent to the sigverify stage.",
+        "links": [],
+        "longDefinition": "In the fetch stage, transactions are received by the leader from other validators, and sent to the sigverify stage.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.529Z",
+        "updatedAt": "2024-07-29T17:44:14.529Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lfr004igwhzp1cy5fmf",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l6x0042gwhzatacfl91",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.919Z",
+                "updatedAt": "2024-07-29T17:44:14.919Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l6m003zgwhzojcvu57f",
+        "term": "GPU",
+        "definition": "The Graphics Processing Unit (GPU) is a specialized electronic circuit designed to perform mathematical calculations at high speed, primarily for digital image processing and accelerating computer graphics. It is typically present as a discrete video card or embedded on motherboards, mobile phones, personal computers, workstations, and game consoles.",
+        "links": [],
+        "longDefinition": "The Graphics Processing Unit (GPU) is a specialized electronic circuit designed to perform mathematical calculations at high speed, primarily for digital image processing and accelerating computer graphics. It is typically present as a discrete video card or embedded on motherboards, mobile phones, personal computers, workstations, and game consoles.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.529Z",
+        "updatedAt": "2024-07-29T17:44:14.529Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lf6004egwhz090bkx59",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l6m003zgwhzojcvu57f",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.899Z",
+                "updatedAt": "2024-07-29T17:44:14.899Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l6w0041gwhz6qphk9hu",
+        "term": "Hashing",
+        "definition": "SHA-256 is a cryptographic hash function that generates a 256-bit (32-byte) digital fingerprint, or 'digest,' from variable-length input data. It is a one-way function, meaning it is computationally infeasible to recreate the original input data from the generated hash.",
+        "links": [],
+        "longDefinition": "SHA-256 is a cryptographic hash function that generates a 256-bit (32-byte) digital fingerprint, or 'digest,' from variable-length input data. It is a one-way function, meaning it is computationally infeasible to recreate the original input data from the generated hash.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.528Z",
+        "updatedAt": "2024-07-29T17:44:14.528Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lfs004kgwhzlcuf4kfr",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l6w0041gwhz6qphk9hu",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.921Z",
+                "updatedAt": "2024-07-29T17:44:14.921Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l6o0040gwhz5gs25dro",
+        "term": "Hashmap",
+        "definition": "A HashMap is a data structure that stores key-value pairs, allowing for efficient lookup and retrieval of values based on their associated keys.",
+        "links": [],
+        "longDefinition": "A HashMap is a data structure that stores key-value pairs, allowing for efficient lookup and retrieval of values based on their associated keys.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.529Z",
+        "updatedAt": "2024-07-29T17:44:14.529Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lfm004ggwhzmiw74bfo",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l6o0040gwhz5gs25dro",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.915Z",
+                "updatedAt": "2024-07-29T17:44:14.915Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08rq002dgwhzgd452qmr",
+        "term": "Header",
+        "definition": "The message header specifies the privileges of accounts included in the transaction's account address array. It is comprised of three bytes, each containing a u8 integer, which collectively specify: The number of required signatures for the transaction. The number of read-only account addresses that require signatures. The number of read-only account addresses that do not require signatures.",
+        "links": [],
+        "longDefinition": "The message header specifies the privileges of accounts included in the transaction's account address array. It is comprised of three bytes, each containing a u8 integer, which collectively specify: The number of required signatures for the transaction. The number of read-only account addresses that require signatures. The number of read-only account addresses that do not require signatures.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.447Z",
+        "updatedAt": "2024-07-29T17:41:38.447Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a090n0031gwhzhb0qobhx",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08rq002dgwhzgd452qmr",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.855Z",
+                "updatedAt": "2024-07-29T17:41:38.855Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uv3t001cgwhzpwo9erk3",
+        "term": "Instruction",
+        "definition": "An instruction is a request to process a specific action on-chain and is the smallest contiguous unit of execution logic in a program. When building an instruction to add to a transaction, each instruction must include the following information: Program address: Specifies the program being invoked. Accounts: Lists every account the instruction reads from or writes to, including other programs, using the AccountMeta struct. Instruction Data: A byte array that specifies which instruction handler on the program to invoke, plus any additional data required by the instruction handler (function arguments).",
+        "links": [],
+        "longDefinition": "An instruction is a request to process a specific action on-chain and is the smallest contiguous unit of execution logic in a program. When building an instruction to add to a transaction, each instruction must include the following information: Program address: Specifies the program being invoked. Accounts: Lists every account the instruction reads from or writes to, including other programs, using the AccountMeta struct. Instruction Data: A byte array that specifies which instruction handler on the program to invoke, plus any additional data required by the instruction handler (function arguments).",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.026Z",
+        "updatedAt": "2024-07-29T17:37:27.026Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uvcm001qgwhzb87p3n01",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uv3t001cgwhzpwo9erk3",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.863Z",
+                "updatedAt": "2024-07-29T17:37:27.863Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uur3000vgwhztz6tyosi",
+        "term": "Keypair",
+        "definition": "A keypair has both a private and public key. The private key can be thought of as a password, and the public key is derived from the private key in such a way that the private key is not exposed. The public key is guaranteed to be unique.",
+        "links": [],
+        "longDefinition": "A keypair has both a private and public key. The private key can be thought of as a password, and the public key is derived from the private key in such a way that the private key is not exposed. The public key is guaranteed to be unique.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.025Z",
+        "updatedAt": "2024-07-29T17:37:27.025Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uv0a001agwhzybhhoy5c",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uur3000vgwhztz6tyosi",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.418Z",
+                "updatedAt": "2024-07-29T17:37:27.418Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08rp0028gwhz01fcu3r4",
+        "term": "Lamport",
+        "definition": "The base unit for Solana. One SOL consists of 1,000,000,000 lamports.",
+        "links": [],
+        "longDefinition": "The base unit for Solana. One SOL consists of 1,000,000,000 lamports.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a090o0037gwhztidg0woh",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08rp0028gwhz01fcu3r4",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.856Z",
+                "updatedAt": "2024-07-29T17:41:38.856Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uur3000ugwhz285jzicb",
+        "term": "Lead validator (leader)",
+        "definition": "The Solana validator that is currently processing transactions and producing blocks.",
+        "links": [],
+        "longDefinition": "The Solana validator that is currently processing transactions and producing blocks.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.024Z",
+        "updatedAt": "2024-07-29T17:37:27.024Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uv000012gwhzy7s5x6dg",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uur3000ugwhz285jzicb",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.408Z",
+                "updatedAt": "2024-07-29T17:37:27.408Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08r30024gwhzwln3ik2r",
+        "term": "Ledger",
+        "definition": "Traditionally, a ledger is a book that contains a list of monetary transactions for a business. The same is true for Solana, but this ledger is stored on-chain.",
+        "links": [],
+        "longDefinition": "Traditionally, a ledger is a book that contains a list of monetary transactions for a business. The same is true for Solana, but this ledger is stored on-chain.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.449Z",
+        "updatedAt": "2024-07-29T17:41:38.449Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a08zr002rgwhz379icf6n",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08r30024gwhzwln3ik2r",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.823Z",
+                "updatedAt": "2024-07-29T17:41:38.823Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08r40025gwhzjc1mcgmq",
+        "term": "Lock",
+        "definition": "In computer science, a lock or mutex (from mutual exclusion) is a synchronization primitive that prevents state from being modified or accessed by multiple threads of execution at once. Locks enforce mutual exclusion concurrency control policies, and with a variety of possible methods there exist multiple unique implementations for different applications.",
+        "links": [],
+        "longDefinition": "In computer science, a lock or mutex (from mutual exclusion) is a synchronization primitive that prevents state from being modified or accessed by multiple threads of execution at once. Locks enforce mutual exclusion concurrency control policies, and with a variety of possible methods there exist multiple unique implementations for different applications.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.449Z",
+        "updatedAt": "2024-07-29T17:41:38.449Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a08zt002tgwhz6goec7qw",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08r40025gwhzjc1mcgmq",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.825Z",
+                "updatedAt": "2024-07-29T17:41:38.825Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clzsyrkbc00007rlh498dlhj5",
+        "term": "Maximum Extractable Value",
+        "definition": "TODO",
+        "links": null,
+        "longDefinition": null,
+        "acronym": null,
+        "createdAt": "2024-08-13T21:57:53.688Z",
+        "updatedAt": "2024-08-13T21:57:53.688Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clzsyrkkd00027rlha4v2327x",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clzsyrkbc00007rlh498dlhj5",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-08-13T21:57:54.013Z",
+                "updatedAt": "2024-08-13T21:57:54.013Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79qilt000bgwhz2815glug",
+        "term": "Modular/layered architecture",
+        "definition": "Modular/layered architecture is a design approach that combines the benefits of modularity and layering to create a structured and scalable system. This architecture style is characterized by: Modularity: * Breaking down a system into smaller, independent modules (components) that can be developed, tested, and maintained separately. * Each module has a well-defined interface and can be replaced or updated without affecting other modules. Layering: * Organizing modules into hierarchical layers, with each layer having a specific responsibility or functionality. * Layers can be thought of as a stack of plates, with each plate representing a distinct abstraction level or concern.",
+        "links": [],
+        "longDefinition": "Modular/layered architecture is a design approach that combines the benefits of modularity and layering to create a structured and scalable system. This architecture style is characterized by: Modularity: * Breaking down a system into smaller, independent modules (components) that can be developed, tested, and maintained separately. * Each module has a well-defined interface and can be replaced or updated without affecting other modules. Layering: * Organizing modules into hierarchical layers, with each layer having a specific responsibility or functionality. * Layers can be thought of as a stack of plates, with each plate representing a distinct abstraction level or concern.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:34:04.221Z",
+        "updatedAt": "2024-07-29T17:34:04.221Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79qius000ngwhz0vfscf7r",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79qilt000bgwhz2815glug",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:34:05.044Z",
+                "updatedAt": "2024-07-29T17:34:05.044Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79qilt000agwhzgphwxvxx",
+        "term": "Monolithic blockchain",
+        "definition": "A monolithic blockchain is a type of blockchain architecture that integrates all essential functions into a single, unified system.",
+        "links": [],
+        "longDefinition": "A monolithic blockchain is a type of blockchain architecture that integrates all essential functions into a single, unified system.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:34:04.221Z",
+        "updatedAt": "2024-07-29T17:34:04.221Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79qiul000fgwhzz1983aqj",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79qilt000agwhzgphwxvxx",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:34:05.037Z",
+                "updatedAt": "2024-07-29T17:34:05.037Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a1uqr003rgwhz1lerv8rv",
+        "term": "Node",
+        "definition": "A single validator in the Solana network.",
+        "links": [],
+        "longDefinition": "A single validator in the Solana network.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:42:53.668Z",
+        "updatedAt": "2024-07-29T17:42:53.668Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a1v0f003vgwhzqes3gzzh",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a1uqr003rgwhz1lerv8rv",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:42:54.015Z",
+                "updatedAt": "2024-07-29T17:42:54.015Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a1uqr003qgwhz0iih9y83",
+        "term": "PoH",
+        "definition": "Proof of History (PoH) is the method that Solana validators use to make sure they stay synchronized. Solana does this by inserting data into the sequence by appending the hash of the data of the previously generated states. The state, input data, and count are all published — and impossible to recreate or create alternate versions of. This sets up an upper bound on time — and because Proof of History can reference previous hashes, there is also a lower bound of time. While this VDF won’t tell you it’s 12:02:01 PM, it will tell you exactly when in the past and future of the global state machine a transaction occurred.",
+        "links": [],
+        "longDefinition": "Proof of History (PoH) is the method that Solana validators use to make sure they stay synchronized. Solana does this by inserting data into the sequence by appending the hash of the data of the previously generated states. The state, input data, and count are all published — and impossible to recreate or create alternate versions of. This sets up an upper bound on time — and because Proof of History can reference previous hashes, there is also a lower bound of time. While this VDF won’t tell you it’s 12:02:01 PM, it will tell you exactly when in the past and future of the global state machine a transaction occurred.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:42:53.667Z",
+        "updatedAt": "2024-07-29T17:42:53.667Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a1uzg003tgwhzjeom7jld",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a1uqr003qgwhz0iih9y83",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:42:53.980Z",
+                "updatedAt": "2024-07-29T17:42:53.980Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08rp002agwhzfmd7v3im",
+        "term": "Prioritization fee",
+        "definition": "When a user submits a transaction, they may pay an additional fee in order to increase the odds of their transaction being processed.",
+        "links": [],
+        "longDefinition": "When a user submits a transaction, they may pay an additional fee in order to increase the odds of their transaction being processed.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a090l002zgwhz6acexd8n",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08rp002agwhzfmd7v3im",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.853Z",
+                "updatedAt": "2024-07-29T17:41:38.853Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uv3v001ggwhzbb3zirzs",
+        "term": "Private key",
+        "definition": "The part of the keypair that is not safe to share with other people. It can be thought of as the password.",
+        "links": [],
+        "longDefinition": "The part of the keypair that is not safe to share with other people. It can be thought of as the password.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.025Z",
+        "updatedAt": "2024-07-29T17:37:27.025Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uvcu001ugwhzn2hnbu0r",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uv3v001ggwhzbb3zirzs",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.870Z",
+                "updatedAt": "2024-07-29T17:37:27.870Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08pa001zgwhzhnqwgh7t",
+        "term": "Program ID",
+        "definition": "A public key for a program deployed on the Solana network. This ID is needed for a user to interact with the program.",
+        "links": [],
+        "longDefinition": "A public key for a program deployed on the Solana network. This ID is needed for a user to interact with the program.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.447Z",
+        "updatedAt": "2024-07-29T17:41:38.447Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a08xv002fgwhzhu7g2oyu",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08pa001zgwhzhnqwgh7t",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.755Z",
+                "updatedAt": "2024-07-29T17:41:38.755Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uur3000rgwhz9wyw6jox",
+        "term": "Public Key",
+        "definition": "The part of the keypair that is safe to share with other people. It can be thought of as a unique identifier, similar to a username.",
+        "links": [],
+        "longDefinition": "The part of the keypair that is safe to share with other people. It can be thought of as a unique identifier, similar to a username.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.024Z",
+        "updatedAt": "2024-07-29T17:37:27.024Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uv010018gwhzxe8s2fu4",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uur3000rgwhz9wyw6jox",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.409Z",
+                "updatedAt": "2024-07-29T17:37:27.409Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08r20020gwhzv7trgry9",
+        "term": "QUIC",
+        "definition": "QUIC (Quick UDP Internet Connections) is an experimental transport layer network protocol designed by Google. It aims to reduce latency compared to TCP (Transmission Control Protocol) by leveraging UDP (User Datagram Protocol) as its foundation.",
+        "links": [],
+        "longDefinition": "QUIC (Quick UDP Internet Connections) is an experimental transport layer network protocol designed by Google. It aims to reduce latency compared to TCP (Transmission Control Protocol) by leveraging UDP (User Datagram Protocol) as its foundation.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a08zo002jgwhzf2a7dw3l",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08r20020gwhzv7trgry9",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.820Z",
+                "updatedAt": "2024-07-29T17:41:38.820Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fh5004vgwhzosbj3wyc",
+        "term": "Remote Procedure Call",
+        "definition": "RPC is a technique for building distributed systems, allowing a program on one machine to call a subroutine on another machine without knowing it’s remote. It’s a method of using existing communications features in a transparent way.",
+        "links": [],
+        "longDefinition": "RPC is a technique for building distributed systems, allowing a program on one machine to call a subroutine on another machine without knowing it’s remote. It’s a method of using existing communications features in a transparent way.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.444Z",
+        "updatedAt": "2024-07-29T17:45:40.444Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fqy005jgwhz58g6re0l",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fh5004vgwhzosbj3wyc",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.858Z",
+                "updatedAt": "2024-07-29T17:45:40.858Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l6l003ygwhzpvho3dhl",
+        "term": "SHA256",
+        "definition": "SHA-256 is a cryptographic hash function that generates a 256-bit (32-byte) digital fingerprint, or 'digest,' from variable-length input data. It is a one-way function, meaning it is computationally infeasible to recreate the original input data from the generated hash.",
+        "links": [],
+        "longDefinition": "SHA-256 is a cryptographic hash function that generates a 256-bit (32-byte) digital fingerprint, or 'digest,' from variable-length input data. It is a one-way function, meaning it is computationally infeasible to recreate the original input data from the generated hash.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.530Z",
+        "updatedAt": "2024-07-29T17:44:14.530Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lf5004agwhzk19wxocm",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l6l003ygwhzpvho3dhl",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.898Z",
+                "updatedAt": "2024-07-29T17:44:14.898Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79qilt0008gwhzeknm1fb7",
+        "term": "SVM Rollup",
+        "definition": "An SVM rollup is a specific rollup, or layer 2, is an off-chain network that uses the Solana Virtual Machine for processing transactions, which are then optionally settled to Solana, or another chain.",
+        "links": [],
+        "longDefinition": "An SVM rollup is a specific rollup, or layer 2, is an off-chain network that uses the Solana Virtual Machine for processing transactions, which are then optionally settled to Solana, or another chain.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:34:04.222Z",
+        "updatedAt": "2024-07-29T17:34:04.222Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79qius000pgwhzdul3hifq",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79qilt0008gwhzeknm1fb7",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:34:05.045Z",
+                "updatedAt": "2024-07-29T17:34:05.045Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uv3f001bgwhzg3g28p01",
+        "term": "Seed phrase",
+        "definition": "A seed phrase is a mnemonic way of remembering a private key, or more specifically a set of private keys. A set of 12 or 24 words in a specific order are used to derive the private key, which is represented numerically.",
+        "links": [],
+        "longDefinition": "A seed phrase is a mnemonic way of remembering a private key, or more specifically a set of private keys. A set of 12 or 24 words in a specific order are used to derive the private key, which is represented numerically.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.025Z",
+        "updatedAt": "2024-07-29T17:37:27.025Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uvc6001kgwhzpvkqvwp2",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uv3f001bgwhzg3g28p01",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.846Z",
+                "updatedAt": "2024-07-29T17:37:27.846Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uv3u001dgwhzmie1mazo",
+        "term": "Signature",
+        "definition": "A digital signature is a mathematical scheme for verifying the authenticity of digital messages or documents. A valid digital signature on a message gives a recipient confidence that the message came from a sender known to the recipient.",
+        "links": [],
+        "longDefinition": "A digital signature is a mathematical scheme for verifying the authenticity of digital messages or documents. A valid digital signature on a message gives a recipient confidence that the message came from a sender known to the recipient.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.025Z",
+        "updatedAt": "2024-07-29T17:37:27.025Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uvch001mgwhzy17mmyjp",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uv3u001dgwhzmie1mazo",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.858Z",
+                "updatedAt": "2024-07-29T17:37:27.858Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l6l003xgwhzg9dw1w68",
+        "term": "Sigverify stage",
+        "definition": "In the sigverify stage, the signatures for transactions are verified. Transactions that have valid signatures are forwarded to the banking stage.",
+        "links": [],
+        "longDefinition": "In the sigverify stage, the signatures for transactions are verified. Transactions that have valid signatures are forwarded to the banking stage.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.529Z",
+        "updatedAt": "2024-07-29T17:44:14.529Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lf6004cgwhzz6t5u0fs",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l6l003xgwhzg9dw1w68",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.898Z",
+                "updatedAt": "2024-07-29T17:44:14.898Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fha0052gwhzkjox329d",
+        "term": "Slippage",
+        "definition": "Slippage is the allowable change in price of a token between the time a user places an order and when the order is fulfilled. If the price falls out of the allowable slippage range before the order is filled, that order will be canceled.",
+        "links": [],
+        "longDefinition": "Slippage is the allowable change in price of a token between the time a user places an order and when the order is fulfilled. If the price falls out of the allowable slippage range before the order is filled, that order will be canceled.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.444Z",
+        "updatedAt": "2024-07-29T17:45:40.444Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fr8005ngwhzkvqez6zp",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fha0052gwhzkjox329d",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.869Z",
+                "updatedAt": "2024-07-29T17:45:40.869Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fh9004zgwhzp45h7nvl",
+        "term": "Spam attacks",
+        "definition": "A spam attack is a type of sybil attack in which a malicious actor tries to overwhelm a system by sending it more requests than it can process.",
+        "links": [],
+        "longDefinition": "A spam attack is a type of sybil attack in which a malicious actor tries to overwhelm a system by sending it more requests than it can process.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.445Z",
+        "updatedAt": "2024-07-29T17:45:40.445Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fr9005pgwhzixfpvx2p",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fh9004zgwhzp45h7nvl",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.869Z",
+                "updatedAt": "2024-07-29T17:45:40.869Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fh4004ugwhz69kupbe7",
+        "term": "Stake",
+        "definition": "Staking is the process by which a SOL token holder (such as someone who purchased SOL tokens on an exchange) assigns some or all of their tokens to a particular validator or validators, which helps increase those validators’ voting weight. Assigning your tokens to add to a validator’s stake-weight is known as 'delegating' your tokens. Delegating your tokens to a validator does NOT give the validator ownership or control over your tokens. At all times, you still control all your staked tokens that you may have chosen to delegate.",
+        "links": [],
+        "longDefinition": "Staking is the process by which a SOL token holder (such as someone who purchased SOL tokens on an exchange) assigns some or all of their tokens to a particular validator or validators, which helps increase those validators’ voting weight. Assigning your tokens to add to a validator’s stake-weight is known as 'delegating' your tokens. Delegating your tokens to a validator does NOT give the validator ownership or control over your tokens. At all times, you still control all your staked tokens that you may have chosen to delegate.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.445Z",
+        "updatedAt": "2024-07-29T17:45:40.445Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fqv005fgwhzfsm1kqdh",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fh4004ugwhz69kupbe7",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.856Z",
+                "updatedAt": "2024-07-29T17:45:40.856Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fh90050gwhzsdwqgjw8",
+        "term": "Stake weighted QOS",
+        "definition": "Stake-weighted QoS is an implementation feature that enables leaders (block producers) to prioritize transactions proxied through staked validators as an additional sybil resistance mechanism. In a proof-of-stake network like Solana, stake-weighting is extended to transaction quality of service.",
+        "links": [],
+        "longDefinition": "Stake-weighted QoS is an implementation feature that enables leaders (block producers) to prioritize transactions proxied through staked validators as an additional sybil resistance mechanism. In a proof-of-stake network like Solana, stake-weighting is extended to transaction quality of service.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.445Z",
+        "updatedAt": "2024-07-29T17:45:40.445Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fpy005dgwhzrmna0ayo",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fh90050gwhzsdwqgjw8",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.822Z",
+                "updatedAt": "2024-07-29T17:45:40.822Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a0phq003hgwhz55nc5r5k",
+        "term": "Sybil Resistance",
+        "definition": "Sybil resistance refers to the ability of a peer-to-peer (P2P) network or a distributed system to resist and detect Sybil attacks. A Sybil attack occurs when a malicious actor creates multiple pseudonymous identities or nodes within the network, aiming to gain control or manipulate the system.",
+        "links": [],
+        "longDefinition": "Sybil resistance refers to the ability of a peer-to-peer (P2P) network or a distributed system to resist and detect Sybil attacks. A Sybil attack occurs when a malicious actor creates multiple pseudonymous identities or nodes within the network, aiming to gain control or manipulate the system.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:42:00.141Z",
+        "updatedAt": "2024-07-29T17:42:00.141Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a0pqs003pgwhz0mch8o6m",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a0phq003hgwhz55nc5r5k",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:42:00.533Z",
+                "updatedAt": "2024-07-29T17:42:00.533Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l700044gwhz54h7xoew",
+        "term": "TPU",
+        "definition": "The transaction processing unit (TPU) is designed to maximize the throughput and efficiency of transaction processing on the Solana blockchain. It handles multiple tasks including fetching transactions, verifying signatures, processing transactions, and forwarding results.",
+        "links": [],
+        "longDefinition": "The transaction processing unit (TPU) is designed to maximize the throughput and efficiency of transaction processing on the Solana blockchain. It handles multiple tasks including fetching transactions, verifying signatures, processing transactions, and forwarding results.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.529Z",
+        "updatedAt": "2024-07-29T17:44:14.529Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lfx004sgwhzsnc6y1hs",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l700044gwhz54h7xoew",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.926Z",
+                "updatedAt": "2024-07-29T17:44:14.926Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08r40026gwhz32s285m5",
+        "term": "Thread",
+        "definition": "In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. In many cases, a thread is a component of a process.",
+        "links": [],
+        "longDefinition": "In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. In many cases, a thread is a component of a process.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a08zq002ngwhztn2wbzir",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08r40026gwhz32s285m5",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.823Z",
+                "updatedAt": "2024-07-29T17:41:38.823Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a5fh6004xgwhz8fc3347f",
+        "term": "Token",
+        "definition": "A token is a tradeable, fungible asset that is powered by the Solana blockchain. USDC, BONK, etc. are examples of tokens built on top of Solana.",
+        "links": [],
+        "longDefinition": "A token is a tradeable, fungible asset that is powered by the Solana blockchain. USDC, BONK, etc. are examples of tokens built on top of Solana.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:45:40.444Z",
+        "updatedAt": "2024-07-29T17:45:40.444Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a5fqy005hgwhzykri4f67",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a5fh6004xgwhz8fc3347f",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:45:40.858Z",
+                "updatedAt": "2024-07-29T17:45:40.858Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79qils0007gwhzjgkcvppi",
+        "term": "Transaction",
+        "definition": "A set of instructions paired with a digital signature that attempt to interact with the blockchain.",
+        "links": [],
+        "longDefinition": "A set of instructions paired with a digital signature that attempt to interact with the blockchain.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:34:04.221Z",
+        "updatedAt": "2024-07-29T17:34:04.221Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79qiur000jgwhzx8f7j2vy",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79qils0007gwhzjgkcvppi",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:34:05.043Z",
+                "updatedAt": "2024-07-29T17:34:05.043Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clxoxuvz60004mmccgoa55b1o",
+        "term": "Transaction Processing Unit",
+        "definition": "The TPU is the overall system that handles fetching, verifying, processing, etc... for transactions",
+        "links": [],
+        "longDefinition": "The TPU is designed to maximize the throughput and efficiency of transaction processing on the Solana blockchain. It handles multiple tasks including fetching transactions, verifying signatures, processing transactions, and forwarding results",
+        "acronym": "TPU",
+        "createdAt": "2024-06-21T17:01:59.363Z",
+        "updatedAt": "2024-06-21T17:01:59.363Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clxoxuw2i0009mmccr87x3drx",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clxoxuvz60004mmccgoa55b1o",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": true,
+                "hasReviewed": true,
+                "createdAt": "2024-06-21T17:01:59.898Z",
+                "updatedAt": "2024-07-23T15:31:14.895Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08r30023gwhzt7x3abd5",
+        "term": "Transaction forwarding",
+        "definition": "This is one of the states a Solana validator can enter. In this state, the validator will receive transactions from RPCs or other validators, then send them to the leader.",
+        "links": [],
+        "longDefinition": "This is one of the states a Solana validator can enter. In this state, the validator will receive transactions from RPCs or other validators, then send them to the leader.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a08zq002lgwhzc1wb2tjs",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08r30023gwhzt7x3abd5",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.822Z",
+                "updatedAt": "2024-07-29T17:41:38.822Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clxoxuvz10003mmccfifm3aqx",
+        "term": "Turbine",
+        "definition": "Solana's block propagation step",
+        "links": [
+            {
+                "url": "https://docs.solanalabs.com/consensus/turbine-block-propagation",
+                "title": "Turbine Block Propagation"
+            }
+        ],
+        "longDefinition": "Solana's block propagation protocol that breaks data into smaller packets to be distributed across the network efficiently. this is broken into three steps:\n- data sharding: breaking the blocks into smaller data packets that are easier to distribute\n- layered propogation: leader doesn't send data to all nodes. it sends to some, which in turn send to others, etc...\n- erasure coding: a method of data protection that breaks data into fragments and encodes them with redundant data pieces. This allows the original data to be reconstructed from a subset of the fragments.",
+        "acronym": null,
+        "createdAt": "2024-06-21T17:01:59.363Z",
+        "updatedAt": "2024-06-21T17:01:59.363Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clxoxuw2d0007mmcc8msqxugf",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clxoxuvz10003mmccfifm3aqx",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": true,
+                "createdAt": "2024-06-21T17:01:59.893Z",
+                "updatedAt": "2024-07-23T15:31:16.161Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a08r20021gwhzwvkh6qy1",
+        "term": "UDP",
+        "definition": "In computer networking, the User Datagram Protocol (UDP) is one of the core communication protocols of the Internet protocol suite used to send messages (transported as datagrams in packets) to other hosts on an Internet Protocol (IP) network. Within an IP network, UDP does not require prior communication to set up communication channels or data paths.",
+        "links": [],
+        "longDefinition": "In computer networking, the User Datagram Protocol (UDP) is one of the core communication protocols of the Internet protocol suite used to send messages (transported as datagrams in packets) to other hosts on an Internet Protocol (IP) network. Within an IP network, UDP does not require prior communication to set up communication channels or data paths.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:41:38.448Z",
+        "updatedAt": "2024-07-29T17:41:38.448Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a08zj002hgwhz9gi9804h",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a08r20021gwhzwvkh6qy1",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:41:38.815Z",
+                "updatedAt": "2024-07-29T17:41:38.815Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clxoxuvz80005mmccwdhubnxc",
+        "term": "United States Dollar Coin",
+        "definition": "A stable coin that has the same value as the US Dollar.",
+        "links": [
+            {
+                "url": "https://www.circle.com/en/usdc",
+                "title": "USDC Website"
+            }
+        ],
+        "longDefinition": "This stable coin is provided by Circle, and is use widely across Solana, and other blockchains. Circle claims that each USDC is backed by a corresponding $USD.",
+        "acronym": "USDC",
+        "createdAt": "2024-06-21T17:01:59.363Z",
+        "updatedAt": "2024-06-21T17:01:59.363Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clxoxuw2j000bmmccmww6ayaf",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clxoxuvz80005mmccwdhubnxc",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-06-21T17:01:59.899Z",
+                "updatedAt": "2024-06-21T17:01:59.899Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uur3000tgwhz3mecjdrd",
+        "term": "Validator",
+        "definition": "Validators form the backbone of Solana’s network. By processing transactions and participating in consensus, each validator helps make Solana the most high-performance blockchain network in the world.",
+        "links": [],
+        "longDefinition": "Validators form the backbone of Solana’s network. By processing transactions and participating in consensus, each validator helps make Solana the most high-performance blockchain network in the world.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.024Z",
+        "updatedAt": "2024-07-29T17:37:27.024Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uuzt0010gwhza35yvt05",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uur3000tgwhz3mecjdrd",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.401Z",
+                "updatedAt": "2024-07-29T17:37:27.401Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l6z0043gwhz60kv7mwe",
+        "term": "Verifiable delay function",
+        "definition": "A Verifiable Delay Function (VDF) is a cryptographic primitive that enables a prover to demonstrate to a verifier that a certain amount of sequential computation was performed, without revealing the underlying computation itself. This is achieved by requiring a moderate amount of sequential computation to evaluate the function, while allowing anyone to quickly verify the result.",
+        "links": [],
+        "longDefinition": "A Verifiable Delay Function (VDF) is a cryptographic primitive that enables a prover to demonstrate to a verifier that a certain amount of sequential computation was performed, without revealing the underlying computation itself. This is achieved by requiring a moderate amount of sequential computation to evaluate the function, while allowing anyone to quickly verify the result.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.529Z",
+        "updatedAt": "2024-07-29T17:44:14.529Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3lfw004ogwhz33m1iigk",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l6z0043gwhz60kv7mwe",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.925Z",
+                "updatedAt": "2024-07-29T17:44:14.925Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz7a3l4w003wgwhz12n2185t",
+        "term": "Voting",
+        "definition": "Voting in Solana is no different from voting in real life, except the information is stored on-chain and the results are processed by validators.",
+        "links": [],
+        "longDefinition": "Voting in Solana is no different from voting in real life, except the information is stored on-chain and the results are processed by validators.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:44:14.528Z",
+        "updatedAt": "2024-07-29T17:44:14.528Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz7a3le50048gwhz96mpjmid",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz7a3l4w003wgwhz12n2185t",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:44:14.861Z",
+                "updatedAt": "2024-07-29T17:44:14.861Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uur4000wgwhzk5n1r11a",
+        "term": "Wallet",
+        "definition": "A Blockchain Wallet is a digital wallet that allows users to store, manage, and transfer cryptocurrencies such as Bitcoin, Solana, Ethereum, and others.",
+        "links": [],
+        "longDefinition": "A Blockchain Wallet is a digital wallet that allows users to store, manage, and transfer cryptocurrencies such as Bitcoin, Solana, Ethereum, and others.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.024Z",
+        "updatedAt": "2024-07-29T17:37:27.024Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uv000014gwhz2mavy243",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uur4000wgwhzk5n1r11a",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.409Z",
+                "updatedAt": "2024-07-29T17:37:27.409Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    },
+    {
+        "id": "clz79uupb000qgwhz09cdq63s",
+        "term": "ZK Compression",
+        "definition": "ZK (Zero Knowledge) Compression is a new primitive built on Solana that enables you to build applications at scale. Developers and users can opt to compress their on-chain state, reducing state costs by orders of magnitude while preserving the security, performance, and composability of the Solana L1.",
+        "links": [],
+        "longDefinition": "ZK (Zero Knowledge) Compression is a new primitive built on Solana that enables you to build applications at scale. Developers and users can opt to compress their on-chain state, reducing state costs by orders of magnitude while preserving the security, performance, and composability of the Solana L1.",
+        "acronym": null,
+        "createdAt": "2024-07-29T17:37:27.023Z",
+        "updatedAt": "2024-07-29T17:37:27.023Z",
+        "currentVersionId": null,
+        "userEntries": [
+            {
+                "id": "clz79uuy3000ygwhzbs691d9o",
+                "userId": "clxmitvf30000mmccn975aslz",
+                "entryId": "clz79uupb000qgwhz09cdq63s",
+                "isCreator": true,
+                "canEdit": false,
+                "hasLiked": false,
+                "hasEdited": false,
+                "hasReviewed": false,
+                "createdAt": "2024-07-29T17:37:27.339Z",
+                "updatedAt": "2024-07-29T17:37:27.339Z",
+                "user": {
+                    "id": "clxmitvf30000mmccn975aslz",
+                    "name": "Jack Sturtevant",
+                    "email": "jack@sturt.io",
+                    "emailVerified": null,
+                    "isVerified": true,
+                    "hasFailedVerification": false,
+                    "image": "https://lh3.googleusercontent.com/a/ACg8ocLRAjza_2Na-bMItDalWK0RjwNYPyU8jK6aw6gjMLkIZzGSWQ=s96-c",
+                    "isAdmin": true,
+                    "verificationRequestId": null
+                }
+            }
+        ],
+        "tags": [],
+        "relatedTo": []
+    }
+]
