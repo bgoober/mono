@@ -1,0 +1,142 @@
+[
+    {
+        "title": "Zk Rollup tooling",
+        "description": "Development of tooling for zk Rollup infrastructure.",
+        "goal": 10000,
+        "current": 5000,
+        "ends": 1727467189000
+    },
+    {
+        "title": "Decentralized Social Network",
+        "description": "Building a decentralized alternative to mainstream social networks.",
+        "goal": 50000,
+        "current": 30000,
+        "ends": 1728467189000
+    },
+    {
+        "title": "Blockchain Analytics Platform",
+        "description": "Creating tools to visualize and analyze blockchain data in real-time.",
+        "goal": 25000,
+        "current": 12000,
+        "ends": 1729467189000
+    },
+    {
+        "title": "Open-source DeFi Dashboard",
+        "description": "A dashboard to track and manage DeFi investments.",
+        "goal": 15000,
+        "current": 7000,
+        "ends": 1730467189000
+    },
+    {
+        "title": "Privacy-focused Email Service",
+        "description": "Developing an email service prioritizing user privacy and encryption.",
+        "goal": 20000,
+        "current": 15000,
+        "ends": 1731467189000
+    },
+    {
+        "title": "AI-based Crypto Trading Bot",
+        "description": "An AI bot for automating cryptocurrency trading strategies.",
+        "goal": 30000,
+        "current": 10000,
+        "ends": 1732467189000
+    },
+    {
+        "title": "NFT Marketplace for Digital Art",
+        "description": "A platform for artists to sell and showcase digital art as NFTs.",
+        "goal": 35000,
+        "current": 22000,
+        "ends": 1733467189000
+    },
+    {
+        "title": "Cross-chain Identity Solution",
+        "description": "Creating a unified identity system that works across multiple blockchains.",
+        "goal": 40000,
+        "current": 25000,
+        "ends": 1734467189000
+    },
+    {
+        "title": "Decentralized Video Hosting",
+        "description": "A decentralized platform for video hosting and streaming.",
+        "goal": 45000,
+        "current": 30000,
+        "ends": 1735467189000
+    },
+    {
+        "title": "Smart Contract Auditing Tool",
+        "description": "Tooling to automate the auditing of smart contracts for vulnerabilities.",
+        "goal": 20000,
+        "current": 8000,
+        "ends": 1736467189000
+    },
+    {
+        "title": "Blockchain-based Supply Chain",
+        "description": "A system to track and verify the provenance of goods using blockchain.",
+        "goal": 60000,
+        "current": 40000,
+        "ends": 1737467189000
+    },
+    {
+        "title": "Decentralized Music Platform",
+        "description": "A platform for musicians to distribute and monetize their music.",
+        "goal": 55000,
+        "current": 20000,
+        "ends": 1738467189000
+    },
+    {
+        "title": "Open-source DAO Framework",
+        "description": "A framework to simplify the creation and management of DAOs.",
+        "goal": 15000,
+        "current": 6000,
+        "ends": 1739467189000
+    },
+    {
+        "title": "Blockchain-based Voting System",
+        "description": "Developing a secure and transparent voting system using blockchain.",
+        "goal": 50000,
+        "current": 35000,
+        "ends": 1740467189000
+    },
+    {
+        "title": "Crypto Charity Platform",
+        "description": "A platform to facilitate charitable donations using cryptocurrencies.",
+        "goal": 25000,
+        "current": 12000,
+        "ends": 1741467189000
+    },
+    {
+        "title": "Decentralized Cloud Storage",
+        "description": "A decentralized solution for secure and private cloud storage.",
+        "goal": 70000,
+        "current": 45000,
+        "ends": 1742467189000
+    },
+    {
+        "title": "Blockchain-based Game Studio",
+        "description": "A studio focused on developing blockchain-based games.",
+        "goal": 80000,
+        "current": 50000,
+        "ends": 1743467189000
+    },
+    {
+        "title": "Open-source Blockchain Explorer",
+        "description": "Building an open-source tool to explore blockchain transactions and data.",
+        "goal": 20000,
+        "current": 10000,
+        "ends": 1744467189000
+    },
+    {
+        "title": "Decentralized Finance Insurance",
+        "description": "Creating an insurance solution for DeFi investments.",
+        "goal": 50000,
+        "current": 25000,
+        "ends": 1745467189000
+    },
+    {
+        "title": "Decentralized Job Marketplace",
+        "description": "A decentralized platform for freelancers and employers to connect.",
+        "goal": 35000,
+        "current": 15000,
+        "ends": 1746467189000
+    }
+]

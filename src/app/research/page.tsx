@@ -27,6 +27,7 @@ export const learnNavLinks: NavLink[] = [
     href: "/research/dictionary",
   },
 ];
+
 export default function LandingPage() {
   return (
     <div className="m-auto my-10 max-w-5xl space-y-10 px-3">

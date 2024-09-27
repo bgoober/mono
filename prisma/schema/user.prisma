@@ -57,6 +57,8 @@ model User {
   EntryRevision       EntryRevision[]
   UserEntry           UserEntry[]
   EntryReview         EntryReview[]
+  campaigns           Campaign[]           @relation("Creator")
+  backerOf            Backer[]             @relation("Backers")
 }
 
 model Follow {
