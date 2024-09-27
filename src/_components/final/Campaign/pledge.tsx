@@ -18,6 +18,7 @@ import { Form, FormField } from "~/_components/final/ui/form";
 import { Textarea } from "~/_components/final/ui/textarea";
 import { Camera, Upload } from "lucide-react";
 import H1 from "~/_components/final/H1";
+import H2 from "~/_components/final/H2";
 
 const initialData = {
   amount: 0,
@@ -42,21 +43,10 @@ export default function PledgeForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="mx-auto space-y-6 rounded-lg bg-white p-6 pb-12 shadow"
+        className="mx-auto space-y-6 rounded-lg bg-zinc-100 p-4"
       >
-        <FormField
-          control={form.control}
-          name="amount"
-          render={({ field }) => (
-            <CustomFormItem
-              label="Pledge Amount"
-              field={field}
-              placeholder="Enter your pledge amount in SOL"
-              isEditing={true}
-            />
-          )}
-          required
-        />
+        <H2>Pledge</H2>
+
         <FormField
           control={form.control}
           name="message"
@@ -72,7 +62,20 @@ export default function PledgeForm() {
           required
         />
 
-        <div className="flex justify-end gap-4">
+        <div className="flex items-end justify-between gap-4">
+          <FormField
+            control={form.control}
+            name="amount"
+            render={({ field }) => (
+              <CustomFormItem
+                label="Pledge Amount"
+                field={field}
+                placeholder="Enter your pledge amount in SOL"
+                isEditing={true}
+              />
+            )}
+            required
+          />
           <Button
             type="submit"
             className={`w-40 ${"bg-zinc-800 text-zinc-100 hover:bg-zinc-700"}`}

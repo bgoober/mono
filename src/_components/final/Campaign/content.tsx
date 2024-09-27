@@ -24,29 +24,6 @@ export default function CampaignContentComponent({
   campaign: Campaign;
 }) {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
-  const screenSize = useScreen();
-  const isMobile = screenSize === "sm" || screenSize === "md";
-
-  const [expandedReviews, setExpandedReviews] = useState<
-    Record<string, boolean>
-  >({});
-
-  useEffect(() => {
-    if (campaign.backers.length > 0) {
-      setExpandedReviews((prev) => ({
-        ...prev,
-        // @ts-expect-error: fine
-        [campaign.backers[0].id]: true,
-      }));
-    }
-  }, [campaign.backers]);
-
-  const toggleReview = (reviewId: string) => {
-    setExpandedReviews((prev) => ({
-      ...prev,
-      [reviewId]: !prev[reviewId],
-    }));
-  };
 
   const renderBackers = () => {
     if (campaign.backers.length === 0) {
@@ -75,7 +52,8 @@ export default function CampaignContentComponent({
           <div className="mb-4 flex items-center space-x-1">
             <AvatarWithName name={campaign.creator.name ?? ""} />
             <P className="text-pretty text-sm text-zinc-600">
-              {campaign.creator.name}
+              {campaign.creator.name} •{" "}
+              {formatTimeAgo(campaign.createdAt.toISOString())}
             </P>
           </div>
 
