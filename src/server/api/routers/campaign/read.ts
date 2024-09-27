@@ -9,7 +9,8 @@ export const read = publicProcedure.query(({ ctx }) => {
         include: {
           user: true,
         },
-      }
+      },
+      creator: true,
     },
     orderBy: {
       createdAt: "desc",
@@ -31,3 +32,4 @@ export const search = publicProcedure.input(z.object({
 
 export type Campaign = UnwrapArray<UnwrapPromise<ReturnType<typeof read>>>;
 export type CampaignSearchResult = UnwrapArray<UnwrapPromise<ReturnType<typeof search>>>;
+export type Backer = Campaign["backers"][number];

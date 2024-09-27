@@ -1,5 +1,20 @@
 import { z } from "zod";
 
+export const CampaignFormData = z.object({
+  title: z
+    .string()
+    .trim()
+    .min(2, "Title must be at least 2 characters"),
+  description: z.string().trim().min(2, "Description must be at least 2 characters"),
+  goal: z.number().min(1, "Goal must be at least 1"),
+  end: z.date(),
+});
+
+export const PledgeFormData = z.object({
+  amount: z.number().min(1, "Amount must be at least 1"),
+  message: z.string().trim().min(2, "Message must be at least 2 characters"),
+});
+
 export const ProfileFormData = z.object({
   firstName: z
     .string()

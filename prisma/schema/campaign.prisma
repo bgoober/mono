@@ -1,5 +1,5 @@
 model Campaign {
-    id          Int      @id @default(autoincrement())
+    id          String   @id @default(cuid())
     title       String
     description String
     goal        Int
@@ -13,8 +13,12 @@ model Campaign {
 }
 
 model Backer {
-    id         Int      @id @default(autoincrement())
-    campaignId Int
+    id         String   @id @default(cuid())
+    amount     Int
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    message    String
+    campaignId String
     campaign   Campaign @relation("Campaign", fields: [campaignId], references: [id])
     userId     String
     user       User     @relation("Backers", fields: [userId], references: [id])

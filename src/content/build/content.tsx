@@ -520,7 +520,7 @@ function CrownfundingContent({
   const [searchResults, setSearchResults] = useState<Campaign[]>([]);
   const [showVerifyModal, setShowVerifyModal] = useState(false);
   const createNewEntryRequest = api.entry.requestDefinition.useMutation();
-
+  const router = useRouter();
   useEffect(() => {
     const results =
       searchTerm === ""
@@ -550,11 +550,7 @@ function CrownfundingContent({
               className="relative flex flex-grow"
             >
               <Button
-                onClick={() =>
-                  createNewEntryRequest.mutate({
-                    term: searchTerm,
-                  })
-                }
+                onClick={() => router.push("/build/crowdfunding/new")}
                 className={cn(
                   "w-fit whitespace-nowrap rounded-md border border-green-600 bg-green-600 p-2",
                 )}
@@ -564,29 +560,6 @@ function CrownfundingContent({
             </div>
           }
         </div>
-        {session?.user && (
-          <div className="mb-4 flex items-center gap-2">
-            <Button onClick={() => setShowCreateEntryModal(true)}>
-              + Create New Entry
-            </Button>
-            {!session?.user?.isVerified && (
-              <Button onClick={() => setShowVerifyModal(true)}>
-                Request Verification
-              </Button>
-            )}
-            {
-              <label className="ml-2 flex items-center gap-2">
-                <Input
-                  type="checkbox"
-                  checked={showOnlyHidden}
-                  onChange={(e) => setShowOnlyHidden(e.target.checked)}
-                  className="w-fit"
-                />
-                Show Hidden
-              </label>
-            }
-          </div>
-        )}
 
         {campaigns && (
           <DataTable
