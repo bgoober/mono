@@ -5,7 +5,7 @@ import { type Entry } from "~/server/api/routers/entry/read";
 import { type Dispatch, type SetStateAction, useState, useEffect } from "react";
 import { api } from "~/trpc/react";
 import Modal from "~/_components/soldic/Modal";
-import { EntryModalStaticContent } from "~/content/main/content";
+import { EntryModalStaticContent } from "~/content/entry/content";
 
 function AnnotatedEntry({
   entry,

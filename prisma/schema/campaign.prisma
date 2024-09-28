@@ -1,0 +1,25 @@
+model Campaign {
+    id          String   @id @default(cuid())
+    title       String
+    description String
+    goal        Int
+    current     Int
+    ends        DateTime
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    creatorId   String
+    creator     User     @relation("Creator", fields: [creatorId], references: [id])
+    backers     Backer[] @relation("Campaign")
+}
+
+model Backer {
+    id         String   @id @default(cuid())
+    amount     Int
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    message    String
+    campaignId String
+    campaign   Campaign @relation("Campaign", fields: [campaignId], references: [id])
+    userId     String
+    user       User     @relation("Backers", fields: [userId], references: [id])
+}
