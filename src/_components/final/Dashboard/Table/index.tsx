@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
-import { BOUNTY_STATUS, PAPER_STATUS } from "~/lib/utils/constants";
+import { APPLICANTS_STATUS, BOUNTY_STATUS, PAPER_STATUS } from "~/lib/utils/constants";
 import { useRouter } from "next/navigation";
 
 type ColumnDefinition = {
@@ -15,7 +15,13 @@ type TableProps = {
   columns: ColumnDefinition[];
   data: any[];
   marginTop?: string;
+  whenRowClick?: (item:Item) => void;
 };
+
+export type Item = {
+  id: string;
+  status: string;
+}
 
 type SortConfig = {
   key: string;
@@ -94,13 +100,16 @@ const TableRow: React.FC<{
           <span
             className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
               item.status === PAPER_STATUS.APPROVED ||
-              item.status === BOUNTY_STATUS.OPEN
+              item.status === BOUNTY_STATUS.OPEN ||
+              item.status === APPLICANTS_STATUS.ACCEPTED
                 ? "bg-secondary-foreground text-secondary"
                 : item.status === PAPER_STATUS.PEER_REVIEWING ||
-                    item.status === BOUNTY_STATUS.IN_PROGRESS
+                    item.status === BOUNTY_STATUS.IN_PROGRESS ||
+                    item.status === APPLICANTS_STATUS.PENDING
                   ? "bg-primary-foreground text-primary"
                   : item.status === PAPER_STATUS.PUBLISHED ||
-                      item.status === BOUNTY_STATUS.COMPLETED
+                      item.status === BOUNTY_STATUS.COMPLETED ||
+                      item.status === APPLICANTS_STATUS.REJECTED
                     ? "bg-accent text-accent-foreground"
                     : "bg-destructive-foreground text-destructive"
             }`}
@@ -121,6 +130,7 @@ export default function Table({
   columns,
   data,
   marginTop = "mt-8",
+  whenRowClick,
 }: TableProps) {
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     key: "createdDate",
@@ -191,7 +201,7 @@ export default function Table({
                     key={item.id || index}
                     item={item}
                     columns={columns}
-                    onRowClick={handleRowClick}
+                    onRowClick={whenRowClick ?? handleRowClick}
                   />
                 ))}
               </tbody>

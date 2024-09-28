@@ -20,7 +20,7 @@ export const MobileMenu = ({pathname, links}: MobileMenuProps) => {
                 <Image src={"/WF Icon Button.svg"} width={35} height={35} alt="logo" />
             </button>
 
-            <div className={`${openMenu? "flex right-0" : "hidden -right-80"} transition-all flex-col gap-4 max-w-72 w-full h-screen py-4 px-3 absolute top-0 bg-primary`}>
+            <div className={`${openMenu? "flex right-0" : "-right-96"} transition-all flex-col gap-4 max-w-72 w-full h-screen py-4 px-3 absolute top-0 bg-primary`}>
                 <div className="h-16">
                     <CloseButton handleClick={toggleMenu}/>
                 </div>

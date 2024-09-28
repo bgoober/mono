@@ -18,7 +18,7 @@ export default function Sidebar() {
       </div>
 
       <div
-        className={`absolute top-0 w-[300px] max-w-80 ${viewFilter ? "left-0" : "-left-80"} h-full bg-slate-900 p-4 transition-all tablet:relative tablet:left-0 tablet:w-2/5 tablet:rounded-lg`}
+        className={`absolute top-0 w-[300px] max-w-80 border-2 border-zinc-300 ${viewFilter ? "left-0" : "-left-80"} h-full bg-primary-foreground p-4 transition-all tablet:relative tablet:left-0 tablet:w-2/5 tablet:rounded-lg`}
       >
         <div className="block tablet:hidden">
           <CloseButton
@@ -54,7 +54,7 @@ const Label: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 const Option: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <button type="button" className="m-3 block text-slate-500 hover:text-white">
+    <button type="button" className="m-3 block text-slate-500 hover:text-slate-800">
       {children}
     </button>
   );

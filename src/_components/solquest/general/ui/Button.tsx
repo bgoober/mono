@@ -11,7 +11,7 @@ export function Button({ children = "Button", type = 1, clickEvent }: props) {
   return (
     <button
       onClick={clickEvent}
-      className={`px-4 py-1 border-2 text-sm tablet:text-base font-semibold ${type == 1 ? "bg-secondary border-transparent text-black hover:bg-white hover:text-secondary hover:border-secondary active:bg-secondary active:text-white" : "text-solquest border-slate-600 bg-white hover:bg-slate-600 hover:text-white"} rounded-md transition-all`}
+      className={`px-4 py-2 text-sm tablet:text-base font-semibold ${type == 1 ? "bg-zinc-800 border-transparent text-white hover:bg-zinc-700" : "text-white bg-primary hover:bg-primary/90"} rounded-md transition-all`}
     >
       {children}
     </button>

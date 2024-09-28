@@ -4,7 +4,7 @@ import { FaXTwitter, FaDiscord, FaGithub } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-muted flex flex-wrap items-center justify-between gap-5 p-4 text-slate-400">
+    <footer className="bg-white flex flex-wrap items-center justify-between gap-5 p-4 text-slate-400">
       <div>
         <Logo />
         <p className="py-5">

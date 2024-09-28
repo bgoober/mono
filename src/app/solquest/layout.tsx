@@ -19,12 +19,8 @@ const links = [
       href: "/solquest/bounties"
   },
   {
-      name: "Fund",
-      href: "/solquest/"
-  },
-  {
       name: "Manage",
-      href: "/solquest/"
+      href: "/solquest/manage"
   },
 ]
 
@@ -53,7 +49,7 @@ export default function RootLayout({
     <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
       <WalletContextProvider>
         <body
-          className={`relative flex min-h-screen max-w-[100vw] w-full flex-col overflow-x-hidden bg-fixed text-lg ${inter.className}`}
+          className={`relative flex min-h-screen max-w-[100vw] w-full flex-col overflow-x-hidden bg-fixed bg-zinc-100 text-lg ${inter.className}`}
         >
           <Navbar links={links}/>
           {children}

@@ -1,0 +1,102 @@
+[
+  {
+      "id": "1",
+      "title": "Implement Token-Based Access Control for Research Papers",
+      "pay": 0.6,
+      "details": "Develop a token-based access control system that allows users to purchase or hold tokens for accessing specific research papers. When users hold a certain amount of tokens, they should be granted access to the corresponding research paper.\n\nRequirements:\n\nIntegrate with Solana's token system to manage user balances and access rights.\nEnsure that tokens are tied to specific research papers.\nProvide a frontend component to display the user's token holdings and available research papers.\nOptimize for scalability and security.",
+      "publisher": "ResearchChain Labs",
+      "track": "backend",
+      "status": "open",
+      "createdDate": "2024-04-01"
+  },
+  {
+      "id": "2",
+      "title": "Create an On-Chain Voting Mechanism for Peer Review Approvals",
+      "pay": 0.8,
+      "details": "Develop an on-chain voting mechanism where users can vote to approve or reject peer reviews of research papers. Votes should be weighted by the user's reputation and recorded on-chain for transparency.\n\nRequirements:\n\nImplement a voting contract on Solana's blockchain.\nEnsure votes are weighted based on the user's reputation and previous contributions.\nDisplay voting results and reputation impacts in the frontend.\nOptimize the system for low transaction fees and high security.",
+      "publisher": "ScienceDAO",
+      "track": "rust",
+      "status": "in_progress",
+      "createdDate": "2024-05-15"
+  },
+  {
+      "id": "3",
+      "title": "Develop a Decentralized Storage Mechanism for Supplementary Data",
+      "pay": 1.0,
+      "details": "Create a decentralized storage system for supplementary data related to research papers, such as datasets, code repositories, and additional materials. The system should ensure the immutability of data and provide access through decentralized links.\n\nRequirements:\n\nIntegrate with IPFS or Arweave for decentralized storage.\nEnsure uploaded data is securely tied to the related research paper.\nAllow users to view and download supplementary materials through the frontend.\nEnsure that data storage is scalable and secure.",
+      "publisher": "OpenData Labs",
+      "track": "backend",
+      "status": "completed",
+      "createdDate": "2024-06-07"
+  },
+  {
+      "id": "4",
+      "title": "Design a Researcher Profile Dashboard",
+      "pay": 0.4,
+      "details": "Design a dashboard where researchers can manage their published papers, view their reputation, and track earnings from access fees. The dashboard should also show the user's contributions to peer reviews.\n\nRequirements:\n\nBuild a responsive and intuitive UI for the dashboard.\nDisplay key statistics like published papers, reputation score, and earnings.\nIntegrate with the backend to pull relevant user data in real-time.\nOptimize for both desktop and mobile views.",
+      "publisher": "BlockResearch",
+      "track": "frontend",
+      "status": "open",
+      "createdDate": "2024-07-01"
+  },
+  {
+      "id": "5",
+      "title": "Create an Automated Bounty Distribution System for Peer Reviews",
+      "pay": 0.9,
+      "details": "Develop a system that automatically distributes bounties to peer reviewers based on the quality and quantity of their reviews. Bounties should be tied to specific research papers and distributed via smart contracts.\n\nRequirements:\n\nUse Solana's token program to distribute bounties.\nEnsure that bounties are proportional to the quality and helpfulness of the reviews.\nIntegrate with the frontend to display pending and distributed bounties.\nTest the system on Solana's testnet and optimize for low transaction costs.",
+      "publisher": "PeerReviewDAO",
+      "track": "backend",
+      "status": "in_progress",
+      "createdDate": "2024-07-15"
+  },
+  {
+      "id": "6",
+      "title": "Implement Research Paper Access Fee Payment Gateway",
+      "pay": 0.7,
+      "details": "Implement a payment gateway that allows users to pay access fees for research papers using Solana tokens. Users should be able to pay fees, view transaction history, and manage their wallet within the platform.\n\nRequirements:\n\nIntegrate with Solana's token system to manage payments.\nEnsure seamless wallet integration for users.\nProvide a clear transaction history and payment confirmation on the frontend.\nOptimize for security and scalability.",
+      "publisher": "CryptoResearch Labs",
+      "track": "frontend",
+      "status": "open",
+      "createdDate": "2024-08-01"
+  },
+  {
+      "id": "7",
+      "title": "Optimize Peer Review Contracts for Scalability",
+      "pay": 1.2,
+      "details": "Optimize the current peer review smart contracts to handle a high volume of transactions while minimizing costs and maintaining performance. This involves refactoring and reviewing the contract logic for efficiency.\n\nRequirements:\n\nAnalyze existing contracts for bottlenecks.\nRefactor contract code to reduce gas fees and improve throughput.\nTest optimized contracts on Solana's testnet for performance.\nDocument changes and provide benchmarks of the improvements.",
+      "publisher": "ReviewChain",
+      "track": "rust",
+      "status": "completed",
+      "createdDate": "2024-08-15"
+  },
+  {
+      "id": "8",
+      "title": "Create a Decentralized Voting System for Research Paper Curation",
+      "pay": 1.0,
+      "details": "Develop a decentralized voting system that allows users to vote on the curation of research papers. Votes should be weighted by reputation and held on-chain to ensure transparency.\n\nRequirements:\n\nBuild a voting contract that supports weighted votes.\nIntegrate the system with Solana's blockchain.\nProvide a frontend interface for users to cast votes and view results.\nEnsure that the system is scalable and secure.",
+      "publisher": "CurateScience DAO",
+      "track": "backend",
+      "status": "in_progress",
+      "createdDate": "2024-08-20"
+  },
+  {
+      "id": "9",
+      "title": "Implement Multi-Signature Wallet for DAO Treasury",
+      "pay": 0.5,
+      "details": "Create a multi-signature wallet for the DAO's treasury, allowing multiple signers to approve transactions before they are executed. This system should ensure the security of funds and transparency of operations.\n\nRequirements:\n\nDevelop a multi-signature wallet contract on Solana.\nEnsure the wallet supports multiple signers and requires a majority to approve transactions.\nProvide a frontend component for viewing the wallet’s balance and transaction history.\nTest the system for security and scalability on Solana’s testnet.",
+      "publisher": "DAO Labs",
+      "track": "rust",
+      "status": "open",
+      "createdDate": "2024-08-25"
+  },
+  {
+      "id": "10",
+      "title": "Develop a Paper Search and Filtering Feature",
+      "pay": 0.65,
+      "details": "Implement a search and filtering feature that allows users to find research papers based on keywords, authors, domains, and other criteria. The search should be fast and provide relevant results.\n\nRequirements:\n\nDevelop a backend API for search functionality.\nEnsure search results are accurate and relevant.\nIntegrate the search feature with the frontend and display results in real time.\nOptimize for performance and scalability.",
+      "publisher": "ResearchAccess",
+      "track": "frontend",
+      "status": "open",
+      "createdDate": "2024-09-01"
+  }
+]

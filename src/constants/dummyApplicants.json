@@ -1,0 +1,12 @@
+[
+  { "id": "1", "name": "John Doe", "createdAt": "2024-09-06", "status": "accepted" },
+  { "id": "2", "name": "Jane Smith", "createdAt": "2024-09-09", "status": "pending" },
+  { "id": "3", "name": "Alice Johnson", "createdAt": "2024-09-10", "status": "rejected" },
+  { "id": "4", "name": "Bob Brown", "createdAt": "2024-09-19", "status": "pending" },
+  { "id": "5", "name": "Charlie Davis", "createdAt": "2024-09-03", "status": "accepted" },
+  { "id": "6", "name": "Emily White", "createdAt": "2024-09-19", "status": "accepted" },
+  { "id": "7", "name": "Frank Harris", "createdAt": "2024-09-10", "status": "rejected" },
+  { "id": "8", "name": "Grace Clark", "createdAt": "2024-09-15", "status": "pending" },
+  { "id": "9", "name": "Henry Lewis", "createdAt": "2024-09-28", "status": "pending" },
+  { "id": "10", "name": "Ivy Walker", "createdAt": "2024-09-25", "status": "rejected" }
+]
