@@ -60,13 +60,13 @@ const CardContent = [
     description:
       "Ensure your profile is up to date to maximize visibility and enhance collaboration opportunities.",
     buttonText: "Complete Profile",
-    path: "/dashboard/profile",
+    path: "/research/dashboard/profile",
   },
   {
     title: "Upload your paper 🦒",
     description:
       "Contribute to the community by sharing your research and gaining valuable peer feedback.",
     buttonText: "Upload Paper",
-    path: "/dashboard/papers/create",
+    path: "/research/dashboard/papers/create",
   },
 ];

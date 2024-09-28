@@ -1,87 +1,118 @@
 "use client";
-
+import { useState, useCallback } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
-import React from "react";
-
 import Image from "next/image";
 import { Button } from "../ui/button";
-import P from "../P";
-import { minimizePubkey } from "~/lib/utils/helpers";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import {
+  LogOut,
+  Wallet as WalletIcon,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
+
+import { minimizePubkey } from "~/lib/utils/helpers";
+import useScreen from "~/hooks/useScreen";
 
 export const Wallet = () => {
   const { setVisible } = useWalletModal();
+  const { connected, publicKey, disconnect, wallet } = useWallet();
+  const [isOpen, setIsOpen] = useState(false);
+  const screenSize = useScreen();
+  const useSimplifiedInterface = ["sm", "md", "lg"].includes(screenSize);
+
   const handleConnect = () => {
     setVisible(true);
   };
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const { connected, publicKey, disconnect, wallet } = useWallet();
+  const handleDisconnect = useCallback(async () => {
+    try {
+      await disconnect();
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Error during disconnect:", error);
+    }
+  }, [disconnect]);
 
-  const handleDisconnect = () => {
-    disconnect().then(() => {
-      console.log("disconnected");
-    });
-    setAnchorEl(null);
-  };
+  if (!connected) {
+    return (
+      <Button onClick={handleConnect} className="bg-zinc-800 hover:bg-zinc-700">
+        Connect Wallet
+      </Button>
+    );
+  }
+
+  if (useSimplifiedInterface) {
+    return (
+      <Button
+        onClick={handleDisconnect}
+        className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700"
+      >
+        {wallet && (
+          <Image
+            alt={wallet.adapter.name}
+            src={wallet.adapter.icon}
+            width={20}
+            height={20}
+          />
+        )}
+        <span>Disconnect</span>
+        <LogOut className="ml-1 h-4 w-4" />
+      </Button>
+    );
+  }
 
   return (
-    <>
-      {!connected ? (
-        <Button
-          onClick={handleConnect}
-          className="bg-zinc-800 hover:bg-zinc-700"
-        >
-          Connect Wallet
+    <DropdownMenu onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger asChild>
+        <Button className="flex items-center gap-2 bg-white hover:bg-zinc-50">
+          {wallet && (
+            <Image
+              alt={wallet.adapter.name}
+              src={wallet.adapter.icon}
+              width={20}
+              height={20}
+            />
+          )}
+          <span className="font-bold text-zinc-800">
+            {publicKey && minimizePubkey(publicKey.toBase58())}
+          </span>
+          {isOpen ? (
+            <ChevronUp className="h-4 w-4 text-primary" />
+          ) : (
+            <ChevronDown className="h-4 w-4 text-primary" />
+          )}
         </Button>
-      ) : (
-        connected &&
-        wallet && (
-          <>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <div className="flex cursor-pointer flex-row items-center gap-2 rounded-md border-2 border-primary p-[5px]">
-                  <Image
-                    alt={wallet.adapter.name}
-                    height={24}
-                    src={wallet.adapter.icon}
-                    width={24}
-                  />
-
-                  <div className="text-center text-white" onClick={handleClick}>
-                    {publicKey && connected && (
-                      <P className="font-bold">
-                        {minimizePubkey(publicKey.toBase58())}
-                      </P>
-                    )}
-                  </div>
-                </div>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    <Button onClick={handleDisconnect}>Disconnect</Button>
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </>
-        )
-      )}
-    </>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56" align="end" alignOffset={-5}>
+        <DropdownMenuLabel>Wallet Options</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <WalletIcon className="mr-2 h-4 w-4" />
+            <span className="truncate">{wallet?.adapter.name}</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <span className="truncate text-xs">
+              {publicKey && minimizePubkey(publicKey.toBase58())}
+            </span>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={handleDisconnect}>
+          <LogOut className="mr-2 h-4 w-4" />
+          <span>Disconnect</span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };

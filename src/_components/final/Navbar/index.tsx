@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { DesearcherLogo } from "../Logo";
 import { usePathname } from "next/navigation";
 import { Wallet } from "./Wallet";
@@ -35,12 +34,12 @@ export const Navbar = ({ links }: { links: NavLink[] }) => {
         <Link href="/" className="mr-4">
           {logo}
         </Link>
-        <button className="hidden flex-1 sm:block">
+        <button className="hidden flex-1 lg:block">
           <span className="sr-only">Search</span>
           <SearchBar placeholder="Search the universe" />
         </button>
       </div>
-      <div className="hidden flex-row justify-between gap-[20px] sm:flex">
+      <div className="hidden flex-row justify-between gap-[20px] lg:flex">
         {links.map((link) => (
           <div
             key={link.name}
@@ -50,7 +49,6 @@ export const Navbar = ({ links }: { links: NavLink[] }) => {
                 : "flex flex-row items-center gap-[10px] border-b-2 border-transparent p-[5px]"
             }
           >
-            {/* <Image src={"/navbar-link.svg"} width={20} height={20} alt="link" /> */}
             <Link href={link.href} className="font-bold text-zinc-800">
               {link.name}
             </Link>

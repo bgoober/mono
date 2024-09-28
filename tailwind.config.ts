@@ -13,7 +13,6 @@ export default {
   prefix: "",
   theme: {
     screens: {
-      tablet: "600px",
       sm: "640px",
       md: "768px",
       lg: "1024px",
@@ -98,7 +97,7 @@ export default {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "gradient-main": "radial-gradient(rgb(10, 0, 65), black)"
+        "gradient-main": "radial-gradient(rgb(10, 0, 65), black)",
       },
     },
   },

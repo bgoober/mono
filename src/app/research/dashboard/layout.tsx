@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Arbutus, Atkinson_Hyperlegible } from "next/font/google";
-
 import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
 import { UIProvider } from "~/_components/final/Providers/UIProvider";
@@ -37,11 +36,12 @@ export default function DashboardLayout({
     <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
       <body className={`${inter.className} min-w-[350px]`}>
         <UIProvider>
-          <div className="flex h-screen bg-zinc-100">
+          <div className="flex h-screen overflow-hidden bg-zinc-100">
             <Sidebar />
-            <div className="flex flex-1 flex-col overflow-y-auto">
+            {/* Magic number alert */}
+            <div className="flex flex-1 flex-col pt-[7.2px]">
               <Navbar links={learnNavLinks} />
-              <div className="flex-1 overflow-x-hidden bg-zinc-100">
+              <div className="flex-1 overflow-y-auto">
                 <div className="container mx-auto px-6 py-8">{children}</div>
               </div>
             </div>
