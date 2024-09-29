@@ -48,6 +48,10 @@ export default function ManageProposal({ proposal }: { proposal: Proposal }) {
           <p className="my-3 flex items-center gap-3 font-semibold">
             Abstain Votes: {proposal?.abstainVotes.toString()}
           </p>
+
+          <p className="my-3 flex items-center gap-3 font-semibold">
+            End Date: {proposal?.endDate.toString()}
+          </p>
         </div>
       </div>
     </div>
