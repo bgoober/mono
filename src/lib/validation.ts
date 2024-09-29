@@ -1,5 +1,17 @@
 import { z } from "zod";
 
+export const NewDAOFormData = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, "Title must be at least 2 characters"),
+  description: z.string().trim().min(2, "Description must be at least 2 characters"),
+  type: z.enum(["NFT", "TOKEN", "HYBRID"]),
+  tokenPublicKey: z.string().trim().min(2, "Token public key must be at least 2 characters"),
+  allowSubDAO: z.boolean(),
+  subDAOCreationThreshold: z.number().min(1, "Sub DAO creation threshold must be at least 1"),
+});
+
 export const CampaignFormData = z.object({
   title: z
     .string()

@@ -1,10 +1,12 @@
 model DAO {
   id                      String     @id @default(cuid())
   name                    String
+  description             String
   publicKey               String
   isSubDAO                Boolean    @default(false)
   createdAt               DateTime   @default(now())
   updatedAt               DateTime   @updatedAt
+  type                    DAOType
   isHybrid                Boolean    @default(false)
   mint                    Token?     @relation(fields: [tokenId], references: [id])
   tokenId                 String?
@@ -15,4 +17,15 @@ model DAO {
   subDAOs                 DAO[]      @relation("ParentDAO")
   subDAOCreationThreshold Decimal
   proposals               Proposal[]
+  treasury                Treasury   @relation("Treasury", fields: [treasuryId], references: [id])
+  treasuryId              String     @unique
+  creator                 User       @relation("Creator", fields: [creatorId], references: [id])
+  creatorId               String
+  members                 User[]     @relation("Member")
+}
+
+enum DAOType {
+  NFT
+  TOKEN
+  HYBRID
 }

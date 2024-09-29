@@ -6,7 +6,7 @@ import NavBar from "~/_components/soldic/NavBar";
 import campaignsJSON from "~/constants/campaigns.json";
 import { type Campaign } from "~/server/api/routers/campaign/read";
 import { CrownfundingContent } from "~/content/build/content";
-async function Entries() {
+async function Campaigns() {
   // table data
   const campaigns = (campaignsJSON as any).map((campaign: any) => ({
     ...campaign,
@@ -23,4 +23,4 @@ async function Entries() {
   );
 }
 
-export default Entries;
+export default Campaigns;

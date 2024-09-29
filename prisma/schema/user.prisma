@@ -59,6 +59,8 @@ model User {
   EntryReview         EntryReview[]
   campaigns           Campaign[]           @relation("Creator")
   backerOf            Backer[]             @relation("Backers")
+  ownedDAOs           DAO[]                @relation("Creator")
+  memberOf            DAO[]                @relation("Member")
 }
 
 model Follow {
