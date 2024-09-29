@@ -30,3 +30,4 @@ export const search = publicProcedure.input(z.object({
 export type DAO = UnwrapArray<UnwrapPromise<ReturnType<typeof read>>>;
 export type DAOSearchResult = UnwrapArray<UnwrapPromise<ReturnType<typeof search>>>;
 export type Treasury = DAO["treasury"];
+export type Proposal = DAO["proposals"][number];

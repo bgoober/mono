@@ -1,5 +1,15 @@
 import { z } from "zod";
 
+export const NewProposalFormData = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, "Title must be at least 2 characters"),
+  description: z.string().trim().min(2, "Description must be at least 2 characters"),
+  quorum: z.number().min(1, "Quorum must be at least 1"),
+  endDate: z.date(),
+});
+
 export const NewDAOFormData = z.object({
   name: z
     .string()
