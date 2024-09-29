@@ -19,7 +19,7 @@ export const MobileMenu = ({ pathname, links }: MobileMenuProps) => {
   };
 
   return (
-    <div className="flex items-center sm:hidden">
+    <div className="z-50 flex items-center lg:hidden">
       <button className="mr-2 rounded-md p-2 transition-colors duration-200 hover:bg-zinc-100">
         <Search className="h-5 w-5 text-zinc-600" />
       </button>
@@ -30,25 +30,27 @@ export const MobileMenu = ({ pathname, links }: MobileMenuProps) => {
       >
         <Image src={"/WF Icon Button.svg"} width={35} height={35} alt="logo" />
       </button>
-
       <div
         className={`${
           openMenu ? "flex" : "hidden"
-        } absolute left-0 top-20 w-full flex-col gap-4 rounded-md border-2 border-primary bg-background py-4`}
+        } absolute left-0 top-20 w-full flex-col gap-4 rounded-md border-2 border-none bg-background py-4 shadow-lg`}
       >
         {links.map((link) => (
           <div
             key={link.name}
             className={
               pathname === link.href
-                ? "flex flex-row items-center gap-[10px] bg-muted px-[15px] hover:cursor-pointer hover:bg-muted"
-                : "flex flex-row items-center gap-[10px] px-[15px] hover:cursor-pointer hover:bg-muted"
+                ? "flex flex-row items-center gap-[10px] bg-muted px-[15px]"
+                : "flex flex-row items-center gap-[10px] px-[15px] hover:bg-muted/40"
             }
           >
-            <Image src={"/navbar-link.svg"} width={20} height={20} alt="link" />
             <Link
               href={link.href}
-              className="block flex-1 py-[10px] font-bold text-primary"
+              className={`block flex-1 py-[10px] font-bold ${
+                pathname === link.href
+                  ? "text-primary"
+                  : "text-zinc-500 hover:text-primary"
+              }`}
               onClick={() => setOpenMenu(false)}
             >
               {link.name}

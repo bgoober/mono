@@ -52,7 +52,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const handleResize = () => {
-      setSidebarExpanded(window.innerWidth >= 768);
+      setSidebarExpanded(window.innerWidth >= 1024);
     };
 
     window.addEventListener("resize", handleResize);
