@@ -50,8 +50,8 @@ export default function Wallet() {
       )}
 
       {manage && (
-        <div className="bg-veil fixed left-0 top-0 flex h-screen w-screen items-center justify-center">
-          <section className="bg-primary-muted relative flex aspect-[1.5] w-[300px] flex-col items-center gap-5 rounded-lg p-3 py-8">
+        <div className="fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center backdrop-blur-lg backdrop-brightness-50">
+          <section className="bg-primary-foreground relative flex aspect-[1.5] w-[300px] flex-col items-center gap-5 rounded-lg p-3 py-8">
             <CloseButton
               handleClick={() => {
                 setManage(false);

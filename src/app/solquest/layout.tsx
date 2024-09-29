@@ -1,13 +1,39 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Arbutus, Atkinson_Hyperlegible, Inter } from "next/font/google";
 import { WalletContextProvider } from "~/_components/solquest/providers/WalletContextProvider";
 import Navbar from "~/_components/solquest/general/Navbar";
 import Footer from "~/_components/solquest/general/Footer";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import "~/styles/globals.css";
-import "~/styles/solquest.css";
+import "~/styles/deresearcher.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const links = [
+  {
+    name: "Home",
+    href: "/solquest"
+  },
+  {
+      name: "Bounties",
+      href: "/solquest/bounties"
+  },
+  {
+      name: "Manage",
+      href: "/solquest/manage"
+  },
+]
+
+const arbutus = Arbutus({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-arbutus",
+});
+const atkinson = Atkinson_Hyperlegible({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-atkinson",
+});
 
 export const metadata: Metadata = {
   title: "SolQuest",
@@ -20,12 +46,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
       <WalletContextProvider>
         <body
-          className={`bg-gradient-main relative flex min-h-screen w-screen flex-col overflow-x-hidden bg-fixed text-lg text-white ${inter.className}`}
+          className={`relative flex min-h-screen max-w-[100vw] w-full flex-col overflow-x-hidden bg-fixed bg-zinc-100 text-lg ${inter.className}`}
         >
-          <Navbar />
+          <Navbar links={links}/>
           {children}
           <Footer />
         </body>
@@ -33,3 +59,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// bg-gradient-main 

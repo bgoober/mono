@@ -23,6 +23,12 @@ interface ColumnDefinition {
     COMPLETED: "completed",
   };
 
+  export const APPLICANTS_STATUS = {
+    ACCEPTED: "accepted",
+    PENDING: "pending",
+    REJECTED: "rejected"
+  }
+
   export const COLUMNS: ColumnDefinition[] = [
     { key: "title", header: "Paper Title" },
     { key: "authors", header: "Authors" },
@@ -39,3 +45,9 @@ interface ColumnDefinition {
     { key: "status", header: "Status", sortable: true },
     { key: "track", header: "Track", sortable: true },
   ];
+
+  export const APPLICANTS_COLUMNS: ColumnDefinition[] = [
+    {key: "name", header: "Name"},
+    {key: "createdAt", header: "Applied At", sortable: true},
+    {key: "status", header: "Status", sortable: true}
+  ]
