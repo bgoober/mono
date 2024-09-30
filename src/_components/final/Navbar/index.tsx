@@ -6,6 +6,7 @@ import { MobileMenu } from "./MobileMenu";
 import Link from "next/link";
 import { SearchBar } from "../Dashboard/Navbar";
 import SolquestLogo from "~/_components/solquest/general/ui/Logo";
+import { type Session } from "next-auth";
 
 const getLogoFromPathname = (pathname: string) => {
   if (pathname.includes("research")) {
@@ -24,7 +25,13 @@ export type NavLink = {
   href: string;
 };
 
-export const Navbar = ({ links }: { links: NavLink[] }) => {
+export const Navbar = ({
+  links,
+  session,
+}: {
+  links: NavLink[];
+  session: Session | null;
+}) => {
   const pathname = usePathname();
   const logo = getLogoFromPathname(pathname);
 
@@ -55,10 +62,26 @@ export const Navbar = ({ links }: { links: NavLink[] }) => {
           </div>
         ))}
         <Wallet />
+        <AuthShowcase session={session} />
       </div>
       <MobileMenu pathname={pathname} links={links} />
     </nav>
   );
 };
+
+function AuthShowcase({ session }: { session: Session | null }) {
+  return (
+    <div className="relative mx-4 inline-block text-left">
+      <div>
+        <Link
+          href={session ? "/api/auth/signout" : "/api/auth/signin"}
+          className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
+        >
+          {session ? "Sign out" : "Sign in"}
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 export default Navbar;

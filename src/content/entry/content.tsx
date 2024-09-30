@@ -67,7 +67,10 @@ const columns: ColumnDef<Entry>[] = [
     cell: ({ row }) => (
       <td key="term" className={`whitespace-nowrap`}>
         {row.original.tags.map((tag) => (
-          <span className="inline-flex rounded-full bg-secondary-foreground px-2 text-xs font-semibold leading-5 text-secondary">
+          <span
+            key={tag.tag.id}
+            className="inline-flex rounded-full bg-secondary-foreground px-2 text-xs font-semibold leading-5 text-secondary"
+          >
             {tag.tag.name}
           </span>
         ))}
