@@ -19,7 +19,7 @@ export default function Manage() {
     router.push(`/solquest/manage/working/${item.id}`);
   };
   return (
-    <main className="tablet:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
+    <main className="sm:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
       <div className="flex items-center justify-center gap-4">
         <Button
           variant="link"

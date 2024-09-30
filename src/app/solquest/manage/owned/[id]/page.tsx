@@ -61,7 +61,7 @@ export default function Bounty({params}: {params: {id: string}}){
   }, [params])
 
   return(
-    <div className="m-auto my-4 flex w-full flex-1 flex-col px-5 tablet:px-12">
+    <div className="m-auto my-4 flex w-full flex-1 flex-col px-5 sm:px-12">
       <div className="p-2 bg-white rounded-md">
         <H1 className="text-center my-3">{pageBounty?.title??""}</H1>
         <pre className="text-wrap text-lg font-medium">{pageBounty?.details}</pre>
@@ -86,12 +86,12 @@ export default function Bounty({params}: {params: {id: string}}){
       </div>
 
       { pageBounty?.status == "open" &&
-        <>
+        <div>
         <H3 className="text-primary text-center font-bold my-5">Applicants</H3>
         {bounties.length > 0 && (
           <Table columns={APPLICANTS_COLUMNS} data={applicants} marginTop="mt-4" whenRowClick={onRowClick} />
         )}
-        </>
+        </div>
       }
 
       {viewManage && <Manage 
@@ -113,10 +113,10 @@ const Manage = ({item, handleClick, name}: ManageProps) => {
           <b>{name}</b>
         </p>
         {item?.status == "pending" &&
-          <>
+          <div>
             <Button type={2}>Accept Application</Button>
             <Button>Reject Application</Button>
-          </>
+          </div>
         }
         {
           item?.status == "accepted" &&

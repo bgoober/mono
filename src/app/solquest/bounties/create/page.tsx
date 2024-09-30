@@ -1,5 +1,4 @@
 "use client";
-import { H1 } from "~/_components/solquest/general/ui/H1";
 import Input from "~/_components/solquest/general/ui/Input";
 import { Button } from "~/_components/solquest/general/ui/Button";
 
