@@ -6,21 +6,22 @@ enum ProposalStatus {
 }
 
 model Proposal {
-  id           String         @id @default(cuid())
-  title        String
-  description  String
-  publicKey    String
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  publicKey   String
+  quorum      Decimal
+  endDate     DateTime
+
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
-  DAO          DAO            @relation(fields: [daoId], references: [id])
-  daoId        String
-  creator      User           @relation(fields: [creatorId], references: [id])
-  creatorId    String
-  quorum       Decimal
   forVotes     Int
   againstVotes Int
   abstainVotes Int
-  endDate      DateTime
+  creatorId    String
+  creator      User           @relation(fields: [creatorId], references: [id])
+  daoId        String
+  DAO          DAO            @relation(fields: [daoId], references: [id])
   status       ProposalStatus
   votes        Vote[]
 }
