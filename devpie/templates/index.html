@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Repository Analyzer</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <h1>GitHub Repository Analyzer</h1>
+    <form action="/" method="post">
+        <label for="repo_url">GitHub Repository URL:</label>
+        <input type="text" id="repo_url" name="repo_url" required>
+        <button type="submit">Analyze</button>
+
+        <p>DevPie analyzes the contributions and commits to a GitHub repository.</p>
+        <p>The output is meant to be used as the basis of a suggested revenue split amongst the project's contributors.</p>
+        <p>Points are awarded to authors and committers based on lines added and deleted:</p>
+        <ul>
+            <li>5 points for boilerplate commits, 100 points for non-boilerplate</li>
+            <li>+25 points for each line added (non-boilerplate commits only)</li>
+            <li>+50 points for each line deleted (non-boilerplate commits only)</li>
+            <li>+25 points for verified commits</li>
+        </ul>
+        <p>Boilerplate commits are identified by specific keywords in the commit message. GitHub, automated workflows, and bots are excluded from the Pie.</p>
+        <p>Given the financial incentives and importance of diligent participation in the project's development, it is recommended to implement strict branch protection and commit rules to maintain the integrity of your project and each contributor's share.</p>    </form>
+</body>
+</html>
