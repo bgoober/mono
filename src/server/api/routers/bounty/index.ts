@@ -1,5 +1,6 @@
 import { createBounty, createApplication } from "~/server/api/routers/bounty/create";
 import { readAllApplications, readAllBounties, readBounty } from "~/server/api/routers/bounty/read";
+import { acceptApplication, rejectApplication, startBounty, endBounty } from "~/server/api/routers/bounty/update";
 import { createTRPCRouter } from "~/server/api/trpc";
 
 export const bountyRouter = createTRPCRouter({
@@ -7,5 +8,9 @@ export const bountyRouter = createTRPCRouter({
   createApplication,
   readAllApplications,
   readAllBounties,
-  readBounty
+  readBounty,
+  acceptApplication,
+  rejectApplication,
+  startBounty,
+  endBounty
 })
