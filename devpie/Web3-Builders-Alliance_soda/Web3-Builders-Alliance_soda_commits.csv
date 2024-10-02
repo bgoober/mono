@@ -1,0 +1,37 @@
+SHA,Author,Author ID,Committer,Committer ID,Date,Message,Lines Added,Lines Deleted,Verified,Points
+a0509f89dcaf9ae4e3aa5bf009b747b0b0c38a9a,JuanMarchetto,6706152,JuanMarchetto,6706152,2024-09-11T19:39:43Z,fix 0.30.1 compatibility issues,692,4,False,17600
+843788e9b5725cc846793e48649227930ad15fed,JuanMarchetto,6706152,JuanMarchetto,6706152,2024-03-12T21:43:38Z,0.1.0,10,9,False,800
+d4af54684589d7323f1b9ff0609a430a01baef6c,JuanMarchetto,6706152,JuanMarchetto,6706152,2024-02-09T22:02:59Z,making styructs public,6,6,False,550
+6bdc9cd488b8a36d12bd0172aa96fdcffcd6479e,JuanMarchetto,6706152,JuanMarchetto,6706152,2024-02-02T21:16:53Z,Merge branch 'main' of https://github.com/Web3-Builders-Alliance/soda,11,5,False,625
+e924c5dd1b1456470bfdf4ffc2c6583739c8693a,JuanMarchetto,6706152,JuanMarchetto,6706152,2024-02-02T21:15:40Z,crate 0.0.9,7,7,False,625
+488a7824295e2cbded64148f690dbe01463e0597,Marche,6706152,GitHub,,2024-01-23T19:51:46Z,"Merge pull request #163 from leofishman/133_snakecase_first_char
+
+enumarate and check index 0",11,5,True,650
+e6796c1c75ea6a0c81ea128a769b9e5a1cb347bb,Marche,6706152,GitHub,,2024-01-23T19:49:41Z,Update crate/src/helpers.rs,1,1,True,200
+078aec0a127798aa98d42d422c1f097377b702e0,leofishman,310051,leofishman,310051,2024-01-23T19:35:50Z,enumarate and check index 0,11,5,False,625
+6d1c6b53f4235a4f7915d8a364744c83a4dbf7e8,JuanMarchetto,6706152,JuanMarchetto,6706152,2023-12-27T14:57:00Z,fix,0,1,False,150
+321ecdd38c0fb7c4e42c0a0c48ca38632d593909,Marche,6706152,GitHub,,2023-12-27T14:55:59Z,"Merge pull request #161 from AhzamAkhtar/main
+
+React Native Template Improved",88,50,True,4825
+9fcea8d9e27764c0a4d59e0d4e5ed2ccad407aa1,Marche,6706152,GitHub,,2023-12-27T14:52:15Z,"Merge pull request #162 from Web3-Builders-Alliance/update-templates
+
+Adding documentation",30,2,True,975
+f869d0f260f35ff697e3d90b13c05f3369ad2ed7,JuanMarchetto,6706152,JuanMarchetto,6706152,2023-12-27T14:48:10Z,Adding documentation,30,2,False,950
+2f22bbbf2647a58804bb5a53cbb96cd98d56998f,Ahzam Akhtar,94620460,Ahzam Akhtar,94620460,2023-12-20T20:40:39Z,small improvments (react-native),3,4,False,375
+5dd6f913d46cacf336f0ef7377ec43fe816cc560,Ahzam Akhtar,94620460,GitHub,,2023-11-08T20:07:10Z,Merge branch 'Web3-Builders-Alliance:main' into main,86,62,True,5375
+26fcf262da1b47d3cbb6bc28cdbbbb4f86c4ec5e,Ahzam Akhtar,94620460,Ahzam Akhtar,94620460,2023-11-08T20:01:56Z,React Native Template Improved,85,46,False,4525
+bd11c33841c2aa0854b201ed24ba7b4994c4c2e4,Marche,6706152,GitHub,,2023-10-14T20:41:15Z,Merge pull request #160 from Web3-Builders-Alliance/JuanMarchetto-patch-6,55,48,True,3900
+53613716657d2fe75ab956908b8a5c84b65df457,Marche,6706152,GitHub,,2023-10-14T20:40:48Z,Update README.MD,55,48,True,3900
+fa3ea7fe696f510ebee8d799fefd7c7eb616c2b8,Marche,6706152,GitHub,,2023-10-14T20:37:03Z,Merge pull request #159 from Web3-Builders-Alliance/JuanMarchetto-patch-6,2,2,True,275
+f1121d940953cf8ee786141ec3ba49888a24eafb,Marche,6706152,GitHub,,2023-10-14T20:36:42Z,Update README.MD,2,2,True,275
+53e23acb6c2ee88e6338f09c299d84e400cbb142,Marche,6706152,GitHub,,2023-10-14T20:35:58Z,Merge pull request #158 from Web3-Builders-Alliance/JuanMarchetto-patch-5,4,4,True,425
+98cdc0dad2af0d395a39ef300b2bf4b086f79a64,Marche,6706152,GitHub,,2023-10-14T20:34:56Z,Update README.MD,4,4,True,425
+8909ffc7869a7c63655ca33ae432598be9e55a66,Marche,6706152,GitHub,,2023-10-14T20:33:55Z,Merge pull request #157 from Web3-Builders-Alliance/JuanMarchetto-patch-4,2,1,True,225
+fec7d3650345143fdf94780b37281e4af09ba1f3,Marche,6706152,GitHub,,2023-10-14T20:33:33Z,Update README.MD,2,1,True,225
+5ba5cd42098c0515f40530377b71e7f462f3431b,Marche,6706152,GitHub,,2023-10-14T20:32:57Z,Merge pull request #156 from Web3-Builders-Alliance/JuanMarchetto-patch-3,7,4,True,500
+6dfe7ac0683434e7311c0f0a7bd81c4bea353e54,Marche,6706152,GitHub,,2023-10-14T20:32:42Z,Update README.MD,7,4,True,500
+bdd3addd4817d15d9e07dfbd7ba0d7bf5de496c5,Marche,6706152,GitHub,,2023-10-14T20:31:38Z,Merge pull request #155 from Web3-Builders-Alliance/JuanMarchetto-patch-2,8,6,True,625
+46108cd228c0c74af734ccff65eee802db66ca98,Marche,6706152,GitHub,,2023-10-14T20:30:58Z,Update README.MD,8,6,True,625
+44eb7a7e6565463b3549b1084c5816c0f9b211ea,Marche,6706152,GitHub,,2023-10-05T16:34:54Z,Merge pull request #154 from Web3-Builders-Alliance/update-templates,27,16,True,1600
+2d7d4f142bc7ca887aa2a7f5d7174db17012130f,JuanMarchetto,6706152,JuanMarchetto,6706152,2023-10-05T15:46:50Z,update-templates,27,16,False,1575
+a75198bd9803ca56bb347f95e96086fe6c78aff2,Marche,6706152,GitHub,,2023-09-13T14:40:26Z,Merge pull request #153 from AhzamAkhtar/main,368,148,True,16725

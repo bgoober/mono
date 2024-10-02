@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevPie Results</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <h1>Current Developer Pie/Split for {{ owner }}/{{ repo }}</h1>
+    <div>
+        <h2>Commit Contributions</h2>
+        <img src="{{ url_for('serve_image', owner_repo=owner + '_' + repo, filename=owner + '_' + repo + '_commits.png') }}" alt="Commit Contributions">
+    </div>
+    <div>
+        <h2>Contributor Contributions</h2>
+        <img src="{{ url_for('serve_image', owner_repo=owner + '_' + repo, filename=owner + '_' + repo + '_contributors.png') }}" alt="Contributor Contributions">
+    </div>
+</body>
+</html>

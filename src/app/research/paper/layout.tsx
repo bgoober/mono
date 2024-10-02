@@ -4,7 +4,8 @@ import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
 import { UIProvider } from "~/_components/final/Providers/UIProvider";
 import Navbar, { NavLink } from "~/_components/final/Navbar";
-import { learnNavLinks } from "~/app/research/page";
+import { getServerAuthSession } from "~/server/auth";
+import { learnNavLinks } from "~/app/research/static";
 
 const inter = Inter({ subsets: ["latin"] });
 const arbutus = Arbutus({
@@ -26,16 +27,17 @@ export const metadata: Metadata = {
   description: "A decentralized research platform on Solana",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerAuthSession();
   return (
     <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
       <body className={`${inter.className} min-w-[350px]`}>
         <UIProvider>
-          <Navbar links={learnNavLinks} />
+          <Navbar links={learnNavLinks} session={session} />
           {children}
         </UIProvider>
       </body>
