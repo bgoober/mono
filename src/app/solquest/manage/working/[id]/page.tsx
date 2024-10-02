@@ -43,21 +43,13 @@ export default function Bounty({ params }: { params: { id: string } }) {
     setPageBounty(bounties.find((bounty) => bounty.id == params.id));
   }, [params]);
 
-<<<<<<< HEAD
-  return(
-    <div className="m-auto my-4 flex w-full flex-1 flex-col px-5 sm:px-12">
-      <div className="p-2 bg-white rounded-md">
-        <H1 className="text-center my-3">{pageBounty?.title??""}</H1>
-        <pre className="text-wrap text-lg font-medium">{pageBounty?.details}</pre>
-=======
   return (
-    <div className="tablet:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
+    <div className="sm:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
       <div className="rounded-md bg-white p-2">
         <H1 className="my-3 text-center">{pageBounty?.title ?? ""}</H1>
         <pre className="text-wrap text-lg font-medium">
           {pageBounty?.details}
         </pre>
->>>>>>> 2aad840330928771fb5a9cee47454f99ebf6f8b9
         <div className="my-4">
           <P className="font-semibold">
             Status: {getStatus(pageBounty?.status ?? "")}

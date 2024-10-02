@@ -52,21 +52,13 @@ export default function Bounty({ params }: { params: { id: string } }) {
     setPageBounty(bounties.find((bounty) => bounty.id == params.id));
   }, [params]);
 
-<<<<<<< HEAD
-  return(
-    <div className="m-auto my-4 flex w-full flex-1 flex-col px-5 sm:px-12">
-      <div className="p-2 bg-white rounded-md">
-        <H1 className="text-center my-3">{pageBounty?.title??""}</H1>
-        <pre className="text-wrap text-lg font-medium">{pageBounty?.details}</pre>
-=======
   return (
-    <div className="tablet:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
+    <div className="sm:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
       <div className="rounded-md bg-white p-2">
         <H1 className="my-3 text-center">{pageBounty?.title ?? ""}</H1>
         <pre className="text-wrap text-lg font-medium">
           {pageBounty?.details}
         </pre>
->>>>>>> 2aad840330928771fb5a9cee47454f99ebf6f8b9
         <div className="my-4">
           <P className="font-semibold">
             Status: {getStatus(pageBounty?.status ?? "")}
@@ -94,16 +86,6 @@ export default function Bounty({ params }: { params: { id: string } }) {
         )}
       </div>
 
-<<<<<<< HEAD
-      { pageBounty?.status == "open" &&
-        <div>
-        <H3 className="text-primary text-center font-bold my-5">Applicants</H3>
-        {bounties.length > 0 && (
-          <Table columns={APPLICANTS_COLUMNS} data={applicants} marginTop="mt-4" whenRowClick={onRowClick} />
-        )}
-        </div>
-      }
-=======
       {pageBounty?.status == "open" && (
         <>
           <H3 className="my-5 text-center font-bold text-primary">
@@ -119,7 +101,6 @@ export default function Bounty({ params }: { params: { id: string } }) {
           )}
         </>
       )}
->>>>>>> 2aad840330928771fb5a9cee47454f99ebf6f8b9
 
       {viewManage && (
         <Manage
@@ -137,27 +118,11 @@ export default function Bounty({ params }: { params: { id: string } }) {
 const Manage = ({ item, handleClick, name }: ManageProps) => {
   return (
     <div className="fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center backdrop-blur-lg backdrop-brightness-50">
-      <section className="relative flex aspect-[1.3] w-[300px] flex-col items-center gap-5 rounded-lg bg-primary-foreground p-3 py-8">
+      <section className="relative flex w-[300px] flex-col items-center gap-5 rounded-lg bg-primary-foreground p-3 py-8">
         <CloseButton handleClick={handleClick} />
         <p>
           <b>{name}</b>
         </p>
-<<<<<<< HEAD
-        {item?.status == "pending" &&
-          <div>
-            <Button type={2}>Accept Application</Button>
-            <Button>Reject Application</Button>
-          </div>
-        }
-        {
-          item?.status == "accepted" &&
-          <P className="text-secondary font-semibold">{item?.status.toUpperCase()}</P>
-        }
-        {
-          item?.status == "rejected" &&
-          <P className="text-destructive font-semibold">{item?.status.toUpperCase()}</P>
-        }
-=======
         {item?.status == "pending" && (
           <>
             <Button type={2}>Accept Application</Button>
@@ -174,7 +139,6 @@ const Manage = ({ item, handleClick, name }: ManageProps) => {
             {item?.status.toUpperCase()}
           </P>
         )}
->>>>>>> 2aad840330928771fb5a9cee47454f99ebf6f8b9
       </section>
     </div>
   );
