@@ -93,25 +93,91 @@ export default function NewProposalForm() {
 
         <FormField
           control={form.control}
+          name="threshold"
+          render={({ field }) => (
+            <CustomFormItem
+              label="threshold"
+              field={field}
+              placeholder="Enter your threshold"
+              inputProps={{ type: "number" }}
+            />
+          )}
+          required
+        />
+        
+        //the programs receive u64 bcs its in slots the time management.
+        <FormField
+          control={form.control}
           name="endDate"
           render={({ field }) => (
             <CustomFormItem
-              label="End Date"
+              label="End Date / Expiry"
               field={field}
               placeholder="Enter your end date"
-              isEditing={isEditing}
+              inputProps={{ type: "number" }}
             />
+          )}
+          required
+        />        
+        <FormField
+          control={form.control}
+          name="proposalType"
+          render={({ field }) => (
+            <div className="form-item">
+              <label htmlFor="proposalType" className="form-label">
+                Proposal Type
+              </label>
+              <select
+                id="proposalType"
+                {...field}
+                disabled={!isEditing}
+                className="form-select"
+              >
+                <option value="" disabled>Select your proposal type</option>
+                <option value="VOTE_MULTIPLE_CHOICE">Vote Multiple Choice</option>
+                <option value="BOUNTY">Bounty</option>
+                <option value="VOTE">Vote</option>
+                <option value="EXECUTABLE">Executable</option>
+              </select>
+            </div>
           )}
         />
 
+        <FormField
+          control={form.control}
+          name="analysisPeriod"
+          render={({ field }) => (
+            <CustomFormItem
+              label="Analysis Period (in slots)"
+              field={field}
+              placeholder="Enter analysis period"
+              inputProps={{ type: "number" }}
+            />
+          )}
+          required
+        />
+
+        <FormField
+          control={form.control}
+          name="uri"
+          render={({ field }) => (
+            <CustomFormItem
+              label="URI"
+              field={field}
+              placeholder="Enter URI"
+              isEditing={isEditing}
+              inputProps={{ maxLength: 112 }}
+            />
+          )}
+          required
+        />
         <div className="flex justify-end gap-4">
           <Button
             type="submit"
-            className={`w-40 ${
-              isEditing
+            className={`w-40 ${isEditing
                 ? "bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
                 : "bg-transparent text-zinc-800 hover:bg-zinc-100"
-            }`}
+              }`}
             variant={isEditing ? "default" : "outline"}
             disabled={!isEditing || form.formState.isSubmitting}
           >
@@ -119,11 +185,10 @@ export default function NewProposalForm() {
           </Button>
           <Button
             type="button"
-            className={`w-40 ${
-              isEditing
+            className={`w-40 ${isEditing
                 ? "bg-transparent text-zinc-800 hover:bg-zinc-100"
                 : "bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
-            }`}
+              }`}
             variant={isEditing ? "outline" : "default"}
             disabled={form.formState.isSubmitting}
             onClick={() => {

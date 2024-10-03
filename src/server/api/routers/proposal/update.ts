@@ -5,7 +5,7 @@ import { ProposalStatus } from "@prisma/client";
 export const updateStatus = protectedProcedure
   .input(
     z.object({
-      id: z.string(),
+      id: z.number(),
       status: z.nativeEnum(ProposalStatus),
     }),
   )

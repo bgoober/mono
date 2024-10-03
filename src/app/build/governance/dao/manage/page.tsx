@@ -6,8 +6,9 @@ import { CrownfundingContent } from "~/content/build/content";
 import { DaoContent } from "~/content/build/dao/context";
 import { Decimal } from "@prisma/client/runtime/library";
 import { DAO } from "~/server/api/routers/dao/read";
-import { DAOType, ProposalStatus } from "@prisma/client";
+import { DAOType, ProposalStatus, ProposalType } from "@prisma/client";
 import ManageDAO from "~/content/build/dao/manage/content";
+import { number } from "zod";
 // import { DAO } from "@prisma/client";
 const getDAO = async (): Promise<DAO> => {
   return {
@@ -15,35 +16,49 @@ const getDAO = async (): Promise<DAO> => {
     name: "Art DAO Collective",
     description:
       "An art-focused DAO that funds and supports digital creators across the globe.",
+    type: DAOType.NFT,
+    tokenId: null,
+    collectionTokenId: "nft123",
     circulatingSupply: new Decimal(500),
+    proposalFeeBounty: new Decimal(10),
+    proposalFeeExecutable: new Decimal(20),
+    proposalFeeVote: new Decimal(5),
+    proposalFeeVoteMultiple: new Decimal(15),
+    maxExpiry: 1000000,
+    minThreshold: new Decimal(100),
+    minQuorum: new Decimal(20),
+    proposalAnalysisPeriod: 86400, // 1 day in seconds
+    nQuorumEpoch: 3,
+    thresholdCreateProposal: new Decimal(50),
+    vetoCouncil: "veto_council_pubkey",
     allowSubDAO: true,
-    parentDAOId: null,
-    subDAOCreationThreshold: new Decimal(250),
+    thresholdCreateSubDao: new Decimal(250),
+    createSubdaoFee: new Decimal(100),
     proposals: [
       {
-        id: "proposal001",
+        id: 1,
         title: "Proposal 1",
         description: "Description 1",
         publicKey: "proposal001",
+        quorum: new Decimal(50),
+        threshold: new Decimal(200),
+        endDate: 10000000,
+        proposalType: ProposalType.VOTE,
+        analysisPeriod: 100,
+        uri: "https://ipfs.tech",
         createdAt: new Date(),
         updatedAt: new Date(),
         daoId: "dfkljsew4kdsf",
         creatorId: "art_creator_1",
-        quorum: new Decimal(500),
         forVotes: 10,
         againstVotes: 5,
         abstainVotes: 2,
-        endDate: new Date(),
         status: ProposalStatus.PENDING,
       },
     ],
-    publicKey: "art123",
-    isSubDAO: false,
     createdAt: new Date(),
     updatedAt: new Date(),
-    type: DAOType.NFT,
-    isHybrid: false,
-    tokenId: "nft123",
+    parentDAOId: null,
     creatorId: "art_creator_1",
     creator: {
       id: "artist001",

@@ -8,6 +8,7 @@ import { sentenceParserRouter } from "~/server/api/routers/sentenceParser";
 import { paperReviewRouter } from "~/server/api/routers/paperReview";
 import { paperRouter } from "~/server/api/routers/paper";
 import { proposalRouter } from "~/server/api/routers/proposal";
+import { daoRouter } from "./routers/dao";
 
 /**
  * This is the primary router for your server.
@@ -24,6 +25,7 @@ export const appRouter = createTRPCRouter({
   paperReview: paperReviewRouter,
   paper: paperRouter,
   proposal: proposalRouter,
+  dao : daoRouter,
 });
 
 // export type definition of API
