@@ -13,13 +13,13 @@ export const createBounty = protectedProcedure.input(z.object({
 }))
 .mutation(async ({ctx, input}) => {
   return await ctx.db.$transaction(async db => {
-    const companyExists = await db.company.findUnique({
-      where: {id: input.companyId}
-    })
+    // const companyExists = await db.company.findUnique({
+    //   where: {id: input.companyId}
+    // })
 
-    if (!companyExists){
-      throw new Error("Company not found!")
-    }
+    // if (!companyExists){
+    //   throw new Error("Company not found!")
+    // }
 
     const pointOfContactExists = await db.user.findUnique({
       where:{id: input.pointOfContactId}
@@ -69,4 +69,25 @@ export const createApplication = protectedProcedure.input(z.object({
   })
 
   return application;
+})
+
+//Create Token for testing (Only USDC for now)
+export const createToken = protectedProcedure.input(z.object({
+  name: z.string(),
+  ticker: z.string(),
+  address: z.string(),
+  image: z.string(),
+  decimals: z.number()
+})).mutation(async ({ctx, input}) => {
+  const token = ctx.db.token.create({
+    data: {
+      name: input.name,
+      ticker: input.ticker,
+      address: input.address,
+      image: input.image,
+      decimals: input.decimals
+    }
+  })
+
+  return token;
 })

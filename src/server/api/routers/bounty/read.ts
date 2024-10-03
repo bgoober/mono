@@ -1,7 +1,7 @@
-import { protectedProcedure } from "~/server/api/trpc";
+import { publicProcedure } from "~/server/api/trpc";
 import {z} from "zod";
 
-export const readAllBounties = protectedProcedure.query(async ({ctx}) => {
+export const readAllBounties = publicProcedure.query(async ({ctx}) => {
   return await ctx.db.bounty.findMany({
     include: {
       company: true,
@@ -13,7 +13,7 @@ export const readAllBounties = protectedProcedure.query(async ({ctx}) => {
   })
 })
 
-export const readAllApplications = protectedProcedure.query(async ({ctx}) => {
+export const readAllApplications = publicProcedure.query(async ({ctx}) => {
   return await ctx.db.bountyApplication.findMany({
     include: {
       user: true
@@ -21,7 +21,7 @@ export const readAllApplications = protectedProcedure.query(async ({ctx}) => {
   })
 })
 
-export const readBounty = protectedProcedure.input(z.object({bountyId: z.string()}))
+export const readBounty = publicProcedure.input(z.object({bountyId: z.string()}))
 .query(async ({ctx, input}) => {
   return ctx.db.bounty.findUnique({
     where: {id: input.bountyId},
