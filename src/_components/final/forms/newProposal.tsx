@@ -1,28 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import {
-  CampaignFormData,
-  NewDAOFormData,
-  NewProposalFormData,
-  ProfileFormData,
-} from "~/lib/validation";
+import { NewProposalFormData } from "~/lib/validation";
 import CustomFormItem from "../CustomForm";
-import { CheckIcon } from "@radix-ui/react-icons";
 import { Button } from "~/_components/final/ui/button";
 import { Form, FormField, FormLabel } from "~/_components/final/ui/form";
 import { Textarea } from "~/_components/final/ui/textarea";
-import { Camera, Upload } from "lucide-react";
 import H1 from "~/_components/final/H1";
-import { RadioGroup, RadioGroupItem } from "~/_components/final/ui/radio-group";
-import { Label } from "~/_components/final/ui/label";
-import { cn } from "~/utils";
-import { Input } from "~/_components/final/ui/input";
+import { api } from "~/trpc/react";
 
 const initialData = {
   title: "",
@@ -39,9 +28,11 @@ export default function NewProposalForm() {
     defaultValues: initialData,
   });
 
+  const createProposal = api.proposal.create.useMutation({});
+
   const handleSubmit = async (values: z.infer<typeof NewProposalFormData>) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      createProposal.mutate(values);
       console.log("Profile updated:", values);
       setIsEditing(false);
     } catch (error) {
@@ -58,12 +49,12 @@ export default function NewProposalForm() {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <FormField
             control={form.control}
-            name="name"
+            name="title"
             render={({ field }) => (
               <CustomFormItem
-                label="Name"
+                label="Title"
                 field={field}
-                placeholder="Enter your DAO name"
+                placeholder="Enter your proposal title"
                 isEditing={isEditing}
               />
             )}

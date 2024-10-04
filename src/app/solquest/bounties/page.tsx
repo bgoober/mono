@@ -1,15 +1,25 @@
+"use client"
 import H3 from "~/_components/final/H3";
 import H4 from "~/_components/final/H4";
 import Sidebar from "~/_components/solquest/sidebar/Sidebar";
 import Search from "./search";
 import { Button } from "~/_components/final/ui/button";
 import { Listing } from "~/_components/solquest/general/Listing";
-import bounties from "~/constants/bounty.json";
+import dummyBounties from "~/constants/bounty.json";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Bounties() {
+  const [bounties, setBounties] = useState(dummyBounties)
+  const search = (text:string) => {
+    setBounties(dummyBounties.filter(bounty => 
+      bounty.title.includes(text) || 
+      bounty.publisher.includes(text) ||
+      bounty.details.includes(text)
+    ))
+  }
   return (
-    <main className="m-auto flex w-full flex-1 flex-col px-5 tablet:px-12">
+    <main className="m-auto flex w-full flex-1 flex-col px-5 sm:px-12">
       <div className="flex justify-between items-center my-4">
         <H3>Bounties</H3>
         <Link href="/solquest/bounties/create" className="m-5">
@@ -21,7 +31,7 @@ export default function Bounties() {
         <Sidebar />
 
         <div className="flex-1">
-          <Search />
+          <Search search={search}/>
           {bounties.length === 0 && (
             <H4 className="pt-10 text-center text-zinc-600">
               No bounties found. Create a new one ⚡

@@ -1,13 +1,15 @@
 import { z } from "zod";
 
 export const NewProposalFormData = z.object({
-  name: z
+  title: z
     .string()
     .trim()
     .min(2, "Title must be at least 2 characters"),
   description: z.string().trim().min(2, "Description must be at least 2 characters"),
   quorum: z.number().min(1, "Quorum must be at least 1"),
   endDate: z.date(),
+  daoId: z.string(),
+  publicKey: z.string(),
 });
 
 export const NewDAOFormData = z.object({
@@ -113,6 +115,25 @@ export const PaperSchema = z.object({
   updated_at: z.string().nullable(),
   peer_reviews: z.array(ReviewSchema),
 });
+
+export const BountyFormData = z.object({
+  title: z.string().trim().min(3, "Title must be at least 3 characters"),
+  description: z.string(),
+  track: z.enum(["FRONTEND", "BACKEND", "RUST"]),
+  compensationAmount: z.number().min(0, "Cannot pay negative amount"),
+  pointOfContactId: z.string(),
+  skills: z.array(z.string()),
+  tokenId: z.string(),
+  companyId: z.string().optional()
+})
+
+export const TokenFormData = z.object({
+  name: z.string(),
+  ticker: z.string(),
+  address: z.string(),
+  image: z.string(),
+  decimals: z.number().min(0, "Cannot have a negative number of decimals!")
+})
 
 // TypeScript types
 export type ProfileFormData = z.infer<typeof ProfileFormData>;

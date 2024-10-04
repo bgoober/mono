@@ -6,8 +6,8 @@ import { useState } from "react";
 export default function Sidebar() {
   const [viewFilter, setViewFilter] = useState<boolean>(false);
   return (
-    <>
-      <div className={"flex items-start tablet:hidden"}>
+    <div>
+      <div className={"flex items-start sm:hidden"}>
         <IconButton
           handleClick={() => setViewFilter(!viewFilter)}
           size={"sm"}
@@ -18,9 +18,9 @@ export default function Sidebar() {
       </div>
 
       <div
-        className={`absolute top-0 w-[300px] max-w-80 border-2 border-zinc-300 ${viewFilter ? "left-0" : "-left-80"} h-full bg-primary-foreground p-4 transition-all tablet:relative tablet:left-0 tablet:w-2/5 tablet:rounded-lg`}
+        className={`absolute top-0 w-[300px] max-w-80 border-2 border-zinc-300 ${viewFilter ? "left-0" : "-left-80"} h-full bg-primary-foreground p-4 transition-all sm:relative sm:left-0 sm:w-2/5 min-w-72 sm:rounded-lg`}
       >
-        <div className="block tablet:hidden">
+        <div className="block sm:hidden">
           <CloseButton
             handleClick={() => {
               setViewFilter(false);
@@ -38,17 +38,17 @@ export default function Sidebar() {
         <Option>In Progress</Option>
         <Option>Completed</Option>
       </div>
-    </>
+    </div>
   );
 }
 
 const Label: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <>
+    <div>
       <p className="my-2 text-secondary">
         <b>{children}</b>
       </p>
-    </>
+    </div>
   );
 };
 

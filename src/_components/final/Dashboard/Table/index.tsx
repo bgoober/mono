@@ -31,6 +31,7 @@ type SortConfig = {
 const getColumnVisibility = (columnKey: string) => {
   switch (columnKey) {
     case "title":
+    case "name":
     case "minted": // Make "minted" always visible
       return "";
     case "status":
