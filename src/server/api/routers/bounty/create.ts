@@ -1,4 +1,4 @@
-import { protectedProcedure } from "~/server/api/trpc";
+import { protectedProcedure, publicProcedure } from "~/server/api/trpc";
 import {z} from "zod";
 
 export const createBounty = protectedProcedure.input(z.object({
@@ -57,7 +57,7 @@ export const createBounty = protectedProcedure.input(z.object({
 } )
 
 //Create Bounty Application
-export const createApplication = protectedProcedure.input(z.object({
+export const createApplication = publicProcedure.input(z.object({
   bountyId: z.string(),
   userId: z.string(),
 })).mutation(async ({ctx, input}) => {

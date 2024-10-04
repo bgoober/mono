@@ -101,16 +101,16 @@ const TableRow: React.FC<{
           <span
             className={`inline-flex rounded-full px-2 text-xs font-semibold leading-5 ${
               item.status === PAPER_STATUS.APPROVED ||
-              item.status === BOUNTY_STATUS.OPEN ||
-              item.status === APPLICANTS_STATUS.ACCEPTED
+              item.status === BOUNTY_STATUS.OPEN as string ||
+              item.status === APPLICANTS_STATUS.ACCEPTED as string
                 ? "bg-secondary-foreground text-secondary"
                 : item.status === PAPER_STATUS.PEER_REVIEWING ||
-                    item.status === BOUNTY_STATUS.IN_PROGRESS ||
-                    item.status === APPLICANTS_STATUS.PENDING
+                    item.status === BOUNTY_STATUS.IN_PROGRESS as string ||
+                    item.status === APPLICANTS_STATUS.PENDING as string
                   ? "bg-primary-foreground text-primary"
                   : item.status === PAPER_STATUS.PUBLISHED ||
-                      item.status === BOUNTY_STATUS.COMPLETED ||
-                      item.status === APPLICANTS_STATUS.REJECTED
+                      item.status === BOUNTY_STATUS.COMPLETED as string ||
+                      item.status === APPLICANTS_STATUS.REJECTED as string
                     ? "bg-accent text-accent-foreground"
                     : "bg-destructive-foreground text-destructive"
             }`}

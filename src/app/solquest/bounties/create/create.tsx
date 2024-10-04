@@ -57,7 +57,7 @@ export default function CreateBounty({session}: {session:Session|null}) {
       compensationAmount: parseInt(data.get("compensation") as string ?? "0"),
       pointOfContactId: session?.user.id ?? "",
       skills: [],
-      tokenId: "cm1ud7349000oqwyxh3ifq8u3"
+      tokenId: "cm1udtkhm0017qwyxr1d525c0"
     }
 
     handleCreateBounty(bountyData, e.currentTarget)
