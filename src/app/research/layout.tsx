@@ -3,8 +3,7 @@ import { Inter, Arbutus, Atkinson_Hyperlegible } from "next/font/google";
 import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
 import { UIProvider } from "~/_components/final/Providers/UIProvider";
-import Sidebar from "~/_components/final/Dashboard/Sidebar";
-import Navbar, { NavLink } from "~/_components/final/Navbar";
+import Navbar from "~/_components/final/Navbar";
 import { getServerAuthSession } from "~/server/auth";
 import { learnNavLinks } from "~/app/research/static";
 
@@ -21,11 +20,11 @@ const atkinson = Atkinson_Hyperlegible({
 });
 
 export const metadata: Metadata = {
-  title: "Dashboard | Research",
+  title: "Dictionary | Research",
   description: "A decentralized research platform on Solana",
 };
 
-export default async function DashboardLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -35,16 +34,8 @@ export default async function DashboardLayout({
     <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
       <body className={`${inter.className} min-w-[350px]`}>
         <UIProvider>
-          <div className="flex h-screen overflow-hidden bg-zinc-100">
-            <Sidebar />
-            {/* Magic number alert */}
-            <div className="flex flex-1 flex-col pt-[7.2px]">
-              <Navbar links={learnNavLinks} session={session} />
-              <div className="flex-1 overflow-y-auto">
-                <div className="container mx-auto px-6 py-8">{children}</div>
-              </div>
-            </div>
-          </div>
+          <Navbar links={learnNavLinks} session={session} />
+          {children}
         </UIProvider>
       </body>
     </html>

@@ -6,10 +6,6 @@ export const learnNavLinks: NavLink[] = [
       href: "/research/",
     },
     {
-      name: "Papers",
-      href: "/research/paper",
-    },
-    {
       name: "Peer Review",
       href: "/research/peer-review",
     },

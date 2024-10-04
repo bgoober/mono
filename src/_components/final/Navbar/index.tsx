@@ -66,7 +66,7 @@ export const Navbar = ({
           <AuthShowcase session={session} />
         </div>
       </div>
-      <MobileMenu pathname={pathname} links={links} />
+      <MobileMenu pathname={pathname} links={links} session={session} />
     </nav>
   );
 };
