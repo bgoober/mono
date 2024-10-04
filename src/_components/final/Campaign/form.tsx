@@ -1,19 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import { CampaignFormData, ProfileFormData } from "~/lib/validation";
+import { NewCampaignFormData } from "~/lib/validation";
 import CustomFormItem from "../CustomForm";
 
 import { Button } from "~/_components/final/ui/button";
 import { Form, FormField } from "~/_components/final/ui/form";
 import { Textarea } from "~/_components/final/ui/textarea";
-import { Camera, Upload } from "lucide-react";
 import H1 from "~/_components/final/H1";
+
+import { api } from "~/trpc/react";
 
 const initialData = {
   title: "",
@@ -24,22 +25,35 @@ const initialData = {
 
 export default function CampaignForm() {
   const [isEditing, setIsEditing] = useState(true);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const form = useForm<z.infer<typeof CampaignFormData>>({
-    resolver: zodResolver(CampaignFormData),
+  const form = useForm<z.infer<typeof NewCampaignFormData>>({
+    resolver: zodResolver(NewCampaignFormData),
     defaultValues: initialData,
   });
 
-  const handleSubmit = async (values: z.infer<typeof CampaignFormData>) => {
+  // Create a mutation for the campaign creation
+  const createCampaignMutation = api.campaign.create.useMutation({});
+
+  const handleSubmit = async (values: z.infer<typeof NewCampaignFormData>) => {
     try {
+      await createCampaignMutation.mutateAsync({
+        title: values.title,
+        description: values.description,
+        goal: Number(values.goal),
+        ends: new Date(values.end),
+      });
+
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Profile updated:", values);
+      console.log("Campaign created:", values);
+
+      // await new Promise((resolve) => setTimeout(resolve, 2000));
+      // console.log("Profile updated:", values);
       setIsEditing(false);
     } catch (error) {
       console.error("An error occurred:", error);
     }
   };
+  
   return (
     <Form {...form}>
       <form
@@ -113,9 +127,9 @@ export default function CampaignForm() {
                 : "bg-transparent text-zinc-800 hover:bg-zinc-100"
             }`}
             variant={isEditing ? "default" : "outline"}
-            disabled={!isEditing || form.formState.isSubmitting}
+            disabled={!isEditing || createCampaignMutation.isLoading}
           >
-            {form.formState.isSubmitting ? "Submitting..." : "Create Campaign"}
+            {createCampaignMutation.isLoading ? "Creating..." : "Create Campaign"}
           </Button>
           <Button
             type="button"
@@ -125,12 +139,13 @@ export default function CampaignForm() {
                 : "bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
             }`}
             variant={isEditing ? "outline" : "default"}
-            disabled={form.formState.isSubmitting}
+            disabled={createCampaignMutation.isLoading}
             onClick={() => {
               if (isEditing) {
                 form.reset(initialData);
               }
               setIsEditing(!isEditing);
+              
             }}
           >
             {isEditing ? "Cancel" : "Edit"}
