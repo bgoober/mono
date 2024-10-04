@@ -11,7 +11,7 @@ async function Entries() {
   const session = await getServerAuthSession();
 
   return (
-    <div className={styles.main}>
+    <div className={`${styles.main} container mx-auto px-4 py-8`}>
       {/* <NavBar session={session} /> */}
       <EntryContent entries={entries} session={session} />
     </div>

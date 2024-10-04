@@ -1,11 +1,11 @@
 import { z } from "zod";
 
 export const NewProposalFormData = z.object({
-  title: z
+  title: z.string().trim().min(2, "Title must be at least 2 characters"),
+  description: z
     .string()
     .trim()
-    .min(2, "Title must be at least 2 characters"),
-  description: z.string().trim().min(2, "Description must be at least 2 characters"),
+    .min(2, "Description must be at least 2 characters"),
   quorum: z.number().min(1, "Quorum must be at least 1"),
   endDate: z.date(),
   daoId: z.string(),
@@ -13,23 +13,28 @@ export const NewProposalFormData = z.object({
 });
 
 export const NewDAOFormData = z.object({
-  name: z
+  name: z.string().trim().min(2, "Title must be at least 2 characters"),
+  description: z
     .string()
     .trim()
-    .min(2, "Title must be at least 2 characters"),
-  description: z.string().trim().min(2, "Description must be at least 2 characters"),
+    .min(2, "Description must be at least 2 characters"),
   type: z.enum(["NFT", "TOKEN", "HYBRID"]),
-  tokenPublicKey: z.string().trim().min(2, "Token public key must be at least 2 characters"),
+  tokenPublicKey: z
+    .string()
+    .trim()
+    .min(2, "Token public key must be at least 2 characters"),
   allowSubDAO: z.boolean(),
-  subDAOCreationThreshold: z.number().min(1, "Sub DAO creation threshold must be at least 1"),
+  subDAOCreationThreshold: z
+    .number()
+    .min(1, "Sub DAO creation threshold must be at least 1"),
 });
 
 export const CampaignFormData = z.object({
-  title: z
+  title: z.string().trim().min(2, "Title must be at least 2 characters"),
+  description: z
     .string()
     .trim()
-    .min(2, "Title must be at least 2 characters"),
-  description: z.string().trim().min(2, "Description must be at least 2 characters"),
+    .min(2, "Description must be at least 2 characters"),
   goal: z.number().min(1, "Goal must be at least 1"),
   end: z.date(),
 });
@@ -124,19 +129,27 @@ export const BountyFormData = z.object({
   pointOfContactId: z.string(),
   skills: z.array(z.string()),
   tokenId: z.string(),
-  companyId: z.string().optional()
-})
+  companyId: z.string().optional(),
+});
 
 export const TokenFormData = z.object({
   name: z.string(),
   ticker: z.string(),
   address: z.string(),
   image: z.string(),
-  decimals: z.number().min(0, "Cannot have a negative number of decimals!")
-})
+  decimals: z.number().min(0, "Cannot have a negative number of decimals!"),
+});
+
+export const RatingSchema = z.object({
+  qualityOfResearch: z.number().min(1).max(5),
+  potentialForRealWorldUseCase: z.number().min(1).max(5),
+  domainKnowledge: z.number().min(1).max(5),
+  practicalityOfResultObtained: z.number().min(1).max(5),
+});
 
 // TypeScript types
 export type ProfileFormData = z.infer<typeof ProfileFormData>;
 export type PaperFormData = z.infer<typeof PaperFormData>;
 export type Review = z.infer<typeof ReviewSchema>;
 export type Paper = z.infer<typeof PaperSchema>;
+export type Rating = z.infer<typeof RatingSchema>;

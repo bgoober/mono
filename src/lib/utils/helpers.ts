@@ -3,6 +3,7 @@ export const minimizePubkey = (pubkey: string) => {
 };
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { Rating } from "../validation";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -12,7 +13,6 @@ export enum Role {
   Researcher = "Researcher",
   Reader = "Reader",
 }
-
 
 // Generate random gradient
 const gradients = [
@@ -71,4 +71,22 @@ export const getScoreColorClass = (score: number): string => {
   if (score >= 4) return "bg-primary";
   if (score >= 3) return "bg-yellow-500";
   return "bg-rose-500/80";
+};
+
+// We need this because frontend uses a 1-5 scale, while the program uses a 1-10 scale.
+export const ratingToReview = (
+  rating: Rating,
+  title: string,
+  reviewComments: string,
+) => {
+  return {
+    qualityOfResearch: rating.qualityOfResearch * 2,
+    potentialForRealWorldUseCase: rating.potentialForRealWorldUseCase * 2,
+    domainKnowledge: rating.domainKnowledge * 2,
+    practicalityOfResultObtained: rating.practicalityOfResultObtained * 2,
+    metadata: {
+      title,
+      reviewComments,
+    },
+  };
 };

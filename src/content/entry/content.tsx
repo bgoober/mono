@@ -543,7 +543,7 @@ function EntryContent({
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-md border border-solid border-black p-4 text-black"
+            className="mb-4 rounded-md border border-solid border-black p-4 text-black"
           />
           {searchResults.length === 0 && (
             <div

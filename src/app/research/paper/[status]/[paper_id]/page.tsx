@@ -1,7 +1,7 @@
 import PaperContentComponent from "~/_components/final/Paper/PaperContent";
 import { notFound } from "next/navigation";
-import { Paper, PaperSchema } from "~/lib/validation";
-
+import { PaperSchema } from "~/lib/validation";
+import type { Paper } from "~/lib/validation";
 import papers from "~/constants/dummyPapers.json";
 
 export default async function PaperContentPage({

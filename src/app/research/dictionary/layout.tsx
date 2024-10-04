@@ -20,10 +20,7 @@ const atkinson = Atkinson_Hyperlegible({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "deResearcher",
-    template: "%s | deResearcher",
-  },
+  title: "Dictionary | Research",
   description: "A decentralized research platform on Solana",
 };
 
