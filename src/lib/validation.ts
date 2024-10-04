@@ -24,7 +24,7 @@ export const NewDAOFormData = z.object({
   subDAOCreationThreshold: z.number().min(1, "Sub DAO creation threshold must be at least 1"),
 });
 
-export const CampaignFormData = z.object({
+export const NewCampaignFormData = z.object({
   title: z
     .string()
     .trim()
@@ -34,7 +34,7 @@ export const CampaignFormData = z.object({
   end: z.date(),
 });
 
-export const PledgeFormData = z.object({
+export const NewPledgeFormData = z.object({
   amount: z.number().min(1, "Amount must be at least 1"),
   message: z.string().trim().min(2, "Message must be at least 2 characters"),
 });
