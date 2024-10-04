@@ -1,21 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import { NewCampaignFormData, ProfileFormData } from "~/lib/validation";
+import { NewCampaignFormData } from "~/lib/validation";
 import CustomFormItem from "../CustomForm";
 
 import { Button } from "~/_components/final/ui/button";
 import { Form, FormField } from "~/_components/final/ui/form";
 import { Textarea } from "~/_components/final/ui/textarea";
-import { Camera, Upload } from "lucide-react";
 import H1 from "~/_components/final/H1";
-import { api } from "~/trpc/react";
 
+import { api } from "~/trpc/react";
 
 const initialData = {
   title: "",
@@ -26,7 +25,6 @@ const initialData = {
 
 export default function CampaignForm() {
   const [isEditing, setIsEditing] = useState(true);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<z.infer<typeof NewCampaignFormData>>({
     resolver: zodResolver(NewCampaignFormData),
