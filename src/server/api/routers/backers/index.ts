@@ -3,7 +3,7 @@ import { createBacker } from "./create";
 import { getBackers, getBacker } from "./read";
 import { updateBacker } from "./update";
 
-export const campaignRouter = createTRPCRouter({
+export const backerRouter = createTRPCRouter({
   create: createBacker,
   getAll: getBackers,
   getOne: getBacker,

@@ -8,7 +8,7 @@ import { sentenceParserRouter } from "~/server/api/routers/sentenceParser";
 import { paperReviewRouter } from "~/server/api/routers/paperReview";
 import { paperRouter } from "~/server/api/routers/paper";
 import { campaignRouter } from "./routers/campaign";
-
+import { backerRouter } from "./routers/backers";
 /**
  * This is the primary router for your server.
  *
@@ -24,6 +24,7 @@ export const appRouter = createTRPCRouter({
   paperReview: paperReviewRouter,
   paper: paperRouter,
   campaign: campaignRouter,
+  backer: backerRouter,
 });
 
 // export type definition of API
