@@ -7,6 +7,7 @@ import { tagRouter } from "~/server/api/routers/tag";
 import { sentenceParserRouter } from "~/server/api/routers/sentenceParser";
 import { paperReviewRouter } from "~/server/api/routers/paperReview";
 import { paperRouter } from "~/server/api/routers/paper";
+import { bountyRouter } from "~/server/api/routers/bounty";
 import { proposalRouter } from "~/server/api/routers/proposal";
 
 /**
@@ -23,6 +24,7 @@ export const appRouter = createTRPCRouter({
   sentenceParser: sentenceParserRouter,
   paperReview: paperReviewRouter,
   paper: paperRouter,
+  bounty: bountyRouter,
   proposal: proposalRouter,
 });
 

@@ -53,7 +53,7 @@ export default function Bounty({ params }: { params: { id: string } }) {
   }, [params]);
 
   return (
-    <div className="tablet:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
+    <div className="sm:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
       <div className="rounded-md bg-white p-2">
         <H1 className="my-3 text-center">{pageBounty?.title ?? ""}</H1>
         <pre className="text-wrap text-lg font-medium">
@@ -118,7 +118,7 @@ export default function Bounty({ params }: { params: { id: string } }) {
 const Manage = ({ item, handleClick, name }: ManageProps) => {
   return (
     <div className="fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center backdrop-blur-lg backdrop-brightness-50">
-      <section className="relative flex aspect-[1.3] w-[300px] flex-col items-center gap-5 rounded-lg bg-primary-foreground p-3 py-8">
+      <section className="relative flex w-[300px] flex-col items-center gap-5 rounded-lg bg-primary-foreground p-3 py-8">
         <CloseButton handleClick={handleClick} />
         <p>
           <b>{name}</b>

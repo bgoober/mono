@@ -44,7 +44,7 @@ export default function Bounty({ params }: { params: { id: string } }) {
   }, [params]);
 
   return (
-    <div className="tablet:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
+    <div className="sm:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
       <div className="rounded-md bg-white p-2">
         <H1 className="my-3 text-center">{pageBounty?.title ?? ""}</H1>
         <pre className="text-wrap text-lg font-medium">
