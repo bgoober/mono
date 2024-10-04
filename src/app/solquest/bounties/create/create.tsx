@@ -1,23 +1,51 @@
 "use client";
 import Input from "~/_components/solquest/general/ui/Input";
 import { Button } from "~/_components/final/ui/button";
-import type { BountyFormData } from "~/lib/validation";
+import type { BountyFormData, TokenFormData } from "~/lib/validation";
 import type { Tracks } from "@prisma/client";
 import { api } from "~/trpc/react";
 import type { z } from "zod";
 import type { Session } from "next-auth";
 
+// const initialTokenData = {
+//   name: "First Token",
+//   ticker: "USDC",
+//   address: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+//   image: "https://coin-images.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
+//   decimals: 6
+// }
+
 export default function CreateBounty({session}: {session:Session|null}) {
   const createBounty = api.bounty.createBounty.useMutation({})
+  const createToken = api.bounty.createToken.useMutation({})
   
-  const handleCreateBounty = async (values: z.infer<typeof BountyFormData>) => {
+  const handleCreateBounty = async (values: z.infer<typeof BountyFormData>, form:HTMLFormElement) => {
     try{
-      createBounty.mutate(values)
+      createBounty.mutate(values, {
+        onSuccess: () => {
+          alert("Bounty created successfully!")
+          form.reset()
+        },
+        onError: () => {
+          alert("There was an error creating the Bounty! Check the console for more info!")
+        }
+      })
       console.log("Bounty created:", values)
     } catch (err){
       console.log(err)
+      alert("Failed to create Bounty. View console for more details")
     }
   }
+
+  // const handleCreateToken = async (values: z.infer<typeof TokenFormData>) => {
+  //   try{
+  //     createToken.mutate(values)
+  //     console.log("Token created:", values)
+  //   } catch (err){
+  //     console.log(err)
+  //     alert("Failed to create Token. View console for more details")
+  //   }
+  // }
 
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -29,10 +57,10 @@ export default function CreateBounty({session}: {session:Session|null}) {
       compensationAmount: parseInt(data.get("compensation") as string ?? "0"),
       pointOfContactId: session?.user.id ?? "",
       skills: [],
-      tokenId: "cm1te0z5g0000cas6wjry2pks"
+      tokenId: "cm1ud7349000oqwyxh3ifq8u3"
     }
 
-    handleCreateBounty(bountyData)
+    handleCreateBounty(bountyData, e.currentTarget)
   }
 
   return (
@@ -56,6 +84,7 @@ export default function CreateBounty({session}: {session:Session|null}) {
 
         <div className="mx-auto my-5 w-fit">
           <Button>Create Bounty</Button>
+          {/* <Button type="button" onClick={() => {handleCreateToken(initialTokenData)}}>Create Token</Button> */}
         </div>
       </form>
     </main>
