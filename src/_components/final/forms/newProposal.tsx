@@ -119,6 +119,7 @@ export default function NewProposalForm() {
           )}
           required
         />        
+        {/* TO DO : dealing with each kind of proposaltype */}
         <FormField
           control={form.control}
           name="proposalType"

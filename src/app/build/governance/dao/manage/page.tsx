@@ -24,10 +24,10 @@ const getDAO = async (): Promise<DAO> => {
     proposalFeeExecutable: new Decimal(20),
     proposalFeeVote: new Decimal(5),
     proposalFeeVoteMultiple: new Decimal(15),
-    maxExpiry: 1000000,
+    maxExpiry: new Decimal(10000000000),
     minThreshold: new Decimal(100),
     minQuorum: new Decimal(20),
-    proposalAnalysisPeriod: 86400, // 1 day in seconds
+    proposalAnalysisPeriod: new Decimal(60), 
     nQuorumEpoch: 3,
     thresholdCreateProposal: new Decimal(50),
     vetoCouncil: "veto_council_pubkey",
@@ -36,14 +36,19 @@ const getDAO = async (): Promise<DAO> => {
     createSubdaoFee: new Decimal(100),
     proposals: [
       {
-        id: 1,
+        id: "1",
         title: "Proposal 1",
         description: "Description 1",
         publicKey: "proposal001",
         quorum: new Decimal(50),
         threshold: new Decimal(200),
         endDate: 10000000,
-        proposalType: ProposalType.VOTE,
+        proposalType: ProposalType.BOUNTY,
+        proposalTypeData: {
+          "type": "BOUNTY",
+          "pubkey": "some_pubkey",
+          "amount": 1000
+        },
         analysisPeriod: 100,
         uri: "https://ipfs.tech",
         createdAt: new Date(),

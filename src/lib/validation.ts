@@ -1,3 +1,4 @@
+import { DAOType } from "@prisma/client";
 import { z } from "zod";
 
 export const NewProposalFormData = z.object({
@@ -27,6 +28,7 @@ export const NewProposalFormData = z.object({
     ], {
       required_error: "Proposal type is required",
     }),
+  proposalTypeData: z.record(z.any()).optional(),  
   analysisPeriod: z
     .number()
     .min(1, "Analysis period in slots"),
@@ -39,29 +41,26 @@ export const NewProposalFormData = z.object({
 });
 
 export const NewDAOFormData = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, "Title must be at least 2 characters"),
-  description: z.string().trim().min(2, "Description must be at least 2 characters"),
-  type: z.enum(["NFT", "TOKEN", "HYBRID"]),
+  name: z.string(),
+  description: z.string(),
   tokenId: z.string().optional(),
+  type: z.nativeEnum(DAOType),
   collectionTokenId: z.string().optional(),
-  circulatingSupply: z.string().min(1, "Circulating supply is required"),
-  proposalFeeBounty: z.string().min(0, "Proposal Bounty FEE "),
-  proposalFeeExecutable: z.string().min(0, "Proposal Executable FEE "),
-  proposalFeeVote: z.string().min(0, "Proposal Vote FEE "),
-  proposalFeeVoteMultiple: z.string().min(0, "Proposal Vote Multiple FEE "),
-  maxExpiry: z.number().int().positive("Max expiry must be a positive integer"),
-  minThreshold: z.string().min(1, "Min threshold is required"),
-  minQuorum: z.number().int().positive("Min quorum must be a positive integer"),
-  proposalAnalysisPeriod: z.number().int().positive("Proposal analysis period must be a positive integer"),
-  nQuorumEpoch: z.number().int().positive("N quorum epoch must be a positive integer"),
-  thresholdCreateProposal: z.string().min(1, "Threshold to create proposal is required"),
-  vetoCouncil: z.string().min(2, "Veto council Pubkey"),
-  allowSubDAO: z.boolean(),
-  thresholdCreateSubDao: z.string().optional(),
-  createSubdaoFee: z.string().optional(),
+  circulatingSupply: z.number(),
+  proposalFeeBounty: z.number(),
+  proposalFeeExecutable: z.number(),
+  proposalFeeVote: z.number(),
+  proposalFeeVoteMultiple: z.number(),
+  maxExpiry: z.number(),
+  minThreshold: z.number(),
+  minQuorum: z.number(),
+  proposalAnalysisPeriod: z.number(),
+  nQuorumEpoch: z.number().int(),
+  thresholdCreateProposal: z.number(),
+  vetoCouncil: z.string(),
+  allowSubDAO: z.boolean().default(false),
+  thresholdCreateSubDao: z.number().optional(),
+  createSubdaoFee: z.number().optional(),
 });
 
 export const CampaignFormData = z.object({

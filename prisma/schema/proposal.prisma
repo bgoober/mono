@@ -14,7 +14,7 @@ enum ProposalType {
 }
 
 model Proposal {
-  id               Int   @id @default(autoincrement())
+  id               String   @id @default(cuid())
   title            String
   description      String
   publicKey        String
@@ -22,6 +22,7 @@ model Proposal {
   threshold        Decimal
   endDate          Int
   proposalType     ProposalType
+  proposalTypeData Json?    
   analysisPeriod   Int
   uri              String
 

@@ -29,8 +29,6 @@ model DAO {
   parentDAOId             String?
   subDAOs                 DAO[]      @relation("ParentDAO")
 
-  treasury                Treasury   @relation("Treasury", fields: [treasuryId], references: [id])
-  treasuryId              String     @unique
   creator                 User       @relation("Creator", fields: [creatorId], references: [id])
   creatorId               String
   members                 User[]     @relation("Member")

@@ -5,7 +5,7 @@ import { api } from "~/trpc/react";
 
 async function DAOs() {
   const { data: proposal, isLoading } = await api.proposal.read.useQuery({
-    id: 1,
+    id: "1",
   });
   // table data
 

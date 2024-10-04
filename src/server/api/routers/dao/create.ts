@@ -4,6 +4,7 @@ import {
 
 import { z } from "zod";
 import { DAOType } from "@prisma/client";
+import { create } from "domain";
 
 export const createDao = protectedProcedure.input(z.object({
     name: z.string(),
@@ -53,8 +54,7 @@ export const createDao = protectedProcedure.input(z.object({
             { name,
             description,
             type: DAOType.NFT,
-            treasuryId: "your_treasury_id_here",
-            creatorId: "your_creator_id_here",
+            creatorId: user.id,
             tokenId,
             collectionTokenId, 
             circulatingSupply, 
