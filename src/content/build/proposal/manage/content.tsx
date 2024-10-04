@@ -5,8 +5,10 @@ import bounties from "~/constants/bounty.json";
 import H1 from "~/_components/final/H1";
 import P from "~/_components/final/P";
 import Image from "next/image";
-import { Proposal } from "~/server/api/routers/dao/read";
+import { Proposal } from "~/server/api/routers/proposal/read";
 import { useRouter } from "next/navigation";
+import { Button } from "~/_components/ui/button";
+import { api } from "~/trpc/react";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = bounties.map((bounty) => ({
@@ -17,6 +19,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export default function ManageProposal({ proposal }: { proposal: Proposal }) {
+  const { mutate: updateStatus } = api.proposal.updateStatus.useMutation();
   const getStatus = (status: string) => {
     if (status == "in_progress") {
       return "IN PROGRESS";
@@ -25,6 +28,9 @@ export default function ManageProposal({ proposal }: { proposal: Proposal }) {
     }
   };
   const router = useRouter();
+  if (!proposal) {
+    return <div>No proposal found</div>;
+  }
   return (
     <div className="tablet:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
       <div className="rounded-md bg-white p-2">
@@ -52,6 +58,11 @@ export default function ManageProposal({ proposal }: { proposal: Proposal }) {
           <p className="my-3 flex items-center gap-3 font-semibold">
             End Date: {proposal?.endDate.toString()}
           </p>
+          <Button
+            onClick={() => updateStatus({ id: proposal.id, status: "ACTIVE" })}
+          >
+            Update Status
+          </Button>
         </div>
       </div>
     </div>
