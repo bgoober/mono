@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import type { GetStaticPaths } from "next";
 import { CloseButton, Button } from "~/_components/solquest/general/ui/Button";
 import bounties from "~/constants/bounty.json";
@@ -53,14 +54,14 @@ export default function Bounty({ params }: { params: { id: string } }) {
   }, [params]);
 
   return (
-    <div className="sm:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
-      <div className="rounded-md bg-white p-2">
-        <H1 className="my-3 text-center">{pageBounty?.title ?? ""}</H1>
-        <pre className="text-wrap text-lg font-medium">
+    <div className="m-auto my-4 flex w-full max-w-[800px] flex-1 flex-col px-5 sm:px-12 lg:max-w-[1200px]">
+      <div className="flex flex-col rounded-md bg-white px-8 py-4">
+        <H1 className="my-3 pt-4 text-center">{pageBounty?.title ?? ""}</H1>
+        <pre className="text-wrap pt-4 text-lg font-medium">
           {pageBounty?.details}
         </pre>
-        <div className="my-4">
-          <P className="font-semibold">
+        <div className="flex items-center justify-between">
+          <P className="text-lg font-bold text-primary">
             Status: {getStatus(pageBounty?.status ?? "")}
           </P>
           <p className="my-3 flex items-center gap-3 font-semibold">
@@ -73,14 +74,14 @@ export default function Bounty({ params }: { params: { id: string } }) {
         </div>
 
         {pageBounty?.status == "open" && (
-          <div className="mx-auto my-3 flex max-w-4xl items-center justify-between gap-3">
+          <div className="mx-auto my-4 flex max-w-4xl items-center justify-between gap-3">
             <Button type={2}>Start Bounty</Button>
             <Button>End Bounty</Button>
           </div>
         )}
 
         {pageBounty?.status == "in_progress" && (
-          <div className="mx-auto my-3 flex max-w-4xl items-center justify-center gap-3">
+          <div className="mx-auto my-4 flex max-w-4xl items-center justify-center gap-3">
             <Button type={2}>Bounty Completed</Button>
           </div>
         )}

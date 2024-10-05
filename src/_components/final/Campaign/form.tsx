@@ -53,7 +53,7 @@ export default function CampaignForm() {
       console.error("An error occurred:", error);
     }
   };
-  
+
   return (
     <Form {...form}>
       <form
@@ -127,9 +127,11 @@ export default function CampaignForm() {
                 : "bg-transparent text-zinc-800 hover:bg-zinc-100"
             }`}
             variant={isEditing ? "default" : "outline"}
-            disabled={!isEditing || createCampaignMutation.isLoading}
+            disabled={!isEditing || createCampaignMutation.isPending}
           >
-            {createCampaignMutation.isLoading ? "Creating..." : "Create Campaign"}
+            {createCampaignMutation.isPending
+              ? "Creating..."
+              : "Create Campaign"}
           </Button>
           <Button
             type="button"
@@ -139,13 +141,12 @@ export default function CampaignForm() {
                 : "bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
             }`}
             variant={isEditing ? "outline" : "default"}
-            disabled={createCampaignMutation.isLoading}
+            disabled={createCampaignMutation.isPending}
             onClick={() => {
               if (isEditing) {
                 form.reset(initialData);
               }
               setIsEditing(!isEditing);
-              
             }}
           >
             {isEditing ? "Cancel" : "Edit"}

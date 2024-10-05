@@ -15,15 +15,16 @@ import { Textarea } from "~/_components/final/ui/textarea";
 import H2 from "~/_components/final/H2";
 
 import { api } from "~/trpc/react";
+import { Campaign } from "~/server/api/routers/campaign/read";
 
 const initialData = {
   amount: 0,
   message: "",
 };
 
-export default function PledgeForm() {
+export default function PledgeForm({ campaign }: { campaign: Campaign }) {
   const [isEditing, setIsEditing] = useState(true);
-  
+
   const form = useForm<z.infer<typeof NewPledgeFormData>>({
     resolver: zodResolver(NewPledgeFormData),
     defaultValues: initialData,
@@ -37,12 +38,12 @@ export default function PledgeForm() {
       await createBackerMutation.mutateAsync({
         amount: Number(values.amount),
         message: values.message,
+        campaignId: campaign.id,
       });
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log("Pledged successfully:", values);
       setIsEditing(false);
-
     } catch (error) {
       console.error("An error occurred:", error);
     }
@@ -88,9 +89,9 @@ export default function PledgeForm() {
             type="submit"
             className={`w-40 ${"bg-zinc-800 text-zinc-100 hover:bg-zinc-700"}`}
             variant={"default"}
-            disabled={createBackerMutation.isLoading || !isEditing}
+            disabled={createBackerMutation.isPending || !isEditing}
           >
-            {createBackerMutation.isLoading ? "Submitting..." : "Pledge"}
+            {createBackerMutation.isPending ? "Submitting..." : "Pledge"}
           </Button>
         </div>
       </form>

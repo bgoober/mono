@@ -114,7 +114,7 @@ export function CreateEntry() {
         className="w-full rounded-md border border-solid border-black p-4 text-black"
       />
       <div>
-        Links
+        <div>Links</div>
         <button
           onClick={(e) => {
             e.preventDefault();

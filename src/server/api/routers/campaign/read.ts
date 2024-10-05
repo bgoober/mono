@@ -1,5 +1,6 @@
 import { publicProcedure } from "~/server/api/trpc";
 import { z } from "zod";
+import { UnwrapArray, UnwrapPromise } from "~/utils";
 
 export const getCampaigns = publicProcedure.query(({ ctx }) => {
   return ctx.db.campaign.findMany({
@@ -18,9 +19,11 @@ export const getCampaigns = publicProcedure.query(({ ctx }) => {
 });
 
 export const getCampaign = publicProcedure
-  .input(z.object({
-    id: z.string(),
-  }))
+  .input(
+    z.object({
+      id: z.string(),
+    }),
+  )
   .query(({ ctx, input }) => {
     const { id } = input;
     return ctx.db.campaign.findUnique({
@@ -37,9 +40,11 @@ export const getCampaign = publicProcedure
   });
 
 export const searchCampaigns = publicProcedure
-  .input(z.object({
-    query: z.string(),
-  }))
+  .input(
+    z.object({
+      query: z.string(),
+    }),
+  )
   .query(({ ctx, input }) => {
     const { query } = input;
     return ctx.db.campaign.findMany({
@@ -54,3 +59,8 @@ export const searchCampaigns = publicProcedure
       },
     });
   });
+
+export type Campaign = UnwrapArray<
+  UnwrapPromise<ReturnType<typeof getCampaigns>>
+>;
+export type Backer = Campaign["backers"][number];

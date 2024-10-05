@@ -78,6 +78,7 @@ export const PaperFormData = z.object({
       (file) => file.type === "application/pdf",
       "Only PDF files are allowed",
     ),
+  price: z.number().default(0),
 });
 
 export const ReviewSchema = z.object({
@@ -141,8 +142,16 @@ export const TokenFormData = z.object({
   decimals: z.number().min(0, "Cannot have a negative number of decimals!"),
 });
 
+export const RatingSchema = z.object({
+  qualityOfResearch: z.number().min(1).max(5),
+  potentialForRealWorldUseCase: z.number().min(1).max(5),
+  domainKnowledge: z.number().min(1).max(5),
+  practicalityOfResultObtained: z.number().min(1).max(5),
+});
+
 // TypeScript types
 export type ProfileFormData = z.infer<typeof ProfileFormData>;
 export type PaperFormData = z.infer<typeof PaperFormData>;
 export type Review = z.infer<typeof ReviewSchema>;
 export type Paper = z.infer<typeof PaperSchema>;
+export type Rating = z.infer<typeof RatingSchema>;

@@ -4,8 +4,7 @@
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useRouter } from "next/navigation";
+import type { z } from "zod";
 
 import CustomFormItem from "../CustomForm";
 import { PaperFormData } from "~/lib/validation";
@@ -19,6 +18,7 @@ import {
 } from "~/_components/final/ui/form";
 import { Textarea } from "~/_components/final/ui/textarea";
 import { Camera, Upload } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type PaperFormDataType = z.infer<typeof PaperFormData>;
 
@@ -36,6 +36,7 @@ export default function CreatePaperForm() {
       description: "",
       paperImage: "",
       paperFile: undefined,
+      price: 0,
     },
   });
 
@@ -61,6 +62,10 @@ export default function CreatePaperForm() {
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+
+  const handleCancel = () => {
+    router.push("/research/dashboard/papers/overview");
   };
 
   return (
@@ -94,18 +99,37 @@ export default function CreatePaperForm() {
             )}
             required
           />
-          <FormField
-            control={form.control}
-            name="domains"
-            render={({ field }) => (
-              <CustomFormItem
-                label="Domains (comma-separated)"
-                field={field}
-                placeholder="Cryptography, Blockchain"
-              />
-            )}
-            required
-          />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <FormField
+              control={form.control}
+              name="domains"
+              render={({ field }) => (
+                <CustomFormItem
+                  label="Domains (comma-separated)"
+                  field={field}
+                  placeholder="Cryptography, Blockchain"
+                />
+              )}
+              required
+            />
+            <FormField
+              control={form.control}
+              name="price"
+              render={({ field }) => (
+                <CustomFormItem
+                  label="Price"
+                  field={field}
+                  placeholder="Enter price (SOL)"
+                  inputProps={{
+                    type: "number",
+                    step: "0.01",
+                    min: "0",
+                  }}
+                />
+              )}
+              required
+            />
+          </div>
         </div>
 
         <FormField
@@ -115,7 +139,7 @@ export default function CreatePaperForm() {
             <CustomFormItem
               label="Abstract / Description"
               field={field}
-              placeholder="Enter abstract"
+              placeholder="Enter paper abstract"
               InputComponent={Textarea}
               inputProps={{ rows: 10 }}
             />
@@ -151,7 +175,7 @@ export default function CreatePaperForm() {
               type="file"
               ref={fileInputRef}
               onChange={handleImageUpload}
-              accept="image/*"
+              accept="image/png"
               className="hidden"
             />
           </div>
@@ -201,7 +225,7 @@ export default function CreatePaperForm() {
             type="button"
             className="w-40 bg-transparent text-zinc-800 hover:bg-zinc-100"
             variant="outline"
-            onClick={() => router.push("dashboard/papers/overflow")}
+            onClick={handleCancel}
           >
             Cancel
           </Button>

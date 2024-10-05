@@ -29,6 +29,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        arbutus: ["var(--font-arbutus)"],
+        atkinson: ["var(--font-atkinson)"],
       },
       colors: {
         border: "hsl(var(--border))",

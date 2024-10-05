@@ -7,6 +7,7 @@ import { Review } from "~/lib/validation";
 import { Backer } from "~/server/api/routers/campaign/read";
 
 interface BackerProps {
+  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
   backer: Backer & { time: string };
 }
 
