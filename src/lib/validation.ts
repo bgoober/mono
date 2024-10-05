@@ -78,6 +78,7 @@ export const PaperFormData = z.object({
       (file) => file.type === "application/pdf",
       "Only PDF files are allowed",
     ),
+  price: z.number().default(0),
 });
 
 export const ReviewSchema = z.object({

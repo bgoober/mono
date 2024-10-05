@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import type { GetStaticPaths } from "next";
 import { CloseButton, Button } from "~/_components/solquest/general/ui/Button";
 import bounties from "~/constants/bounty.json";

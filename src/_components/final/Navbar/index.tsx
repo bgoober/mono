@@ -36,7 +36,7 @@ export const Navbar = ({
   const logo = getLogoFromPathname(pathname);
 
   return (
-    <nav className="relative flex items-center justify-between p-4">
+    <nav className="relative flex h-[82px] items-center justify-between p-4">
       <div className="flex max-w-3xl flex-1 items-center">
         <Link href="/" className="mr-4">
           {logo}
