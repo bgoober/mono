@@ -19,34 +19,16 @@ import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
 // }
 
 export default function CreateBounty({ session }: { session: Session | null }) {
-<<<<<<< HEAD
-  const createBounty = api.bounty.createBounty.useMutation({});
-  const createToken = api.bounty.createToken.useMutation({});
-=======
   const createBountyAPI = api.bounty.createBounty.useMutation({});
   const createToken = api.bounty.createToken.useMutation({});
   const { wallet } = useWallet();
   const { connection } = useConnection();
->>>>>>> main
 
   const handleCreateBounty = async (
     values: z.infer<typeof BountyFormData>,
     form: HTMLFormElement,
   ) => {
     try {
-<<<<<<< HEAD
-      createBounty.mutate(values, {
-        onSuccess: () => {
-          alert("Bounty created successfully!");
-          form.reset();
-        },
-        onError: () => {
-          alert(
-            "There was an error creating the Bounty! Check the console for more info!",
-          );
-        },
-      });
-=======
       createBounty(wallet?.adapter as unknown as NodeWallet, connection);
       // createBounty.mutate(values, {
       //   onSuccess: () => {
@@ -59,7 +41,6 @@ export default function CreateBounty({ session }: { session: Session | null }) {
       //     );
       //   },
       // });
->>>>>>> main
       console.log("Bounty created:", values);
     } catch (err) {
       console.log(err);

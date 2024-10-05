@@ -1,10 +1,10 @@
 import { getServerAuthSession } from "~/server/auth";
-import { api } from "~/trpc/server";
+import { api } from "~/trpc/react";
 
 export async function getServerSideProps() {
   "use server";
   const session = await getServerAuthSession();
-  const verificationRequests = await api.verificationRequest.read(); // Ensure this is callable server-side
+  // const verificationRequests = await api.verificationRequest.read(); // Ensure this is callable server-side
 
   // Check if user is not admin
   if (!session?.user?.isAdmin) {
@@ -12,6 +12,6 @@ export async function getServerSideProps() {
   }
 
   return {
-    props: { session, verificationRequests }, // Pass session and verificationRequests as props
+    props: { session }, // Pass session and verificationRequests as props
   };
 }

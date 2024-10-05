@@ -33,5 +33,6 @@ async function getUserData() {
     socialLink: "",
     bio: "",
     isVerified: true,
+    id: "",
   };
 }
