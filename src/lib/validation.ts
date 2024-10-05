@@ -1,3 +1,4 @@
+import { DAOType } from "@prisma/client";
 import { z } from "zod";
 
 export const NewProposalFormData = z.object({
@@ -18,18 +19,18 @@ export const NewDAOFormData = z.object({
     .string()
     .trim()
     .min(2, "Description must be at least 2 characters"),
-  type: z.enum(["NFT", "TOKEN", "HYBRID"]),
+  type: z.enum([DAOType.NFT, DAOType.HYBRID, DAOType.TOKEN]),
   tokenPublicKey: z
     .string()
     .trim()
     .min(2, "Token public key must be at least 2 characters"),
   allowSubDAO: z.boolean(),
-  subDAOCreationThreshold: z
-    .number()
-    .min(1, "Sub DAO creation threshold must be at least 1"),
+  // subDAOCreationThreshold: z
+  //   .number()
+  //   .min(1, "Sub DAO creation threshold must be at least 1"),
 });
 
-export const CampaignFormData = z.object({
+export const NewCampaignFormData = z.object({
   title: z.string().trim().min(2, "Title must be at least 2 characters"),
   description: z
     .string()
@@ -39,7 +40,7 @@ export const CampaignFormData = z.object({
   end: z.date(),
 });
 
-export const PledgeFormData = z.object({
+export const NewPledgeFormData = z.object({
   amount: z.number().min(1, "Amount must be at least 1"),
   message: z.string().trim().min(2, "Message must be at least 2 characters"),
 });

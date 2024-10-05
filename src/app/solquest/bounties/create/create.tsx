@@ -6,6 +6,9 @@ import type { Tracks } from "@prisma/client";
 import { api } from "~/trpc/react";
 import type { z } from "zod";
 import type { Session } from "next-auth";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { createBounty } from "~/onChain/instructions/bounty";
+import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
 
 // const initialTokenData = {
 //   name: "First Token",
@@ -16,14 +19,22 @@ import type { Session } from "next-auth";
 // }
 
 export default function CreateBounty({ session }: { session: Session | null }) {
+<<<<<<< HEAD
   const createBounty = api.bounty.createBounty.useMutation({});
   const createToken = api.bounty.createToken.useMutation({});
+=======
+  const createBountyAPI = api.bounty.createBounty.useMutation({});
+  const createToken = api.bounty.createToken.useMutation({});
+  const { wallet } = useWallet();
+  const { connection } = useConnection();
+>>>>>>> main
 
   const handleCreateBounty = async (
     values: z.infer<typeof BountyFormData>,
     form: HTMLFormElement,
   ) => {
     try {
+<<<<<<< HEAD
       createBounty.mutate(values, {
         onSuccess: () => {
           alert("Bounty created successfully!");
@@ -35,6 +46,20 @@ export default function CreateBounty({ session }: { session: Session | null }) {
           );
         },
       });
+=======
+      createBounty(wallet?.adapter as unknown as NodeWallet, connection);
+      // createBounty.mutate(values, {
+      //   onSuccess: () => {
+      //     alert("Bounty created successfully!");
+      //     form.reset();
+      //   },
+      //   onError: () => {
+      //     alert(
+      //       "There was an error creating the Bounty! Check the console for more info!",
+      //     );
+      //   },
+      // });
+>>>>>>> main
       console.log("Bounty created:", values);
     } catch (err) {
       console.log(err);
