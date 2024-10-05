@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -6,11 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import {
-  CampaignFormData,
-  NewDAOFormData,
-  ProfileFormData,
-} from "~/lib/validation";
+import { NewDAOFormData, ProfileFormData } from "~/lib/validation";
 import CustomFormItem from "../CustomForm";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { Button } from "~/_components/final/ui/button";
@@ -22,24 +20,41 @@ import { RadioGroup, RadioGroupItem } from "~/_components/final/ui/radio-group";
 import { Label } from "~/_components/final/ui/label";
 import { cn } from "~/utils";
 import { Input } from "~/_components/final/ui/input";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { createFungibleDAO } from "~/onChain/instructions/dao";
+import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
+import toast from "react-hot-toast";
+import { DAOType } from "@prisma/client";
 
 const initialData = {
-  title: "",
+  name: "",
   description: "",
-  goal: 0,
-  end: new Date(),
+  type: DAOType.TOKEN,
+  tokenPublicKey: "",
+  allowSubDAO: true,
+  subDAOCreationThreshold: 1,
 };
 
 export default function NewDAOForm() {
   const [isEditing, setIsEditing] = useState(true);
+  const { wallet } = useWallet();
+  const { connection } = useConnection();
 
   const form = useForm<z.infer<typeof NewDAOFormData>>({
     resolver: zodResolver(NewDAOFormData),
     defaultValues: initialData,
   });
 
-  const handleSubmit = async (values: z.infer<typeof NewDAOFormData>) => {
+  const handleSubmit = async () => {
+    if (!wallet) {
+      toast("Please connect a wallet");
+      return;
+    }
     try {
+      const values = await createFungibleDAO(
+        wallet.adapter as unknown as NodeWallet,
+        connection,
+      );
       await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log("Profile updated:", values);
       setIsEditing(false);
