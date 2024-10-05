@@ -1,0 +1,1023 @@
+{
+  "address": "FK4GzgwHvmHz9yFWL8nzEkXgA2sc3vPimRJiwver64Y8",
+  "metadata": {
+    "name": "dao",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "initializer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "treasury",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  101,
+                  97,
+                  115,
+                  117,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "seed"
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposal_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108,
+                  99,
+                  102,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "governance_program"
+            }
+          }
+        },
+        {
+          "name": "treasury_team",
+          "writable": true
+        },
+        {
+          "name": "staking_program",
+          "address": "5ER7DVPftAuJ5DMz1mdrFC5VXQSo2zJZqv1H7GtpebK1"
+        },
+        {
+          "name": "governance_program",
+          "address": "A3bq5ABJ2npx7t82K9AyhXT2Cd2P3g5R2gks3CkL1bnS"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "instructions",
+          "address": "Sysvar1nstructions1111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "seed",
+          "type": "u64"
+        },
+        {
+          "name": "proposal_fee_bounty",
+          "type": "u64"
+        },
+        {
+          "name": "proposal_fee_executable",
+          "type": "u64"
+        },
+        {
+          "name": "proposal_fee_vote",
+          "type": "u64"
+        },
+        {
+          "name": "proposal_fee_vote_multiple",
+          "type": "u64"
+        },
+        {
+          "name": "max_expiry",
+          "type": "u64"
+        },
+        {
+          "name": "min_threshold",
+          "type": "u64"
+        },
+        {
+          "name": "min_quorum",
+          "type": "u8"
+        },
+        {
+          "name": "proposal_analysis_period",
+          "type": "u64"
+        },
+        {
+          "name": "n_quorum_epoch",
+          "type": "u8"
+        },
+        {
+          "name": "threshold_create_proposal",
+          "type": "u64"
+        },
+        {
+          "name": "collection_mint",
+          "type": {
+            "option": "pubkey"
+          }
+        },
+        {
+          "name": "mint",
+          "type": {
+            "option": "pubkey"
+          }
+        },
+        {
+          "name": "circulating_supply",
+          "type": "u64"
+        },
+        {
+          "name": "allow_sub_dao",
+          "type": "bool"
+        },
+        {
+          "name": "threshold_create_subdao",
+          "type": {
+            "option": "u64"
+          }
+        },
+        {
+          "name": "subdao_fee",
+          "type": {
+            "option": "u64"
+          }
+        },
+        {
+          "name": "veto_council",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "initialize_sub_dao",
+      "discriminator": [
+        224,
+        116,
+        67,
+        187,
+        156,
+        115,
+        244,
+        207
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "treasury",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  101,
+                  97,
+                  115,
+                  117,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury_subdao",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  101,
+                  97,
+                  115,
+                  117,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config_sub_dao"
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury_team",
+          "writable": true
+        },
+        {
+          "name": "config_sub_dao",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "seed"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config.seed",
+                "account": "DaoConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "proposal_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  112,
+                  111,
+                  115,
+                  97,
+                  108,
+                  99,
+                  102,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config_sub_dao"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "governance_program"
+            }
+          }
+        },
+        {
+          "name": "dao_treasury",
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "governance_program",
+          "address": "A3bq5ABJ2npx7t82K9AyhXT2Cd2P3g5R2gks3CkL1bnS"
+        },
+        {
+          "name": "staking_program",
+          "address": "5ER7DVPftAuJ5DMz1mdrFC5VXQSo2zJZqv1H7GtpebK1"
+        },
+        {
+          "name": "stake_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "staking_program"
+            }
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "instructions",
+          "address": "Sysvar1nstructions1111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "seed",
+          "type": "u64"
+        },
+        {
+          "name": "proposal_fee_bounty",
+          "type": "u64"
+        },
+        {
+          "name": "proposal_fee_executable",
+          "type": "u64"
+        },
+        {
+          "name": "proposal_fee_vote",
+          "type": "u64"
+        },
+        {
+          "name": "proposal_fee_vote_multiple",
+          "type": "u64"
+        },
+        {
+          "name": "max_expiry",
+          "type": "u64"
+        },
+        {
+          "name": "min_threshold",
+          "type": "u64"
+        },
+        {
+          "name": "min_quorum",
+          "type": "u8"
+        },
+        {
+          "name": "proposal_analysis_period",
+          "type": "u64"
+        },
+        {
+          "name": "n_quorum_epoch",
+          "type": "u8"
+        },
+        {
+          "name": "threshold_create_proposal",
+          "type": "u64"
+        },
+        {
+          "name": "collection_mint",
+          "type": {
+            "option": "pubkey"
+          }
+        },
+        {
+          "name": "mint",
+          "type": {
+            "option": "pubkey"
+          }
+        },
+        {
+          "name": "circulating_supply",
+          "type": "u64"
+        },
+        {
+          "name": "allow_sub_dao",
+          "type": "bool"
+        },
+        {
+          "name": "threshold_create_subdao",
+          "type": {
+            "option": "u64"
+          }
+        },
+        {
+          "name": "subdao_fee",
+          "type": {
+            "option": "u64"
+          }
+        },
+        {
+          "name": "veto_council",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "payout_bounty",
+      "discriminator": [
+        183,
+        17,
+        240,
+        215,
+        133,
+        209,
+        26,
+        166
+      ],
+      "accounts": [
+        {
+          "name": "initializer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "payee",
+          "writable": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config.seed",
+                "account": "DaoConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  101,
+                  97,
+                  115,
+                  117,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "instructions",
+          "address": "Sysvar1nstructions1111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "payee",
+          "type": "pubkey"
+        },
+        {
+          "name": "payout",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "set_allow_sub_dao",
+      "discriminator": [
+        6,
+        136,
+        42,
+        35,
+        216,
+        146,
+        169,
+        142
+      ],
+      "accounts": [
+        {
+          "name": "initializer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config.seed",
+                "account": "DaoConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "instructions",
+          "address": "Sysvar1nstructions1111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "value",
+          "type": "bool"
+        },
+        {
+          "name": "subdao_fee",
+          "type": {
+            "option": "u64"
+          }
+        },
+        {
+          "name": "threshold_create_subdao",
+          "type": {
+            "option": "u64"
+          }
+        }
+      ]
+    },
+    {
+      "name": "set_veto_council",
+      "discriminator": [
+        116,
+        82,
+        174,
+        69,
+        208,
+        27,
+        190,
+        244
+      ],
+      "accounts": [
+        {
+          "name": "initializer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config.seed",
+                "account": "DaoConfig"
+              }
+            ]
+          }
+        },
+        {
+          "name": "instructions",
+          "address": "Sysvar1nstructions1111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "veto_council",
+          "type": "pubkey"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "DaoConfig",
+      "discriminator": [
+        55,
+        209,
+        87,
+        224,
+        30,
+        202,
+        192,
+        246
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "CreateDaoEvent",
+      "discriminator": [
+        234,
+        103,
+        199,
+        8,
+        17,
+        156,
+        254,
+        178
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "DefaultError",
+      "msg": "Default Error"
+    },
+    {
+      "code": 6001,
+      "name": "BumpError",
+      "msg": "Bump Error"
+    },
+    {
+      "code": 6002,
+      "name": "Overflow",
+      "msg": "Overflow"
+    },
+    {
+      "code": 6003,
+      "name": "Underflow",
+      "msg": "Underflow"
+    },
+    {
+      "code": 6004,
+      "name": "AccountsOpen",
+      "msg": "You can't unstake with open accounts"
+    },
+    {
+      "code": 6005,
+      "name": "Expired",
+      "msg": "Proposal expired"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidSlot",
+      "msg": "Invalid slot"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidEpoch",
+      "msg": "Invalid epchj"
+    },
+    {
+      "code": 6008,
+      "name": "InsufficientStake",
+      "msg": "Insufficient stake"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidName",
+      "msg": "Invalid name"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidGist",
+      "msg": "Invalid gist"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidProposalSeed",
+      "msg": "Invalid proposal seed"
+    },
+    {
+      "code": 6012,
+      "name": "InvalidQuorum",
+      "msg": "Invalid quorum"
+    },
+    {
+      "code": 6013,
+      "name": "InvalidExpiry",
+      "msg": "Invalid expiry"
+    },
+    {
+      "code": 6014,
+      "name": "InvalidEvaluationPeriod",
+      "msg": "Invalid evaluation_phase_period"
+    },
+    {
+      "code": 6015,
+      "name": "ProposalClosed",
+      "msg": "Proposal closed"
+    },
+    {
+      "code": 6016,
+      "name": "InvalidVoteAmount",
+      "msg": "You can't vote 0!"
+    },
+    {
+      "code": 6017,
+      "name": "InvalidProposalStatus",
+      "msg": "Invalid proposal status"
+    },
+    {
+      "code": 6018,
+      "name": "InvalidStakeAmount",
+      "msg": "Invalid stake amount"
+    },
+    {
+      "code": 6019,
+      "name": "InvalidUnlockedStakeAmount",
+      "msg": "Invalid unlocked stake amount"
+    },
+    {
+      "code": 6020,
+      "name": "InvalidThreshold",
+      "msg": "Invalid Threshold"
+    },
+    {
+      "code": 6021,
+      "name": "InvalidRequiredTime",
+      "msg": "Invalid Required Time"
+    },
+    {
+      "code": 6022,
+      "name": "InvalidVoteType",
+      "msg": "Invalid Vote Type"
+    },
+    {
+      "code": 6023,
+      "name": "SingleChoice",
+      "msg": "AlreadyVoted"
+    },
+    {
+      "code": 6024,
+      "name": "InvalidChoicesAmount",
+      "msg": "Invalid choices amount"
+    },
+    {
+      "code": 6025,
+      "name": "InvalidChoice",
+      "msg": "Invalid choice"
+    },
+    {
+      "code": 6026,
+      "name": "InvalidAllowSubDao",
+      "msg": "Subdao Disabled"
+    },
+    {
+      "code": 6027,
+      "name": "InvalidDaoType",
+      "msg": "InvalidDaoType"
+    },
+    {
+      "code": 6028,
+      "name": "CollectionNotSet",
+      "msg": "Collection not set"
+    },
+    {
+      "code": 6029,
+      "name": "InvalidCollection",
+      "msg": "Invalid Collection"
+    },
+    {
+      "code": 6030,
+      "name": "UnauthorizedSigner",
+      "msg": "Unauthorized Signer"
+    },
+    {
+      "code": 6031,
+      "name": "InvalidConfiguration",
+      "msg": "Invalid Configuration"
+    },
+    {
+      "code": 6032,
+      "name": "WrongAdmin",
+      "msg": "Wrong Admin"
+    },
+    {
+      "code": 6033,
+      "name": "InvalidInstructionIndex",
+      "msg": "InvalidInstructionIndex"
+    },
+    {
+      "code": 6034,
+      "name": "ProgramMismatch",
+      "msg": "ProgramMismatch"
+    }
+  ],
+  "types": [
+    {
+      "name": "CreateDaoEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "dao_creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "dao_id",
+            "type": "u64"
+          },
+          {
+            "name": "dao_config",
+            "type": "pubkey"
+          },
+          {
+            "name": "proposal_config",
+            "type": "pubkey"
+          },
+          {
+            "name": "is_sub_dao",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DaoConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "seed",
+            "type": "u64"
+          },
+          {
+            "name": "config_bump",
+            "type": "u8"
+          },
+          {
+            "name": "treasury_bump",
+            "type": "u8"
+          },
+          {
+            "name": "is_hybrid",
+            "type": "bool"
+          },
+          {
+            "name": "collection_mint",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "mint",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "circulating_supply",
+            "type": "u64"
+          },
+          {
+            "name": "allow_sub_dao",
+            "type": "bool"
+          },
+          {
+            "name": "threshold_create_subdao",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "subdao_fee",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "veto_council",
+            "type": "pubkey"
+          },
+          {
+            "name": "governance_program",
+            "type": "pubkey"
+          },
+          {
+            "name": "staking_program",
+            "type": "pubkey"
+          },
+          {
+            "name": "is_sub_dao",
+            "type": "bool"
+          },
+          {
+            "name": "dao_config_key",
+            "type": "pubkey"
+          },
+          {
+            "name": "dao_treasury",
+            "type": "pubkey"
+          }
+        ]
+      }
+    }
+  ]
+}
