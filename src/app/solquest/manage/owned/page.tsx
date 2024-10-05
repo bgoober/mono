@@ -8,7 +8,7 @@ import P from "~/_components/final/P";
 import type { Item } from "~/_components/final/Dashboard/Table";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { mapBountyToTable, mapApplicantToTable } from "~/app/solquest/manage/manage";
 import Table from "~/_components/final/Dashboard/Table";
 import { APPLICANTS_COLUMNS } from "~/lib/utils/constants";
@@ -27,8 +27,9 @@ export default function Bounty() {
   const [selectedApplicant, setSelectedApplicant] = useState("")
   const params = useSearchParams()
   const id= params.get("id")
-  const {data, isLoading} = api.bounty.readBounty.useQuery({bountyId: id as string})
-  const { data:applications, isFetched } = api.bounty.readAllApplications.useQuery({bountyId: id as string})
+  const router = useRouter()
+  const {data, isLoading} = api.bounty.readBounty.useQuery({bountyId: id ?? ""})
+  const { data:applications, isFetched } = api.bounty.readAllApplications.useQuery({bountyId: id ?? ""})
   const startBounty = api.bounty.startBounty.useMutation({})
   const endBounty = api.bounty.endBounty.useMutation({})
 
@@ -44,21 +45,25 @@ export default function Bounty() {
     try{
       startBounty.mutate({bountyId: pageBounty?.id ?? ""}, {
         onSuccess: () => alert("Bounty started successfully!"),
-        onError: () => alert("Failed to start bounty, check console for more info!")
+        onError: (err) => alert(`Error: ${err.message ?? "Unknown error"}`)
       })
     } catch(err){
       console.log(err)
+    } finally{
+      router.refresh()
     }
   }
 
   const handleEnd = async() => {
     try{
       endBounty.mutate({bountyId: pageBounty?.id ?? ""}, {
-        onSuccess: () => alert("Bounty started successfully!"),
-        onError: () => alert("Failed to start bounty, check console for more info!")
+        onSuccess: () => alert("Bounty ended successfully!"),
+        onError: (err) => alert(`Error: ${err.message ?? "Unknown error"}`)
       })
     } catch(err){
       console.log(err)
+    } finally{
+      router.refresh()
     }
   }
 
@@ -76,7 +81,7 @@ export default function Bounty() {
 
   return (
     <div className="sm:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
-      <div className="rounded-md bg-white p-2">
+      {(!isLoading && isFetched) ?<div className="rounded-md flex-1 bg-white p-2">
         <H1 className="my-3 text-center">{pageBounty?.title ?? ""}</H1>
         <pre className="text-wrap text-lg font-medium">
           {pageBounty?.details}
@@ -97,26 +102,31 @@ export default function Bounty() {
         {pageBounty?.status == "OPEN" && (
           <div className="mx-auto my-3 flex max-w-4xl items-center justify-between gap-3">
             <Button onClick={handleStart} variant="secondary" >Start Bounty</Button>
-            <Button onClick={handleEnd}>End Bounty</Button>
+            <Button onClick={handleEnd}>Cancel Bounty</Button>
           </div>
         )}
 
         {pageBounty?.status == "IN_PROGRESS" && (
           <div className="mx-auto my-3 flex max-w-4xl items-center justify-center gap-3">
-            <Button variant="secondary">Bounty Completed</Button>
+            <Button onClick={handleEnd} variant="secondary">Bounty Completed</Button>
           </div>
         )}
-      </div>
+      </div> : <div className="m-5 text-center text-xl">Give me a sec! ⌛</div>}
 
-      {pageBounty?.status == "OPEN" && (
+      {(pageBounty?.status == "OPEN" || pageBounty?.status == "IN_PROGRESS") && (
         <div>
           <H3 className="my-5 text-center font-bold text-primary">
-            Applicants
+            {pageBounty.status == "OPEN"? "Applicants" : "Developers"}
           </H3>
           {applicants && applicants.length > 0 && (
             <Table
               columns={APPLICANTS_COLUMNS}
-              data={applicants}
+              data={applicants.filter(app => {
+                if (pageBounty.status == "IN_PROGRESS"){
+                  return app.status == "ACCEPTED"
+                } 
+                return true
+              })}
               marginTop="mt-4"
               whenRowClick={onRowClick}
             />
@@ -182,12 +192,12 @@ const Manage = ({ item, handleClick, name }: ManageProps) => {
           <b>{name}</b>
         </p>
         {item?.status == "PENDING" && (
-          <>
+          <div>
             <Button
              onClick={handleAccept}
              variant="secondary">Accept Application</Button>
             <Button onClick={handleReject}>Reject Application</Button>
-          </>
+          </div>
         )}
         {item?.status == "ACCEPTED" && (
           <P className="font-semibold text-secondary">

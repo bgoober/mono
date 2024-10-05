@@ -5,7 +5,7 @@ import { Button } from "~/_components/final/ui/button";
 import { BOUNTIES_COLUMNS } from "~/lib/utils/constants";
 import type { Item } from "~/_components/final/Dashboard/Table";
 import type { Bounties, BountyApplications } from "~/server/api/routers/bounty/read";
-import { useState, useEffect, use, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Session } from "next-auth";
 import { api } from "~/trpc/react";
@@ -35,8 +35,8 @@ export const mapBountyToTable = (bounties: Bounties[]):tableBounty[] => {
     pay: bounty.compensation.amount,
     details: bounty.description,
     publisher: bounty.company? bounty.company.name : bounty.pointOfContact.username ?? "User",
-    track: bounty.track as string,
-    status: bounty.status as string,
+    track: bounty.track,
+    status: bounty.status,
     createdDate: new Date(bounty.createdAt).toLocaleDateString(),
   }))
 }
@@ -46,14 +46,14 @@ export const mapApplicantToTable = (applicants: BountyApplications[]):tableAppli
     id: applicant.id,
     name: applicant.user.name ?? "User",
     createdAt: new Date(applicant.createdAt).toLocaleDateString(),
-    status: applicant.status as string,
+    status: applicant.status,
   }))
 }
 
 export default function Manage({session}:{session: null | Session}) {
   const router = useRouter();
-  const {data: readWorkingBounties } = api.bounty.readWorkingBounties.useQuery()
-  const {data: readOwnedBounties } = api.bounty.readOwnedBounties.useQuery()
+  const {data: readWorkingBounties, isFetched } = api.bounty.readWorkingBounties.useQuery()
+  const {data: readOwnedBounties, isLoading } = api.bounty.readOwnedBounties.useQuery()
   const [bountyType, setBountyType] = useState<"owned" | "working">("owned");
 
   const onRowClickOwned = (item: Item) => {
@@ -104,18 +104,22 @@ export default function Manage({session}:{session: null | Session}) {
       <div className="flex flex-col">
         {memoizedOwnedBounty.length === 0 && bountyType=="owned" && (
           <H4 className="pt-10 text-center text-zinc-600">
+            {!isLoading ? <span>
             No bounties found. <Button 
             className="text-xl p-0" 
             onClick={() => router.push("/solquest/bounties/create")} 
             variant="link">Create a new one ⚡</Button>
+            </span> : <span>Loading your bounties ⌛</span>}
           </H4>
         )}
         {memoizedWorkingBounty.length === 0 && bountyType=="working" && (
           <H4 className="pt-10 text-center text-zinc-600">
+            {isFetched ? <span>
             No bounties found. <Button 
             className="text-xl p-0" 
             onClick={() => router.push("/solquest/bounties")} 
             variant="link">Apply to one ⚡</Button>
+            </span> : <span>Loading your work 😉 </span>}
           </H4>
         )}
 
@@ -132,7 +136,7 @@ export default function Manage({session}:{session: null | Session}) {
             columns={BOUNTIES_COLUMNS}
             data={memoizedWorkingBounty}
             marginTop="mt-4"
-            whenRowClick={bountyType == "owned" ? onRowClickOwned : onRowClickWorking}
+            whenRowClick={bountyType != "working" ? onRowClickOwned : onRowClickWorking}
           />
         )}
       </div>

@@ -35,8 +35,8 @@ export default function Details({title, details, pay, publisher, bountyId, userI
                     close()
                     alert("Applied successfully!")
                 },
-                onError: () => {
-                    alert("Failed to apply to bounty! Check console for more details!")
+                onError: (error) => {
+                    alert(`Error: ${error.message ?? "Unknown error. Check console for more details"}`)
                 }
             })
         } catch(err){

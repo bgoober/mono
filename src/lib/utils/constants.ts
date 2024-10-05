@@ -18,15 +18,15 @@ interface ColumnDefinition {
   };
 
   export const BOUNTY_STATUS = {
-    OPEN: "open",
-    IN_PROGRESS: "in_progress",
-    COMPLETED: "completed",
+    OPEN: "OPEN",
+    IN_PROGRESS: "IN_PROGRESS",
+    COMPLETED: "COMPLETED",
   };
 
   export const APPLICANTS_STATUS = {
-    ACCEPTED: "accepted",
-    PENDING: "pending",
-    REJECTED: "rejected"
+    ACCEPTED: "ACCEPTED",
+    PENDING: "PENDING",
+    REJECTED: "REJECTED"
   }
 
   export const COLUMNS: ColumnDefinition[] = [

@@ -17,8 +17,8 @@ export default function Bounty() {
   const [applicants, setApplicants] = useState<tableApplicant[]>();
   const params = useSearchParams()
   const id= params.get("id")
-  const {data, isLoading} = api.bounty.readBounty.useQuery({bountyId: id as string})
-  const { data:applications, isFetched } = api.bounty.readAllApplications.useQuery({bountyId: id as string})
+  const {data, isLoading} = api.bounty.readBounty.useQuery({bountyId: id ?? ""})
+  const { data:applications, isFetched } = api.bounty.readAllApplications.useQuery({bountyId: id ?? ""})
 
   const getStatus = (status: string) => {
     if (status == "in_progress") {
@@ -37,7 +37,7 @@ export default function Bounty() {
 
   return (
     <div className="sm:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
-      <div className="rounded-md bg-white p-2">
+      {(!isLoading && isFetched) ? <div className="rounded-md bg-white p-2">
         <H1 className="my-3 text-center">{pageBounty?.title ?? ""}</H1>
         <pre className="text-wrap text-lg font-medium">
           {pageBounty?.details}
@@ -60,20 +60,18 @@ export default function Bounty() {
             <Button variant="secondary">Withdraw Funds</Button>
           </div>
         )}
-      </div>
+      </div> : <div className="m-5 text-center text-xl">Give me a sec! ⌛</div>}
 
-      <div>
+      {applicants && applicants.length > 0 && <div>
         <H3 className="my-5 text-center font-bold text-primary">
           Applicants
         </H3>
-        {applicants && applicants.length > 0 && (
-          <Table
-            columns={APPLICANTS_COLUMNS}
-            data={applicants.filter(app => app.status == "ACCEPTED")}
-            marginTop="mt-4"
-          />
-        )}
-      </div>
+        <Table
+          columns={APPLICANTS_COLUMNS}
+          data={applicants.filter(app => app.status == "ACCEPTED")}
+          marginTop="mt-4"
+        />
+      </div>}
     </div>
   );
 }
