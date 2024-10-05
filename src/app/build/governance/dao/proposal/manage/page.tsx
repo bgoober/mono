@@ -4,7 +4,7 @@ import { api } from "~/trpc/react";
 // import { DAO } from "@prisma/client";
 
 async function DAOs() {
-  const { data: proposal, isLoading } = await api.proposal.read.useQuery({
+  const { data: proposal, isLoading } = api.proposal.read.useQuery({
     id: "1",
   });
   // table data
