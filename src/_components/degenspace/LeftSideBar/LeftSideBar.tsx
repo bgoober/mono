@@ -1,21 +1,20 @@
 "use client";
-import { Logo } from "../Logo";
-import { Button } from "~/_components/ui/button";
-import { JobBoard } from "./JobBoard";
-import { Search } from "./Search";
-import { UserInfo } from "./UserInfo";
-import { Wallet } from "./Wallet";
 
-export const LeftSideBar = () => {
+import React from "react";
+import { Button } from "~/_components/final/ui/button";
+
+interface LeftSideBarProps {
+  onNewPost: () => void;
+}
+
+export const LeftSideBar: React.FC<LeftSideBarProps> = ({ onNewPost }) => {
   return (
-    <div className="flex h-full w-1/3 flex-col items-center p-2">
-      <div className="mt-[20px] flex h-full w-full flex-col items-start gap-[10px]">
-        <Logo />
-        <Wallet />
-        <UserInfo />
-        <Search />
-        <JobBoard />
+    <aside className="flex h-full flex-col items-start justify-start border-r border-zinc-200 px-4 pt-12">
+      <div className="mb-4 flex w-full justify-center lg:justify-end">
+        <Button size="lg" onClick={onNewPost} className="md:w-2/3 lg:w-auto">
+          New Post
+        </Button>
       </div>
-    </div>
+    </aside>
   );
 };

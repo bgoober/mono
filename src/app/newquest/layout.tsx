@@ -17,36 +17,17 @@ const navLinks: NavLink[] = [
   },
   {
     name: "Fund",
-    href: "/build/fund",
+    href: "/build/crowdfunding",
   },
   {
     name: "Manage",
-    href: "/build/manage",
+    href: "/build/governance/dao/manage",
   },
   {
     name: "Bounties", // TODO: Protect route & state with auth
     href: "/newquest/bounties",
   },
 ];
-
-const arbutus = Arbutus({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-arbutus",
-});
-const atkinson = Atkinson_Hyperlegible({
-  subsets: ["latin"],
-  weight: "700",
-  variable: "--font-atkinson",
-});
-
-export const metadata: Metadata = {
-  title: {
-    default: "deResearcher",
-    template: "%s | deResearcher",
-  },
-  description: "A decentralized research platform on Solana",
-};
 
 export default async function RootLayout({
   children,
@@ -55,7 +36,7 @@ export default async function RootLayout({
 }>) {
   const session = await getServerAuthSession();
   return (
-    <html lang="en" className={`${arbutus.variable} ${atkinson.variable}`}>
+    <html lang="en">
       <body className={`${inter.className} min-w-[350px]`}>
         <UIProvider>
           <Navbar links={navLinks} session={session} />

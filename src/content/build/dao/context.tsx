@@ -86,28 +86,29 @@ function DaoContent({
 
   return (
     <div className={styles.content}>
-      <H1>DAOs</H1>
+      <H1 className="pt-4 text-primary">DAOs</H1>
       <div className={styles.innerContent}>
-        <div className="mb-4 flex gap-2">
-          <Input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-md border border-solid border-black p-4 text-black"
-          />
-          {
-            <div className="relative flex flex-grow">
+        <div className="mx-auto mb-6 w-full max-w-[800px]">
+          <div className="flex gap-2">
+            <Input
+              type="text"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="mb-2 w-full rounded-md border border-solid border-black p-4 text-black"
+            />
+
+            <div className="relative flex-shrink-0">
               <Button
                 onClick={() => router.push("/build/governance/dao/new")}
                 className={cn(
-                  "w-fit whitespace-nowrap rounded-md border border-green-600 bg-green-600 p-2",
+                  "w-fit whitespace-nowrap rounded-md border border-primary bg-primary p-2 text-white",
                 )}
               >
                 + New DAO
               </Button>
             </div>
-          }
+          </div>
         </div>
 
         {daos && (

@@ -7,6 +7,8 @@ import Link from "next/link";
 import { SearchBar } from "../Dashboard/Navbar";
 import SolquestLogo from "~/_components/solquest/general/ui/Logo";
 import { type Session } from "next-auth";
+import { cn } from "~/utils";
+import DegenSpaceLogo from "~/_components/degenspace/DegenSpaceLogo";
 
 const getLogoFromPathname = (pathname: string) => {
   if (pathname.includes("research")) {
@@ -18,6 +20,9 @@ const getLogoFromPathname = (pathname: string) => {
   if (pathname.includes("newquest")) {
     return <SolquestLogo />;
   }
+  if (pathname.includes("degenspace")) {
+    return <DegenSpaceLogo />;
+  }
 };
 
 export type NavLink = {
@@ -28,15 +33,23 @@ export type NavLink = {
 export const Navbar = ({
   links,
   session,
+  sticky = false,
 }: {
   links: NavLink[];
   session: Session | null;
+  sticky?: boolean;
 }) => {
   const pathname = usePathname();
   const logo = getLogoFromPathname(pathname);
 
   return (
-    <nav className="relative flex h-[82px] items-center justify-between p-4">
+    <nav
+      className={cn(
+        "relative flex h-[82px] items-center justify-between bg-white p-4",
+        sticky && "sticky top-0 z-50",
+      )}
+    >
+      {" "}
       <div className="flex max-w-3xl flex-1 items-center">
         <Link href="/" className="mr-4">
           {logo}
