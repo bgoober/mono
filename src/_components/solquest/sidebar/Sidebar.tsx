@@ -37,7 +37,7 @@ export default function Sidebar({setTrackFilter, setStatusFilter, filter}:props)
       </div>
 
       <div
-        className={`absolute top-0 w-[300px] max-w-80 border-2 border-zinc-300 ${viewFilter ? "left-0" : "-left-80"} h-full bg-primary-foreground p-4 transition-all sm:relative sm:left-0 sm:w-2/5 min-w-72 sm:rounded-lg`}
+        className={`absolute top-0 w-[300px] max-w-80 border-2 border-zinc-300 ${viewFilter ? "left-0" : "-left-80"} h-full min-w-72 bg-primary-foreground p-4 transition-all sm:relative sm:left-0 sm:w-2/5 sm:rounded-lg`}
       >
         <div className="block sm:hidden">
           <CloseButton

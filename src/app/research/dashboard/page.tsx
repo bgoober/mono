@@ -24,7 +24,7 @@ export default async function DashboardPage() {
       })) || [];
 
   return (
-    <main className="flex-1 overflow-x-hidden bg-zinc-100">
+    <main className="min-h-full flex-1 overflow-y-auto bg-zinc-100 px-6 py-8">
       {/* Cards */}
       <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {CardContent.map((card, index) => (
@@ -41,13 +41,14 @@ export default async function DashboardPage() {
         Latest Peer Review Papers
       </H3>
       {/* Table */}
-      {latestPeerReviewingPapers.length === 0 && (
+      {latestPeerReviewingPapers.length === 0 ? (
         <P className="pt-10 text-center text-zinc-600">
           No peer-reviewing papers found. Create a new paper to get started.
         </P>
-      )}
-      {latestPeerReviewingPapers.length > 0 && (
-        <Table columns={COLUMNS} data={latestPeerReviewingPapers} />
+      ) : (
+        <div className="overflow-x-auto">
+          <Table columns={COLUMNS} data={latestPeerReviewingPapers} />
+        </div>
       )}
     </main>
   );

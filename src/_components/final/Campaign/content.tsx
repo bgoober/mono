@@ -57,7 +57,7 @@ export default function CampaignContentComponent({
             </P>
           </div>
 
-          <PledgeForm />
+          <PledgeForm campaign={campaign} />
         </div>
 
         <div className="mt-20 flex flex-col">

@@ -1,26 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import type { z } from "zod";
 
 import { ProfileFormData } from "~/lib/validation";
 import CustomFormItem from "../CustomForm";
 
-import { Button } from "~/_components/final/ui/button";
 import { Form, FormField } from "~/_components/final/ui/form";
-import { Textarea } from "~/_components/final/ui/textarea";
+import { Textarea } from "~/_components/ui/textarea";
 import { Camera, Upload } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Button } from "~/_components/ui/button";
 
 type ProfileFormProps = {
-  initialData: ProfileFormData & { isVerified: boolean };
+  initialData: ProfileFormData & { isVerified: boolean; id: string };
 };
 
 export default function ProfileForm({ initialData }: ProfileFormProps) {
-  const [isEditing, setIsEditing] = useState(true);
+  // const [isEditing, setIsEditing] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof ProfileFormData>>({
     resolver: zodResolver(ProfileFormData),
@@ -41,8 +43,9 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
   const handleSubmit = async (values: ProfileFormData) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Profile updated:", values);
-      setIsEditing(false);
+      console.log("Profile created:", values);
+      // setIsEditing(false);
+      router.push(`/profile/${initialData.id}`);
     } catch (error) {
       console.error("An error occurred:", error);
     }
@@ -55,10 +58,8 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
       >
         <div className="mb-6 flex flex-col items-center">
           <div
-            className={`relative mb-2 flex h-20 w-20 items-center justify-center overflow-hidden rounded-full bg-gray-200 ${
-              isEditing ? "group cursor-pointer" : ""
-            }`}
-            onClick={() => isEditing && fileInputRef.current?.click()}
+            className="group relative mb-2 flex h-20 w-20 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gray-200"
+            onClick={() => fileInputRef.current?.click()}
           >
             {form.watch("profileImage") ? (
               <img
@@ -69,11 +70,9 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
             ) : (
               <Camera size={32} className="text-gray-400" />
             )}
-            {isEditing && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity group-hover:opacity-100">
-                <Upload size={24} className="text-white" />
-              </div>
-            )}
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity group-hover:opacity-100">
+              <Upload size={24} className="text-white" />
+            </div>
           </div>
           <input
             type="file"
@@ -81,7 +80,6 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
             onChange={handleImageUpload}
             accept="image/png, image/jpeg"
             className="hidden"
-            disabled={!isEditing}
           />
         </div>
 
@@ -94,7 +92,6 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
                 label="First Name"
                 field={field}
                 placeholder="Enter your first name"
-                isEditing={isEditing}
               />
             )}
             required
@@ -107,7 +104,6 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
                 label="Last Name"
                 field={field}
                 placeholder="Enter your last name"
-                isEditing={isEditing}
               />
             )}
             required
@@ -123,7 +119,6 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
                 label="Email"
                 field={field}
                 placeholder="Enter your email"
-                isEditing={isEditing}
               />
             )}
             required
@@ -136,7 +131,6 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
                 label="Organization"
                 field={field}
                 placeholder="Enter your organization"
-                isEditing={isEditing}
               />
             )}
           />
@@ -148,10 +142,9 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
             name="website"
             render={({ field }) => (
               <CustomFormItem
-                label="Websit/Github"
+                label="Website/Github"
                 field={field}
                 placeholder="Enter your website"
-                isEditing={isEditing}
               />
             )}
           />
@@ -163,7 +156,6 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
                 label="Twitter/X/Facebook/LinkedIn"
                 field={field}
                 placeholder="Enter your social link"
-                isEditing={isEditing}
               />
             )}
           />
@@ -178,42 +170,18 @@ export default function ProfileForm({ initialData }: ProfileFormProps) {
               field={field}
               placeholder="Exploring the intersection of cryptography and..."
               InputComponent={Textarea}
-              isEditing={isEditing}
               inputProps={{ rows: 6 }}
             />
           )}
         />
 
-        <div className="flex justify-end gap-4">
+        <div className="flex justify-end">
           <Button
             type="submit"
-            className={`w-40 ${
-              isEditing
-                ? "bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
-                : "bg-transparent text-zinc-800 hover:bg-zinc-100"
-            }`}
-            variant={isEditing ? "default" : "outline"}
-            disabled={!isEditing || form.formState.isSubmitting}
-          >
-            {form.formState.isSubmitting ? "Submitting..." : "Update Profile"}
-          </Button>
-          <Button
-            type="button"
-            className={`w-40 ${
-              isEditing
-                ? "bg-transparent text-zinc-800 hover:bg-zinc-100"
-                : "bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
-            }`}
-            variant={isEditing ? "outline" : "default"}
+            className="w-40 bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
             disabled={form.formState.isSubmitting}
-            onClick={() => {
-              if (isEditing) {
-                form.reset(initialData);
-              }
-              setIsEditing(!isEditing);
-            }}
           >
-            {isEditing ? "Cancel" : "Edit"}
+            {form.formState.isSubmitting ? "Creating..." : "Create Profile"}
           </Button>
         </div>
       </form>

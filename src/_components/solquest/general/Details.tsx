@@ -51,7 +51,7 @@ export default function Details({title, details, pay, publisher, bountyId, userI
                 <CloseButton handleClick={close}/>
                 <H1 style={2}>{title}</H1>
 
-                <pre className="text-wrap">{details}</pre>
+        <pre className="text-wrap">{details}</pre>
 
                 <p className="font-bold my-3">Publisher: <span className="text-primary"> {publisher} </span></p>
                 <p className="font-bold my-3 flex gap-3 items-center">Pay: 

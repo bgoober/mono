@@ -51,12 +51,12 @@ export default function NewDAOForm() {
       return;
     }
     try {
-      const values = await createFungibleDAO(
-        wallet.adapter as unknown as NodeWallet,
-        connection,
-      );
+      // const values = await createFungibleDAO(
+      //   wallet.adapter as unknown as NodeWallet,
+      //   connection,
+      // );
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Profile updated:", values);
+      // console.log("Profile updated:", values);
       setIsEditing(false);
     } catch (error) {
       console.error("An error occurred:", error);
@@ -175,7 +175,7 @@ export default function NewDAOForm() {
           required
         />
 
-        <FormField
+        {/* <FormField
           control={form.control}
           name="subDAOCreationThreshold"
           render={({ field }) => (
@@ -187,7 +187,7 @@ export default function NewDAOForm() {
             />
           )}
           required
-        />
+        /> */}
 
         <div className="flex justify-end gap-4">
           <Button

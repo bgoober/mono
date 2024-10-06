@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -42,7 +43,7 @@ export default function Sidebar() {
   const [papersExpanded, setPapersExpanded] = useState(false);
   const pathname = usePathname();
 
-  const isPapersRoute = pathname.startsWith("/dashboard/papers");
+  const isPapersRoute = pathname.startsWith("/research/dashboard/papers");
 
   useEffect(() => {
     if (isPapersRoute) {

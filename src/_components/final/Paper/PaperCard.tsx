@@ -8,6 +8,7 @@ import H4 from "../H4";
 import P from "../P";
 import { PAPER_STATUS } from "~/lib/utils/constants";
 import { getGradientForPaper } from "~/lib/utils/helpers";
+import React from "react";
 
 interface PaperCardProps {
   id: string;

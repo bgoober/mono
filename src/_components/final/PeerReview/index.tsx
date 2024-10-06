@@ -47,3 +47,24 @@ export default function PeerReviewComponent({
     </div>
   );
 }
+
+// TODO: We'll need this later
+// function calculateScore(reviewScores: ReviewScores): number {
+//   const {
+//     qualityOfResearch,
+//     potentialForRealWorldUseCase,
+//     domainKnowledge,
+//     practicalityOfResultObtained,
+//   } = reviewScores;
+
+//   // Calculate the average score (1-10 scale)
+//   const totalScore =
+//     (qualityOfResearch +
+//       potentialForRealWorldUseCase +
+//       domainKnowledge +
+//       practicalityOfResultObtained) /
+//     4;
+
+//   // Convert the average score from 1-10 to 1-5 scale
+//   return +(totalScore / 2).toFixed(1);
+// }

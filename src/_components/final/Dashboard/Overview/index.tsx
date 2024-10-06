@@ -1,3 +1,4 @@
+import React from "react";
 import H3 from "~/_components/final/H3";
 import Table from "../Table";
 import Link from "next/link";
@@ -21,7 +22,7 @@ export default function OverviewComponent() {
     <>
       <div className="mb-6 flex items-center justify-end md:justify-between">
         <H3 className="hidden md:block">Overview</H3>
-        <Link href="/dashboard/papers/create">
+        <Link href="/research/dashboard/papers/create">
           <Button className="text-sm text-white">Create new paper</Button>
         </Link>
       </div>

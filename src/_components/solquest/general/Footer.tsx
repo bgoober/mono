@@ -4,32 +4,33 @@ import { FaXTwitter, FaDiscord, FaGithub } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-white flex flex-wrap items-center justify-between gap-5 p-4 text-slate-400">
-      <div>
-        <Logo />
-        <p className="py-5">
-          Find and complete various high-paying crypto bounties all in one
-          place!
-        </p>
-
-        <div className="flex gap-4">
-          <Link href="#">
-            {" "}
-            <FaGithub />{" "}
-          </Link>
-          <Link href="#">
-            {" "}
-            <FaXTwitter />{" "}
-          </Link>
-          <Link href="#">
-            {" "}
-            <FaDiscord />{" "}
-          </Link>
+    <footer className="bg-[#14161F] py-8 text-slate-300">
+      <div className="container mx-auto px-4">
+        <div className="flex h-full flex-col justify-between">
+          <div className="mb-8">
+            <Logo />
+            <p className="pt-4 text-sm">
+              Find and complete various high-paying crypto bounties all in one
+              place!
+            </p>
+          </div>
+          <div className="flex items-end justify-between">
+            <div className="flex gap-4">
+              <Link href="#" className="transition-colors hover:text-[#4ADE80]">
+                <FaGithub size={24} />
+              </Link>
+              <Link href="#" className="transition-colors hover:text-[#4ADE80]">
+                <FaXTwitter size={24} />
+              </Link>
+              <Link href="#" className="transition-colors hover:text-[#4ADE80]">
+                <FaDiscord size={24} />
+              </Link>
+            </div>
+            <p className="text-sm">
+              © {new Date().getFullYear()} SolQuest. All rights reserved.
+            </p>
+          </div>
         </div>
-      </div>
-
-      <div>
-        <p>© 2024 SolQuest. All rights reserved.</p>
       </div>
     </footer>
   );
