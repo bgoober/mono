@@ -30,17 +30,17 @@ export default function CreateBounty({ session }: { session: Session | null }) {
   ) => {
     try {
       createBounty(wallet?.adapter as unknown as NodeWallet, connection);
-      // createBounty.mutate(values, {
-      //   onSuccess: () => {
-      //     alert("Bounty created successfully!");
-      //     form.reset();
-      //   },
-      //   onError: () => {
-      //     alert(
-      //       "There was an error creating the Bounty! Check the console for more info!",
-      //     );
-      //   },
-      // });
+      createBountyAPI.mutate(values, {
+        onSuccess: () => {
+          alert("Bounty created successfully!");
+          form.reset();
+        },
+        onError: () => {
+          alert(
+            "There was an error creating the Bounty! Check the console for more info!",
+          );
+        },
+      });
       console.log("Bounty created:", values);
     } catch (err) {
       console.log(err);
@@ -68,7 +68,7 @@ export default function CreateBounty({ session }: { session: Session | null }) {
       compensationAmount: parseInt((data.get("compensation") as string) ?? "0"),
       pointOfContactId: session?.user.id ?? "",
       skills: [],
-      tokenId: "cm1ud7349000oqwyxh3ifq8u3",
+      tokenId: "cm1udtkhm0017qwyxr1d525c0",
     };
 
     handleCreateBounty(bountyData, e.currentTarget);

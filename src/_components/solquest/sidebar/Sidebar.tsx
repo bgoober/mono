@@ -1,10 +1,29 @@
 "use client";
 import { FaFilter } from "react-icons/fa6";
 import { IconButton, CloseButton } from "../general/ui/Button";
+import { bountyFilter } from "~/app/solquest/bounties/bounties";
 import { useState } from "react";
 
-export default function Sidebar() {
+interface props{
+  setTrackFilter: (e:string) => void,
+  setStatusFilter: (e:string) => void,
+  filter: bountyFilter
+}
+
+export default function Sidebar({setTrackFilter, setStatusFilter, filter}:props) {
   const [viewFilter, setViewFilter] = useState<boolean>(false);
+  const status = [
+    {name: "All", value: "ALL"},
+    {name: "In Progress", value: "IN_PROGRESS"},
+    {name: "Open", value: "OPEN"},
+    {name: "Completed", value: "COMPLETED"}
+  ]
+  const tracks = [
+    {name: "All", value: "ALL"},
+    {name: "Frontend", value: "FRONTEND"},
+    {name: "Backend", value: "BACKEND"},
+    {name: "Rust", value: "RUST"}
+  ]
   return (
     <div>
       <div className={"flex items-start sm:hidden"}>
@@ -29,14 +48,20 @@ export default function Sidebar() {
         </div>
 
         <Label>Tracks</Label>
-        <Option>Frontend</Option>
-        <Option>Backend</Option>
-        <Option>Rust</Option>
+        {tracks.map(track => 
+          <Option 
+          key={track.value} 
+          active={filter.track == track.value} 
+          click={() => setTrackFilter(track.value)}>{track.name}</Option>
+        )}
 
         <Label>Status</Label>
-        <Option>Open</Option>
-        <Option>In Progress</Option>
-        <Option>Completed</Option>
+        {status.map(status => 
+          <Option 
+          key={status.value} 
+          active={filter.status == status.value} 
+          click={() => setStatusFilter(status.value)}>{status.name}</Option>
+        )}
       </div>
     </div>
   );
@@ -52,12 +77,9 @@ const Label: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
-const Option: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const Option: React.FC<{ children: React.ReactNode, active:boolean, click: () => void }> = ({ children, active, click }) => {
   return (
-    <button
-      type="button"
-      className="m-3 block text-base text-slate-500 hover:text-slate-800"
-    >
+    <button onClick={click} type="button" className={`m-3 block text-slate-500 hover:text-slate-800 ${active && "font-bold"}`}>
       {children}
     </button>
   );

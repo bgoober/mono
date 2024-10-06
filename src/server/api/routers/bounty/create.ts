@@ -1,4 +1,4 @@
-import { protectedProcedure } from "~/server/api/trpc";
+import { protectedProcedure, publicProcedure } from "~/server/api/trpc";
 import {z} from "zod";
 
 export const createBounty = protectedProcedure.input(z.object({
@@ -57,18 +57,30 @@ export const createBounty = protectedProcedure.input(z.object({
 } )
 
 //Create Bounty Application
-export const createApplication = protectedProcedure.input(z.object({
+export const createApplication = publicProcedure.input(z.object({
   bountyId: z.string(),
   userId: z.string(),
 })).mutation(async ({ctx, input}) => {
-  const application = await ctx.db.bountyApplication.create({
-    data: {
-      bountyId: input.bountyId,
-      userId: input.userId,
+  return await ctx.db.$transaction(async db => {
+    const existingApplication = await db.bountyApplication.findMany({
+      where: {
+        bountyId: input.bountyId,
+        userId: input.userId
+      }
+    })
+    
+    if (existingApplication){
+      throw new Error("Already applied to bounty")
     }
+    
+    const application = await ctx.db.bountyApplication.create({
+      data: {
+        bountyId: input.bountyId,
+        userId: input.userId,
+      }
+    })
+    return application;
   })
-
-  return application;
 })
 
 //Create Token for testing (Only USDC for now)
