@@ -85,8 +85,6 @@ export const createBounty = async (
     provider,
   );
   const timestamp = Date.now().toString();
-  console.log("timestamp = ", timestamp);
-  debugger;
   const [feature_account] = await findFeatureAccount(
     timestamp,
     wallet.publicKey,
