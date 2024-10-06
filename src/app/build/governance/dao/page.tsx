@@ -322,7 +322,9 @@ async function DAOs() {
 
   return (
     <div className={styles.main}>
-      <DaoContent daos={daos} session={session} />
+      <div className="container mx-auto px-4 py-8">
+        <DaoContent daos={daos} session={session} />
+      </div>
     </div>
   );
 }

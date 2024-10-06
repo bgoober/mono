@@ -103,34 +103,33 @@ function CrownfundingContent({
 
   return (
     <div className={styles.content}>
-      <H1>Crowdfunding</H1>
+      <H1 className="pt-4 text-primary">Crowdfunding</H1>
       <div className={styles.innerContent}>
-        <div className="mb-4 flex gap-2">
-          <Input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-md border border-solid border-black p-4 text-black"
-          />
-          {
+        <div className="mx-auto mb-6 w-full max-w-[800px]">
+          <div className="flex gap-2">
+            <Input
+              type="text"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="mb-2 w-full rounded-md border border-solid border-black p-4 text-black"
+            />
             <div
               onMouseEnter={() => setRequestButtonHovered(true)}
               onMouseLeave={() => setRequestButtonHovered(false)}
-              className="relative flex flex-grow"
+              className="relative flex-shrink-0"
             >
               <Button
                 onClick={() => router.push("/build/crowdfunding/new")}
                 className={cn(
-                  "w-fit whitespace-nowrap rounded-md border border-green-600 bg-green-600 p-2",
+                  "w-fit whitespace-nowrap rounded-md border border-primary bg-primary p-2 text-white",
                 )}
               >
                 + New Campaign
               </Button>
             </div>
-          }
+          </div>
         </div>
-
         {campaigns && (
           <DataTable
             columns={columns}

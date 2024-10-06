@@ -1,4 +1,3 @@
-
 import P from "../P";
 import { FlickActions } from "./FlickActions";
 
@@ -30,7 +29,7 @@ export const Flick: React.FC<FlickProps> = ({
         <ColorfulAvatar name={displayName} size={40} />
         <div className="flex-1">
           <div className="flex items-center gap-2">
-            <P className="text-sm font-bold text-zinc-600">{displayName}</P>
+            <P className="text-sm font-bold text-zinc-900">{displayName}</P>
             <P className="text-sm text-zinc-500">{username}</P>
           </div>
           <P className="mt-2 text-sm text-zinc-800">{data}</P>

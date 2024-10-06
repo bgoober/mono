@@ -57,7 +57,7 @@ export default function Bounty({ params }: { params: { id: string } }) {
           <p className="my-3 flex items-center gap-3 font-semibold">
             Pay:
             <div className="aspect-square w-7 rounded-full bg-primary">
-              <Image alt="solana" src="/solana.svg" width={30} height={30} />
+              <Image alt="solana" src="/solana-w.svg" width={30} height={30} />
             </div>
             {pageBounty?.pay} SOL
           </p>
