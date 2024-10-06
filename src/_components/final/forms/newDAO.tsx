@@ -169,13 +169,14 @@ export default function NewDAOForm() {
       const txSignature = await anchProvider.sendAndConfirm(
         tx, [], {
         skipPreflight: true,
-      });
-
-      await connection.confirmTransaction(txSignature, 'confirmed');
+      });  
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log("Profile updated:", values);
       setIsEditing(false);
+
+      return txSignature
+      
     } catch (error) {
       console.error("An error occurred:", error);
     }
