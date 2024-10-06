@@ -38,16 +38,6 @@ import { Dao } from "~/onChain/types/dao";
 const SYSVAR_ID = new PublicKey('Sysvar1nstructions1111111111111111111111111');
 const MintTeste = new PublicKey('7sXdmHw7Stsw3c26Uxnt3oY1rvDNcLuyfkh5Fcu3mBpJ');
 
-
-const idl_string_dao = JSON.stringify(daoIdl)
-const idl_object_dao = JSON.parse(idl_string_dao)
-
-const idl_string_goverannce = JSON.stringify(governanceIdl)
-const idl_object_governance = JSON.parse(idl_string_goverannce)
-
-const idl_string_staking = JSON.stringify(stakingIdl)
-const idl_object_staking = JSON.parse(idl_string_staking)
-
 const DAO_PROGRAM_ID = new PublicKey(daoIdl.address)
 const GOVERNANCE_PROGRAM_ID = new PublicKey(governanceIdl.address)
 const STAKING_PROGRAM_ID = new PublicKey(stakingIdl.address)
@@ -176,7 +166,7 @@ export default function NewDAOForm() {
       setIsEditing(false);
 
       return txSignature
-      
+
     } catch (error) {
       console.error("An error occurred:", error);
     }
