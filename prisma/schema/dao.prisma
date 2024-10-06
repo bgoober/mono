@@ -2,6 +2,7 @@ model DAO {
   id                      String     @id @default(cuid())
   name                    String
   description             String
+  seed                    Decimal
   type                    DAOType
   mint                    Token?     @relation("MintToken", fields: [tokenId], references: [id])
   tokenId                 String?
@@ -9,13 +10,13 @@ model DAO {
   collectionTokenId       String?
   circulatingSupply       Decimal
   proposals               Proposal[]
-  proposalFeeBounty       Decimal  
-  proposalFeeExecutable   Decimal 
-  proposalFeeVote         Decimal  
-  proposalFeeVoteMultiple Decimal  
-  maxExpiry               Decimal     
+  proposalFeeBounty       Decimal
+  proposalFeeExecutable   Decimal
+  proposalFeeVote         Decimal
+  proposalFeeVoteMultiple Decimal
+  maxExpiry               Decimal
   minThreshold            Decimal
-  minQuorum               Decimal      
+  minQuorum               Decimal
   proposalAnalysisPeriod  Decimal
   nQuorumEpoch            Int
   thresholdCreateProposal Decimal
@@ -29,9 +30,9 @@ model DAO {
   parentDAOId             String?
   subDAOs                 DAO[]      @relation("ParentDAO")
 
-  creator                 User       @relation("Creator", fields: [creatorId], references: [id])
-  creatorId               String
-  members                 User[]     @relation("Member")
+  creator   User   @relation("Creator", fields: [creatorId], references: [id])
+  creatorId String
+  members   User[] @relation("Member")
 }
 
 enum DAOType {

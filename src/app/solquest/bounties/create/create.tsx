@@ -48,15 +48,15 @@ export default function CreateBounty({ session }: { session: Session | null }) {
     }
   };
 
-  // const handleCreateToken = async (values: z.infer<typeof TokenFormData>) => {
-  //   try{
-  //     createToken.mutate(values)
-  //     console.log("Token created:", values)
-  //   } catch (err){
-  //     console.log(err)
-  //     alert("Failed to create Token. View console for more details")
-  //   }
-  // }
+  const handleCreateToken = async (values: z.infer<typeof TokenFormData>) => {
+    try {
+      createToken.mutate(values);
+      console.log("Token created:", values);
+    } catch (err) {
+      console.log(err);
+      alert("Failed to create Token. View console for more details");
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -68,7 +68,7 @@ export default function CreateBounty({ session }: { session: Session | null }) {
       compensationAmount: parseInt((data.get("compensation") as string) ?? "0"),
       pointOfContactId: session?.user.id ?? "",
       skills: [],
-      tokenId: "cm1udtkhm0017qwyxr1d525c0",
+      tokenId: "cm1y76syp0005zrinijmti74v",
     };
 
     handleCreateBounty(bountyData, e.currentTarget);
@@ -96,7 +96,21 @@ export default function CreateBounty({ session }: { session: Session | null }) {
 
         <div className="mx-auto my-5 w-fit">
           <Button>Create Bounty</Button>
-          {/* <Button type="button" onClick={() => {handleCreateToken(initialTokenData)}}>Create Token</Button> */}
+          {/* <Button
+            type="button"
+            onClick={() => {
+              handleCreateToken({
+                name: "United States Dollar Coin",
+                ticker: "USDC",
+                address: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                image:
+                  "https://coin-images.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
+                decimals: 6,
+              });
+            }}
+          >
+            Create Token
+          </Button> */}
         </div>
       </form>
     </main>

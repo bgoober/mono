@@ -9,6 +9,7 @@ export const createDao = protectedProcedure
     z.object({
       name: z.string(),
       description: z.string(),
+      seed: z.number(),
       tokenId: z.string().optional(),
       type: z.nativeEnum(DAOType),
       collectionTokenId: z.string().optional(),
@@ -33,6 +34,7 @@ export const createDao = protectedProcedure
     const {
       name,
       description,
+      seed,
       tokenId,
       collectionTokenId,
       circulatingSupply,
@@ -56,6 +58,7 @@ export const createDao = protectedProcedure
       data: {
         name,
         description,
+        seed,
         type: DAOType.NFT,
         creatorId: user.id,
         tokenId,

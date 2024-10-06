@@ -45,7 +45,7 @@ export const CreateDao: FC = () => {
       const anchProvider = getProvider();
       const program = new Program(idl_object_dao, anchProvider);
 
-      const dao_seed = new BN(randomBytes(8));
+      const seed = new BN(randomBytes(8));
       const proposal_fee_bounty = new BN(1e6);
       const proposal_fee_executable = new BN(1e6);
       const proposal_fee_vote = new BN(1e6);
@@ -61,7 +61,7 @@ export const CreateDao: FC = () => {
       const circulating_supply = new BN(100000000);
 
       const config = PublicKey.findProgramAddressSync(
-        [Buffer.from("config"), dao_seed.toArrayLike(Buffer, "le", 8)],
+        [Buffer.from("config"), seed.toArrayLike(Buffer, "le", 8)],
         DAO_PROGRAM_ID,
       )[0];
       const proposal_config = PublicKey.findProgramAddressSync(
@@ -76,7 +76,7 @@ export const CreateDao: FC = () => {
       // @ts-expect-error: trial
       const ix = await program.methods
         .initialize(
-          dao_seed,
+          seed,
           proposal_fee_bounty,
           proposal_fee_executable,
           proposal_fee_vote,
@@ -130,6 +130,7 @@ export const CreateDao: FC = () => {
         {
           name: "Test",
           description: "Test",
+          seed: seed.toNumber(),
           type: "TOKEN",
           circulatingSupply: circulating_supply.toNumber(),
           proposalFeeBounty: proposal_fee_bounty.toNumber(),
