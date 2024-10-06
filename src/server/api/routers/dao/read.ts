@@ -14,18 +14,24 @@ export const read = publicProcedure.query(({ ctx }) => {
   });
 });
 
-export const search = publicProcedure.input(z.object({
-    query: z.string(),
-})).query(({ ctx, input }) => {
+export const search = publicProcedure
+  .input(
+    z.object({
+      query: z.string(),
+    }),
+  )
+  .query(({ ctx, input }) => {
     const { query } = input;
     return ctx.db.entry.findMany({
-        where: {
-            term: { contains: query, mode: "insensitive" },
-            hidden: false,
-        },
+      where: {
+        term: { contains: query, mode: "insensitive" },
+        hidden: false,
+      },
     });
-});
+  });
 
 export type DAO = UnwrapArray<UnwrapPromise<ReturnType<typeof read>>>;
-export type DAOSearchResult = UnwrapArray<UnwrapPromise<ReturnType<typeof search>>>;
+export type DAOSearchResult = UnwrapArray<
+  UnwrapPromise<ReturnType<typeof search>>
+>;
 export type Proposal = DAO["proposals"][number];

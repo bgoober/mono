@@ -1,6 +1,7 @@
 import styles from "~/styles/table.module.css";
 import { SentenceParserContent } from "~/content/sentenceParser/content";
-import { api } from "~/trpc/server";
+import { api } from "~/trpc/react";
+
 import { getServerAuthSession } from "~/server/auth";
 import NavBar from "~/_components/soldic/NavBar";
 

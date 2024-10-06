@@ -1,6 +1,7 @@
 import styles from "~/styles/table.module.css";
 import { EntryContent } from "~/content/entry/content";
-import { api } from "~/trpc/server";
+import { api } from "~/trpc/react";
+
 import { getServerAuthSession } from "~/server/auth";
 import NavBar from "~/_components/soldic/NavBar";
 import entriesJSON from "~/constants/entries.json";
@@ -11,7 +12,7 @@ async function Entries() {
   const session = await getServerAuthSession();
 
   return (
-    <div className={styles.main}>
+    <div className={`${styles.main} container mx-auto px-4 py-8`}>
       {/* <NavBar session={session} /> */}
       <EntryContent entries={entries} session={session} />
     </div>

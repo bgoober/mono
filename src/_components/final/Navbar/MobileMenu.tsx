@@ -5,13 +5,15 @@ import { Wallet } from "./Wallet";
 import { NavLink } from "./";
 import Link from "next/link";
 import { Search } from "lucide-react";
+import { type Session } from "next-auth";
 
 interface MobileMenuProps {
   pathname: string;
   links: NavLink[];
+  session: Session | null;
 }
 
-export const MobileMenu = ({ pathname, links }: MobileMenuProps) => {
+export const MobileMenu = ({ pathname, links, session }: MobileMenuProps) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   const toggleMenu = () => {
@@ -57,10 +59,24 @@ export const MobileMenu = ({ pathname, links }: MobileMenuProps) => {
             </Link>
           </div>
         ))}
-        <div className="flex justify-center">
+        <div className="mb-2 flex items-center justify-center">
           <Wallet />
+          <AuthShowcase session={session} />
         </div>
       </div>
     </div>
   );
 };
+
+function AuthShowcase({ session }: { session: Session | null }) {
+  return (
+    <div className="ml-4">
+      <Link
+        href={session ? "/api/auth/signout" : "/api/auth/signin"}
+        className="rounded-md bg-primary px-8 py-2 text-[16px] font-normal text-white transition-all hover:bg-primary/90"
+      >
+        {session ? "Sign out" : "Sign in"}
+      </Link>
+    </div>
+  );
+}

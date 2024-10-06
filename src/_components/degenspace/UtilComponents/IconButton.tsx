@@ -7,31 +7,39 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "~/_components/ui/tooltip";
+import clsx from "clsx";
 
 export const IconButton = ({
   iconPath,
   meta,
   onClick,
   hoverName,
+  active,
 }: {
   iconPath: string;
-  onClick: () => void;
+  onClick?: () => void;
   meta: number;
   hoverName: string;
+  active?: boolean;
 }) => {
   return (
     <React.Fragment>
       <Tooltip>
         <TooltipTrigger>
-          <div className="flex cursor-pointer flex-row items-center gap-[4px] rounded-full p-[10px] hover:bg-backgroundHover">
+          <div
+            className={clsx(
+              "relative flex cursor-pointer flex-row items-center gap-[4px] rounded-full p-[10px] hover:bg-violet-100",
+              active && "bg-primary-50",
+            )}
+          >
             <Image
               src={iconPath}
               alt="img"
-              height={24}
-              width={24}
+              height={20}
+              width={20}
               onClick={onClick}
             />
-            <P className="text-[14px] font-bold">{meta}</P>
+            <P className="text-[12px] font-semibold">{meta}</P>
           </div>
         </TooltipTrigger>
         <TooltipContent side="top" align="center">

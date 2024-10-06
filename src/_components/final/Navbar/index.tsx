@@ -7,6 +7,8 @@ import Link from "next/link";
 import { SearchBar } from "../Dashboard/Navbar";
 import SolquestLogo from "~/_components/solquest/general/ui/Logo";
 import { type Session } from "next-auth";
+import { cn } from "~/utils";
+import DegenSpaceLogo from "~/_components/degenspace/DegenSpaceLogo";
 
 const getLogoFromPathname = (pathname: string) => {
   if (pathname.includes("research")) {
@@ -18,6 +20,9 @@ const getLogoFromPathname = (pathname: string) => {
   if (pathname.includes("newquest")) {
     return <SolquestLogo />;
   }
+  if (pathname.includes("degenspace")) {
+    return <DegenSpaceLogo />;
+  }
 };
 
 export type NavLink = {
@@ -28,15 +33,23 @@ export type NavLink = {
 export const Navbar = ({
   links,
   session,
+  sticky = false,
 }: {
   links: NavLink[];
   session: Session | null;
+  sticky?: boolean;
 }) => {
   const pathname = usePathname();
   const logo = getLogoFromPathname(pathname);
 
   return (
-    <nav className="relative flex items-center justify-between p-4">
+    <nav
+      className={cn(
+        "relative flex h-[82px] items-center justify-between bg-white p-4",
+        sticky && "sticky top-0 z-50",
+      )}
+    >
+      {" "}
       <div className="flex max-w-3xl flex-1 items-center">
         <Link href="/" className="mr-4">
           {logo}
@@ -46,7 +59,7 @@ export const Navbar = ({
           <SearchBar placeholder="Search the universe" />
         </button>
       </div>
-      <div className="hidden flex-row justify-between gap-[20px] lg:flex">
+      <div className="hidden flex-row items-center justify-between gap-[20px] lg:flex">
         {links.map((link) => (
           <div
             key={link.name}
@@ -61,25 +74,27 @@ export const Navbar = ({
             </Link>
           </div>
         ))}
-        <Wallet />
-        <AuthShowcase session={session} />
+        <div className="flex items-center">
+          <Wallet />
+          <AuthShowcase session={session} />
+        </div>
       </div>
-      <MobileMenu pathname={pathname} links={links} />
+      <MobileMenu pathname={pathname} links={links} session={session} />
     </nav>
   );
 };
 
 function AuthShowcase({ session }: { session: Session | null }) {
   return (
-    <div className="relative mx-4 inline-block text-left">
-      <div>
-        <Link
-          href={session ? "/api/auth/signout" : "/api/auth/signin"}
-          className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-        >
-          {session ? "Sign out" : "Sign in"}
-        </Link>
-      </div>
+    <div className="ml-4">
+      {" "}
+      {/* Add some left margin for spacing */}
+      <Link
+        href={session ? "/api/auth/signout" : "/api/auth/signin"}
+        className="text-md rounded-sm py-2 pl-2 pr-6 font-bold text-zinc-900 hover:text-primary"
+      >
+        {session ? "Sign out" : "Sign in"}
+      </Link>
     </div>
   );
 }

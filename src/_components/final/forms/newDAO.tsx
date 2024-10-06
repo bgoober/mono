@@ -21,6 +21,7 @@ import { Label } from "~/_components/final/ui/label";
 import { cn } from "~/utils";
 import { Input } from "~/_components/final/ui/input";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { createFungibleDAO } from "~/onChain/instructions/dao";
 import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
 import toast from "react-hot-toast";
 import { DAOType } from "@prisma/client";
@@ -39,8 +40,7 @@ export default function NewDAOForm() {
   const [isEditing, setIsEditing] = useState(true);
   const { wallet } = useWallet();
   const { connection } = useConnection();
-  return <CreateDao />
-  ;
+  return <CreateDao />;
 
   const form = useForm<z.infer<typeof NewDAOFormData>>({
     resolver: zodResolver(NewDAOFormData),
@@ -189,185 +189,19 @@ export default function NewDAOForm() {
         )}
       />
 
-      <FormField
-        control={form.control}
-        name="proposalFeeExecutable"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Proposal Executable Fee"
-            field={field}
-            placeholder="Enter proposal executable fee"
-            inputProps={{ type: "number" }}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="proposalFeeVote"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Proposal Vote Fee"
-            field={field}
-            placeholder="Enter proposal vote fee"
-            inputProps={{ type: "number" }}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="proposalFeeVoteMultiple"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Proposal Vote Multiple Fee"
-            field={field}
-            placeholder="Enter proposal vote multiple fee"
-            inputProps={{ type: "number" }}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="maxExpiry"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Max Expiry"
-            field={field}
-            placeholder="Enter max expiry"
-            inputProps={{ type: "number" }}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="minThreshold"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Min Threshold"
-            field={field}
-            placeholder="Enter min threshold"
-            isEditing={isEditing}
-            inputProps={{ type: "number" }}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="minQuorum"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Min Quorum"
-            field={field}
-            placeholder="Enter min quorum"
-            isEditing={isEditing}
-            inputProps={{ type: "number" }}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="proposalAnalysisPeriod"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Proposal Analysis Period"
-            field={field}
-            placeholder="Enter proposal analysis period"
-            isEditing={isEditing}
-            inputProps={{ type: "number" }}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="nQuorumEpoch"
-        render={({ field }) => (
-          <CustomFormItem
-            label="N Quorum Epoch"
-            field={field}
-            placeholder="Enter N quorum epoch"
-            isEditing={isEditing}
-            inputProps={{ type: "number" }}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="thresholdCreateProposal"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Threshold to Create Proposal"
-            field={field}
-            placeholder="Enter threshold to create proposal"
-            isEditing={isEditing}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="vetoCouncil"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Veto Council"
-            field={field}
-            placeholder="Enter veto council public key"
-            isEditing={isEditing}
-          />
-        )}
-      />
-
-   <FormField
-        control={form.control}
-        name="allowSubDAO"
-        render={({ field }) => (
-          <div className="flex items-center">
-            <CheckboxPrimitive.Root
-              className="flex items-center gap-2"
-              checked={field.value}
-              onCheckedChange={field.onChange}
-              id="allowSubDAO"
-            >
-              <CheckboxPrimitive.Indicator className="CheckboxIndicator">
-                <CheckIcon />
-              </CheckboxPrimitive.Indicator>
-            </CheckboxPrimitive.Root>
-            <Label htmlFor="allowSubDAO" className="ml-2">Allow Sub DAO</Label>
-          </div>
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="thresholdCreateSubDao"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Threshold to Create Sub DAO"
-            field={field}
-            placeholder="Enter threshold to create sub DAO (optional)"
-            isEditing={isEditing}
-          />
-        )}
-      />
-
-      <FormField
-        control={form.control}
-        name="createSubdaoFee"
-        render={({ field }) => (
-          <CustomFormItem
-            label="Create Sub DAO Fee"
-            field={field}
-            placeholder="Enter fee to create sub DAO (optional)"
-            isEditing={isEditing}
-          />
-        )}
-      /> */}
+        {/* <FormField
+          control={form.control}
+          name="subDAOCreationThreshold"
+          render={({ field }) => (
+            <CustomFormItem
+              label="Sub DAO Creation Threshold"
+              field={field}
+              placeholder="Enter your sub DAO creation threshold"
+              inputProps={{ type: "number" }}
+            />
+          )}
+          required
+        /> */}
 
         <div className="flex justify-end gap-4">
           <Button

@@ -1,47 +1,29 @@
 "use client";
 import { IconButton } from "../UtilComponents/IconButton";
 
-type FlickAction = {
+export type FlickAction = {
   name: string;
   iconPath: string;
   count: number;
+  onClick?: () => void;
+  active?: boolean;
 };
 
-const flickActions: FlickAction[] = [
-  {
-    name: "respect",
-    iconPath: "/spock.svg",
-    count: 10,
-  },
-  {
-    name: "reply",
-    iconPath: "/reply.svg",
-    count: 12,
-  },
-  {
-    name: "dump",
-    iconPath: "/bookmark.svg",
-    count: 5,
-  },
-  {
-    name: "share",
-    iconPath: "/share.svg",
-    count: 20,
-  },
-];
-
-export const FlickActions = () => {
+export const FlickActions = ({
+  flickActions,
+}: {
+  flickActions: FlickAction[];
+}) => {
   return (
-    <div className="flex w-full flex-row justify-between gap-[5px]">
+    <div className="flex justify-between gap-2">
       {flickActions.map((act) => (
         <IconButton
           key={act.name}
           iconPath={act.iconPath}
           meta={act.count}
           hoverName={act.name}
-          onClick={() => {
-            return null;
-          }}
+          onClick={act.onClick}
+          active={act.active}
         />
       ))}
     </div>

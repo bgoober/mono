@@ -537,13 +537,15 @@ function EntryContent({
     <div className={styles.content}>
       <H1>Solana Dictionary</H1>
       <div className={styles.innerContent}>
+      <div className="mx-auto mb-6 w-full max-w-[800px]">
+
         <div className="mb-4 flex gap-2">
           <Input
             type="text"
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-md border border-solid border-black p-4 text-black"
+            className="mb-4 rounded-md border border-solid border-black p-4 text-black"
           />
           {searchResults.length === 0 && (
             <div
@@ -570,9 +572,10 @@ function EntryContent({
                 <p className="absolute left-0 top-16 flex w-[100%] items-center justify-center rounded-md border border-red-500 bg-white p-2 text-lg text-red-500">
                   Please log in first
                 </p>
-              )}
-            </div>
-          )}
+                )}
+              </div>
+            )}
+          </div>
         </div>
         {session?.user && (
           <div className="mb-4 flex items-center gap-2">

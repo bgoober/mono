@@ -1,0 +1,830 @@
+{
+  "address": "SprkQVf65fQgM1uXnappTpyFs2f2HkJtshFVWTHDVzX",
+  "metadata": {
+    "name": "mono_program",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "add_approved_submitters",
+      "discriminator": [
+        224,
+        42,
+        94,
+        122,
+        54,
+        73,
+        116,
+        35
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "submitter"
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "approve_request",
+      "discriminator": [
+        89,
+        68,
+        167,
+        104,
+        93,
+        25,
+        178,
+        205
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "submitter",
+          "writable": true
+        },
+        {
+          "name": "payout_account",
+          "writable": true
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "feature_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.funds_mint",
+                "account": "FeatureDataAccount"
+              }
+            ]
+          }
+        },
+        {
+          "name": "program_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "cancel_feature",
+      "discriminator": [
+        49,
+        2,
+        11,
+        112,
+        108,
+        0,
+        212,
+        168
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "creator_token_account",
+          "writable": true
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "feature_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.funds_mint",
+                "account": "FeatureDataAccount"
+              }
+            ]
+          }
+        },
+        {
+          "name": "program_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_feature_funding_account",
+      "discriminator": [
+        57,
+        107,
+        49,
+        145,
+        184,
+        154,
+        41,
+        73
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "funds_mint"
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "unix_timestamp"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "feature_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "unix_timestamp"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              },
+              {
+                "kind": "account",
+                "path": "funds_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "program_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "associated_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "unix_timestamp",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "deny_request",
+      "discriminator": [
+        143,
+        236,
+        238,
+        188,
+        131,
+        164,
+        217,
+        107
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "submitter",
+          "writable": true
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "fund_feature",
+      "discriminator": [
+        34,
+        201,
+        1,
+        12,
+        145,
+        231,
+        153,
+        48
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "creator_token_account",
+          "writable": true
+        },
+        {
+          "name": "funds_mint"
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "feature_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              },
+              {
+                "kind": "account",
+                "path": "funds_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "program_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "remove_approved_submitters",
+      "discriminator": [
+        161,
+        227,
+        45,
+        18,
+        34,
+        188,
+        29,
+        86
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "submitter"
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "submit_request",
+      "discriminator": [
+        122,
+        30,
+        180,
+        251,
+        206,
+        230,
+        254,
+        57
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true
+        },
+        {
+          "name": "submitter",
+          "signer": true
+        },
+        {
+          "name": "payout_account"
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "vote_to_cancel",
+      "discriminator": [
+        194,
+        0,
+        195,
+        112,
+        133,
+        79,
+        237,
+        253
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true
+        },
+        {
+          "name": "voter",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "feature_data_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  111,
+                  110,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "feature_data_account.unix_timestamp",
+                "account": "FeatureDataAccount"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "is_cancel",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "FeatureDataAccount",
+      "discriminator": [
+        150,
+        142,
+        52,
+        15,
+        66,
+        242,
+        210,
+        165
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NotTheCreator",
+      "msg": "This Creator is Invalid"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidMint",
+      "msg": "This mint is not valid"
+    },
+    {
+      "code": 6002,
+      "name": "MaxApprovedSubmitters",
+      "msg": "Max Number of Approved Submitters already reached"
+    },
+    {
+      "code": 6003,
+      "name": "MinApprovedSubmitters",
+      "msg": "Max Number of Approved Submitters already reached"
+    },
+    {
+      "code": 6004,
+      "name": "PendingRequestAlreadySubmitted",
+      "msg": "There is an active request already present"
+    },
+    {
+      "code": 6005,
+      "name": "NoActiveRequest",
+      "msg": "No Request Submitted yet"
+    },
+    {
+      "code": 6006,
+      "name": "CannotCancelFeature",
+      "msg": "Cannot Cancel Feature"
+    }
+  ],
+  "types": [
+    {
+      "name": "FeatureDataAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "request_submitted",
+            "type": "bool"
+          },
+          {
+            "name": "current_submitter",
+            "type": "pubkey"
+          },
+          {
+            "name": "approved_submitters",
+            "type": {
+              "array": [
+                "pubkey",
+                3
+              ]
+            }
+          },
+          {
+            "name": "funds_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "funds_token_account",
+            "type": "pubkey"
+          },
+          {
+            "name": "payout_account",
+            "type": "pubkey"
+          },
+          {
+            "name": "funder_cancel",
+            "type": "bool"
+          },
+          {
+            "name": "payout_cancel",
+            "type": "bool"
+          },
+          {
+            "name": "no_of_submitters",
+            "type": "u8"
+          },
+          {
+            "name": "funds_token_account_bump",
+            "type": "u8"
+          },
+          {
+            "name": "funds_data_account_bump",
+            "type": "u8"
+          },
+          {
+            "name": "program_authority_bump",
+            "type": "u8"
+          },
+          {
+            "name": "unix_timestamp",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}

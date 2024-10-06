@@ -1,6 +1,5 @@
 import OverviewComponent from "~/_components/final/Dashboard/Overview";
 import MintedComponent from "~/_components/final/Dashboard/Minted";
-import P from "~/_components/final/P";
 import { PAPER_STATUS } from "~/lib/utils/constants";
 
 export default function DashboardPapers({

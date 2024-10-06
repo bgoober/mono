@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 import { Button } from "~/_components/solquest/general/ui/Button";
 import { H1 } from "~/_components/solquest/general/ui/H1";
 import Wallet from "~/_components/solquest/general/Wallet";
@@ -10,7 +10,7 @@ export default function Home() {
         <H1>Discover, Contribute, Earn</H1>
 
         <div className="flex justify-center gap-5">
-          <Button type={2}>Get Started</Button>
+          <Link href="/solquest/bounties"><Button type={2}>Get Started</Button></Link>
           <Wallet />
         </div>
       </div>

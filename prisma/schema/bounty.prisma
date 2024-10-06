@@ -4,22 +4,43 @@ model Bounty {
   description      String
   createdAt        DateTime            @default(now())
   updatedAt        DateTime            @updatedAt
-  company          Company             @relation(fields: [companyId], references: [id])
-  companyId        String
+  company          Company?            @relation(fields: [companyId], references: [id])
+  companyId        String?
   pointOfContact   User                @relation(fields: [pointOfContactId], references: [id])
   pointOfContactId String
   skills           Skill[]
   compensation     Compensation        @relation(fields: [compensationId], references: [id])
   compensationId   String              @unique
   applications     BountyApplication[]
+  track            Tracks
+  status           BountyStatus        @default(OPEN)
 }
 
 model BountyApplication {
-  id        String   @id @default(cuid())
-  bounty    Bounty   @relation(fields: [bountyId], references: [id])
+  id        String            @id @default(cuid())
+  bounty    Bounty            @relation(fields: [bountyId], references: [id])
   bountyId  String
-  user      User     @relation(fields: [userId], references: [id])
+  user      User              @relation(fields: [userId], references: [id])
   userId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  status    ApplicationStatus @default(PENDING)
+}
+
+enum BountyStatus {
+  IN_PROGRESS
+  COMPLETED
+  OPEN
+}
+
+enum ApplicationStatus {
+  ACCEPTED
+  PENDING
+  REJECTED
+}
+
+enum Tracks {
+  FRONTEND
+  BACKEND
+  RUST
 }

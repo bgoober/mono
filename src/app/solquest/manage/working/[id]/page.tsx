@@ -44,20 +44,20 @@ export default function Bounty({ params }: { params: { id: string } }) {
   }, [params]);
 
   return (
-    <div className="tablet:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
-      <div className="rounded-md bg-white p-2">
-        <H1 className="my-3 text-center">{pageBounty?.title ?? ""}</H1>
-        <pre className="text-wrap text-lg font-medium">
+    <div className="m-auto my-4 flex w-full max-w-[800px] flex-1 flex-col px-5 sm:px-12 lg:max-w-[1200px]">
+      <div className="flex flex-col rounded-md bg-white px-8 py-4">
+        <H1 className="my-3 pt-4 text-center">{pageBounty?.title ?? ""}</H1>
+        <pre className="text-wrap pt-4 text-lg font-medium">
           {pageBounty?.details}
         </pre>
-        <div className="my-4">
-          <P className="font-semibold">
+        <div className="flex items-center justify-between">
+          <P className="text-lg font-bold text-primary">
             Status: {getStatus(pageBounty?.status ?? "")}
           </P>
           <p className="my-3 flex items-center gap-3 font-semibold">
             Pay:
             <div className="aspect-square w-7 rounded-full bg-primary">
-              <Image alt="solana" src="/solana.svg" width={30} height={30} />
+              <Image alt="solana" src="/solana-w.svg" width={30} height={30} />
             </div>
             {pageBounty?.pay} SOL
           </p>

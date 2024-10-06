@@ -29,6 +29,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        arbutus: ["var(--font-arbutus)"],
+        atkinson: ["var(--font-atkinson)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -41,6 +43,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          50: "rgba(81, 45, 168, 0.15)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

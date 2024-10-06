@@ -42,7 +42,7 @@ export default function CampaignContentComponent({
   };
 
   return (
-    <div className="mx-auto px-4">
+    <div className="mx-auto mt-8 px-4">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         <div className="md:col-span-2">
           <H2 className="mb-4 text-pretty font-semibold text-zinc-700">
@@ -56,12 +56,11 @@ export default function CampaignContentComponent({
               {formatTimeAgo(campaign.createdAt.toISOString())}
             </P>
           </div>
-
-          <PledgeForm />
+          <PledgeForm campaign={campaign} />
         </div>
 
         <div className="mt-20 flex flex-col">
-          <H4 className="font-atkinson pt-24 font-semibold">Backers</H4>
+          <H4 className="pt-24 font-atkinson font-semibold">Backers</H4>
           {renderBackers()}
         </div>
       </div>

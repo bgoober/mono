@@ -9,6 +9,7 @@ import { AnchorProvider, BN, Program } from "@coral-xyz/anchor";
 import { randomBytes } from "crypto";
 import type NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
 import toast from "react-hot-toast";
+import { api } from "~/trpc/react";
 const SYSVAR_ID = new PublicKey("Sysvar1nstructions1111111111111111111111111");
 const MintTeste = new PublicKey("7sXdmHw7Stsw3c26Uxnt3oY1rvDNcLuyfkh5Fcu3mBpJ");
 
@@ -22,6 +23,7 @@ const STAKING_PROGRAM_ID = new PublicKey(stakingIdl.address);
 export const CreateDao: FC = () => {
   const { publicKey, wallet } = useWallet();
   const { connection } = useConnection();
+  const createDAOMutation = api.dao.create.useMutation();
 
   const getProvider = () => {
     if (!publicKey || !wallet) {
@@ -35,6 +37,10 @@ export const CreateDao: FC = () => {
   };
 
   const onClick = useCallback(async () => {
+    if (!publicKey) {
+      toast.error("Wallet not connected");
+      return;
+    }
     try {
       const anchProvider = getProvider();
       const program = new Program(idl_object_dao, anchProvider);
@@ -120,7 +126,39 @@ export const CreateDao: FC = () => {
         skipPreflight: true,
       });
 
-      toast.success("DAO created successfully! Transaction ID: " + signature);
+      createDAOMutation.mutate(
+        {
+          name: "Test",
+          description: "Test",
+          type: "TOKEN",
+          circulatingSupply: circulating_supply.toNumber(),
+          proposalFeeBounty: proposal_fee_bounty.toNumber(),
+          proposalFeeExecutable: proposal_fee_executable.toNumber(),
+          proposalFeeVote: proposal_fee_vote.toNumber(),
+          proposalFeeVoteMultiple: proposal_fee_vote_multiple.toNumber(),
+          maxExpiry: max_expiry.toNumber(),
+          minThreshold: min_threshold.toNumber(),
+          minQuorum: min_quorum,
+          proposalAnalysisPeriod: proposal_analysis_period.toNumber(),
+          nQuorumEpoch: n_quorum_epoch,
+          thresholdCreateProposal: threshold_create_proposal.toNumber(),
+          vetoCouncil: publicKey.toBase58(),
+          allowSubDAO: true,
+          thresholdCreateSubDao: threshold_create_proposal.toNumber(),
+          createSubdaoFee: sub_dao_fee.toNumber(),
+        },
+        {
+          onSuccess: (data) => {
+            toast.success(
+              "DAO created successfully! Transaction ID: " + data.id,
+            );
+          },
+          onError: (error) => {
+            toast.error(error.message);
+            console.error(error);
+          },
+        },
+      );
     } catch (error: any) {
       console.error(error);
       toast.error(error.message);

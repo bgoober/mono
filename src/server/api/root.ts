@@ -7,8 +7,13 @@ import { tagRouter } from "~/server/api/routers/tag";
 import { sentenceParserRouter } from "~/server/api/routers/sentenceParser";
 import { paperReviewRouter } from "~/server/api/routers/paperReview";
 import { paperRouter } from "~/server/api/routers/paper";
+import { campaignRouter } from "./routers/campaign";
+import { backerRouter } from "./routers/backers";
+
+import { bountyRouter } from "~/server/api/routers/bounty";
 import { proposalRouter } from "~/server/api/routers/proposal";
 import { daoRouter } from "./routers/dao";
+import { flickRouter } from "./routers/flick";
 
 /**
  * This is the primary router for your server.
@@ -18,14 +23,18 @@ import { daoRouter } from "./routers/dao";
 export const appRouter = createTRPCRouter({
   entry: entryRouter,
   entryRevision: entryRevisionRouter,
+  flick: flickRouter,
   tag: tagRouter,
   dev: devRouter,
   verificationRequest: verificationRequestRouter,
   sentenceParser: sentenceParserRouter,
   paperReview: paperReviewRouter,
   paper: paperRouter,
+  campaign: campaignRouter,
+  backer: backerRouter,
+  bounty: bountyRouter,
   proposal: proposalRouter,
-  dao : daoRouter,
+  dao: daoRouter,
 });
 
 // export type definition of API

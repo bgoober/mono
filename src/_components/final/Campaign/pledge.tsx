@@ -1,40 +1,49 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import {
-  CampaignFormData,
-  PledgeFormData,
-  ProfileFormData,
-} from "~/lib/validation";
+import { NewPledgeFormData } from "~/lib/validation";
 import CustomFormItem from "../CustomForm";
 
 import { Button } from "~/_components/final/ui/button";
 import { Form, FormField } from "~/_components/final/ui/form";
 import { Textarea } from "~/_components/final/ui/textarea";
-import { Camera, Upload } from "lucide-react";
-import H1 from "~/_components/final/H1";
 import H2 from "~/_components/final/H2";
+
+import { api } from "~/trpc/react";
+import { Campaign } from "~/server/api/routers/campaign/read";
 
 const initialData = {
   amount: 0,
   message: "",
 };
 
-export default function PledgeForm() {
-  const form = useForm<z.infer<typeof PledgeFormData>>({
-    resolver: zodResolver(PledgeFormData),
+export default function PledgeForm({ campaign }: { campaign: Campaign }) {
+  const [isEditing, setIsEditing] = useState(true);
+
+  const form = useForm<z.infer<typeof NewPledgeFormData>>({
+    resolver: zodResolver(NewPledgeFormData),
     defaultValues: initialData,
   });
 
-  const handleSubmit = async (values: z.infer<typeof PledgeFormData>) => {
+  // Create a mutation for backer creation (pledging)
+  const createBackerMutation = api.backer.create.useMutation({});
+
+  const handleSubmit = async (values: z.infer<typeof NewPledgeFormData>) => {
     try {
+      await createBackerMutation.mutateAsync({
+        amount: Number(values.amount),
+        message: values.message,
+        campaignId: campaign.id,
+      });
+
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Profile updated:", values);
+      console.log("Pledged successfully:", values);
+      setIsEditing(false);
     } catch (error) {
       console.error("An error occurred:", error);
     }
@@ -80,9 +89,9 @@ export default function PledgeForm() {
             type="submit"
             className={`w-40 ${"bg-zinc-800 text-zinc-100 hover:bg-zinc-700"}`}
             variant={"default"}
-            disabled={form.formState.isSubmitting}
+            disabled={createBackerMutation.isPending || !isEditing}
           >
-            {form.formState.isSubmitting ? "Submitting..." : "Submit Pledge"}
+            {createBackerMutation.isPending ? "Submitting..." : "Pledge"}
           </Button>
         </div>
       </form>

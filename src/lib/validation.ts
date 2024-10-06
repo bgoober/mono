@@ -2,78 +2,45 @@ import { DAOType } from "@prisma/client";
 import { z } from "zod";
 
 export const NewProposalFormData = z.object({
-  title: z
-    .string()
-    .trim()
-    .min(2, "Title must be at least 2 characters"),
+  title: z.string().trim().min(2, "Title must be at least 2 characters"),
   description: z
     .string()
     .trim()
     .min(2, "Description must be at least 2 characters"),
-  quorum: z
-    .number()
-    .min(1, "Quorum must be at least 1")
-    .max(100, "Quorum must be less than or equal to 100"),
-  threshold: z
-    .number()
-    .min(1, "Threshold must be at least 1"),
-  endDate: z
-    .number()
-    .min(55, "Expiry in Slots"),
-  proposalType: z.enum([
-      "VOTE_MULTIPLE_CHOICE",
-      "BOUNTY",
-      "VOTE",
-      "EXECUTABLE",
-    ], {
-      required_error: "Proposal type is required",
-    }),
-  proposalTypeData: z.record(z.any()).optional(),  
-  analysisPeriod: z
-    .number()
-    .min(1, "Analysis period in slots"),
-     
-  uri: z
-    .string()
-    .max(112, "URI must be less than or equal to 112 characters"),
+  quorum: z.number().min(1, "Quorum must be at least 1"),
+  endDate: z.date(),
   daoId: z.string(),
   publicKey: z.string(),
 });
 
 export const NewDAOFormData = z.object({
-  name: z.string(),
-  description: z.string(),
-  tokenId: z.string().optional(),
-  type: z.nativeEnum(DAOType),
-  collectionTokenId: z.string().optional(),
-  circulatingSupply: z.number(),
-  proposalFeeBounty: z.number(),
-  proposalFeeExecutable: z.number(),
-  proposalFeeVote: z.number(),
-  proposalFeeVoteMultiple: z.number(),
-  maxExpiry: z.number(),
-  minThreshold: z.number(),
-  minQuorum: z.number(),
-  proposalAnalysisPeriod: z.number(),
-  nQuorumEpoch: z.number().int(),
-  thresholdCreateProposal: z.number(),
-  vetoCouncil: z.string(),
-  allowSubDAO: z.boolean().default(false),
-  thresholdCreateSubDao: z.number().optional(),
-  createSubdaoFee: z.number().optional(),
-});
-
-export const CampaignFormData = z.object({
-  title: z
+  name: z.string().trim().min(2, "Title must be at least 2 characters"),
+  description: z
     .string()
     .trim()
-    .min(2, "Title must be at least 2 characters"),
-  description: z.string().trim().min(2, "Description must be at least 2 characters"),
+    .min(2, "Description must be at least 2 characters"),
+  type: z.enum([DAOType.NFT, DAOType.HYBRID, DAOType.TOKEN]),
+  tokenPublicKey: z
+    .string()
+    .trim()
+    .min(2, "Token public key must be at least 2 characters"),
+  allowSubDAO: z.boolean(),
+  // subDAOCreationThreshold: z
+  //   .number()
+  //   .min(1, "Sub DAO creation threshold must be at least 1"),
+});
+
+export const NewCampaignFormData = z.object({
+  title: z.string().trim().min(2, "Title must be at least 2 characters"),
+  description: z
+    .string()
+    .trim()
+    .min(2, "Description must be at least 2 characters"),
   goal: z.number().min(1, "Goal must be at least 1"),
   end: z.date(),
 });
 
-export const PledgeFormData = z.object({
+export const NewPledgeFormData = z.object({
   amount: z.number().min(1, "Amount must be at least 1"),
   message: z.string().trim().min(2, "Message must be at least 2 characters"),
 });
@@ -111,6 +78,7 @@ export const PaperFormData = z.object({
       (file) => file.type === "application/pdf",
       "Only PDF files are allowed",
     ),
+  price: z.number().default(0),
 });
 
 export const ReviewSchema = z.object({
@@ -155,8 +123,35 @@ export const PaperSchema = z.object({
   peer_reviews: z.array(ReviewSchema),
 });
 
+export const BountyFormData = z.object({
+  title: z.string().trim().min(3, "Title must be at least 3 characters"),
+  description: z.string(),
+  track: z.enum(["FRONTEND", "BACKEND", "RUST"]),
+  compensationAmount: z.number().min(0, "Cannot pay negative amount"),
+  pointOfContactId: z.string(),
+  skills: z.array(z.string()),
+  tokenId: z.string(),
+  companyId: z.string().optional(),
+});
+
+export const TokenFormData = z.object({
+  name: z.string(),
+  ticker: z.string(),
+  address: z.string(),
+  image: z.string(),
+  decimals: z.number().min(0, "Cannot have a negative number of decimals!"),
+});
+
+export const RatingSchema = z.object({
+  qualityOfResearch: z.number().min(1).max(5),
+  potentialForRealWorldUseCase: z.number().min(1).max(5),
+  domainKnowledge: z.number().min(1).max(5),
+  practicalityOfResultObtained: z.number().min(1).max(5),
+});
+
 // TypeScript types
 export type ProfileFormData = z.infer<typeof ProfileFormData>;
 export type PaperFormData = z.infer<typeof PaperFormData>;
 export type Review = z.infer<typeof ReviewSchema>;
 export type Paper = z.infer<typeof PaperSchema>;
+export type Rating = z.infer<typeof RatingSchema>;
