@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/consistent-type-imports */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -6,11 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import {
-  CampaignFormData,
-  NewDAOFormData,
-  ProfileFormData,
-} from "~/lib/validation";
+import { NewDAOFormData, ProfileFormData } from "~/lib/validation";
 import CustomFormItem from "../CustomForm";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { Button } from "~/_components/final/ui/button";
@@ -21,146 +19,47 @@ import H1 from "~/_components/final/H1";
 import { RadioGroup, RadioGroupItem } from "~/_components/final/ui/radio-group";
 import { Label } from "~/_components/final/ui/label";
 import { cn } from "~/utils";
-import { api } from "~/trpc/react";
-import daoIdl from "~/onChain/idls/dao.json";
-import governanceIdl from "~/onChain/idls/governance.json";
-import stakingIdl from "~/onChain/idls/staking.json";
-import { useConnection, useAnchorWallet } from "@solana/wallet-adapter-react";
-import { PublicKey, SystemProgram } from "@solana/web3.js";
-import { AnchorProvider, BN, Program } from "@coral-xyz/anchor";
-import { randomBytes } from "crypto";
+import { Input } from "~/_components/final/ui/input";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
-import { Dao } from "~/onChain/types/dao";
-
-const SYSVAR_ID = new PublicKey("Sysvar1nstructions1111111111111111111111111");
-const MintTeste = new PublicKey("7sXdmHw7Stsw3c26Uxnt3oY1rvDNcLuyfkh5Fcu3mBpJ");
-
-const DAO_PROGRAM_ID = new PublicKey(daoIdl.address);
-const GOVERNANCE_PROGRAM_ID = new PublicKey(governanceIdl.address);
-const STAKING_PROGRAM_ID = new PublicKey(stakingIdl.address);
+import toast from "react-hot-toast";
+import { DAOType } from "@prisma/client";
+import { CreateDao } from "~/onChain/instructions/createDao";
 
 const initialData = {
-  title: "",
+  name: "",
   description: "",
-  goal: 0,
-  end: new Date(),
+  type: DAOType.TOKEN,
+  tokenPublicKey: "",
+  allowSubDAO: true,
+  subDAOCreationThreshold: 1,
 };
 
 export default function NewDAOForm() {
-  const publicKey = useAnchorWallet();
-  const payer = publicKey as NodeWallet;
-
-  const { connection } = useConnection();
   const [isEditing, setIsEditing] = useState(true);
-
-  const getProvider = () => {
-    if (!publicKey) {
-      throw new Error("Wallet not connected");
-    }
-    return new AnchorProvider(
-      connection,
-      payer,
-      AnchorProvider.defaultOptions(),
-    );
-  };
+  const { wallet } = useWallet();
+  const { connection } = useConnection();
+  return <CreateDao />
+  ;
 
   const form = useForm<z.infer<typeof NewDAOFormData>>({
     resolver: zodResolver(NewDAOFormData),
     defaultValues: initialData,
   });
 
-  const createDao = api.dao.create.useMutation({});
-
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async () => {
+    if (!wallet) {
+      toast("Please connect a wallet");
+      return;
+    }
     try {
-      createDao.mutate(values);
-
-      const anchProvider = getProvider();
-
-      const dao_program = new Program(daoIdl as unknown as Dao, anchProvider);
-
-      const dao_seed = new BN(randomBytes(8));
-      const proposal_fee_bounty = new BN(1e6);
-      const proposal_fee_executable = new BN(1e6);
-      const proposal_fee_vote = new BN(1e6);
-      const proposal_fee_vote_multiple = new BN(1e6);
-      const min_quorum = 1;
-      const min_threshold = new BN(1);
-      //1 Hour in slots
-      const max_expiry = new BN(2160000);
-      const proposal_analysis_period = new BN(0);
-      const threshold_create_proposal = new BN(1);
-      const sub_dao_fee = new BN(1e6);
-      const n_quorum_epoch = 0;
-      const circulating_supply = new BN(100000000);
-
-      const config = PublicKey.findProgramAddressSync(
-        [Buffer.from("config"), dao_seed.toArrayLike(Buffer, "le", 8)],
-        DAO_PROGRAM_ID,
-      )[0];
-      const proposal_config = PublicKey.findProgramAddressSync(
-        [Buffer.from("proposalcfg"), config.toBuffer()],
-        GOVERNANCE_PROGRAM_ID,
-      )[0];
-
-      const treasury = PublicKey.findProgramAddressSync(
-        [Buffer.from("treasury"), config.toBuffer()],
-        DAO_PROGRAM_ID,
-      )[0];
-
-      const tx = await dao_program.methods
-        .initialize(
-          dao_seed,
-          proposal_fee_bounty,
-          proposal_fee_executable,
-          proposal_fee_vote,
-          proposal_fee_vote_multiple,
-          max_expiry,
-          min_threshold,
-          min_quorum,
-          proposal_analysis_period,
-          n_quorum_epoch,
-          threshold_create_proposal,
-          null,
-          MintTeste,
-          circulating_supply,
-          true,
-          null,
-          sub_dao_fee,
-          publicKey,
-        )
-        .accountsPartial({
-          initializer: payer.publicKey,
-          config,
-          treasury,
-          stakingProgram: STAKING_PROGRAM_ID,
-          governanceProgram: GOVERNANCE_PROGRAM_ID,
-          systemProgram: SystemProgram.programId,
-          instructions: SYSVAR_ID,
-          treasuryTeam: payer.publicKey,
-        })
-        .transaction();
-
-      const { blockhash, lastValidBlockHeight } =
-        await anchProvider.connection.getLatestBlockhash();
-      const txInfo = {
-        /** The transaction fee payer */
-        feePayer: payer.publicKey,
-        /** A recent blockhash */
-        blockhash: blockhash,
-        /** the last block chain can advance to before tx is exportd expired */
-        lastValidBlockHeight: lastValidBlockHeight,
-      };
-
-      const txSignature = await anchProvider.sendAndConfirm(tx, [], {
-        skipPreflight: true,
-      });
-
+      // const values = await createFungibleDAO(
+      //   wallet.adapter as unknown as NodeWallet,
+      //   connection,
+      // );
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Profile updated:", values);
+      // console.log("Profile updated:", values);
       setIsEditing(false);
-
-      return txSignature;
     } catch (error) {
       console.error("An error occurred:", error);
     }
