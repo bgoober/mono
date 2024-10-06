@@ -103,34 +103,57 @@ export default function ManageDAO({ dao }: { dao: DAO }) {
       return status.toUpperCase();
     }
   };
+
   const router = useRouter();
   return (
-    <div className="tablet:px-12 m-auto my-4 flex w-full flex-1 flex-col px-5">
-      <div className="rounded-md bg-white p-2">
-        <H1 className="my-3 text-center">{dao?.name ?? ""}</H1>
-        <pre className="text-wrap text-lg font-medium">{dao?.description}</pre>
-        <div className="my-4">
-          <P className="font-semibold">Type: {getStatus(dao?.type ?? "")}</P>
-          <p className="my-3 flex items-center gap-3 font-semibold">
-            Treasury Size:
-            <div className="aspect-square w-7 rounded-full bg-primary">
-              <Image alt="solana" src="/solana.svg" width={30} height={30} />
+    <div className="container mx-auto px-4 py-8">
+      <div className="mx-auto max-w-4xl">
+        <H1 className="mb-8 text-center text-primary">{dao?.name ?? ""}</H1>
+        <div className="mb-8 grid gap-8 md:grid-cols-2">
+          <div className="rounded-lg bg-zinc-50 p-6 shadow-md">
+            <div className="flex flex-col gap-1">
+              <P className="font-base text-lg">{dao?.description}</P>
+              <P className="pt-6 font-atkinson text-secondary">
+                Type: {getStatus(dao?.type ?? "")}
+              </P>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <P className="text-center text-base font-semibold">
+                    Treasury Size:
+                  </P>
+                  <div className="aspect-square w-7 rounded-full bg-primary">
+                    <Image
+                      alt="solana"
+                      src="/solana-w.svg"
+                      width={30}
+                      height={30}
+                    />
+                  </div>
+                  <span className="font-semibold">
+                    {dao?.circulatingSupply.toString()} SOL
+                  </span>
+                </div>
+              </div>
             </div>
-            {dao?.circulatingSupply.toString()} SOL
-          </p>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <Button
+              onClick={() => router.push("/build/governance/dao/proposal/new")}
+              className={cn(
+                "w-full max-w-md whitespace-nowrap rounded-md border border-primary bg-primary p-4 text-lg font-semibold text-white hover:bg-primary/90",
+              )}
+            >
+              + New Campaign
+            </Button>
+          </div>
         </div>
-        <Button
-          onClick={() => router.push("/build/governance/dao/proposal/new")}
-          className={cn(
-            "w-fit whitespace-nowrap rounded-md border border-green-600 bg-green-600 p-2",
-          )}
-        >
-          + New Campaign
-        </Button>
       </div>
 
+      <H3 className="mb-8 mt-12 text-center font-bold text-zinc-800">
+        Proposals
+      </H3>
       <div>
-        <H3 className="my-5 text-center font-bold text-primary">Proposals</H3>
         <DataTable columns={columns} data={dao?.proposals ?? []} />
       </div>
     </div>

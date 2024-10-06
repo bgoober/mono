@@ -6,12 +6,13 @@ import users from "~/constants/dummyUser.json";
 import { BOUNTIES_COLUMNS } from "~/lib/utils/constants";
 import H4 from "~/_components/final/H4";
 import bounties from "~/constants/bounty.json";
+import H1 from "~/_components/degenspace/H1";
 
 export default function BountiesContent() {
   return (
-    <div className="mx-10 mt-10">
+    <div className="container mx-auto px-4 py-8">
       <div className="mb-6 flex items-center justify-end md:justify-between">
-        <H3 className="hidden md:block">Bounties</H3>
+        <H1 className="hidden md:block">Bounties</H1>
         <Link href="/newquest/create">
           <Button className="text-sm text-white">Create new bounty</Button>
         </Link>

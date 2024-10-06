@@ -3,7 +3,7 @@ import { Inter, Arbutus, Atkinson_Hyperlegible } from "next/font/google";
 import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
 import { UIProvider } from "~/_components/final/Providers/UIProvider";
-import Navbar, { NavLink } from "~/_components/final/Navbar";
+import Navbar from "~/_components/final/Navbar";
 import { getServerAuthSession } from "~/server/auth";
 import { buildNavLinks } from "~/app/build/static";
 
@@ -38,7 +38,7 @@ export default async function RootLayout({
       <body className={`${inter.className} min-w-[350px]`}>
         <UIProvider>
           <Navbar links={buildNavLinks} session={session} />
-          {children}
+          <main>{children}</main>
         </UIProvider>
       </body>
     </html>

@@ -25,7 +25,7 @@ export default function Bounties() {
     <main className="m-auto flex w-full flex-grow flex-col px-5 sm:px-12">
       <div className="my-4 flex items-center justify-between">
         <H3>Bounties</H3>
-        <Link href="/solquest/bounties/create" className="m-5">
+        <Link href="/solquest/bounties/create/create" className="m-5">
           <Button className="text-sm text-white">Create new bounty</Button>
         </Link>
       </div>

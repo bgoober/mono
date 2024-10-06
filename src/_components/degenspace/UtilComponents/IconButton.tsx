@@ -23,15 +23,15 @@ export const IconButton = ({
     <React.Fragment>
       <Tooltip>
         <TooltipTrigger>
-          <div className="flex cursor-pointer flex-row items-center gap-[4px] rounded-full p-[10px] hover:bg-backgroundHover">
+          <div className="flex cursor-pointer flex-row items-center gap-[4px] rounded-full p-[10px] hover:bg-violet-100">
             <Image
               src={iconPath}
               alt="img"
-              height={24}
-              width={24}
+              height={20}
+              width={20}
               onClick={onClick}
             />
-            <P className="text-[14px] font-bold">{meta}</P>
+            <P className="text-[12px] font-semibold">{meta}</P>
           </div>
         </TooltipTrigger>
         <TooltipContent side="top" align="center">
