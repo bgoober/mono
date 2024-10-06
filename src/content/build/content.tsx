@@ -107,8 +107,8 @@ function CrownfundingContent({ session }: { session: Session | null }) {
               className="mb-2 w-full rounded-md border border-solid border-black p-4 text-black"
             />
             <div
-              onMouseEnter={() => setRequestButtonHovered(true)}
-              onMouseLeave={() => setRequestButtonHovered(false)}
+              // onMouseEnter={() => setRequestButtonHovered(true)}
+              // onMouseLeave={() => setRequestButtonHovered(false)}
               className="relative flex-shrink-0"
             >
               <Button

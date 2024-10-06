@@ -4,7 +4,6 @@ import "~/styles/globals.css";
 import "~/styles/deresearcher.css";
 
 import { UIProvider } from "~/_components/degenspace/providers/UIProvider";
-import { TopBar } from "~/_components/degenspace/Topbar/TopBar";
 import { View } from "~/_components/degenspace/View/View";
 
 import { getServerAuthSession } from "~/server/auth";
