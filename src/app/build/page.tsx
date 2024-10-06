@@ -1,19 +1,17 @@
-import { getServerAuthSession } from "~/server/auth";
-import dynamic from "next/dynamic";
+import styles from "~/styles/table.module.css";
+import { api } from "~/trpc/react";
 
-const CrownfundingComponent = dynamic(
-  () => import("../../_components/crownfunding/CrownfundingComponent"),
-  {
-    ssr: false,
-  },
-);
+import { getServerAuthSession } from "~/server/auth";
+import { CrownfundingContent } from "~/content/build/content";
 
 async function Campaigns() {
   const session = await getServerAuthSession();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <CrownfundingComponent session={session!} />
+    <div className={styles.main}>
+      <div className="container mx-auto px-4 py-8">
+        <CrownfundingContent session={session} />
+      </div>
     </div>
   );
 }

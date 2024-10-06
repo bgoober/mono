@@ -74,22 +74,11 @@ const columns: ColumnDef<Campaign>[] = [
   },
 ];
 
-function CrownfundingContent({
-  campaigns,
-  session,
-}: {
-  campaigns: Campaign[] | undefined;
-  session: Session | null;
-}) {
-  const [showOnlyHidden, setShowOnlyHidden] = useState(false);
-  const [showEntryModal, setShowEntryModal] = useState(false);
-  const [showCreateEntryModal, setShowCreateEntryModal] = useState(false);
-  const [selectedEntry, setSelectedEntry] = useState<Entry | null>(null);
+function CrownfundingContent({ session }: { session: Session | null }) {
+  const { data: campaigns, isLoading } = api.campaign.getAll.useQuery();
+
   const [searchTerm, setSearchTerm] = useState("");
-  const [requestButtonHovered, setRequestButtonHovered] = useState(false);
   const [searchResults, setSearchResults] = useState<Campaign[]>([]);
-  const [showVerifyModal, setShowVerifyModal] = useState(false);
-  const createNewEntryRequest = api.entry.requestDefinition.useMutation();
   const router = useRouter();
   useEffect(() => {
     const results =
@@ -100,6 +89,9 @@ function CrownfundingContent({
           );
     setSearchResults(results ?? []);
   }, [searchTerm, campaigns]);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (!campaigns) return <div>No campaigns found</div>;
 
   return (
     <div className={styles.content}>
@@ -134,9 +126,7 @@ function CrownfundingContent({
           <DataTable
             columns={columns}
             data={searchResults}
-            onRowClick={(entry) => {
-              setShowEntryModal(true);
-            }}
+            onRowClick={(entry) => {}}
           />
         )}
       </div>
