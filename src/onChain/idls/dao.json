@@ -110,11 +110,11 @@
         },
         {
           "name": "staking_program",
-          "address": "5ER7DVPftAuJ5DMz1mdrFC5VXQSo2zJZqv1H7GtpebK1"
+          "address": "H2he2cpRJ7adzfRb29Uqu3bg3uZVJk37zmA9KETDo1hw"
         },
         {
           "name": "governance_program",
-          "address": "A3bq5ABJ2npx7t82K9AyhXT2Cd2P3g5R2gks3CkL1bnS"
+          "address": "J2tt54HAP3hY2ZHXu64cx1ZFnhTAWoEzhnAz9HewH6bT"
         },
         {
           "name": "system_program",
@@ -365,11 +365,11 @@
         },
         {
           "name": "governance_program",
-          "address": "A3bq5ABJ2npx7t82K9AyhXT2Cd2P3g5R2gks3CkL1bnS"
+          "address": "J2tt54HAP3hY2ZHXu64cx1ZFnhTAWoEzhnAz9HewH6bT"
         },
         {
           "name": "staking_program",
-          "address": "5ER7DVPftAuJ5DMz1mdrFC5VXQSo2zJZqv1H7GtpebK1"
+          "address": "H2he2cpRJ7adzfRb29Uqu3bg3uZVJk37zmA9KETDo1hw"
         },
         {
           "name": "stake_state",

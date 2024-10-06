@@ -25,6 +25,7 @@ import { createFungibleDAO } from "~/onChain/instructions/dao";
 import NodeWallet from "@coral-xyz/anchor/dist/cjs/nodewallet";
 import toast from "react-hot-toast";
 import { DAOType } from "@prisma/client";
+import { CreateDao } from "~/onChain/instructions/createDao";
 
 const initialData = {
   name: "",
@@ -39,6 +40,7 @@ export default function NewDAOForm() {
   const [isEditing, setIsEditing] = useState(true);
   const { wallet } = useWallet();
   const { connection } = useConnection();
+  return <CreateDao />;
 
   const form = useForm<z.infer<typeof NewDAOFormData>>({
     resolver: zodResolver(NewDAOFormData),
