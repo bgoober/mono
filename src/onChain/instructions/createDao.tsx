@@ -130,7 +130,7 @@ export const CreateDao: FC = () => {
         {
           name: "Test",
           description: "Test",
-          seed: seed.toNumber(),
+          seed: seed.toString(),
           type: "TOKEN",
           circulatingSupply: circulating_supply.toNumber(),
           proposalFeeBounty: proposal_fee_bounty.toNumber(),

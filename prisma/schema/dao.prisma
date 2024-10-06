@@ -2,7 +2,7 @@ model DAO {
   id                      String     @id @default(cuid())
   name                    String
   description             String
-  seed                    Decimal
+  seed                    String
   type                    DAOType
   mint                    Token?     @relation("MintToken", fields: [tokenId], references: [id])
   tokenId                 String?

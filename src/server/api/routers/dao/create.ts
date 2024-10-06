@@ -9,7 +9,7 @@ export const createDao = protectedProcedure
     z.object({
       name: z.string(),
       description: z.string(),
-      seed: z.number(),
+      seed: z.string(),
       tokenId: z.string().optional(),
       type: z.nativeEnum(DAOType),
       collectionTokenId: z.string().optional(),
