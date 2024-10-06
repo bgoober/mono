@@ -1,21 +1,20 @@
 "use client";
-import { Logo } from "../Logo";
-import { Button } from "~/_components/ui/button";
-import { JobBoard } from "./JobBoard";
-import { Search } from "./Search";
-import { UserInfo } from "./UserInfo";
-import { Wallet } from "./Wallet";
 
 export const LeftSideBar = () => {
   return (
-    <div className="flex h-full w-1/3 flex-col items-center p-2">
-      <div className="mt-[20px] flex h-full w-full flex-col items-start gap-[10px]">
-        <Logo />
-        <Wallet />
-        <UserInfo />
-        <Search />
-        <JobBoard />
-      </div>
-    </div>
+    <aside className="flex h-full items-start justify-center border-r border-zinc-200 px-4 pt-12">
+      {/* <nav className="px-4">
+        {menuItems.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            className="flex items-center space-x-4 rounded-md px-3 py-3 text-gray-300 transition-colors hover:bg-gray-800"
+          >
+            <item.icon className="h-6 w-6" />
+            <span className="text-lg">{item.label}</span>
+          </Link>
+        ))}
+      </nav> */}
+    </aside>
   );
 };

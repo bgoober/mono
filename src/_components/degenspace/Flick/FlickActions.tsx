@@ -32,16 +32,14 @@ const flickActions: FlickAction[] = [
 
 export const FlickActions = () => {
   return (
-    <div className="flex w-full flex-row justify-between gap-[5px]">
+    <div className="mt-3 flex justify-between">
       {flickActions.map((act) => (
         <IconButton
           key={act.name}
           iconPath={act.iconPath}
           meta={act.count}
           hoverName={act.name}
-          onClick={() => {
-            return null;
-          }}
+          onClick={() => {}}
         />
       ))}
     </div>

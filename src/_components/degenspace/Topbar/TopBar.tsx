@@ -1,6 +1,6 @@
 "use client";
 
-import { Logo } from "../Logo";
+import { Logo } from "../DegenSpaceLogo";
 import { useState } from "react";
 // import { Wallet } from "./Wallet";
 
@@ -18,7 +18,7 @@ export const TopBar = () => {
     setActive(title);
   };
   return (
-    <nav className="flex items-center justify-center p-4 ">
+    <nav className="flex items-center justify-center p-4">
       <Logo />
       {/* <div className="flex flex-row justify-between gap-[20px]">
         {NavLinks.map((link) => (
