@@ -48,7 +48,7 @@ const initialData = {
 
 export default function NewDAOForm() {
   const publicKey = useAnchorWallet();
-  const payer = publicKey as NodeWallet;
+  // const payer = publicKey as NodeWallet;
 
   const { connection } = useConnection();
   const [isEditing, setIsEditing] = useState(true);
@@ -59,7 +59,7 @@ export default function NewDAOForm() {
     }
     return new AnchorProvider(
       connection,
-      payer,
+      publicKey,
       AnchorProvider.defaultOptions(),
     );
   };
@@ -127,40 +127,36 @@ export default function NewDAOForm() {
           true,
           null,
           sub_dao_fee,
-          publicKey,
+          publicKey
         )
         .accountsPartial({
-          initializer: payer.publicKey,
+          initializer: publicKey?.publicKey,
           config,
           treasury,
           stakingProgram: STAKING_PROGRAM_ID,
           governanceProgram: GOVERNANCE_PROGRAM_ID,
           systemProgram: SystemProgram.programId,
           instructions: SYSVAR_ID,
-          treasuryTeam: payer.publicKey,
+          treasuryTeam: publicKey?.publicKey
         })
         .transaction();
 
-      const { blockhash, lastValidBlockHeight } =
-        await anchProvider.connection.getLatestBlockhash();
-      const txInfo = {
-        /** The transaction fee payer */
-        feePayer: payer.publicKey,
-        /** A recent blockhash */
-        blockhash: blockhash,
-        /** the last block chain can advance to before tx is exportd expired */
-        lastValidBlockHeight: lastValidBlockHeight,
-      };
+        const txSignature = await anchProvider.sendAndConfirm(tx,[]);
+        return txSignature;
+        
 
-      const txSignature = await anchProvider.sendAndConfirm(tx, [], {
+/*       const txSignature = await anchProvider.sendAndConfirm(
+        tx, [publicKey], {
         skipPreflight: true,
-      });
+      });  
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      return txSignature; */
+
+/*       await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log("Profile updated:", values);
       setIsEditing(false);
 
-      return txSignature;
+      return txSignature; */
     } catch (error) {
       console.error("An error occurred:", error);
     }

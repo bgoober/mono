@@ -25,7 +25,7 @@ import { api } from "~/trpc/react";
 import daoIdl from "~/onChain/idls/dao.json";
 import governanceIdl from "~/onChain/idls/governance.json";
 import stakingIdl from "~/onChain/idls/staking.json";
-import { useConnection, useAnchorWallet } from "@solana/wallet-adapter-react";
+import { useConnection, useAnchorWallet, useWallet } from "@solana/wallet-adapter-react";
 import { PublicKey, SystemProgram } from "@solana/web3.js";
 import { AnchorProvider, BN, Program } from "@coral-xyz/anchor";
 import { randomBytes } from "crypto";
@@ -47,22 +47,13 @@ const initialData = {
 };
 
 export default function NewDAOForm() {
-  const publicKey = useAnchorWallet();
-  const payer = publicKey as NodeWallet;
+  // const publicKey = useAnchorWallet();
+  const  {publicKey , sendTransaction } = useWallet();
+  const payer = NodeWallet;
 
   const { connection } = useConnection();
   const [isEditing, setIsEditing] = useState(true);
 
-  const getProvider = () => {
-    if (!publicKey) {
-      throw new Error("Wallet not connected");
-    }
-    return new AnchorProvider(
-      connection,
-      payer,
-      AnchorProvider.defaultOptions(),
-    );
-  };
 
   const form = useForm<z.infer<typeof NewDAOFormData>>({
     resolver: zodResolver(NewDAOFormData),
@@ -73,9 +64,9 @@ export default function NewDAOForm() {
 
   const handleSubmit = async (values: any) => {
     try {
-      createDao.mutate(values);
+      // createDao.mutate(values);
 
-      const anchProvider = getProvider();
+      const anchProvider = new AnchorProvider(connection, publicKey, AnchorProvider.defaultOptions())
 
       const dao_program = new Program(daoIdl as unknown as Dao, anchProvider);
 
@@ -130,37 +121,35 @@ export default function NewDAOForm() {
           publicKey,
         )
         .accountsPartial({
-          initializer: payer.publicKey,
+          initializer: publicKey,
           config,
           treasury,
           stakingProgram: STAKING_PROGRAM_ID,
           governanceProgram: GOVERNANCE_PROGRAM_ID,
           systemProgram: SystemProgram.programId,
           instructions: SYSVAR_ID,
-          treasuryTeam: payer.publicKey,
+          treasuryTeam: publicKey,
         })
         .transaction();
 
-      const { blockhash, lastValidBlockHeight } =
-        await anchProvider.connection.getLatestBlockhash();
-      const txInfo = {
-        /** The transaction fee payer */
-        feePayer: payer.publicKey,
-        /** A recent blockhash */
-        blockhash: blockhash,
-        /** the last block chain can advance to before tx is exportd expired */
-        lastValidBlockHeight: lastValidBlockHeight,
-      };
+        const txSignature = await sendTransaction(tx, connection);
+        await connection.confirmTransaction(txSignature, 'confirmed');
 
-      const txSignature = await anchProvider.sendAndConfirm(tx, [], {
+/*       const { blockhash, lastValidBlockHeight } =
+        await anchProvider.connection.getLatestBlockhash();
+
+      const txSignature = await anchProvider.sendAndConfirm(
+        tx, [payer.payer], {
         skipPreflight: true,
-      });
+      });  
+
+      return txSignature;
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log("Profile updated:", values);
       setIsEditing(false);
 
-      return txSignature;
+      return txSignature; */
     } catch (error) {
       console.error("An error occurred:", error);
     }

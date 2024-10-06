@@ -73,7 +73,7 @@ export default function NewDAOForm() {
 
   const handleSubmit = async (values: any) => {
     try {
-      createDao.mutate(values);
+      // createDao.mutate(values);
 
       const anchProvider = getProvider();
 
@@ -127,40 +127,35 @@ export default function NewDAOForm() {
           true,
           null,
           sub_dao_fee,
-          publicKey,
+          payer.payer.publicKey,
         )
         .accountsPartial({
-          initializer: payer.publicKey,
+          initializer: payer.payer.publicKey,
           config,
           treasury,
           stakingProgram: STAKING_PROGRAM_ID,
           governanceProgram: GOVERNANCE_PROGRAM_ID,
           systemProgram: SystemProgram.programId,
           instructions: SYSVAR_ID,
-          treasuryTeam: payer.publicKey,
+          treasuryTeam: payer.payer.publicKey,
         })
-        .transaction();
+        .signers([payer.payer])
+
+/*         .transaction();
 
       const { blockhash, lastValidBlockHeight } =
         await anchProvider.connection.getLatestBlockhash();
-      const txInfo = {
-        /** The transaction fee payer */
-        feePayer: payer.publicKey,
-        /** A recent blockhash */
-        blockhash: blockhash,
-        /** the last block chain can advance to before tx is exportd expired */
-        lastValidBlockHeight: lastValidBlockHeight,
-      };
 
-      const txSignature = await anchProvider.sendAndConfirm(tx, [], {
+      const txSignature = await anchProvider.sendAndConfirm(
+        tx, [publicKey.], {
         skipPreflight: true,
-      });
+      });  
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      return txSignature; */
+
+/*       await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log("Profile updated:", values);
-      setIsEditing(false);
-
-      return txSignature;
+      setIsEditing(false); */
     } catch (error) {
       console.error("An error occurred:", error);
     }
