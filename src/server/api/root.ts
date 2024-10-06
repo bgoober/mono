@@ -12,7 +12,7 @@ import { backerRouter } from "./routers/backers";
 
 import { bountyRouter } from "~/server/api/routers/bounty";
 import { proposalRouter } from "~/server/api/routers/proposal";
-
+import { flickRouter } from "./routers/flick";
 
 /**
  * This is the primary router for your server.
@@ -22,6 +22,7 @@ import { proposalRouter } from "~/server/api/routers/proposal";
 export const appRouter = createTRPCRouter({
   entry: entryRouter,
   entryRevision: entryRevisionRouter,
+  flick: flickRouter,
   tag: tagRouter,
   dev: devRouter,
   verificationRequest: verificationRequestRouter,
