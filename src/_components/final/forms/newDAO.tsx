@@ -21,12 +21,11 @@ import H1 from "~/_components/final/H1";
 import { RadioGroup, RadioGroupItem } from "~/_components/final/ui/radio-group";
 import { Label } from "~/_components/final/ui/label";
 import { cn } from "~/utils";
-import { Input } from "~/_components/final/ui/input";
 import { api } from "~/trpc/react";
 import daoIdl from "~/onChain/idls/dao.json";
 import governanceIdl from "~/onChain/idls/governance.json";
 import stakingIdl from "~/onChain/idls/staking.json";
-import { useWallet, useConnection, useAnchorWallet } from '@solana/wallet-adapter-react';
+import { useConnection, useAnchorWallet } from '@solana/wallet-adapter-react';
 import { PublicKey, SystemProgram } from '@solana/web3.js';
 import { AnchorProvider, BN, Program,  } from '@coral-xyz/anchor';
 import { randomBytes } from 'crypto';
@@ -50,6 +49,7 @@ const initialData = {
 };
 
 export default function NewDAOForm() {
+
   const publicKey  = useAnchorWallet();
   const payer = (publicKey as NodeWallet)
 
