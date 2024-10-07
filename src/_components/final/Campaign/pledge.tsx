@@ -17,10 +17,24 @@ import H2 from "~/_components/final/H2";
 import { api } from "~/trpc/react";
 import { Campaign } from "~/server/api/routers/campaign/read";
 
+// On Chain imports
+import { useWallet, useConnection } from '@solana/wallet-adapter-react';
+import { Program, AnchorProvider, web3, utils, BN, setProvider } from "@coral-xyz/anchor"
+import idl from "~/onChain/idls/spark.json"
+import { SparkProgram } from "~/onChain/types/sparkProgram"
+import { PublicKey } from '@solana/web3.js';
+
+const idl_string = JSON.stringify(idl)
+const idl_object = JSON.parse(idl_string)
+const programID = new PublicKey(idl.address)
+
 const initialData = {
   amount: 0,
   message: "",
 };
+
+const ourWallet = useWallet();
+const { connection } = useConnection()
 
 export default function PledgeForm({ campaign }: { campaign: Campaign }) {
   const [isEditing, setIsEditing] = useState(true);
@@ -42,12 +56,47 @@ export default function PledgeForm({ campaign }: { campaign: Campaign }) {
       });
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // Perform on-chain pledge
+      onChainPledge(values.amount, values.message);
+
       console.log("Pledged successfully:", values);
       setIsEditing(false);
     } catch (error) {
       console.error("An error occurred:", error);
     }
   };
+
+  const getProvider = () => {
+    const provider = new AnchorProvider(connection, ourWallet, AnchorProvider.defaultOptions())
+    setProvider(provider)
+
+    return provider
+  }
+
+  const onChainPledge = async (amount: number, message: string) => {
+    try {
+      // Get the Anchor provider and initialize the program
+      const anchProvider = getProvider();
+      const program = new Program<SparkProgram>(idl_object, anchProvider);
+
+      // Call the pledge method on the Solana program
+      await program.methods.pledge(
+        new BN(amount), // Convert amount to Big Number for precise calculations
+        message
+      ).accounts({
+        campaign: campaign.id, // The ID of the campaign being pledged to
+        backer: anchProvider.publicKey, // The public key of the user making the pledge
+      })
+      .signers([anchProvider.publicKey]) // Sign the transaction with the backer's wallet
+      .rpc();
+  
+    } catch (error) {
+      console.error("An error occurred:", error);
+      throw error; // Re-throw the error to be handled by the caller
+    }
+  }
+
   return (
     <Form {...form}>
       <form

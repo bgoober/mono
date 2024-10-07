@@ -16,12 +16,26 @@ import H1 from "~/_components/final/H1";
 
 import { api } from "~/trpc/react";
 
+// On Chain imports
+import { useWallet, useConnection } from '@solana/wallet-adapter-react';
+import { Program, AnchorProvider, web3, utils, BN, setProvider } from "@coral-xyz/anchor"
+import idl from "~/onChain/idls/spark.json"
+import { SparkProgram } from "~/onChain/types/sparkProgram"
+import { PublicKey } from '@solana/web3.js';
+
+const idl_string = JSON.stringify(idl)
+const idl_object = JSON.parse(idl_string)
+const programID = new PublicKey(idl.address)
+
 const initialData = {
   title: "",
   description: "",
   goal: 0,
   end: new Date(),
 };
+
+const ourWallet = useWallet();
+const { connection } = useConnection()
 
 export default function CampaignForm() {
   const [isEditing, setIsEditing] = useState(true);
@@ -44,15 +58,62 @@ export default function CampaignForm() {
       });
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Campaign created:", values);
 
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-      // console.log("Profile updated:", values);
+      // Perform on chain campaign creation
+      onChainCreateCampaign(values.end, values.goal);
+
+      // Update the UI to reflect that the campaign has been created
       setIsEditing(false);
+    
     } catch (error) {
       console.error("An error occurred:", error);
     }
   };
+
+  const getProvider = () => {
+    const provider = new AnchorProvider(connection, ourWallet, AnchorProvider.defaultOptions())
+    setProvider(provider)
+
+    return provider
+  }
+
+  const onChainCreateCampaign = async (ending_at: number, funding_goal: number) => {
+    try {
+      // Generate a random seed for the campaign
+      const campaignSeed = new BN(Math.floor(Math.random() * 9000) + 1000);
+
+      // Get the Anchor provider and initialize the program
+      const anchProvider = getProvider();
+      const program = new Program<SparkProgram>(idl_object, anchProvider);
+
+      // Derive the campaign public key using program derived addresses (PDA)
+      const [campaign, _] = PublicKey.findProgramAddressSync(
+        [
+          Buffer.from("campaign"),
+          campaignSeed.toArrayLike(Buffer, "le", 8), 
+          anchProvider.publicKey.toBuffer()
+        ],
+        programID
+      );
+
+      // Call the createCampaign method on the Sparks program
+      await program.methods.createCampaign(
+        campaignSeed,
+        ending_at,
+        funding_goal
+      ).accounts({
+        campaign: campaign,
+        creator: anchProvider.publicKey,
+      })
+      .signers([anchProvider.publicKey])
+      .rpc();
+
+      console.log("Campaign created!");
+    } catch (error) {
+      console.log("Error creating campaign:", error);
+      throw error; // Re-throw the error for handleSubmit to catch
+    }
+  }
 
   return (
     <Form {...form}>
