@@ -5,13 +5,16 @@ enum ReactionType {
 }
 
 model Flick {
-  id          String   @id @default(cuid())
-  title       String
-  description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  creator     User?    @relation(fields: [creatorId], references: [id])
+  id          String          @id @default(cuid())
+  title       String?
+  description String
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  creator     User?           @relation(fields: [creatorId], references: [id])
   creatorId   String?
+  responses   FlickResponse[]
+  likedBy     User[]          @relation("likes")
+  savedBy     User[]          @relation("saves")
 }
 
 model FlickResponse {
@@ -22,13 +25,6 @@ model FlickResponse {
   updatedAt   DateTime @updatedAt
   creator     User?    @relation(fields: [creatorId], references: [id])
   creatorId   String?
-}
-
-model FlickReaction {
-  id        String       @id @default(cuid())
-  type      ReactionType
-  createdAt DateTime     @default(now())
-  updatedAt DateTime     @updatedAt
-  creator   User?        @relation(fields: [creatorId], references: [id])
-  creatorId String?
+  parent      Flick    @relation(fields: [parentId], references: [id])
+  parentId    String
 }

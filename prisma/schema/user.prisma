@@ -41,7 +41,6 @@ model User {
   wallets               Wallet[]
   flicks                Flick[]
   flickResponses        FlickResponse[]
-  flickReactions        FlickReaction[]
   companies             CompanyUser[]
   badges                Badge[]
   following             Follow[]          @relation("Following")
@@ -61,6 +60,8 @@ model User {
   backerOf            Backer[]             @relation("Backers")
   ownedDAOs           DAO[]                @relation("Creator")
   memberOf            DAO[]                @relation("Member")
+  likes               Flick[]              @relation("likes")
+  saves               Flick[]              @relation("saves")
 }
 
 model Follow {

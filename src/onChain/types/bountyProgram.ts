@@ -1,308 +1,46 @@
+/**
+ * Program IDL in camelCase format in order to be used in JS/TS.
+ *
+ * Note that this is only a type helper and is not the actual IDL. The original
+ * IDL can be found at `target/idl/mono_program.json`.
+ */
 export type BountyProgram = {
   address: "SprkQVf65fQgM1uXnappTpyFs2f2HkJtshFVWTHDVzX";
   metadata: {
-    name: "mono_program";
+    name: "monoProgram";
     version: "0.1.0";
     spec: "0.1.0";
     description: "Created with Anchor";
   };
-  version: "0.1.0";
-  name: "mono_program";
   instructions: [
     {
-      name: "createFeatureFundingAccount";
-      accounts: [
-        {
-          name: "creator";
-          isMut: true;
-          isSigner: true;
-        },
-        {
-          name: "fundsMint";
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-              {
-                kind: "arg";
-                type: "string";
-                path: "unix_timestamp";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                path: "creator";
-              },
-            ];
-          };
-        },
-        {
-          name: "featureTokenAccount";
-          isMut: true;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-              {
-                kind: "arg";
-                type: "string";
-                path: "unix_timestamp";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                path: "creator";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                account: "Mint";
-                path: "funds_mint";
-              },
-            ];
-          };
-        },
-        {
-          name: "programAuthority";
-          isMut: false;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-            ];
-          };
-        },
-        {
-          name: "tokenProgram";
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: "rent";
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: "associatedProgram";
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: "systemProgram";
-          isMut: false;
-          isSigner: false;
-        },
-      ];
-      args: [
-        {
-          name: "unixTimestamp";
-          type: "string";
-        },
-      ];
-    },
-    {
-      name: "fundFeature";
-      accounts: [
-        {
-          name: "creator";
-          isMut: true;
-          isSigner: true;
-        },
-        {
-          name: "creatorTokenAccount";
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: "fundsMint";
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-              {
-                kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
-                path: "feature_data_account.unix_timestamp";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                path: "creator";
-              },
-            ];
-          };
-        },
-        {
-          name: "featureTokenAccount";
-          isMut: true;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-              {
-                kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
-                path: "feature_data_account.unix_timestamp";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                path: "creator";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                account: "Mint";
-                path: "funds_mint";
-              },
-            ];
-          };
-        },
-        {
-          name: "programAuthority";
-          isMut: false;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-            ];
-          };
-        },
-        {
-          name: "tokenProgram";
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: "systemProgram";
-          isMut: false;
-          isSigner: false;
-        },
-      ];
-      args: [
-        {
-          name: "amount";
-          type: "u64";
-        },
-      ];
-    },
-    {
       name: "addApprovedSubmitters";
+      discriminator: [224, 42, 94, 122, 54, 73, 116, 35];
       accounts: [
         {
           name: "creator";
-          isMut: true;
-          isSigner: true;
+          writable: true;
+          signer: true;
         },
         {
           name: "submitter";
-          isMut: false;
-          isSigner: false;
         },
         {
           name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
+          writable: true;
           pda: {
             seeds: [
               {
                 kind: "const";
-                type: "string";
-                value: "mono";
+                value: [109, 111, 110, 111];
               },
               {
                 kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
                 path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
               },
               {
                 kind: "account";
-                type: "publicKey";
-                path: "creator";
-              },
-            ];
-          };
-        },
-      ];
-      args: [];
-    },
-    {
-      name: "submitRequest";
-      accounts: [
-        {
-          name: "creator";
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: "submitter";
-          isMut: false;
-          isSigner: true;
-        },
-        {
-          name: "payoutAccount";
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-              {
-                kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
-                path: "feature_data_account.unix_timestamp";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
                 path: "creator";
               },
             ];
@@ -313,42 +51,37 @@ export type BountyProgram = {
     },
     {
       name: "approveRequest";
+      discriminator: [89, 68, 167, 104, 93, 25, 178, 205];
       accounts: [
         {
           name: "creator";
-          isMut: true;
-          isSigner: true;
+          writable: true;
+          signer: true;
         },
         {
           name: "submitter";
-          isMut: true;
-          isSigner: false;
+          writable: true;
         },
         {
           name: "payoutAccount";
-          isMut: true;
-          isSigner: false;
+          writable: true;
         },
         {
           name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
+          writable: true;
           pda: {
             seeds: [
               {
                 kind: "const";
-                type: "string";
-                value: "mono";
+                value: [109, 111, 110, 111];
               },
               {
                 kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
                 path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
               },
               {
                 kind: "account";
-                type: "publicKey";
                 path: "creator";
               },
             ];
@@ -356,90 +89,410 @@ export type BountyProgram = {
         },
         {
           name: "featureTokenAccount";
-          isMut: true;
-          isSigner: false;
+          writable: true;
           pda: {
             seeds: [
               {
                 kind: "const";
-                type: "string";
-                value: "mono";
+                value: [109, 111, 110, 111];
               },
               {
                 kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
                 path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
               },
               {
                 kind: "account";
-                type: "publicKey";
                 path: "creator";
               },
               {
                 kind: "account";
-                type: "publicKey";
-                account: "FeatureDataAccount";
                 path: "feature_data_account.funds_mint";
+                account: "featureDataAccount";
               },
             ];
           };
         },
         {
           name: "programAuthority";
-          isMut: false;
-          isSigner: false;
           pda: {
             seeds: [
               {
                 kind: "const";
-                type: "string";
-                value: "mono";
+                value: [109, 111, 110, 111];
               },
             ];
           };
         },
         {
           name: "tokenProgram";
-          isMut: false;
-          isSigner: false;
+          address: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA";
         },
       ];
       args: [];
     },
     {
-      name: "denyRequest";
+      name: "cancelFeature";
+      discriminator: [49, 2, 11, 112, 108, 0, 212, 168];
       accounts: [
         {
           name: "creator";
-          isMut: true;
-          isSigner: true;
+          writable: true;
+          signer: true;
         },
         {
-          name: "submitter";
-          isMut: true;
-          isSigner: false;
+          name: "creatorTokenAccount";
+          writable: true;
         },
         {
           name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
+          writable: true;
           pda: {
             seeds: [
               {
                 kind: "const";
-                type: "string";
-                value: "mono";
+                value: [109, 111, 110, 111];
               },
               {
                 kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
                 path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
               },
               {
                 kind: "account";
-                type: "publicKey";
+                path: "creator";
+              },
+            ];
+          };
+        },
+        {
+          name: "featureTokenAccount";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+              {
+                kind: "account";
+                path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
+              },
+              {
+                kind: "account";
+                path: "creator";
+              },
+              {
+                kind: "account";
+                path: "feature_data_account.funds_mint";
+                account: "featureDataAccount";
+              },
+            ];
+          };
+        },
+        {
+          name: "programAuthority";
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+            ];
+          };
+        },
+        {
+          name: "tokenProgram";
+          address: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA";
+        },
+      ];
+      args: [];
+    },
+    {
+      name: "createFeatureFundingAccount";
+      discriminator: [57, 107, 49, 145, 184, 154, 41, 73];
+      accounts: [
+        {
+          name: "creator";
+          writable: true;
+          signer: true;
+        },
+        {
+          name: "fundsMint";
+        },
+        {
+          name: "featureDataAccount";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+              {
+                kind: "arg";
+                path: "unixTimestamp";
+              },
+              {
+                kind: "account";
+                path: "creator";
+              },
+            ];
+          };
+        },
+        {
+          name: "featureTokenAccount";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+              {
+                kind: "arg";
+                path: "unixTimestamp";
+              },
+              {
+                kind: "account";
+                path: "creator";
+              },
+              {
+                kind: "account";
+                path: "fundsMint";
+              },
+            ];
+          };
+        },
+        {
+          name: "programAuthority";
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+            ];
+          };
+        },
+        {
+          name: "tokenProgram";
+          address: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA";
+        },
+        {
+          name: "rent";
+          address: "SysvarRent111111111111111111111111111111111";
+        },
+        {
+          name: "associatedProgram";
+          address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL";
+        },
+        {
+          name: "systemProgram";
+          address: "11111111111111111111111111111111";
+        },
+      ];
+      args: [
+        {
+          name: "unixTimestamp";
+          type: "string";
+        },
+      ];
+    },
+    {
+      name: "denyRequest";
+      discriminator: [143, 236, 238, 188, 131, 164, 217, 107];
+      accounts: [
+        {
+          name: "creator";
+          writable: true;
+          signer: true;
+        },
+        {
+          name: "submitter";
+          writable: true;
+        },
+        {
+          name: "featureDataAccount";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+              {
+                kind: "account";
+                path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
+              },
+              {
+                kind: "account";
+                path: "creator";
+              },
+            ];
+          };
+        },
+      ];
+      args: [];
+    },
+    {
+      name: "fundFeature";
+      discriminator: [34, 201, 1, 12, 145, 231, 153, 48];
+      accounts: [
+        {
+          name: "creator";
+          writable: true;
+          signer: true;
+        },
+        {
+          name: "creatorTokenAccount";
+          writable: true;
+        },
+        {
+          name: "fundsMint";
+        },
+        {
+          name: "featureDataAccount";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+              {
+                kind: "account";
+                path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
+              },
+              {
+                kind: "account";
+                path: "creator";
+              },
+            ];
+          };
+        },
+        {
+          name: "featureTokenAccount";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+              {
+                kind: "account";
+                path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
+              },
+              {
+                kind: "account";
+                path: "creator";
+              },
+              {
+                kind: "account";
+                path: "fundsMint";
+              },
+            ];
+          };
+        },
+        {
+          name: "programAuthority";
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+            ];
+          };
+        },
+        {
+          name: "tokenProgram";
+          address: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA";
+        },
+        {
+          name: "systemProgram";
+          address: "11111111111111111111111111111111";
+        },
+      ];
+      args: [
+        {
+          name: "amount";
+          type: "u64";
+        },
+      ];
+    },
+    {
+      name: "removeApprovedSubmitters";
+      discriminator: [161, 227, 45, 18, 34, 188, 29, 86];
+      accounts: [
+        {
+          name: "creator";
+          writable: true;
+          signer: true;
+        },
+        {
+          name: "submitter";
+        },
+        {
+          name: "featureDataAccount";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+              {
+                kind: "account";
+                path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
+              },
+              {
+                kind: "account";
+                path: "creator";
+              },
+            ];
+          };
+        },
+      ];
+      args: [];
+    },
+    {
+      name: "submitRequest";
+      discriminator: [122, 30, 180, 251, 206, 230, 254, 57];
+      accounts: [
+        {
+          name: "creator";
+          writable: true;
+        },
+        {
+          name: "submitter";
+          signer: true;
+        },
+        {
+          name: "payoutAccount";
+        },
+        {
+          name: "featureDataAccount";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [109, 111, 110, 111];
+              },
+              {
+                kind: "account";
+                path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
+              },
+              {
+                kind: "account";
                 path: "creator";
               },
             ];
@@ -450,37 +503,33 @@ export type BountyProgram = {
     },
     {
       name: "voteToCancel";
+      discriminator: [194, 0, 195, 112, 133, 79, 237, 253];
       accounts: [
         {
           name: "creator";
-          isMut: true;
-          isSigner: false;
+          writable: true;
         },
         {
           name: "voter";
-          isMut: true;
-          isSigner: true;
+          writable: true;
+          signer: true;
         },
         {
           name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
+          writable: true;
           pda: {
             seeds: [
               {
                 kind: "const";
-                type: "string";
-                value: "mono";
+                value: [109, 111, 110, 111];
               },
               {
                 kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
                 path: "feature_data_account.unix_timestamp";
+                account: "featureDataAccount";
               },
               {
                 kind: "account";
-                type: "publicKey";
                 path: "creator";
               },
             ];
@@ -494,140 +543,51 @@ export type BountyProgram = {
         },
       ];
     },
-    {
-      name: "cancelFeature";
-      accounts: [
-        {
-          name: "creator";
-          isMut: true;
-          isSigner: true;
-        },
-        {
-          name: "creatorTokenAccount";
-          isMut: true;
-          isSigner: false;
-        },
-        {
-          name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-              {
-                kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
-                path: "feature_data_account.unix_timestamp";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                path: "creator";
-              },
-            ];
-          };
-        },
-        {
-          name: "featureTokenAccount";
-          isMut: true;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-              {
-                kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
-                path: "feature_data_account.unix_timestamp";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                path: "creator";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                account: "FeatureDataAccount";
-                path: "feature_data_account.funds_mint";
-              },
-            ];
-          };
-        },
-        {
-          name: "programAuthority";
-          isMut: false;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-            ];
-          };
-        },
-        {
-          name: "tokenProgram";
-          isMut: false;
-          isSigner: false;
-        },
-      ];
-      args: [];
-    },
-    {
-      name: "removeApprovedSubmitters";
-      accounts: [
-        {
-          name: "creator";
-          isMut: true;
-          isSigner: true;
-        },
-        {
-          name: "submitter";
-          isMut: false;
-          isSigner: false;
-        },
-        {
-          name: "featureDataAccount";
-          isMut: true;
-          isSigner: false;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                type: "string";
-                value: "mono";
-              },
-              {
-                kind: "account";
-                type: "string";
-                account: "FeatureDataAccount";
-                path: "feature_data_account.unix_timestamp";
-              },
-              {
-                kind: "account";
-                type: "publicKey";
-                path: "creator";
-              },
-            ];
-          };
-        },
-      ];
-      args: [];
-    },
   ];
   accounts: [
+    {
+      name: "featureDataAccount";
+      discriminator: [150, 142, 52, 15, 66, 242, 210, 165];
+    },
+  ];
+  errors: [
+    {
+      code: 6000;
+      name: "notTheCreator";
+      msg: "This Creator is Invalid";
+    },
+    {
+      code: 6001;
+      name: "invalidMint";
+      msg: "This mint is not valid";
+    },
+    {
+      code: 6002;
+      name: "maxApprovedSubmitters";
+      msg: "Max Number of Approved Submitters already reached";
+    },
+    {
+      code: 6003;
+      name: "minApprovedSubmitters";
+      msg: "Max Number of Approved Submitters already reached";
+    },
+    {
+      code: 6004;
+      name: "pendingRequestAlreadySubmitted";
+      msg: "There is an active request already present";
+    },
+    {
+      code: 6005;
+      name: "noActiveRequest";
+      msg: "No Request Submitted yet";
+    },
+    {
+      code: 6006;
+      name: "cannotCancelFeature";
+      msg: "Cannot Cancel Feature";
+    },
+  ];
+  types: [
     {
       name: "featureDataAccount";
       type: {
@@ -635,7 +595,7 @@ export type BountyProgram = {
         fields: [
           {
             name: "creator";
-            type: "publicKey";
+            type: "pubkey";
           },
           {
             name: "requestSubmitted";
@@ -643,25 +603,25 @@ export type BountyProgram = {
           },
           {
             name: "currentSubmitter";
-            type: "publicKey";
+            type: "pubkey";
           },
           {
             name: "approvedSubmitters";
             type: {
-              array: ["publicKey", 3];
+              array: ["pubkey", 3];
             };
           },
           {
             name: "fundsMint";
-            type: "publicKey";
+            type: "pubkey";
           },
           {
             name: "fundsTokenAccount";
-            type: "publicKey";
+            type: "pubkey";
           },
           {
             name: "payoutAccount";
-            type: "publicKey";
+            type: "pubkey";
           },
           {
             name: "funderCancel";
@@ -693,43 +653,6 @@ export type BountyProgram = {
           },
         ];
       };
-    },
-  ];
-  errors: [
-    {
-      code: 6000;
-      name: "NotTheCreator";
-      msg: "This Creator is Invalid";
-    },
-    {
-      code: 6001;
-      name: "InvalidMint";
-      msg: "This mint is not valid";
-    },
-    {
-      code: 6002;
-      name: "MaxApprovedSubmitters";
-      msg: "Max Number of Approved Submitters already reached";
-    },
-    {
-      code: 6003;
-      name: "MinApprovedSubmitters";
-      msg: "Max Number of Approved Submitters already reached";
-    },
-    {
-      code: 6004;
-      name: "PendingRequestAlreadySubmitted";
-      msg: "There is an active request already present";
-    },
-    {
-      code: 6005;
-      name: "NoActiveRequest";
-      msg: "No Request Submitted yet";
-    },
-    {
-      code: 6006;
-      name: "CannotCancelFeature";
-      msg: "Cannot Cancel Feature";
     },
   ];
 };

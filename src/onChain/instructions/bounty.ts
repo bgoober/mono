@@ -81,7 +81,6 @@ export const createBounty = async (
 
   const bounty_program = new Program(
     Bounty_IDL as unknown as BountyProgram,
-    new PublicKey("SprkQVf65fQgM1uXnappTpyFs2f2HkJtshFVWTHDVzX"),
     provider,
   );
   const timestamp = Date.now().toString();
@@ -101,10 +100,9 @@ export const createBounty = async (
 
   const createDaoIX = await bounty_program.methods
     .createFeatureFundingAccount(timestamp)
-    .accounts({
+    .accountsPartial({
       creator: wallet.publicKey,
       fundsMint: mint,
-      featureDataAccount: feature_account,
       featureTokenAccount: feature_token_account,
       programAuthority: program_authority,
       tokenProgram: TOKEN_PROGRAM_ID,
