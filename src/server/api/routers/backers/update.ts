@@ -27,7 +27,7 @@ export const updateBacker = protectedProcedure
     }
 
     if (updateData.amount) {
-      const amountDifference = updateData.amount - backer.amount.toNumber();
+      const amountDifference = updateData.amount - backer.amount;
       await ctx.db.campaign.update({
         where: { id: backer.campaign.id },
         data: { current: { increment: amountDifference } },
