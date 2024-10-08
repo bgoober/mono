@@ -49,7 +49,7 @@ const columns: ColumnDef<Campaign>[] = [
     cell: ({ row }) => (
       <span key="term" className={`whitespace-nowrap`}>
         <span className="whitespace-normal text-pretty break-words text-sm text-zinc-600">
-          {row.original.goal}
+          {row.original.goal.toString()}
         </span>
       </span>
     ),
@@ -59,7 +59,7 @@ const columns: ColumnDef<Campaign>[] = [
     header: "Current",
     cell: ({ row }) => (
       <span key="term" className={`whitespace-nowrap`}>
-        {row.original.current}
+        {row.original.current.toString()}
       </span>
     ),
   },

@@ -2,11 +2,13 @@ import { protectedProcedure } from "~/server/api/trpc";
 import { z } from "zod";
 
 export const updateBacker = protectedProcedure
-  .input(z.object({
-    id: z.string(),
-    amount: z.number().int().positive().optional(),
-    message: z.string().optional(),
-  }))
+  .input(
+    z.object({
+      id: z.string(),
+      amount: z.number().int().positive().optional(),
+      message: z.string().optional(),
+    }),
+  )
   .mutation(async ({ ctx, input }) => {
     const { id, ...updateData } = input;
     const { user } = ctx.session;
@@ -25,7 +27,7 @@ export const updateBacker = protectedProcedure
     }
 
     if (updateData.amount) {
-      const amountDifference = updateData.amount - backer.amount;
+      const amountDifference = updateData.amount - backer.amount.toNumber();
       await ctx.db.campaign.update({
         where: { id: backer.campaign.id },
         data: { current: { increment: amountDifference } },
